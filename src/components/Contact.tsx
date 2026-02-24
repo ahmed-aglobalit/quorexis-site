@@ -44,9 +44,21 @@ export default function Contact() {
     setErrors({});
     setStatus("sending");
 
-    // Mock API call — replace with real endpoint later
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.get("name"),
+          email: form.get("email"),
+          company: form.get("company"),
+          subject: form.get("subject"),
+          message: form.get("message"),
+        }),
+      });
+
+      if (!res.ok) throw new Error("Send failed");
+
       setStatus("success");
       setToast(t("success"));
     } catch {
