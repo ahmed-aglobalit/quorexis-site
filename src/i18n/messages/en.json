@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "expertises": "Expertise",
+    "approach": "Approach",
+    "team": "Team",
+    "contact": "Contact",
+    "switchLang": "FR"
+  },
+  "hero": {
+    "headline": "Engineering & Delivery. No compromise.",
+    "subtitle": "Quorexis supports tech teams in delivering their critical projects. QA, DevOps, Data — from strategy to production.",
+    "cta": "Let's discuss your project",
+    "ctaSecondary": "See our expertise"
+  },
+  "expertises": {
+    "title": "What we do. In practice.",
+    "intro": "Three complementary areas of expertise, unified by a single delivery mindset.",
+    "qa": {
+      "title": "Quality Engineering",
+      "description": "Test strategy, automation, CI/CD integration. We don't test at the end. We build quality from the start.",
+      "deliverables": ["Test plans & QA strategy", "CI/CD automation frameworks", "Test coverage & reporting"],
+      "results": ["Fewer regressions in production", "Faster release cycles"]
+    },
+    "devops": {
+      "title": "DevOps & Cloud",
+      "description": "Pipelines, infrastructure as code, observability, continuous deployment. Stable, reproducible environments — production-ready.",
+      "deliverables": ["Operational CI/CD pipelines", "Infrastructure as Code (Terraform, Ansible)", "Monitoring & alerting"],
+      "results": ["Reliable, reproducible deployments", "Reduced time-to-production"]
+    },
+    "data": {
+      "title": "Data Engineering",
+      "description": "Data pipelines, data quality, orchestration, governance. Reliable flows for reliable decisions.",
+      "deliverables": ["Automated data pipelines", "Quality rules & governance", "Orchestration (Airflow, dbt)"],
+      "results": ["Reliable, accessible data", "Decisions backed by trusted data"]
+    },
+    "deliverables": "Deliverables",
+    "results": "Results"
+  },
+  "approach": {
+    "title": "Our approach",
+    "subtitle": "A structured framework in three phases. Every engagement follows the same logic: understand, execute, sustain.",
+    "activitiesLabel": "What we do",
+    "outcomeLabel": "What you get",
+    "align": {
+      "title": "Align",
+      "description": "We understand your context, constraints, and goals. No generic template. A precise framing before any execution.",
+      "activities": [
+        "Audit of technical and organizational context",
+        "Stakeholder mapping and constraint identification",
+        "Scope definition, objectives, and success criteria",
+        "Engagement plan and staffing formalization"
+      ],
+      "outcome": "A validated framing and an intervention plan aligned with your real priorities."
+    },
+    "deliver": {
+      "title": "Deliver",
+      "description": "We work within your teams or independently. Tangible deliverables, short iterations, full visibility.",
+      "activities": [
+        "Embedded in your teams or autonomous delivery",
+        "Short iterations with tangible deliverables every sprint",
+        "Regular checkpoints and transparent reporting",
+        "Continuous adjustment based on field feedback"
+      ],
+      "outcome": "Visible results within the first weeks, not at the end of the engagement."
+    },
+    "industrialize": {
+      "title": "Industrialize",
+      "description": "We document, transfer knowledge, and ensure sustainability. The goal: it runs without us.",
+      "activities": [
+        "Complete technical and operational documentation",
+        "Structured knowledge transfer to your teams",
+        "Implementation of maintenance and evolution processes",
+        "Mission debrief and forward-looking recommendations"
+      ],
+      "outcome": "Full autonomy. The practices and tools stay, even after we leave."
+    },
+    "credibility": "Founded by Ahmed Ghanmi — over 10 years in engineering & delivery across demanding environments."
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "The people behind Quorexis.",
+    "partner": "Engineering & Technology Partner",
+    "website": "www.quorexis.fr",
+    "location": "France",
+    "copied": "Copied ✓"
+  },
+  "contact": {
+    "title": "Let's talk about your project",
+    "intro": "Need help with QA, DevOps, or Data? A project to structure? Tell us about your context. We'll get back to you within 48 hours.",
+    "name": "Your name",
+    "email": "your@email.com",
+    "company": "Your company name",
+    "subject": "Select a subject",
+    "subjectOptions": {
+      "qa": "QA",
+      "devops": "DevOps",
+      "data": "Data",
+      "other": "Other"
+    },
+    "subjectHints": {
+      "qa": "Describe your software quality, testing, or automation needs.",
+      "devops": "Describe your CI/CD, infrastructure, or cloud needs.",
+      "data": "Describe your data pipeline or governance needs.",
+      "other": "Briefly describe your needs."
+    },
+    "message": "Briefly describe your needs",
+    "send": "Send",
+    "sending": "Sending…",
+    "success": "Thank you. We'll get back to you within 48 hours.",
+    "errorRequired": "This field is required.",
+    "errorEmail": "Invalid email address.",
+    "errorGeneral": "Something went wrong. Please try again or email us directly.",
+    "or": "Or email us directly:",
+    "copied": "Copied"
+  },
+  "footer": {
+    "baseline": "Quorexis — Engineering & Delivery Excellence",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy",
+    "copyright": "© 2025 Quorexis — France"
+  },
+  "seo": {
+    "title": "Quorexis — Engineering & Delivery Excellence | QA, DevOps, Data",
+    "description": "French IT consultancy specializing in Quality Engineering, DevOps, and Data Engineering. We structure and deliver your critical tech projects."
+  },
+  "ui": {
+    "backToTop": "Back to top",
+    "skipToContent": "Skip to content"
+  }
+}

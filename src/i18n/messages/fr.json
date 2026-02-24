@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "expertises": "Expertises",
+    "approach": "Approche",
+    "team": "Équipe",
+    "contact": "Contact",
+    "switchLang": "EN"
+  },
+  "hero": {
+    "headline": "Engineering & Delivery. Sans compromis.",
+    "subtitle": "Quorexis accompagne les équipes tech dans l'exécution de leurs projets critiques. QA, DevOps, Data — de la stratégie à la mise en production.",
+    "cta": "Discutons de votre projet",
+    "ctaSecondary": "Voir nos expertises"
+  },
+  "expertises": {
+    "title": "Ce qu'on fait. Concrètement.",
+    "intro": "Trois domaines d'intervention complémentaires, intégrés dans une même logique de delivery.",
+    "qa": {
+      "title": "Quality Engineering",
+      "description": "Stratégie de test, automatisation, intégration dans les pipelines CI/CD. On ne \"teste\" pas à la fin. On construit la qualité dès le départ.",
+      "deliverables": ["Plans de test & stratégie QA", "Frameworks d'automatisation CI/CD", "Couverture de test & reporting"],
+      "results": ["Réduction des régressions en production", "Cycles de release accélérés"]
+    },
+    "devops": {
+      "title": "DevOps & Cloud",
+      "description": "Pipelines, infrastructure as code, observabilité, déploiement continu. Des environnements stables, reproductibles, prêts pour la production.",
+      "deliverables": ["Pipelines CI/CD opérationnels", "Infrastructure as Code (Terraform, Ansible)", "Monitoring & alerting"],
+      "results": ["Déploiements fiables et reproductibles", "Réduction du time-to-production"]
+    },
+    "data": {
+      "title": "Data Engineering",
+      "description": "Pipelines de données, qualité de la donnée, orchestration, gouvernance. Des flux fiables pour des décisions fiables.",
+      "deliverables": ["Pipelines de données automatisés", "Règles de qualité & gouvernance", "Orchestration (Airflow, dbt)"],
+      "results": ["Données fiables et accessibles", "Décisions basées sur des données de confiance"]
+    },
+    "deliverables": "Livrables",
+    "results": "Résultats"
+  },
+  "approach": {
+    "title": "Notre approche",
+    "subtitle": "Un cadre structurant en trois phases. Chaque engagement suit la même logique : comprendre, exécuter, pérenniser.",
+    "activitiesLabel": "Ce qu'on fait",
+    "outcomeLabel": "Ce que vous obtenez",
+    "align": {
+      "title": "Cadrer",
+      "description": "On comprend votre contexte, vos contraintes, vos objectifs. Pas de template générique. Un cadrage précis avant toute exécution.",
+      "activities": [
+        "Audit du contexte technique et organisationnel",
+        "Cartographie des parties prenantes et des contraintes",
+        "Définition du périmètre, des objectifs et des critères de succès",
+        "Formalisation du plan d'engagement et du staffing"
+      ],
+      "outcome": "Un cadrage validé et un plan d'intervention aligné sur vos priorités réelles."
+    },
+    "deliver": {
+      "title": "Livrer",
+      "description": "On intervient au sein de vos équipes ou en autonomie. Livrables concrets, itérations courtes, visibilité permanente.",
+      "activities": [
+        "Intégration dans vos équipes ou pilotage en autonomie",
+        "Itérations courtes avec livrables tangibles à chaque sprint",
+        "Points de suivi réguliers et reporting transparent",
+        "Ajustement continu du dispositif selon les retours terrain"
+      ],
+      "outcome": "Des résultats visibles dès les premières semaines, pas en fin de mission."
+    },
+    "industrialize": {
+      "title": "Industrialiser",
+      "description": "On documente, on transfère, on pérennise. L'objectif : que ça tourne sans nous.",
+      "activities": [
+        "Documentation technique et opérationnelle complète",
+        "Transfert de compétences structuré vers vos équipes",
+        "Mise en place des processus de maintien et d'évolution",
+        "Bilan de mission et recommandations pour la suite"
+      ],
+      "outcome": "Une autonomie complète. Les pratiques et outils restent, même après notre départ."
+    },
+    "credibility": "Fondé par Ahmed Ghanmi — plus de 10 ans en engineering & delivery dans des environnements exigeants."
+  },
+  "team": {
+    "title": "Équipe",
+    "subtitle": "Les personnes derrière Quorexis.",
+    "partner": "Engineering & Technology Partner",
+    "website": "www.quorexis.fr",
+    "location": "France",
+    "copied": "Copié ✓"
+  },
+  "contact": {
+    "title": "Parlons de votre projet",
+    "intro": "Un besoin en QA, DevOps ou Data ? Un projet à structurer ? Décrivez-nous votre contexte. On revient vers vous sous 48h.",
+    "name": "Votre nom",
+    "email": "votre@email.com",
+    "company": "Nom de votre entreprise",
+    "subject": "Sélectionnez un sujet",
+    "subjectOptions": {
+      "qa": "QA",
+      "devops": "DevOps",
+      "data": "Data",
+      "other": "Autre"
+    },
+    "subjectHints": {
+      "qa": "Décrivez votre besoin en qualité logicielle, test ou automatisation.",
+      "devops": "Décrivez votre besoin en CI/CD, infrastructure ou cloud.",
+      "data": "Décrivez votre besoin en pipelines de données ou gouvernance.",
+      "other": "Décrivez brièvement votre besoin."
+    },
+    "message": "Décrivez brièvement votre besoin",
+    "send": "Envoyer",
+    "sending": "Envoi en cours…",
+    "success": "Merci. Nous revenons vers vous sous 48h.",
+    "errorRequired": "Ce champ est requis.",
+    "errorEmail": "Adresse email invalide.",
+    "errorGeneral": "Une erreur est survenue. Réessayez ou écrivez-nous directement.",
+    "or": "Ou écrivez-nous directement :",
+    "copied": "Copié"
+  },
+  "footer": {
+    "baseline": "Quorexis — Engineering & Delivery Excellence",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "copyright": "© 2025 Quorexis — France"
+  },
+  "seo": {
+    "title": "Quorexis — Engineering & Delivery Excellence | QA, DevOps, Data",
+    "description": "Cabinet IT français spécialisé en Quality Engineering, DevOps et Data Engineering. Nous structurons et exécutons vos projets tech critiques."
+  },
+  "ui": {
+    "backToTop": "Haut de page",
+    "skipToContent": "Aller au contenu"
+  }
+}
