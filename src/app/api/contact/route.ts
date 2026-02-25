@@ -30,9 +30,11 @@ export async function POST(request: Request) {
     });
 
     const subjectLabels: Record<string, string> = {
-      qa: "QA",
-      devops: "DevOps",
-      data: "Data",
+      functionalTesting: "Tests fonctionnels",
+      testAutomation: "Automatisation des tests",
+      apiTesting: "Tests API",
+      performanceTesting: "Tests de performance",
+      qaGovernance: "Gouvernance QA & KPIs",
       other: "Autre",
     };
 

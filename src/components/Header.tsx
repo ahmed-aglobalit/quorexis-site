@@ -5,10 +5,13 @@ import { useRouter, usePathname, Link } from "@/i18n/navigation";
 import { useState, useCallback } from "react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
-const sectionIds = ["expertises", "approach", "team", "contact"];
+const sectionIds = ["expertises", "approach", "team", "clients", "contact"];
 
-function scrollTo(href: string) {
-  const id = href.replace("#", "");
+type NavItem =
+  | { type: "anchor"; label: string; id: string }
+  | { type: "link"; label: string; href: string };
+
+function scrollTo(id: string) {
   const el = document.getElementById(id);
   if (el) {
     const top = el.getBoundingClientRect().top + window.scrollY - 72;
@@ -26,17 +29,28 @@ export default function Header() {
 
   const isFr = locale === "fr";
   const targetLocale = isFr ? "en" : "fr";
+  const isHome = pathname === "/";
 
   const switchLanguage = useCallback(() => {
     router.replace(pathname, { locale: targetLocale });
   }, [router, pathname, targetLocale]);
 
-  const navItems = [
-    { label: t("expertises"), href: "#expertises", id: "expertises" },
-    { label: t("approach"), href: "#approach", id: "approach" },
-    { label: t("team"), href: "#team", id: "team" },
-    { label: t("contact"), href: "#contact", id: "contact" },
+  const navItems: NavItem[] = [
+    { type: "anchor", label: t("expertises"), id: "expertises" },
+    { type: "anchor", label: t("approach"), id: "approach" },
+    { type: "anchor", label: t("team"), id: "team" },
+    { type: "anchor", label: t("clients"), id: "clients" },
+    { type: "link", label: t("blog"), href: "/blog" },
+    { type: "anchor", label: t("contact"), id: "contact" },
   ];
+
+  function handleAnchorClick(id: string) {
+    if (isHome) {
+      scrollTo(id);
+    } else {
+      router.push(`/#${id}`);
+    }
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors">
@@ -47,24 +61,48 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.href)}
-              className={`relative text-sm transition-colors pb-0.5 ${
-                activeSection === item.id
-                  ? "text-foreground font-medium"
-                  : "text-muted hover:text-foreground"
-              }`}
-            >
-              {item.label}
-              <span
-                className={`absolute bottom-0 left-0 h-[1.5px] bg-accent transition-all duration-300 ${
-                  activeSection === item.id ? "w-full" : "w-0"
+          {navItems.map((item) => {
+            if (item.type === "link") {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`relative text-sm transition-colors pb-0.5 ${
+                    isActive
+                      ? "text-foreground font-medium"
+                      : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute bottom-0 left-0 h-[1.5px] bg-accent transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0"
+                    }`}
+                  />
+                </Link>
+              );
+            }
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleAnchorClick(item.id)}
+                className={`relative text-sm transition-colors pb-0.5 ${
+                  isHome && activeSection === item.id
+                    ? "text-foreground font-medium"
+                    : "text-muted hover:text-foreground"
                 }`}
-              />
-            </button>
-          ))}
+              >
+                {item.label}
+                <span
+                  className={`absolute bottom-0 left-0 h-[1.5px] bg-accent transition-all duration-300 ${
+                    isHome && activeSection === item.id ? "w-full" : "w-0"
+                  }`}
+                />
+              </button>
+            );
+          })}
           <button
             onClick={switchLanguage}
             className="text-sm font-medium text-accent hover:text-foreground transition-colors ml-2 px-2 py-1 border border-border/60 rounded"
@@ -96,20 +134,37 @@ export default function Header() {
           className="md:hidden border-t border-border bg-background/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4"
           aria-label="Mobile navigation"
         >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                setMenuOpen(false);
-                scrollTo(item.href);
-              }}
-              className={`text-sm text-left ${
-                activeSection === item.id ? "text-foreground font-medium" : "text-muted"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            if (item.type === "link") {
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-sm text-left ${
+                    pathname.startsWith(item.href) ? "text-foreground font-medium" : "text-muted"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setMenuOpen(false);
+                  handleAnchorClick(item.id);
+                }}
+                className={`text-sm text-left ${
+                  isHome && activeSection === item.id ? "text-foreground font-medium" : "text-muted"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
           <button
             onClick={() => {
               setMenuOpen(false);

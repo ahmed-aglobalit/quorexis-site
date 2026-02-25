@@ -3,78 +3,93 @@
     "expertises": "Expertise",
     "approach": "Approach",
     "team": "Team",
+    "clients": "Clients",
+    "blog": "Blog",
     "contact": "Contact",
     "switchLang": "FR"
   },
   "hero": {
-    "headline": "Engineering & Delivery. No compromise.",
-    "subtitle": "Quorexis supports tech teams in delivering their critical projects. QA, DevOps, Data — from strategy to production.",
-    "cta": "Let's discuss your project",
-    "ctaSecondary": "See our expertise"
+    "tagline": "Test. Trust. Deliver.",
+    "headline": "Offshore software testing delivery. No compromise.",
+    "subtitle": "Quorexis structures and operates offshore software testing delivery. Dedicated teams, industrialized frameworks, measurable results.",
+    "cta": "Schedule a call",
+    "ctaSecondary": "Discover our expertise"
   },
   "expertises": {
-    "title": "What we do. In practice.",
-    "intro": "Three complementary areas of expertise, unified by a single delivery mindset.",
-    "qa": {
-      "title": "Quality Engineering",
-      "description": "Test strategy, automation, CI/CD integration. We don't test at the end. We build quality from the start.",
-      "deliverables": ["Test plans & QA strategy", "CI/CD automation frameworks", "Test coverage & reporting"],
-      "results": ["Fewer regressions in production", "Faster release cycles"]
+    "title": "Our software testing expertise",
+    "intro": "Five specialized areas of intervention, integrated into an industrialized offshore delivery model.",
+    "functionalTesting": {
+      "title": "Functional Testing",
+      "description": "Design and execution of structured functional test campaigns. Exhaustive coverage of critical user journeys, rigorous defect management, full traceability.",
+      "deliverables": ["Test plans and acceptance test cases", "Campaign execution and defect tracking", "Coverage reports and quality dashboards"],
+      "results": ["Fewer defects in production", "Controlled and documented functional coverage"]
     },
-    "devops": {
-      "title": "DevOps & Cloud",
-      "description": "Pipelines, infrastructure as code, observability, continuous deployment. Stable, reproducible environments — production-ready.",
-      "deliverables": ["Operational CI/CD pipelines", "Infrastructure as Code (Terraform, Ansible)", "Monitoring & alerting"],
-      "results": ["Reliable, reproducible deployments", "Reduced time-to-production"]
+    "testAutomation": {
+      "title": "Test Automation",
+      "description": "Building durable automation frameworks integrated into your CI/CD pipelines. High-value scenario selection, industrialized script maintenance.",
+      "deliverables": ["Custom automation framework", "Scripts integrated into CI/CD pipelines", "Coverage strategy and prioritization"],
+      "results": ["Faster release cycles", "Measurable ROI on automation investment"]
     },
-    "data": {
-      "title": "Data Engineering",
-      "description": "Data pipelines, data quality, orchestration, governance. Reliable flows for reliable decisions.",
-      "deliverables": ["Automated data pipelines", "Quality rules & governance", "Orchestration (Airflow, dbt)"],
-      "results": ["Reliable, accessible data", "Decisions backed by trusted data"]
+    "apiTesting": {
+      "title": "API Testing",
+      "description": "Systematic validation of your services and microservices. Contract, functional, and integration testing to ensure the reliability of your inter-system exchanges.",
+      "deliverables": ["API test strategy (contract, functional, integration)", "Automated test suites per endpoint", "Environment and test data management"],
+      "results": ["Guaranteed inter-service exchange reliability", "Early detection of API regressions"]
+    },
+    "performanceTesting": {
+      "title": "Performance Testing",
+      "description": "Load, stress, and endurance campaigns to validate your systems under pressure. Results analysis, bottleneck identification, optimization recommendations.",
+      "deliverables": ["Load scenarios and test protocols", "Campaign execution (load, stress, endurance)", "Analysis reports and recommendations"],
+      "results": ["Capacity validated before production", "Bottlenecks identified and resolved"]
+    },
+    "qaGovernance": {
+      "title": "QA Governance & KPIs",
+      "description": "Establishing a structured quality management framework. KPI definition, dashboard construction, reporting rituals, continuous improvement.",
+      "deliverables": ["KPI framework tailored to your context", "Dashboards and executive reporting", "Continuous improvement processes"],
+      "results": ["Permanent visibility on software quality", "Data-driven decisions"]
     },
     "deliverables": "Deliverables",
     "results": "Results"
   },
   "approach": {
     "title": "Our approach",
-    "subtitle": "A structured framework in three phases. Every engagement follows the same logic: understand, execute, sustain.",
+    "subtitle": "An operational framework in three phases. Every engagement follows the same logic: assess, structure, deliver.",
     "activitiesLabel": "What we do",
     "outcomeLabel": "What you get",
-    "align": {
-      "title": "Align",
-      "description": "We understand your context, constraints, and goals. No generic template. A precise framing before any execution.",
+    "assess": {
+      "title": "Assess",
+      "description": "We audit your testing context, processes, tools, and organization. No generic diagnosis — a precise evaluation of your QA maturity.",
       "activities": [
-        "Audit of technical and organizational context",
-        "Stakeholder mapping and constraint identification",
-        "Scope definition, objectives, and success criteria",
-        "Engagement plan and staffing formalization"
+        "Audit of existing test processes and coverage",
+        "QA maturity assessment and gap identification",
+        "Risk mapping and technical dependency analysis",
+        "Formalization of quality objectives and success criteria"
       ],
-      "outcome": "A validated framing and an intervention plan aligned with your real priorities."
+      "outcome": "A clear diagnosis of your QA maturity and a prioritized action plan."
+    },
+    "structure": {
+      "title": "Structure",
+      "description": "We design the offshore delivery organization tailored to your needs: teams, processes, tools, governance. A setup ready to produce.",
+      "activities": [
+        "Definition of offshore organization and staffing",
+        "Implementation of test frameworks and tools",
+        "Construction of governance model and KPIs",
+        "Communication protocols and team rituals"
+      ],
+      "outcome": "A structured, equipped, and governed offshore testing setup."
     },
     "deliver": {
       "title": "Deliver",
-      "description": "We work within your teams or independently. Tangible deliverables, short iterations, full visibility.",
+      "description": "Our teams execute test campaigns with rigor and transparency. Continuous reporting, permanent adjustment, measurable results from the first weeks.",
       "activities": [
-        "Embedded in your teams or autonomous delivery",
-        "Short iterations with tangible deliverables every sprint",
-        "Regular checkpoints and transparent reporting",
-        "Continuous adjustment based on field feedback"
+        "Execution of test campaigns per validated plans",
+        "Continuous reporting and real-time tracking dashboards",
+        "Defect management and structured escalation",
+        "Continuous improvement based on delivery metrics"
       ],
-      "outcome": "Visible results within the first weeks, not at the end of the engagement."
+      "outcome": "Visible and measurable results, constantly improving software quality."
     },
-    "industrialize": {
-      "title": "Industrialize",
-      "description": "We document, transfer knowledge, and ensure sustainability. The goal: it runs without us.",
-      "activities": [
-        "Complete technical and operational documentation",
-        "Structured knowledge transfer to your teams",
-        "Implementation of maintenance and evolution processes",
-        "Mission debrief and forward-looking recommendations"
-      ],
-      "outcome": "Full autonomy. The practices and tools stay, even after we leave."
-    },
-    "credibility": "Founded by Ahmed Ghanmi — over 10 years in engineering & delivery across demanding environments."
+    "credibility": "Founded by Ahmed Ghanmi — over 10 years in software testing delivery across demanding environments."
   },
   "team": {
     "title": "Team",
@@ -84,23 +99,32 @@
     "location": "France",
     "copied": "Copied ✓"
   },
+  "clients": {
+    "title": "Trusted by industry leaders",
+    "subtitle": "Experience gained across major industrial and technology groups.",
+    "disclaimer": "References available upon request."
+  },
   "contact": {
     "title": "Let's talk about your project",
-    "intro": "Need help with QA, DevOps, or Data? A project to structure? Tell us about your context. We'll get back to you within 48 hours.",
+    "intro": "Need help with software testing? An offshore delivery to structure? Tell us about your context. We'll get back to you within 48 hours.",
     "name": "Your name",
     "email": "your@email.com",
     "company": "Your company name",
     "subject": "Select a subject",
     "subjectOptions": {
-      "qa": "QA",
-      "devops": "DevOps",
-      "data": "Data",
+      "functionalTesting": "Functional Testing",
+      "testAutomation": "Test Automation",
+      "apiTesting": "API Testing",
+      "performanceTesting": "Performance Testing",
+      "qaGovernance": "QA Governance & KPIs",
       "other": "Other"
     },
     "subjectHints": {
-      "qa": "Describe your software quality, testing, or automation needs.",
-      "devops": "Describe your CI/CD, infrastructure, or cloud needs.",
-      "data": "Describe your data pipeline or governance needs.",
+      "functionalTesting": "Describe your functional testing or acceptance testing needs.",
+      "testAutomation": "Describe your test automation needs.",
+      "apiTesting": "Describe your API or service testing needs.",
+      "performanceTesting": "Describe your load or performance testing needs.",
+      "qaGovernance": "Describe your QA governance or quality management needs.",
       "other": "Briefly describe your needs."
     },
     "message": "Briefly describe your needs",
@@ -113,15 +137,22 @@
     "or": "Or email us directly:",
     "copied": "Copied"
   },
+  "blog": {
+    "title": "Perspectives",
+    "subtitle": "Insights and experience reports on offshore software testing delivery.",
+    "readMore": "Read article",
+    "backToArticles": "← Back to articles",
+    "publishedOn": "Published on"
+  },
   "footer": {
-    "baseline": "Quorexis — Engineering & Delivery Excellence",
+    "baseline": "Quorexis — Offshore Software Testing Delivery",
     "legal": "Legal notice",
     "privacy": "Privacy policy",
     "copyright": "© 2025 Quorexis — France"
   },
   "seo": {
-    "title": "Quorexis — Engineering & Delivery Excellence | QA, DevOps, Data",
-    "description": "French IT consultancy specializing in Quality Engineering, DevOps, and Data Engineering. We structure and deliver your critical tech projects."
+    "title": "Quorexis — Offshore Software Testing Delivery | Test. Trust. Deliver.",
+    "description": "French consultancy specializing in offshore software testing delivery. Functional testing, automation, API, performance, QA governance."
   },
   "ui": {
     "backToTop": "Back to top",

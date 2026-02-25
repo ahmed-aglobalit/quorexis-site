@@ -31,7 +31,10 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-20 py-32">
-        <h1 className="hero-enter text-4xl md:text-[56px] font-semibold leading-tight tracking-tight max-w-3xl">
+        <p className="hero-enter text-sm font-semibold uppercase tracking-wider text-accent">
+          {t("tagline")}
+        </p>
+        <h1 className="hero-enter mt-4 text-4xl md:text-[56px] font-semibold leading-tight tracking-tight max-w-3xl">
           {t("headline")}
         </h1>
         <p className="hero-enter-delay mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-2xl">

@@ -5,12 +5,12 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
 const steps = [
-  { key: "align", number: "01" },
-  { key: "deliver", number: "02" },
-  { key: "industrialize", number: "03" },
+  { key: "assess", number: "01" },
+  { key: "structure", number: "02" },
+  { key: "deliver", number: "03" },
 ] as const;
 
-function AlignIcon({ className }: Readonly<{ className?: string }>) {
+function AssessIcon({ className }: Readonly<{ className?: string }>) {
   return (
     <svg
       width="24"
@@ -22,9 +22,29 @@ function AlignIcon({ className }: Readonly<{ className?: string }>) {
       className={className}
       aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="8" />
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+      <circle cx="11" cy="11" r="7" />
+      <path d="M16.5 16.5L21 21" />
+      <path d="M8 11h6M11 8v6" />
+    </svg>
+  );
+}
+
+function StructureIcon({ className }: Readonly<{ className?: string }>) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
     </svg>
   );
 }
@@ -46,28 +66,10 @@ function DeliverIcon({ className }: Readonly<{ className?: string }>) {
   );
 }
 
-function IndustrializeIcon({ className }: Readonly<{ className?: string }>) {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-    </svg>
-  );
-}
-
 const stepIcons = {
-  align: AlignIcon,
+  assess: AssessIcon,
+  structure: StructureIcon,
   deliver: DeliverIcon,
-  industrialize: IndustrializeIcon,
 } as const;
 
 export default function Approach() {

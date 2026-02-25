@@ -3,78 +3,93 @@
     "expertises": "Expertises",
     "approach": "Approche",
     "team": "Équipe",
+    "clients": "Clients",
+    "blog": "Blog",
     "contact": "Contact",
     "switchLang": "EN"
   },
   "hero": {
-    "headline": "Engineering & Delivery. Sans compromis.",
-    "subtitle": "Quorexis accompagne les équipes tech dans l'exécution de leurs projets critiques. QA, DevOps, Data — de la stratégie à la mise en production.",
-    "cta": "Discutons de votre projet",
-    "ctaSecondary": "Voir nos expertises"
+    "tagline": "Test. Trust. Deliver.",
+    "headline": "Delivery de tests logiciels en offshore. Sans compromis.",
+    "subtitle": "Quorexis structure et opère la delivery de vos tests logiciels en offshore. Équipes dédiées, frameworks industrialisés, résultats mesurables.",
+    "cta": "Planifier un échange",
+    "ctaSecondary": "Découvrir nos expertises"
   },
   "expertises": {
-    "title": "Ce qu'on fait. Concrètement.",
-    "intro": "Trois domaines d'intervention complémentaires, intégrés dans une même logique de delivery.",
-    "qa": {
-      "title": "Quality Engineering",
-      "description": "Stratégie de test, automatisation, intégration dans les pipelines CI/CD. On ne \"teste\" pas à la fin. On construit la qualité dès le départ.",
-      "deliverables": ["Plans de test & stratégie QA", "Frameworks d'automatisation CI/CD", "Couverture de test & reporting"],
-      "results": ["Réduction des régressions en production", "Cycles de release accélérés"]
+    "title": "Nos expertises en test logiciel",
+    "intro": "Cinq domaines d'intervention spécialisés, intégrés dans une logique de delivery offshore industrialisée.",
+    "functionalTesting": {
+      "title": "Tests fonctionnels",
+      "description": "Conception et exécution de campagnes de tests fonctionnels structurées. Couverture exhaustive des parcours critiques, gestion rigoureuse des anomalies, traçabilité complète.",
+      "deliverables": ["Plans de test et cahiers de recette", "Exécution des campagnes et suivi des anomalies", "Rapports de couverture et tableaux de bord qualité"],
+      "results": ["Réduction des anomalies en production", "Couverture fonctionnelle maîtrisée et documentée"]
     },
-    "devops": {
-      "title": "DevOps & Cloud",
-      "description": "Pipelines, infrastructure as code, observabilité, déploiement continu. Des environnements stables, reproductibles, prêts pour la production.",
-      "deliverables": ["Pipelines CI/CD opérationnels", "Infrastructure as Code (Terraform, Ansible)", "Monitoring & alerting"],
-      "results": ["Déploiements fiables et reproductibles", "Réduction du time-to-production"]
+    "testAutomation": {
+      "title": "Automatisation des tests",
+      "description": "Construction de frameworks d'automatisation durables, intégrés dans vos pipelines CI/CD. Sélection des scénarios à forte valeur, maintenance industrialisée des scripts.",
+      "deliverables": ["Framework d'automatisation sur mesure", "Scripts intégrés aux pipelines CI/CD", "Stratégie de couverture et priorisation"],
+      "results": ["Cycles de release accélérés", "ROI mesurable sur l'investissement automatisation"]
     },
-    "data": {
-      "title": "Data Engineering",
-      "description": "Pipelines de données, qualité de la donnée, orchestration, gouvernance. Des flux fiables pour des décisions fiables.",
-      "deliverables": ["Pipelines de données automatisés", "Règles de qualité & gouvernance", "Orchestration (Airflow, dbt)"],
-      "results": ["Données fiables et accessibles", "Décisions basées sur des données de confiance"]
+    "apiTesting": {
+      "title": "Tests API",
+      "description": "Validation systématique de vos services et microservices. Tests contractuels, fonctionnels et d'intégration pour garantir la fiabilité de vos échanges inter-systèmes.",
+      "deliverables": ["Stratégie de test API (contrat, fonctionnel, intégration)", "Suites de tests automatisés par endpoint", "Gestion des environnements et données de test"],
+      "results": ["Fiabilité des échanges inter-services garantie", "Détection précoce des régressions API"]
+    },
+    "performanceTesting": {
+      "title": "Tests de performance",
+      "description": "Campagnes de charge, stress et endurance pour valider la tenue de vos systèmes sous contrainte. Analyse des résultats, identification des goulets d'étranglement, recommandations d'optimisation.",
+      "deliverables": ["Scénarios de charge et protocoles de test", "Exécution des campagnes (charge, stress, endurance)", "Rapports d'analyse et recommandations"],
+      "results": ["Capacité validée avant mise en production", "Goulets d'étranglement identifiés et corrigés"]
+    },
+    "qaGovernance": {
+      "title": "Gouvernance QA & KPIs",
+      "description": "Mise en place d'un cadre de pilotage qualité structuré. Définition des KPIs, construction des dashboards, rituels de reporting, amélioration continue.",
+      "deliverables": ["Framework KPI adapté à votre contexte", "Dashboards et reporting exécutif", "Processus d'amélioration continue"],
+      "results": ["Visibilité permanente sur la qualité logicielle", "Décisions pilotées par les données"]
     },
     "deliverables": "Livrables",
     "results": "Résultats"
   },
   "approach": {
     "title": "Notre approche",
-    "subtitle": "Un cadre structurant en trois phases. Chaque engagement suit la même logique : comprendre, exécuter, pérenniser.",
+    "subtitle": "Un cadre opérationnel en trois phases. Chaque engagement suit la même logique : évaluer, structurer, livrer.",
     "activitiesLabel": "Ce qu'on fait",
     "outcomeLabel": "Ce que vous obtenez",
-    "align": {
-      "title": "Cadrer",
-      "description": "On comprend votre contexte, vos contraintes, vos objectifs. Pas de template générique. Un cadrage précis avant toute exécution.",
+    "assess": {
+      "title": "Évaluer",
+      "description": "Nous auditons votre contexte de test, vos processus, vos outils et votre organisation. Pas de diagnostic générique — une évaluation précise de votre maturité QA.",
       "activities": [
-        "Audit du contexte technique et organisationnel",
-        "Cartographie des parties prenantes et des contraintes",
-        "Définition du périmètre, des objectifs et des critères de succès",
-        "Formalisation du plan d'engagement et du staffing"
+        "Audit des processus de test existants et de la couverture",
+        "Évaluation de la maturité QA et identification des écarts",
+        "Cartographie des risques et des dépendances techniques",
+        "Formalisation des objectifs qualité et critères de succès"
       ],
-      "outcome": "Un cadrage validé et un plan d'intervention aligné sur vos priorités réelles."
+      "outcome": "Un diagnostic clair de votre maturité QA et un plan d'action priorisé."
+    },
+    "structure": {
+      "title": "Structurer",
+      "description": "Nous concevons l'organisation de delivery offshore adaptée à vos besoins : équipes, processus, outils, gouvernance. Un dispositif prêt à produire.",
+      "activities": [
+        "Définition de l'organisation et du staffing offshore",
+        "Mise en place des frameworks de test et des outils",
+        "Construction du modèle de gouvernance et des KPIs",
+        "Protocoles de communication et rituels d'équipe"
+      ],
+      "outcome": "Un dispositif de test offshore structuré, outillé et gouverné."
     },
     "deliver": {
       "title": "Livrer",
-      "description": "On intervient au sein de vos équipes ou en autonomie. Livrables concrets, itérations courtes, visibilité permanente.",
+      "description": "Nos équipes exécutent les campagnes de test avec rigueur et transparence. Reporting continu, ajustement permanent, résultats mesurables dès les premières semaines.",
       "activities": [
-        "Intégration dans vos équipes ou pilotage en autonomie",
-        "Itérations courtes avec livrables tangibles à chaque sprint",
-        "Points de suivi réguliers et reporting transparent",
-        "Ajustement continu du dispositif selon les retours terrain"
+        "Exécution des campagnes de test selon les plans validés",
+        "Reporting continu et dashboards de suivi en temps réel",
+        "Gestion des anomalies et escalade structurée",
+        "Amélioration continue basée sur les métriques de delivery"
       ],
-      "outcome": "Des résultats visibles dès les premières semaines, pas en fin de mission."
+      "outcome": "Des résultats visibles et mesurables, une qualité logicielle en amélioration constante."
     },
-    "industrialize": {
-      "title": "Industrialiser",
-      "description": "On documente, on transfère, on pérennise. L'objectif : que ça tourne sans nous.",
-      "activities": [
-        "Documentation technique et opérationnelle complète",
-        "Transfert de compétences structuré vers vos équipes",
-        "Mise en place des processus de maintien et d'évolution",
-        "Bilan de mission et recommandations pour la suite"
-      ],
-      "outcome": "Une autonomie complète. Les pratiques et outils restent, même après notre départ."
-    },
-    "credibility": "Fondé par Ahmed Ghanmi — plus de 10 ans en engineering & delivery dans des environnements exigeants."
+    "credibility": "Fondé par Ahmed Ghanmi — plus de 10 ans en delivery de tests logiciels dans des environnements exigeants."
   },
   "team": {
     "title": "Équipe",
@@ -84,23 +99,32 @@
     "location": "France",
     "copied": "Copié ✓"
   },
+  "clients": {
+    "title": "Ils nous font confiance",
+    "subtitle": "Expérience acquise au sein de grands groupes industriels et technologiques.",
+    "disclaimer": "Références disponibles sur demande."
+  },
   "contact": {
     "title": "Parlons de votre projet",
-    "intro": "Un besoin en QA, DevOps ou Data ? Un projet à structurer ? Décrivez-nous votre contexte. On revient vers vous sous 48h.",
+    "intro": "Un besoin en tests logiciels ? Une delivery offshore à structurer ? Décrivez-nous votre contexte. On revient vers vous sous 48h.",
     "name": "Votre nom",
     "email": "votre@email.com",
     "company": "Nom de votre entreprise",
     "subject": "Sélectionnez un sujet",
     "subjectOptions": {
-      "qa": "QA",
-      "devops": "DevOps",
-      "data": "Data",
+      "functionalTesting": "Tests fonctionnels",
+      "testAutomation": "Automatisation des tests",
+      "apiTesting": "Tests API",
+      "performanceTesting": "Tests de performance",
+      "qaGovernance": "Gouvernance QA & KPIs",
       "other": "Autre"
     },
     "subjectHints": {
-      "qa": "Décrivez votre besoin en qualité logicielle, test ou automatisation.",
-      "devops": "Décrivez votre besoin en CI/CD, infrastructure ou cloud.",
-      "data": "Décrivez votre besoin en pipelines de données ou gouvernance.",
+      "functionalTesting": "Décrivez votre besoin en tests fonctionnels ou recette.",
+      "testAutomation": "Décrivez votre besoin en automatisation de tests.",
+      "apiTesting": "Décrivez votre besoin en tests d'API ou de services.",
+      "performanceTesting": "Décrivez votre besoin en tests de charge ou performance.",
+      "qaGovernance": "Décrivez votre besoin en gouvernance QA ou pilotage qualité.",
       "other": "Décrivez brièvement votre besoin."
     },
     "message": "Décrivez brièvement votre besoin",
@@ -113,15 +137,22 @@
     "or": "Ou écrivez-nous directement :",
     "copied": "Copié"
   },
+  "blog": {
+    "title": "Perspectives",
+    "subtitle": "Analyses et retours d'expérience sur la delivery de tests logiciels en offshore.",
+    "readMore": "Lire l'article",
+    "backToArticles": "← Retour aux articles",
+    "publishedOn": "Publié le"
+  },
   "footer": {
-    "baseline": "Quorexis — Engineering & Delivery Excellence",
+    "baseline": "Quorexis — Offshore Software Testing Delivery",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
     "copyright": "© 2025 Quorexis — France"
   },
   "seo": {
-    "title": "Quorexis — Engineering & Delivery Excellence | QA, DevOps, Data",
-    "description": "Cabinet IT français spécialisé en Quality Engineering, DevOps et Data Engineering. Nous structurons et exécutons vos projets tech critiques."
+    "title": "Quorexis — Offshore Software Testing Delivery | Test. Trust. Deliver.",
+    "description": "Cabinet français spécialisé en delivery de tests logiciels en offshore. Tests fonctionnels, automatisation, API, performance, gouvernance QA."
   },
   "ui": {
     "backToTop": "Haut de page",

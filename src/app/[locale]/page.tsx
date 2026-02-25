@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Expertises from "@/components/Expertises";
 import Approach from "@/components/Approach";
 import Team from "@/components/Team";
+import Clients from "@/components/Clients";
 import Contact from "@/components/Contact";
 
 export async function generateMetadata({
@@ -26,6 +27,7 @@ export default function HomePage() {
       <Expertises />
       <Approach />
       <Team />
+      <Clients />
       <Contact />
     </>
   );

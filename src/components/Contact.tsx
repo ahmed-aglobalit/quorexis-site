@@ -90,8 +90,7 @@ export default function Contact() {
     }
   }
 
-  const hintKey = `subjectHints.${subject}`;
-  const messageHint = subject ? t(hintKey as "subjectHints.qa") : t("message");
+  const messageHint = subject ? t(`subjectHints.${subject}`) : t("message");
 
   const inputBase =
     "w-full px-4 py-3 border rounded-md bg-transparent text-sm placeholder:text-muted/60 focus:outline-none focus:border-accent transition-all duration-200";
@@ -157,9 +156,11 @@ export default function Contact() {
                 <option value="" disabled>
                   {t("subject")}
                 </option>
-                <option value="qa">{t("subjectOptions.qa")}</option>
-                <option value="devops">{t("subjectOptions.devops")}</option>
-                <option value="data">{t("subjectOptions.data")}</option>
+                <option value="functionalTesting">{t("subjectOptions.functionalTesting")}</option>
+                <option value="testAutomation">{t("subjectOptions.testAutomation")}</option>
+                <option value="apiTesting">{t("subjectOptions.apiTesting")}</option>
+                <option value="performanceTesting">{t("subjectOptions.performanceTesting")}</option>
+                <option value="qaGovernance">{t("subjectOptions.qaGovernance")}</option>
                 <option value="other">{t("subjectOptions.other")}</option>
               </select>
 
