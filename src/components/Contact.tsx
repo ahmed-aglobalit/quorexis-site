@@ -14,6 +14,7 @@ export default function Contact() {
   const [subject, setSubject] = useState("");
   const [toast, setToast] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [charCount, setCharCount] = useState(0);
 
   const validate = useCallback(
     (form: FormData) => {
@@ -107,6 +108,16 @@ export default function Contact() {
           {status === "success" ? (
             <div className="mt-10 p-6 border border-accent/20 rounded-lg bg-accent/5">
               <p className="text-sm font-medium">{t("success")}</p>
+              <button
+                onClick={() => {
+                  setStatus("idle");
+                  setSubject("");
+                  setCharCount(0);
+                }}
+                className="mt-4 text-sm text-accent hover:text-foreground transition-colors"
+              >
+                {t("sendAnother")}
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-5" noValidate>
@@ -151,7 +162,7 @@ export default function Contact() {
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 aria-label={t("subject")}
-                className={`${inputBase} border-border text-muted`}
+                className={`${inputBase} border-border ${subject ? "text-foreground" : "text-muted"}`}
               >
                 <option value="" disabled>
                   {t("subject")}
@@ -169,12 +180,17 @@ export default function Contact() {
                 <textarea
                   name="message"
                   rows={4}
+                  maxLength={2000}
                   placeholder={messageHint}
                   aria-label={t("message")}
                   onBlur={(e) => handleBlur("message", e.target.value)}
+                  onChange={(e) => setCharCount(e.target.value.length)}
                   className={`${inputBase} resize-none ${errors.message ? "border-red-400" : "border-border"}`}
                 />
-                {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+                <div className="mt-1 flex justify-between">
+                  {errors.message ? <p className="text-xs text-red-500">{errors.message}</p> : <span />}
+                  <p className="text-xs text-muted">{charCount}/2000</p>
+                </div>
               </div>
 
               {/* Submit */}

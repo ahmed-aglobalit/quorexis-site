@@ -134,8 +134,18 @@
     "errorRequired": "Ce champ est requis.",
     "errorEmail": "Adresse email invalide.",
     "errorGeneral": "Une erreur est survenue. Réessayez ou écrivez-nous directement.",
+    "sendAnother": "Envoyer un autre message",
     "or": "Ou écrivez-nous directement :",
     "copied": "Copié"
+  },
+  "chatbot": {
+    "title": "Quorexis Assistant",
+    "placeholder": "Posez votre question...",
+    "send": "Envoyer",
+    "error": "Désolé, une erreur est survenue. Réessayez.",
+    "welcome": "Bonjour ! Je suis l'assistant Quorexis. Comment puis-je vous aider avec vos besoins en testing logiciel ?",
+    "openChat": "Ouvrir le chat",
+    "closeChat": "Fermer le chat"
   },
   "blog": {
     "title": "Perspectives",

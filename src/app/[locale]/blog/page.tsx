@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getArticles } from "@/content/blog";
 import Link from "next/link";
+import BlogHeroPattern, { slugToSeed } from "@/components/BlogHeroPattern";
 
 export async function generateMetadata({
   params,
@@ -38,8 +39,13 @@ export default async function BlogPage({
           <Link
             key={article.slug}
             href={`/${locale === "fr" ? "" : "en/"}blog/${article.slug}`}
-            className="group border border-border rounded-lg p-6 md:p-8 hover:border-accent/30 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300"
+            className="group border border-border rounded-lg overflow-hidden hover:border-accent/30 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300"
           >
+            <BlogHeroPattern
+              seed={slugToSeed(article.slug)}
+              className="w-full"
+            />
+            <div className="p-6 md:p-8">
             <p className="text-xs text-muted">
               {t("publishedOn")} {article.date}
             </p>
@@ -52,6 +58,7 @@ export default async function BlogPage({
             <span className="mt-4 inline-block text-sm font-medium text-accent">
               {t("readMore")} →
             </span>
+            </div>
           </Link>
         ))}
       </div>

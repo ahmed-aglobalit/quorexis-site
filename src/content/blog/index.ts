@@ -7,6 +7,12 @@ import * as qaGovernance from "./qa-governance-kpi";
 import * as deliveryModel from "./offshore-testing-delivery-model";
 import * as distributedTeams from "./managing-distributed-qa-teams";
 import * as industrialization from "./test-industrialization-framework";
+import * as whyOffshoreFails from "./why-offshore-testing-fails";
+import * as testingStrategy30Days from "./testing-strategy-30-days";
+import * as automationRoi from "./automation-roi-myth-vs-reality";
+import * as kpiFramework from "./kpi-framework-qa-leaders";
+import * as reducingIncidents from "./reducing-production-incidents-qa";
+import * as governanceModel2026 from "./offshore-testing-governance-2026";
 
 const articles: Record<string, { fr: BlogArticle; en: BlogArticle }> = {
   "functional-testing-offshore": functionalTesting,
@@ -17,6 +23,12 @@ const articles: Record<string, { fr: BlogArticle; en: BlogArticle }> = {
   "offshore-testing-delivery-model": deliveryModel,
   "managing-distributed-qa-teams": distributedTeams,
   "test-industrialization-framework": industrialization,
+  "why-offshore-testing-fails": whyOffshoreFails,
+  "testing-strategy-30-days": testingStrategy30Days,
+  "automation-roi-myth-vs-reality": automationRoi,
+  "kpi-framework-qa-leaders": kpiFramework,
+  "reducing-production-incidents-qa": reducingIncidents,
+  "offshore-testing-governance-2026": governanceModel2026,
 };
 
 export function getArticles(locale: "fr" | "en"): BlogArticle[] {

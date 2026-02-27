@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { getArticle, getAllSlugs } from "@/content/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BlogHeroPattern, { slugToSeed } from "@/components/BlogHeroPattern";
 
 export async function generateStaticParams() {
   return getAllSlugs().map(({ slug, locale }) => ({ slug, locale }));
@@ -41,7 +42,14 @@ export default async function BlogArticlePage({
         {t("backToArticles")}
       </Link>
 
-      <h1 className="mt-8 text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+      <div className="mt-6 mb-8 rounded-lg overflow-hidden">
+        <BlogHeroPattern
+          seed={slugToSeed(article.slug)}
+          className="w-full"
+        />
+      </div>
+
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
         {article.title}
       </h1>
 

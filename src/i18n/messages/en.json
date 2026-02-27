@@ -134,8 +134,18 @@
     "errorRequired": "This field is required.",
     "errorEmail": "Invalid email address.",
     "errorGeneral": "Something went wrong. Please try again or email us directly.",
+    "sendAnother": "Send another message",
     "or": "Or email us directly:",
     "copied": "Copied"
+  },
+  "chatbot": {
+    "title": "Quorexis Assistant",
+    "placeholder": "Ask your question...",
+    "send": "Send",
+    "error": "Sorry, an error occurred. Please try again.",
+    "welcome": "Hello! I'm the Quorexis assistant. How can I help you with your software testing needs?",
+    "openChat": "Open chat",
+    "closeChat": "Close chat"
   },
   "blog": {
     "title": "Perspectives",
