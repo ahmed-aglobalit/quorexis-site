@@ -40,6 +40,7 @@ export default function Header() {
     { type: "anchor", label: t("approach"), id: "approach" },
     { type: "anchor", label: t("team"), id: "team" },
     { type: "anchor", label: t("clients"), id: "clients" },
+    { type: "link", label: t("training"), href: "/training" },
     { type: "link", label: t("blog"), href: "/blog" },
     { type: "anchor", label: t("contact"), id: "contact" },
   ];

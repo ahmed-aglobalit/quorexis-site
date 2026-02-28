@@ -4,6 +4,7 @@ import Expertises from "@/components/Expertises";
 import Approach from "@/components/Approach";
 import Team from "@/components/Team";
 import Clients from "@/components/Clients";
+import TrainingTeaser from "@/components/TrainingTeaser";
 import Contact from "@/components/Contact";
 
 export async function generateMetadata({
@@ -28,6 +29,7 @@ export default function HomePage() {
       <Approach />
       <Team />
       <Clients />
+      <TrainingTeaser />
       <Contact />
     </>
   );

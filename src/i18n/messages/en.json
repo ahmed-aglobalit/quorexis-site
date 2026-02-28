@@ -4,6 +4,7 @@
     "approach": "Approach",
     "team": "Team",
     "clients": "Clients",
+    "training": "Training",
     "blog": "Blog",
     "contact": "Contact",
     "switchLang": "FR"
@@ -147,6 +148,131 @@
     "openChat": "Open chat",
     "closeChat": "Close chat"
   },
+  "training": {
+    "hero": {
+      "title": "ISTQB Training & Certification",
+      "subtitle": "Quorexis trains your teams to international software testing standards. Recognized ISTQB certifications, practitioner trainers, results-oriented approach.",
+      "cta": "Request the catalogue",
+      "ctaSecondary": "View certifications"
+    },
+    "certifications": {
+      "title": "Certifications offered",
+      "subtitle": "Six ISTQB certification tracks, from foundation to specialist level.",
+      "ctfl": {
+        "title": "CTFL — Certified Tester Foundation Level",
+        "level": "Foundation",
+        "duration": "3 days / 21h",
+        "description": "The essential foundation of the testing profession. Master the fundamentals of software testing according to the international ISTQB syllabus.",
+        "keyPoints": ["Fundamental test processes and techniques", "Test management and tools", "Intensive CTFL exam preparation"]
+      },
+      "advancedTestAnalyst": {
+        "title": "Advanced Test Analyst",
+        "level": "Advanced",
+        "duration": "3 days / 21h",
+        "description": "Deepen your test analysis skills. Advanced design techniques, review and quality risk assessment.",
+        "keyPoints": ["Advanced black-box test techniques", "Risk analysis and prioritization", "Review and testability evaluation"]
+      },
+      "technicalTestAnalyst": {
+        "title": "Technical Test Analyst",
+        "level": "Advanced",
+        "duration": "3 days / 21h",
+        "description": "Master the technical aspects of testing: structural testing, static analysis, security and performance testing.",
+        "keyPoints": ["White-box testing and static analysis", "Security and reliability testing", "Technical reviews and analysis tools"]
+      },
+      "testAutomationEngineer": {
+        "title": "Test Automation Engineer",
+        "level": "Specialist",
+        "duration": "3 days / 21h",
+        "description": "Design and implement robust, maintainable test automation solutions. Architecture, frameworks, best practices.",
+        "keyPoints": ["Automation architecture (gTAA)", "Maintainable script design", "CI/CD integration and automated reporting"]
+      },
+      "agileTester": {
+        "title": "Agile Tester",
+        "level": "Foundation Extension",
+        "duration": "2 days / 14h",
+        "description": "Adapt your testing practices to an agile context. The tester's role in Scrum, exploratory testing, Definition of Done.",
+        "keyPoints": ["Testing in agile methodologies", "Exploratory and session-based testing", "Collaboration and continuous feedback"]
+      },
+      "testManager": {
+        "title": "Test Manager",
+        "level": "Advanced",
+        "duration": "5 days / 35h",
+        "description": "Lead your organization's test strategy. Planning, estimation, tracking, governance and continuous improvement.",
+        "keyPoints": ["Test strategy and planning", "Team and competency management", "KPIs, reporting and continuous improvement", "Risk and stakeholder management"]
+      }
+    },
+    "pedagogy": {
+      "title": "Our pedagogical approach",
+      "subtitle": "Training that goes beyond theory.",
+      "theory": {
+        "title": "Official ISTQB syllabus",
+        "description": "Content 100% aligned with the current ISTQB syllabus. Each module covers the learning objectives required for certification."
+      },
+      "caseStudies": {
+        "title": "Real-world case studies",
+        "description": "Practical exercises from real projects in offshore contexts. Your teams work on scenarios they will encounter in the field."
+      },
+      "mockExams": {
+        "title": "Mock exams",
+        "description": "Exam simulations under real conditions. Detailed correction and weak-point analysis to maximize pass rates."
+      },
+      "followUp": {
+        "title": "Post-training support",
+        "description": "30-day post-training support. Email assistance, additional resources and Q&A session."
+      }
+    },
+    "formats": {
+      "title": "Training formats",
+      "subtitle": "Three formats adapted to your organizational and geographic constraints.",
+      "interCompany": {
+        "title": "Open sessions",
+        "description": "Scheduled sessions at fixed dates, open to all. Ideal for training one or two team members.",
+        "points": ["Fixed calendar with regular sessions", "Cross-industry professional exchanges", "Competitive individual pricing"]
+      },
+      "intraCompany": {
+        "title": "In-company",
+        "description": "Training dedicated to your organization, adapted to your business context and tools.",
+        "points": ["Program customized to your environment", "On-site or at our premises", "From 4 participants"]
+      },
+      "remote": {
+        "title": "Remote",
+        "description": "Video-conference training with the same pedagogical quality. Interactive and collaborative virtual classes.",
+        "points": ["Live sessions with dedicated trainer", "Collaborative tools and real-time exercises", "Ideal for distributed teams"]
+      }
+    },
+    "whyQuorexis": {
+      "title": "Why choose Quorexis",
+      "subtitle": "What sets us apart.",
+      "points": {
+        "practitioners": {
+          "title": "Practitioner trainers",
+          "description": "Our trainers are active consultants with over 10 years of experience in software testing delivery. They teach what they practice daily."
+        },
+        "successRate": {
+          "title": "High pass rate",
+          "description": "Our structured pedagogical approach — syllabus, practical cases, mock exams — ensures a pass rate above the market average."
+        },
+        "offshore": {
+          "title": "Offshore-compatible approach",
+          "description": "Our training integrates the specifics of testing in an offshore context: cross-cultural communication, collaborative tools, remote governance."
+        },
+        "personalized": {
+          "title": "Personalized follow-up",
+          "description": "Each participant receives 30-day individual post-training support: email assistance, additional resources, Q&A session."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to certify your teams?",
+      "subtitle": "Schedule a call with our team to define the training path that fits your objectives.",
+      "button": "Schedule a call"
+    }
+  },
+  "trainingTeaser": {
+    "title": "ISTQB Training & Certification",
+    "subtitle": "Certify your teams to international software testing standards. Six ISTQB tracks, practitioner trainers, results-oriented approach.",
+    "cta": "Discover our training"
+  },
   "blog": {
     "title": "Perspectives",
     "subtitle": "Insights and experience reports on offshore software testing delivery.",
@@ -162,7 +288,9 @@
   },
   "seo": {
     "title": "Quorexis — Offshore Software Testing Delivery | Test. Trust. Deliver.",
-    "description": "French consultancy specializing in offshore software testing delivery. Functional testing, automation, API, performance, QA governance."
+    "description": "French consultancy specializing in offshore software testing delivery. Functional testing, automation, API, performance, QA governance.",
+    "trainingTitle": "ISTQB Training — Quorexis | Software Testing Certification",
+    "trainingDescription": "ISTQB training and certifications: CTFL, Test Analyst, Test Automation Engineer, Agile Tester, Test Manager. Practitioner trainers, results-oriented approach."
   },
   "ui": {
     "backToTop": "Back to top",

@@ -4,6 +4,7 @@
     "approach": "Approche",
     "team": "Équipe",
     "clients": "Clients",
+    "training": "Formation",
     "blog": "Blog",
     "contact": "Contact",
     "switchLang": "EN"
@@ -147,6 +148,131 @@
     "openChat": "Ouvrir le chat",
     "closeChat": "Fermer le chat"
   },
+  "training": {
+    "hero": {
+      "title": "Formation & Certification ISTQB",
+      "subtitle": "Quorexis forme vos équipes aux standards internationaux du test logiciel. Certifications ISTQB reconnues, formateurs praticiens, approche orientée résultats.",
+      "cta": "Demander le catalogue",
+      "ctaSecondary": "Voir les certifications"
+    },
+    "certifications": {
+      "title": "Certifications proposées",
+      "subtitle": "Six parcours de certification ISTQB, du fondamental au spécialisé.",
+      "ctfl": {
+        "title": "CTFL — Certified Tester Foundation Level",
+        "level": "Foundation",
+        "duration": "3 jours / 21h",
+        "description": "Le socle incontournable du métier de testeur. Maîtrisez les fondamentaux du test logiciel selon le référentiel international ISTQB.",
+        "keyPoints": ["Processus et techniques de test fondamentaux", "Gestion des tests et outils", "Préparation intensive à l'examen CTFL"]
+      },
+      "advancedTestAnalyst": {
+        "title": "Advanced Test Analyst",
+        "level": "Advanced",
+        "duration": "3 jours / 21h",
+        "description": "Approfondissez vos compétences en analyse de test. Techniques avancées de conception, revue et évaluation des risques qualité.",
+        "keyPoints": ["Techniques de test boîte noire avancées", "Analyse des risques et priorisation", "Revue et évaluation de la testabilité"]
+      },
+      "technicalTestAnalyst": {
+        "title": "Technical Test Analyst",
+        "level": "Advanced",
+        "duration": "3 jours / 21h",
+        "description": "Maîtrisez les aspects techniques du test : test structurel, analyse statique, tests de sécurité et de performance.",
+        "keyPoints": ["Test boîte blanche et analyse statique", "Tests de sécurité et de fiabilité", "Revues techniques et outils d'analyse"]
+      },
+      "testAutomationEngineer": {
+        "title": "Test Automation Engineer",
+        "level": "Specialist",
+        "duration": "3 jours / 21h",
+        "description": "Concevez et implémentez des solutions d'automatisation de tests robustes et maintenables. Architecture, frameworks, bonnes pratiques.",
+        "keyPoints": ["Architecture d'automatisation (gTAA)", "Conception de scripts maintenables", "Intégration CI/CD et reporting automatisé"]
+      },
+      "agileTester": {
+        "title": "Agile Tester",
+        "level": "Foundation Extension",
+        "duration": "2 jours / 14h",
+        "description": "Adaptez vos pratiques de test au contexte agile. Rôle du testeur dans Scrum, tests exploratoires, définition du Done.",
+        "keyPoints": ["Test dans les méthodologies agiles", "Tests exploratoires et session-based", "Collaboration et feedback continu"]
+      },
+      "testManager": {
+        "title": "Test Manager",
+        "level": "Advanced",
+        "duration": "5 jours / 35h",
+        "description": "Pilotez la stratégie de test de votre organisation. Planification, estimation, suivi, gouvernance et amélioration continue.",
+        "keyPoints": ["Stratégie et planification des tests", "Gestion des équipes et des compétences", "KPIs, reporting et amélioration continue", "Gestion des risques et des parties prenantes"]
+      }
+    },
+    "pedagogy": {
+      "title": "Notre approche pédagogique",
+      "subtitle": "Une formation qui va au-delà de la théorie.",
+      "theory": {
+        "title": "Syllabus ISTQB officiel",
+        "description": "Contenu aligné à 100% sur le syllabus ISTQB en vigueur. Chaque module couvre les objectifs d'apprentissage requis pour la certification."
+      },
+      "caseStudies": {
+        "title": "Études de cas réels",
+        "description": "Exercices pratiques issus de projets réels en contexte offshore. Vos équipes travaillent sur des scénarios qu'elles retrouveront en mission."
+      },
+      "mockExams": {
+        "title": "Examens blancs",
+        "description": "Simulations d'examen en conditions réelles. Correction détaillée et analyse des points faibles pour maximiser le taux de réussite."
+      },
+      "followUp": {
+        "title": "Suivi post-formation",
+        "description": "Accompagnement de 30 jours après la formation. Support par email, ressources complémentaires et session de questions-réponses."
+      }
+    },
+    "formats": {
+      "title": "Formats de formation",
+      "subtitle": "Trois formats adaptés à vos contraintes organisationnelles et géographiques.",
+      "interCompany": {
+        "title": "Inter-entreprises",
+        "description": "Sessions programmées à dates fixes, ouvertes à tous. Idéal pour former un ou deux collaborateurs.",
+        "points": ["Calendrier fixe avec sessions régulières", "Échanges entre professionnels de différents secteurs", "Tarif individuel compétitif"]
+      },
+      "intraCompany": {
+        "title": "Intra-entreprise",
+        "description": "Formation dédiée à votre organisation, adaptée à votre contexte métier et vos outils.",
+        "points": ["Programme personnalisé à votre environnement", "Sur site ou dans nos locaux", "À partir de 4 participants"]
+      },
+      "remote": {
+        "title": "À distance",
+        "description": "Formation en visioconférence avec la même qualité pédagogique. Classes virtuelles interactives et collaboratives.",
+        "points": ["Sessions live avec formateur dédié", "Outils collaboratifs et exercices en temps réel", "Idéal pour les équipes distribuées"]
+      }
+    },
+    "whyQuorexis": {
+      "title": "Pourquoi choisir Quorexis",
+      "subtitle": "Ce qui fait la différence.",
+      "points": {
+        "practitioners": {
+          "title": "Formateurs praticiens",
+          "description": "Nos formateurs sont des consultants en activité avec plus de 10 ans d'expérience en delivery de tests logiciels. Ils enseignent ce qu'ils pratiquent quotidiennement."
+        },
+        "successRate": {
+          "title": "Taux de réussite élevé",
+          "description": "Notre approche pédagogique structurée — syllabus, cas pratiques, examens blancs — garantit un taux de réussite supérieur à la moyenne du marché."
+        },
+        "offshore": {
+          "title": "Approche offshore-compatible",
+          "description": "Nos formations intègrent les spécificités du testing en contexte offshore : communication interculturelle, outils collaboratifs, gouvernance à distance."
+        },
+        "personalized": {
+          "title": "Suivi personnalisé",
+          "description": "Chaque participant bénéficie d'un suivi individuel de 30 jours post-formation : support par email, ressources complémentaires, session Q&A."
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à certifier vos équipes ?",
+      "subtitle": "Planifiez un échange avec notre équipe pour définir le parcours de formation adapté à vos objectifs.",
+      "button": "Planifier un échange"
+    }
+  },
+  "trainingTeaser": {
+    "title": "Formation & Certification ISTQB",
+    "subtitle": "Certifiez vos équipes aux standards internationaux du test logiciel. Six parcours ISTQB, formateurs praticiens, approche orientée résultats.",
+    "cta": "Découvrir nos formations"
+  },
   "blog": {
     "title": "Perspectives",
     "subtitle": "Analyses et retours d'expérience sur la delivery de tests logiciels en offshore.",
@@ -162,7 +288,9 @@
   },
   "seo": {
     "title": "Quorexis — Offshore Software Testing Delivery | Test. Trust. Deliver.",
-    "description": "Cabinet français spécialisé en delivery de tests logiciels en offshore. Tests fonctionnels, automatisation, API, performance, gouvernance QA."
+    "description": "Cabinet français spécialisé en delivery de tests logiciels en offshore. Tests fonctionnels, automatisation, API, performance, gouvernance QA.",
+    "trainingTitle": "Formation ISTQB — Quorexis | Certification Test Logiciel",
+    "trainingDescription": "Formations et certifications ISTQB : CTFL, Test Analyst, Test Automation Engineer, Agile Tester, Test Manager. Formateurs praticiens, approche orientée résultats."
   },
   "ui": {
     "backToTop": "Haut de page",
