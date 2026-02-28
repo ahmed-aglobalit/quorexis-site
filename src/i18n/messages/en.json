@@ -1268,6 +1268,7 @@
       "messagePlaceholder": "Context, constraints, specific requirements…",
       "callTitle": "Schedule a call",
       "wantsCall": "I'd like a 30-min call",
+      "bookCalendly": "Book a slot on Calendly",
       "timeSlot": "Preferred time",
       "timeSlotPlaceholder": "Select time slot",
       "timeSlots": {

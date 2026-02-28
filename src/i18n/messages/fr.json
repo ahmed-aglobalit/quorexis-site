@@ -1230,6 +1230,7 @@
       "messagePlaceholder": "Contexte, contraintes, exigences spécifiques…",
       "callTitle": "Planifier un échange",
       "wantsCall": "Je souhaite un échange de 30 min",
+      "bookCalendly": "Réserver un créneau sur Calendly",
       "timeSlot": "Créneau préféré",
       "timeSlotPlaceholder": "Sélectionnez le créneau",
       "timeSlots": {

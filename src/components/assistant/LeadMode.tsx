@@ -37,8 +37,6 @@ const needKeys = ["functional", "automation", "api", "performance", "governance"
 const urgencyKeys = ["asap", "1month", "1-3months", "planning"] as const;
 const volumeKeys = ["small", "medium", "large"] as const;
 const goalKeys = ["reduceIncidents", "accelerateRelease", "stabilizeRegression", "structureGovernance", "improveKpis"] as const;
-const timeSlotKeys = ["morning", "afternoon", "flexible"] as const;
-const tzKeys = ["europe", "uk", "us-east", "us-west", "other"] as const;
 
 const inputBase =
   "w-full px-3 py-2.5 border border-border rounded-md bg-transparent text-sm focus:outline-none focus:border-accent transition-colors";
@@ -410,7 +408,7 @@ export default function LeadMode({ onBack }: LeadModeProps) {
           </>
         )}
 
-        {/* Step 6: Call */}
+        {/* Step 6: Call via Calendly */}
         {step === 6 && (
           <>
             <p className="text-sm font-medium">{t("lead.callTitle")}</p>
@@ -426,37 +424,30 @@ export default function LeadMode({ onBack }: LeadModeProps) {
             </label>
 
             {data.wantsCall && (
-              <>
-                <select
-                  value={data.timeSlot}
-                  onChange={(e) => updateField("timeSlot", e.target.value)}
-                  className={`${selectBase} ${data.timeSlot ? "text-foreground" : "text-muted"}`}
+              <a
+                href="https://calendly.com/ahmed-ghanmi-quorexis/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
                 >
-                  <option value="" disabled>
-                    {t("lead.timeSlotPlaceholder")}
-                  </option>
-                  {timeSlotKeys.map((k) => (
-                    <option key={k} value={k}>
-                      {t(`lead.timeSlots.${k}`)}
-                    </option>
-                  ))}
-                </select>
-
-                <select
-                  value={data.timezone}
-                  onChange={(e) => updateField("timezone", e.target.value)}
-                  className={`${selectBase} ${data.timezone ? "text-foreground" : "text-muted"}`}
-                >
-                  <option value="" disabled>
-                    {t("lead.timezonePlaceholder")}
-                  </option>
-                  {tzKeys.map((k) => (
-                    <option key={k} value={k}>
-                      {t(`lead.timezones.${k}`)}
-                    </option>
-                  ))}
-                </select>
-              </>
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                {t("lead.bookCalendly")}
+              </a>
             )}
           </>
         )}
@@ -521,7 +512,7 @@ export default function LeadMode({ onBack }: LeadModeProps) {
             <SummarySection title={t("lead.summaryCall")}>
               <p className="text-muted">
                 {data.wantsCall
-                  ? `${t("lead.summaryYes")} — ${data.timeSlot ? label("timeSlots", data.timeSlot) : "—"} (${data.timezone ? label("timezones", data.timezone) : "—"})`
+                  ? `${t("lead.summaryYes")} — Calendly`
                   : t("lead.summaryNo")}
               </p>
             </SummarySection>
