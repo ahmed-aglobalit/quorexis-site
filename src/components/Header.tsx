@@ -96,7 +96,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
         {/* Logo — container clips the whitespace padding in the image */}
-        <Link href="/" className="flex-shrink-0 flex items-center h-12 overflow-hidden">
+        <Link href="/" className="flex-shrink-0 flex items-center h-12 w-[140px] md:w-[200px] overflow-hidden">
           <Image
             src="/images/quorexis-logo.webp"
             alt="Quorexis"
