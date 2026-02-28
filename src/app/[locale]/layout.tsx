@@ -5,7 +5,7 @@ import { locales } from "@/i18n/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import Chatbot from "@/components/Chatbot";
+import AssistantWidget from "@/components/AssistantWidget";
 import SkipToContent from "@/components/SkipToContent";
 
 export default async function LocaleLayout({
@@ -30,7 +30,7 @@ export default async function LocaleLayout({
       <main id="main-content">{children}</main>
       <Footer />
       <BackToTop />
-      <Chatbot />
+      <AssistantWidget />
     </NextIntlClientProvider>
   );
 }

@@ -184,15 +184,6 @@
     "or": "Or email us directly:",
     "copied": "Copied"
   },
-  "chatbot": {
-    "title": "Quorexis Assistant",
-    "placeholder": "Ask your question...",
-    "send": "Send",
-    "error": "Sorry, an error occurred. Please try again.",
-    "welcome": "Hello! I'm the Quorexis assistant. How can I help you with your software testing needs?",
-    "openChat": "Open chat",
-    "closeChat": "Close chat"
-  },
   "training": {
     "hero": {
       "title": "ISTQB Training & Certification",
@@ -1172,5 +1163,141 @@
     "seoDescription": "Contact Quorexis for offshore software testing delivery. Schedule a call or send us your project details.",
     "title": "Contact us",
     "subtitle": "Tell us about your testing challenges. We'll get back to you within 48 hours."
+  },
+  "assistant": {
+    "open": "Assistant",
+    "close": "Close",
+    "title": "Quorexis Assistant",
+    "chooseMode": "How can we help?",
+    "faqOption": "I'm looking for an answer",
+    "faqDesc": "Browse our FAQ",
+    "leadOption": "I want to talk to an expert",
+    "leadDesc": "Qualify your project",
+    "back": "Back",
+    "continue": "Continue",
+    "send": "Send",
+    "sending": "Sending…",
+    "startOver": "Start over",
+    "faq": {
+      "selectCategory": "Select a topic",
+      "selectQuestion": "Select a question",
+      "otherQuestion": "Other question",
+      "otherPlaceholder": "Type your question…",
+      "noAnswer": "We don't have a pre-written answer for that question. Would you like to talk to a QA Lead?",
+      "relatedLinks": "Learn more",
+      "talkToExpert": "Talk to a QA Lead",
+      "backToQuestions": "Other questions",
+      "categories": {
+        "services": "Services",
+        "delivery": "Delivery Model",
+        "governance": "QA Governance & KPIs",
+        "pricing": "Pricing & Engagement",
+        "security": "Security & Confidentiality",
+        "training": "Training ISTQB"
+      }
+    },
+    "lead": {
+      "profileTitle": "Your profile",
+      "name": "Full name",
+      "email": "Professional email",
+      "company": "Company",
+      "role": "Role",
+      "rolePlaceholder": "Select your role",
+      "roles": {
+        "cto": "CTO / VP Engineering",
+        "qaLead": "QA Lead / Manager",
+        "product": "Product Owner / Manager",
+        "procurement": "Procurement",
+        "other": "Other"
+      },
+      "contextTitle": "Your context",
+      "productType": "Product type",
+      "productPlaceholder": "Select product type",
+      "types": {
+        "web": "Web",
+        "mobile": "Mobile",
+        "api": "API",
+        "multi": "Multi-platform"
+      },
+      "sector": "Industry sector",
+      "sectorPlaceholder": "Select sector",
+      "sectors": {
+        "fintech": "Fintech",
+        "telecom": "Telecom",
+        "iot": "Industry & IoT",
+        "travel": "Travel",
+        "healthcare": "Healthcare",
+        "other": "Other"
+      },
+      "needTitle": "Your need",
+      "mainNeed": "Primary need",
+      "needPlaceholder": "Select primary need",
+      "needs": {
+        "functional": "Functional / Manual Testing",
+        "automation": "Test Automation",
+        "api": "API Testing",
+        "performance": "Performance Testing",
+        "governance": "QA Governance & KPIs",
+        "training": "Training ISTQB"
+      },
+      "urgency": "Timeline",
+      "urgencyPlaceholder": "Select timeline",
+      "urgencies": {
+        "asap": "ASAP",
+        "1month": "< 1 month",
+        "1-3months": "1–3 months",
+        "planning": "Planning"
+      },
+      "volume": "Estimated volume",
+      "volumePlaceholder": "Select volume",
+      "volumes": {
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "goalsTitle": "Goals & pain points",
+      "goalsSubtitle": "Select all that apply",
+      "goals": {
+        "reduceIncidents": "Reduce production incidents",
+        "accelerateRelease": "Accelerate releases",
+        "stabilizeRegression": "Stabilize regression",
+        "structureGovernance": "Structure QA governance",
+        "improveKpis": "Improve quality KPIs"
+      },
+      "messageTitle": "Additional details",
+      "messagePlaceholder": "Context, constraints, specific requirements…",
+      "callTitle": "Schedule a call",
+      "wantsCall": "I'd like a 30-min call",
+      "timeSlot": "Preferred time",
+      "timeSlotPlaceholder": "Select time slot",
+      "timeSlots": {
+        "morning": "Morning (9h–12h)",
+        "afternoon": "Afternoon (14h–17h)",
+        "flexible": "Flexible"
+      },
+      "timezone": "Timezone",
+      "timezonePlaceholder": "Select timezone",
+      "timezones": {
+        "europe": "Europe (CET/CEST)",
+        "uk": "UK (GMT/BST)",
+        "us-east": "US East (EST/EDT)",
+        "us-west": "US West (PST/PDT)",
+        "other": "Other"
+      },
+      "summaryTitle": "Summary",
+      "summaryProfile": "Profile",
+      "summaryContext": "Context",
+      "summaryNeed": "Need",
+      "summaryGoals": "Goals",
+      "summaryMessage": "Message",
+      "summaryCall": "Call",
+      "summaryYes": "Yes",
+      "summaryNo": "No",
+      "confirm": "Send my request",
+      "success": "Thank you! A QA Lead will contact you shortly.",
+      "errorRequired": "Required",
+      "errorEmail": "Invalid email",
+      "errorGeneral": "An error occurred. Please try again."
+    }
   }
 }
