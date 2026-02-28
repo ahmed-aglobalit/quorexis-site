@@ -26,27 +26,6 @@ interface EventType {
 
 const CALENDLY_EVENTS: EventType[] = [
   {
-    key: "discovery",
-    url: process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_20,
-    duration: "20 min",
-    icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    ),
-  },
-  {
     key: "audit",
     url: process.env.NEXT_PUBLIC_CALENDLY_AUDIT_30,
     duration: "30 min",
@@ -73,7 +52,7 @@ const CALENDLY_EVENTS: EventType[] = [
   {
     key: "scoping",
     url: process.env.NEXT_PUBLIC_CALENDLY_SCOPING_45,
-    duration: "45 min",
+    duration: "1h",
     icon: (
       <svg
         width="20"
