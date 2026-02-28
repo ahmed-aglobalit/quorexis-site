@@ -98,7 +98,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/quorexis-logo.png"
+            src="/images/quorexis-logo.webp"
             alt="Quorexis"
             width={120}
             height={32}
