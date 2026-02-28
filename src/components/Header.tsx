@@ -95,14 +95,14 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors"
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
-        {/* Logo — container clips the whitespace padding in the image */}
-        <Link href="/" className="flex-shrink-0 flex items-center h-12 w-[140px] md:w-[200px] overflow-hidden">
+        {/* Logo — fill + scale to crop whitespace */}
+        <Link href="/" className="relative flex-shrink-0 h-10 w-[130px] md:w-[170px] overflow-hidden">
           <Image
             src="/images/quorexis-logo.webp"
             alt="Quorexis"
-            width={500}
-            height={150}
-            className="h-32 w-auto max-w-none object-contain"
+            fill
+            sizes="170px"
+            className="object-contain scale-[2.5]"
             priority
           />
           <span className="sr-only">Quorexis</span>
@@ -237,7 +237,7 @@ export default function Header() {
       {/* ── Mobile drawer ── */}
       {mobileOpen && (
         <nav
-          className="lg:hidden fixed inset-0 top-16 z-40 bg-background/98 backdrop-blur-md overflow-y-auto"
+          className="lg:hidden fixed inset-0 top-16 z-[60] bg-background overflow-y-auto"
           aria-label="Mobile navigation"
         >
           <div className="px-6 py-6 flex flex-col gap-1">
