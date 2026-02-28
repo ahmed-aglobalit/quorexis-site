@@ -9,13 +9,13 @@ import Toast from "./Toast";
 const members = [
   {
     name: "Ahmed Ghanmi",
-    role: "Founder & CEO",
+    role: "Co-Founder",
     email: "ahmed.ghanmi@quorexis.fr",
     photo: "/images/team/ahmed.webp",
   },
   {
     name: "Samy Mejri",
-    role: "Sales Director & Business Development",
+    role: "Co-Founder",
     email: "samy.mejri@quorexis.fr",
     photo: "/images/team/samy.webp",
   },
