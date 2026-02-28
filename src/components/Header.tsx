@@ -95,14 +95,14 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors"
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        {/* Logo — container clips the whitespace padding in the image */}
+        <Link href="/" className="flex-shrink-0 flex items-center h-12 overflow-hidden">
           <Image
             src="/images/quorexis-logo.webp"
             alt="Quorexis"
-            width={280}
-            height={80}
-            className="h-36 md:h-44 -my-14 md:-my-18 w-auto object-contain"
+            width={500}
+            height={150}
+            className="h-32 w-auto max-w-none object-contain"
             priority
           />
           <span className="sr-only">Quorexis</span>
