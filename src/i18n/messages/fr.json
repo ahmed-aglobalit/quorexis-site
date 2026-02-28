@@ -1230,22 +1230,24 @@
       "messagePlaceholder": "Contexte, contraintes, exigences spécifiques…",
       "callTitle": "Planifier un échange",
       "wantsCall": "Je souhaite un échange de 30 min",
-      "bookCalendly": "Réserver un créneau sur Calendly",
-      "timeSlot": "Créneau préféré",
-      "timeSlotPlaceholder": "Sélectionnez le créneau",
-      "timeSlots": {
-        "morning": "Matin (9h–12h)",
-        "afternoon": "Après-midi (14h–17h)",
-        "flexible": "Flexible"
-      },
-      "timezone": "Fuseau horaire",
-      "timezonePlaceholder": "Sélectionnez le fuseau",
-      "timezones": {
-        "europe": "Europe (CET/CEST)",
-        "uk": "UK (GMT/BST)",
-        "us-east": "US Est (EST/EDT)",
-        "us-west": "US Ouest (PST/PDT)",
-        "other": "Autre"
+      "calendly": {
+        "title": "Réserver un rendez-vous",
+        "subtitle": "Choisissez le format qui vous convient",
+        "fallback": "Vous pouvez aussi nous écrire à contact@quorexis.fr",
+        "events": {
+          "discovery": {
+            "title": "Appel découverte",
+            "desc": "Introduction rapide pour comprendre votre contexte"
+          },
+          "audit": {
+            "title": "Audit QA",
+            "desc": "Revue approfondie de vos processus QA"
+          },
+          "scoping": {
+            "title": "Cadrage projet",
+            "desc": "Cadrage détaillé pour une collaboration"
+          }
+        }
       },
       "summaryTitle": "Récapitulatif",
       "summaryProfile": "Profil",
@@ -1256,6 +1258,7 @@
       "summaryCall": "Appel",
       "summaryYes": "Oui",
       "summaryNo": "Non",
+      "summaryCalendlyBooked": "Oui — via Calendly",
       "confirm": "Envoyer ma demande",
       "success": "Merci ! Un QA Lead vous recontacte très prochainement.",
       "errorRequired": "Requis",

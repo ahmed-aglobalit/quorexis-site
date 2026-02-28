@@ -1268,22 +1268,24 @@
       "messagePlaceholder": "Context, constraints, specific requirements…",
       "callTitle": "Schedule a call",
       "wantsCall": "I'd like a 30-min call",
-      "bookCalendly": "Book a slot on Calendly",
-      "timeSlot": "Preferred time",
-      "timeSlotPlaceholder": "Select time slot",
-      "timeSlots": {
-        "morning": "Morning (9h–12h)",
-        "afternoon": "Afternoon (14h–17h)",
-        "flexible": "Flexible"
-      },
-      "timezone": "Timezone",
-      "timezonePlaceholder": "Select timezone",
-      "timezones": {
-        "europe": "Europe (CET/CEST)",
-        "uk": "UK (GMT/BST)",
-        "us-east": "US East (EST/EDT)",
-        "us-west": "US West (PST/PDT)",
-        "other": "Other"
+      "calendly": {
+        "title": "Book a meeting",
+        "subtitle": "Choose the format that suits you best",
+        "fallback": "You can also reach us at contact@quorexis.fr",
+        "events": {
+          "discovery": {
+            "title": "Discovery Call",
+            "desc": "Quick intro to understand your context"
+          },
+          "audit": {
+            "title": "QA Audit",
+            "desc": "In-depth review of your QA processes"
+          },
+          "scoping": {
+            "title": "Project Scoping",
+            "desc": "Detailed scoping for a collaboration"
+          }
+        }
       },
       "summaryTitle": "Summary",
       "summaryProfile": "Profile",
@@ -1294,6 +1296,7 @@
       "summaryCall": "Call",
       "summaryYes": "Yes",
       "summaryNo": "No",
+      "summaryCalendlyBooked": "Yes — via Calendly",
       "confirm": "Send my request",
       "success": "Thank you! A QA Lead will contact you shortly.",
       "errorRequired": "Required",
