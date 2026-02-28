@@ -128,18 +128,29 @@ export default function LeadMode({ onBack }: LeadModeProps) {
   async function handleSubmit() {
     setStatus("sending");
     try {
+      const payload = {
+        ...data,
+        locale,
+        referrer: typeof window !== "undefined" ? window.location.href : "",
+      };
+      console.log("[Assistant] Submitting lead:", payload);
+
       const res = await fetch("/api/assistant/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          locale,
-          referrer: typeof window !== "undefined" ? window.location.href : "",
-        }),
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Failed");
+
+      if (!res.ok) {
+        const errorBody = await res.text().catch(() => "");
+        console.error("[Assistant] API error:", res.status, errorBody);
+        throw new Error(`API ${res.status}`);
+      }
+
+      console.log("[Assistant] Lead sent successfully");
       setStatus("success");
-    } catch {
+    } catch (err) {
+      console.error("[Assistant] Submit failed:", err);
       setStatus("error");
     }
   }
@@ -156,11 +167,11 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
   if (status === "success") {
     return (
-      <div className="p-4 flex flex-col items-center gap-4 text-center">
-        <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+      <div className="p-6 flex flex-col items-center gap-4 text-center">
+        <div className="h-14 w-14 rounded-full bg-accent/10 flex items-center justify-center">
           <svg
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -171,7 +182,9 @@ export default function LeadMode({ onBack }: LeadModeProps) {
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <p className="text-sm font-medium">{t("lead.success")}</p>
+        <p className="text-sm font-medium leading-relaxed">
+          {t("lead.success")}
+        </p>
         <button
           onClick={onBack}
           className="text-xs text-muted hover:text-foreground transition-colors"
@@ -183,10 +196,11 @@ export default function LeadMode({ onBack }: LeadModeProps) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full">
       <StepIndicator current={step} total={TOTAL_STEPS} />
 
-      <div className="p-4 flex flex-col gap-3 overflow-y-auto flex-1">
+      {/* Scrollable step content */}
+      <div className="p-4 flex flex-col gap-3 overflow-y-auto min-h-0 flex-1">
         {/* Step 1: Profile */}
         {step === 1 && (
           <>
@@ -449,114 +463,108 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
         {/* Step 7: Summary */}
         {step === 7 && (
-          <>
+          <div className="flex flex-col gap-2 text-sm">
             <p className="text-sm font-medium">{t("lead.summaryTitle")}</p>
 
-            <div className="flex flex-col gap-2 text-sm">
-              <SummarySection title={t("lead.summaryProfile")}>
-                <SummaryRow label={t("lead.name")} value={data.name} />
-                <SummaryRow label={t("lead.email")} value={data.email} />
-                <SummaryRow label={t("lead.company")} value={data.company} />
-                <SummaryRow
-                  label={t("lead.role")}
-                  value={data.role ? label("roles", data.role) : "—"}
-                />
-              </SummarySection>
+            <SummarySection title={t("lead.summaryProfile")}>
+              <SummaryRow label={t("lead.name")} value={data.name} />
+              <SummaryRow label={t("lead.email")} value={data.email} />
+              <SummaryRow label={t("lead.company")} value={data.company} />
+              <SummaryRow
+                label={t("lead.role")}
+                value={data.role ? label("roles", data.role) : "—"}
+              />
+            </SummarySection>
 
-              <SummarySection title={t("lead.summaryContext")}>
-                <SummaryRow
-                  label={t("lead.productType")}
-                  value={data.productType ? label("types", data.productType) : "—"}
-                />
-                <SummaryRow
-                  label={t("lead.sector")}
-                  value={data.sector ? label("sectors", data.sector) : "—"}
-                />
-              </SummarySection>
+            <SummarySection title={t("lead.summaryContext")}>
+              <SummaryRow
+                label={t("lead.productType")}
+                value={data.productType ? label("types", data.productType) : "—"}
+              />
+              <SummaryRow
+                label={t("lead.sector")}
+                value={data.sector ? label("sectors", data.sector) : "—"}
+              />
+            </SummarySection>
 
-              <SummarySection title={t("lead.summaryNeed")}>
-                <SummaryRow
-                  label={t("lead.mainNeed")}
-                  value={data.mainNeed ? label("needs", data.mainNeed) : "—"}
-                />
-                <SummaryRow
-                  label={t("lead.urgency")}
-                  value={data.urgency ? label("urgencies", data.urgency) : "—"}
-                />
-                <SummaryRow
-                  label={t("lead.volume")}
-                  value={data.volume ? label("volumes", data.volume) : "—"}
-                />
-              </SummarySection>
+            <SummarySection title={t("lead.summaryNeed")}>
+              <SummaryRow
+                label={t("lead.mainNeed")}
+                value={data.mainNeed ? label("needs", data.mainNeed) : "—"}
+              />
+              <SummaryRow
+                label={t("lead.urgency")}
+                value={data.urgency ? label("urgencies", data.urgency) : "—"}
+              />
+              <SummaryRow
+                label={t("lead.volume")}
+                value={data.volume ? label("volumes", data.volume) : "—"}
+              />
+            </SummarySection>
 
-              {data.goals.length > 0 && (
-                <SummarySection title={t("lead.summaryGoals")}>
-                  <p className="text-muted break-words">
-                    {data.goals.map((g) => label("goals", g)).join(", ")}
-                  </p>
-                </SummarySection>
-              )}
-
-              {data.message && (
-                <SummarySection title={t("lead.summaryMessage")}>
-                  <p className="text-muted break-words whitespace-pre-wrap">
-                    {data.message}
-                  </p>
-                </SummarySection>
-              )}
-
-              <SummarySection title={t("lead.summaryCall")}>
-                <p className="text-muted">
-                  {data.wantsCall
-                    ? `${t("lead.summaryYes")} — ${data.timeSlot ? label("timeSlots", data.timeSlot) : "—"} (${data.timezone ? label("timezones", data.timezone) : "—"})`
-                    : t("lead.summaryNo")}
+            {data.goals.length > 0 && (
+              <SummarySection title={t("lead.summaryGoals")}>
+                <p className="text-muted break-words">
+                  {data.goals.map((g) => label("goals", g)).join(", ")}
                 </p>
               </SummarySection>
-            </div>
+            )}
 
-            <button
-              onClick={handleSubmit}
-              disabled={status === "sending"}
-              className="w-full px-3 py-2.5 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {status === "sending" ? t("sending") : t("lead.confirm")}
-            </button>
+            {data.message && (
+              <SummarySection title={t("lead.summaryMessage")}>
+                <p className="text-muted break-words whitespace-pre-wrap">
+                  {data.message}
+                </p>
+              </SummarySection>
+            )}
+
+            <SummarySection title={t("lead.summaryCall")}>
+              <p className="text-muted">
+                {data.wantsCall
+                  ? `${t("lead.summaryYes")} — ${data.timeSlot ? label("timeSlots", data.timeSlot) : "—"} (${data.timezone ? label("timezones", data.timezone) : "—"})`
+                  : t("lead.summaryNo")}
+              </p>
+            </SummarySection>
 
             {status === "error" && (
-              <p className="text-xs text-red-500">{t("lead.errorGeneral")}</p>
+              <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                <p className="text-sm text-red-600 font-medium">
+                  {t("lead.errorGeneral")}
+                </p>
+              </div>
             )}
-          </>
+          </div>
         )}
       </div>
 
-      {/* Navigation */}
-      {step < TOTAL_STEPS && (
-        <div className="flex items-center justify-between border-t border-border px-4 py-3">
-          <button
-            onClick={handlePrev}
-            className="text-sm text-muted hover:text-foreground transition-colors"
-          >
-            ← {t("back")}
-          </button>
+      {/* Sticky footer — always visible */}
+      <div className="shrink-0 border-t border-border px-4 py-3 flex items-center justify-between gap-2">
+        <button
+          onClick={handlePrev}
+          className="text-sm text-muted hover:text-foreground transition-colors"
+        >
+          ← {t("back")}
+        </button>
+
+        {step < TOTAL_STEPS && (
           <button
             onClick={handleNext}
             className="px-4 py-2 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
           >
             {t("continue")}
           </button>
-        </div>
-      )}
+        )}
 
-      {step === TOTAL_STEPS && (
-        <div className="flex items-center border-t border-border px-4 py-3">
+        {step === TOTAL_STEPS && (
           <button
-            onClick={handlePrev}
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            onClick={handleSubmit}
+            disabled={status === "sending"}
+            className="px-5 py-2 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            ← {t("back")}
+            {status === "sending" ? t("sending") : t("lead.confirm")}
           </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
