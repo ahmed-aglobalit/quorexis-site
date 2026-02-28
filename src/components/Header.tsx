@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname, Link } from "@/i18n/navigation";
 import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
 import { navigationItems } from "@/config/navigation";
 import MegaMenu from "./MegaMenu";
 import DropdownMenu from "./DropdownMenu";
@@ -95,8 +96,16 @@ export default function Header() {
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="text-lg font-semibold tracking-tight">
-          Quorexis
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/images/quorexis-logo.png"
+            alt="Quorexis"
+            width={120}
+            height={32}
+            className="h-7 w-auto object-contain"
+            priority
+          />
+          <span className="sr-only">Quorexis</span>
         </Link>
 
         {/* ── Desktop nav ── */}
