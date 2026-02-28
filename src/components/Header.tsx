@@ -102,7 +102,7 @@ export default function Header() {
             alt="Quorexis"
             width={280}
             height={80}
-            className="h-24 -my-8 w-auto object-contain"
+            className="h-28 md:h-32 -my-10 md:-my-12 w-auto object-contain"
             priority
           />
           <span className="sr-only">Quorexis</span>
@@ -204,7 +204,7 @@ export default function Header() {
           {/* CTA Contact */}
           <Link
             href="/#contact"
-            className="ml-3 px-5 py-2 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 transition-all duration-200"
+            className="ml-3 whitespace-nowrap px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 transition-all duration-200"
           >
             {t("contactUs")}
           </Link>
