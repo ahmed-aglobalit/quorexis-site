@@ -180,6 +180,23 @@ html {
 .revealed .pedagogy-block:nth-child(3) { animation-delay: 0.2s; }
 .revealed .pedagogy-block:nth-child(4) { animation-delay: 0.3s; }
 
+/* ── Service cards staggered entrance ── */
+.service-card {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.revealed .service-card {
+  animation: card-step-in 0.6s ease forwards;
+}
+
+.revealed .service-card:nth-child(1) { animation-delay: 0s; }
+.revealed .service-card:nth-child(2) { animation-delay: 0.1s; }
+.revealed .service-card:nth-child(3) { animation-delay: 0.15s; }
+.revealed .service-card:nth-child(4) { animation-delay: 0.2s; }
+.revealed .service-card:nth-child(5) { animation-delay: 0.25s; }
+.revealed .service-card:nth-child(6) { animation-delay: 0.3s; }
+
 /* ── Mega-menu & dropdown ── */
 @keyframes menu-enter {
   from {
@@ -262,7 +279,8 @@ html {
   .expertise-card,
   .approach-step,
   .training-card,
-  .pedagogy-block {
+  .pedagogy-block,
+  .service-card {
     opacity: 1;
     transform: none;
     animation: none;

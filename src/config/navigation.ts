@@ -202,6 +202,6 @@ export const navigationItems: NavItem[] = [
     type: "link",
     key: "clients",
     labelKey: "clients",
-    href: "/#clients",
+    href: "/clients",
   },
 ];

@@ -344,5 +344,910 @@
   "ui": {
     "backToTop": "Back to top",
     "skipToContent": "Skip to content"
+  },
+  "services": {
+    "common": {
+      "solvesTitle": "What it solves",
+      "scopeTitle": "Scope & Deliverables",
+      "deliveryTitle": "Delivery Model",
+      "kpisTitle": "KPIs & Reporting",
+      "ctaTitle": "Ready to improve your testing?",
+      "ctaSubtitle": "Schedule a call with our team to discuss your testing challenges.",
+      "ctaButton": "Let's talk",
+      "assessTitle": "Assess",
+      "structureTitle": "Structure",
+      "deliverTitle": "Deliver",
+      "backToServices": "All services"
+    },
+    "landing": {
+      "seoTitle": "Offshore Testing Services — Quorexis",
+      "seoDescription": "Quorexis delivers structured offshore testing operations: functional, automation, API, performance and QA governance.",
+      "title": "Offshore testing services, governed and KPI-driven",
+      "subtitle": "Quorexis delivers structured testing operations: functional, automation, API, performance and QA governance.",
+      "categories": {
+        "core": { "title": "Core Testing", "description": "The foundation of every testing engagement." },
+        "advanced": { "title": "Advanced Testing", "description": "Specialized techniques for complex environments." },
+        "governance": { "title": "Governance & Consulting", "description": "Quality management frameworks and audits." },
+        "levels": { "title": "Testing Levels", "description": "Structured testing at every level of the delivery chain." },
+        "platforms": { "title": "Platforms", "description": "Validation across all application types." }
+      },
+      "ctaTitle": "Ready to structure your testing?",
+      "ctaSubtitle": "Tell us about your context. We'll propose a tailored approach.",
+      "ctaButton": "Schedule a call"
+    },
+    "functionalTesting": {
+      "seoTitle": "Functional Testing — Quorexis",
+      "seoDescription": "Structured functional testing campaigns with full traceability, defect management and executive reporting for offshore delivery.",
+      "title": "Structured Functional Testing",
+      "subtitle": "Coverage of critical user journeys, traceability, defect management and executive reporting.",
+      "solves": [
+        "Uncontrolled regressions impacting production releases",
+        "Late and chaotic UAT sessions with unclear acceptance criteria",
+        "Defects escaping to production due to insufficient test coverage",
+        "Lack of traceability between requirements and test execution"
+      ],
+      "deliverables": [
+        "Test plans and acceptance test case repository",
+        "Campaign execution with structured defect triage",
+        "Coverage matrix mapped to business requirements",
+        "Weekly reports and quality dashboards"
+      ],
+      "assess": "Audit of your current functional testing coverage, defect patterns and quality gates.",
+      "structure": "Design of test strategy, case repository and acceptance criteria framework.",
+      "deliver": "Execution of test campaigns with daily defect triage and weekly executive reporting.",
+      "kpis": [
+        "Defect density per module",
+        "Severity and priority mix analysis",
+        "Defect leakage to production",
+        "Coverage vs. business risk",
+        "Mean time to detect",
+        "Test execution progress rate"
+      ]
+    },
+    "testAutomation": {
+      "seoTitle": "Test Automation — Quorexis",
+      "seoDescription": "ROI-driven test automation with durable frameworks, high-value scenario selection and industrialized maintenance.",
+      "title": "ROI-Driven Test Automation",
+      "subtitle": "Durable automation framework, high-value scenario selection, industrialized maintenance.",
+      "solves": [
+        "Slow release cycles due to manual regression testing",
+        "Flaky and unmaintainable automation scripts",
+        "No clear ROI measurement on automation investment",
+        "Automation coverage gaps on critical business flows"
+      ],
+      "deliverables": [
+        "Automation strategy with scope and prioritization",
+        "Custom framework with conventions and quality gates",
+        "Smoke and regression suites integrated into CI/CD",
+        "Execution reports with trend analysis"
+      ],
+      "assess": "Analysis of your regression scope, release cadence and automation maturity.",
+      "structure": "Framework architecture, script conventions and CI/CD integration design.",
+      "deliver": "Suite development, execution monitoring and continuous maintenance.",
+      "kpis": [
+        "Test flakiness rate",
+        "Automation pass rate per suite",
+        "Execution runtime and efficiency",
+        "Automation coverage vs. manual backlog",
+        "Escaped defects post-automation",
+        "ROI on automation investment"
+      ]
+    },
+    "apiTesting": {
+      "seoTitle": "API Testing — Quorexis",
+      "seoDescription": "API testing for inter-system reliability: contract validation, regression detection, integration testing and controlled test data.",
+      "title": "API Testing for Inter-System Reliability",
+      "subtitle": "Contract validation, API regression, integration testing and controlled test data.",
+      "solves": [
+        "Silent API regressions breaking downstream consumers",
+        "No contract validation between services",
+        "Inconsistent test environments and data management",
+        "Late discovery of integration failures"
+      ],
+      "deliverables": [
+        "API test strategy: contract, functional and integration layers",
+        "Automated suites per endpoint with data management",
+        "Environment configuration and test data provisioning",
+        "Integration test reports and defect tracking"
+      ],
+      "assess": "Inventory of API endpoints, dependencies and current test coverage gaps.",
+      "structure": "Test strategy per layer, environment setup and data management approach.",
+      "deliver": "Suite execution with regression detection and integration health monitoring.",
+      "kpis": [
+        "Endpoint coverage percentage",
+        "Regression detection lead time",
+        "Defect severity distribution",
+        "Release readiness index",
+        "Contract compliance rate",
+        "Integration stability score"
+      ]
+    },
+    "performanceTesting": {
+      "seoTitle": "Performance Testing — Quorexis",
+      "seoDescription": "Load, stress and endurance testing campaigns with actionable analysis and optimization recommendations before production.",
+      "title": "Performance Testing Before Production",
+      "subtitle": "Load, stress and endurance campaigns with actionable analysis and optimization recommendations.",
+      "solves": [
+        "Unknown system capacity limits before production launch",
+        "Performance degradation under sustained load",
+        "Unidentified bottlenecks causing user-facing latency",
+        "No baseline metrics for capacity planning"
+      ],
+      "deliverables": [
+        "Load scenarios and test protocol documentation",
+        "Campaign execution: load, stress and endurance",
+        "Bottleneck analysis and optimization recommendations",
+        "Performance baseline and trend reports"
+      ],
+      "assess": "Profiling of critical transactions, infrastructure topology and performance requirements.",
+      "structure": "Scenario design, tool configuration and environment preparation.",
+      "deliver": "Campaign execution, real-time monitoring, analysis and actionable recommendations.",
+      "kpis": [
+        "Response time P95 and P99",
+        "Throughput under load",
+        "Error rate under stress",
+        "Saturation point identification",
+        "Stability over sustained load",
+        "Resource utilization metrics"
+      ]
+    },
+    "qaGovernance": {
+      "seoTitle": "QA Governance & KPIs — Quorexis",
+      "seoDescription": "Quality management framework, reporting rituals, quality gates and data-driven decisions for offshore testing operations.",
+      "title": "QA Governance & KPIs",
+      "subtitle": "Quality management framework, reporting rituals, quality gates and data-driven decisions.",
+      "solves": [
+        "No structured quality management across delivery teams",
+        "Inconsistent testing practices and undefined quality gates",
+        "Lack of visibility on software quality at executive level",
+        "Decision-making without quality data"
+      ],
+      "deliverables": [
+        "QA operating model tailored to your organization",
+        "KPI framework with dashboards and executive reporting",
+        "Quality gate definitions with entry and exit criteria",
+        "Continuous improvement processes and rituals"
+      ],
+      "assess": "Audit of current QA practices, governance gaps and reporting maturity.",
+      "structure": "Design of operating model, KPI framework and reporting cadence.",
+      "deliver": "Implementation of dashboards, quality gates and improvement cycles.",
+      "kpis": [
+        "Quality gate pass rate",
+        "Defect trends across sprints",
+        "Test coverage by risk area",
+        "Release predictability index",
+        "Improvement action completion rate",
+        "Executive satisfaction score"
+      ]
+    },
+    "accessibilityTesting": {
+      "seoTitle": "Accessibility Testing — Quorexis",
+      "seoDescription": "WCAG compliance validation, inclusive design review and accessibility audit reporting for offshore testing delivery.",
+      "title": "Accessibility Testing",
+      "subtitle": "WCAG compliance validation, inclusive design review and accessibility audit reporting.",
+      "solves": [
+        "Non-compliance with WCAG and legal accessibility requirements",
+        "Exclusion of users with disabilities from critical workflows",
+        "Accessibility regressions introduced during development",
+        "No structured approach to inclusive quality"
+      ],
+      "deliverables": [
+        "Accessibility audit against WCAG 2.1 AA standards",
+        "Detailed findings with severity and remediation guidance",
+        "Assistive technology compatibility testing",
+        "Accessibility compliance report and action plan"
+      ],
+      "assess": "Evaluation of current accessibility posture and compliance gaps.",
+      "structure": "Test scope definition per WCAG criteria and assistive technology matrix.",
+      "deliver": "Audit execution, finding documentation and remediation tracking.",
+      "kpis": [
+        "WCAG criteria compliance rate",
+        "Critical accessibility violations count",
+        "Remediation completion rate",
+        "Assistive technology compatibility score"
+      ]
+    },
+    "exploratoryTesting": {
+      "seoTitle": "Exploratory Testing — Quorexis",
+      "seoDescription": "Skilled exploratory testing to uncover hidden defects beyond scripted test cases in offshore testing delivery.",
+      "title": "Exploratory Testing",
+      "subtitle": "Session-based exploration to uncover defects that scripted testing misses.",
+      "solves": [
+        "Critical defects escaping scripted test coverage",
+        "Insufficient understanding of real user behavior and edge cases",
+        "Over-reliance on predefined test cases with blind spots",
+        "Lack of structured approach to unscripted testing"
+      ],
+      "deliverables": [
+        "Session-based test charters and exploration plans",
+        "Defect reports with detailed reproduction steps",
+        "Risk and heuristic-based coverage maps",
+        "Exploration session debrief reports"
+      ],
+      "assess": "Review of existing test coverage gaps and areas of highest business risk.",
+      "structure": "Design of exploration charters, session structure and heuristic guides.",
+      "deliver": "Execution of time-boxed exploration sessions with real-time defect reporting.",
+      "kpis": [
+        "Defects found per session hour",
+        "Critical defect discovery rate",
+        "Coverage of high-risk areas explored",
+        "Session charter completion rate"
+      ]
+    },
+    "regressionTesting": {
+      "seoTitle": "Regression Testing — Quorexis",
+      "seoDescription": "Systematic regression testing to verify that changes have not broken existing functionality in offshore delivery.",
+      "title": "Regression Testing",
+      "subtitle": "Systematic verification that changes have not broken existing functionality.",
+      "solves": [
+        "Recurring regressions introduced by new releases",
+        "Growing regression scope with no prioritization strategy",
+        "Manual regression cycles delaying release timelines",
+        "Lack of visibility on regression risk per release"
+      ],
+      "deliverables": [
+        "Regression test suite with risk-based prioritization",
+        "Execution schedules aligned to release cadence",
+        "Regression impact analysis per change set",
+        "Trend reports on regression stability over time"
+      ],
+      "assess": "Analysis of regression history, defect recurrence patterns and release impact areas.",
+      "structure": "Design of regression suite, prioritization model and execution strategy.",
+      "deliver": "Execution of regression cycles with defect tracking and trend analysis.",
+      "kpis": [
+        "Regression defect detection rate",
+        "Regression suite execution time",
+        "Defect recurrence rate",
+        "Release stability index"
+      ]
+    },
+    "uatSystemTesting": {
+      "seoTitle": "UAT & System Testing — Quorexis",
+      "seoDescription": "Structured UAT and system testing for business acceptance, ensuring stakeholder confidence before go-live.",
+      "title": "UAT & System Testing",
+      "subtitle": "Structured acceptance and system testing to secure business sign-off before go-live.",
+      "solves": [
+        "Chaotic UAT sessions with unclear scope and criteria",
+        "Business stakeholders unable to validate effectively",
+        "System-level defects discovered too late in the cycle",
+        "No formal acceptance process or sign-off framework"
+      ],
+      "deliverables": [
+        "UAT strategy with acceptance criteria and scope definition",
+        "Business scenario test cases aligned to user workflows",
+        "System test plans covering end-to-end functionality",
+        "Acceptance reports with sign-off documentation"
+      ],
+      "assess": "Review of business requirements, stakeholder expectations and current acceptance processes.",
+      "structure": "Design of UAT framework, acceptance criteria and stakeholder engagement plan.",
+      "deliver": "Facilitation of UAT sessions, defect management and formal sign-off process.",
+      "kpis": [
+        "Acceptance criteria pass rate",
+        "Stakeholder sign-off cycle time",
+        "Business-critical defect detection rate",
+        "UAT session completion rate"
+      ]
+    },
+    "compatibilityTesting": {
+      "seoTitle": "Compatibility Testing — Quorexis",
+      "seoDescription": "Cross-browser, cross-device and cross-OS compatibility testing for consistent user experience across platforms.",
+      "title": "Compatibility Testing",
+      "subtitle": "Cross-browser, cross-device and cross-OS validation for consistent user experience.",
+      "solves": [
+        "Inconsistent behavior across browsers and browser versions",
+        "Device-specific defects impacting user segments",
+        "No structured compatibility matrix for testing scope",
+        "Late discovery of platform-specific rendering issues"
+      ],
+      "deliverables": [
+        "Compatibility matrix covering browsers, devices and OS versions",
+        "Cross-platform test execution and defect reports",
+        "Visual and functional consistency validation",
+        "Platform-specific defect analysis and recommendations"
+      ],
+      "assess": "Analysis of user analytics, target platforms and current compatibility coverage.",
+      "structure": "Design of compatibility matrix, device lab strategy and test scope.",
+      "deliver": "Execution of compatibility campaigns across defined platform matrix.",
+      "kpis": [
+        "Platform coverage percentage",
+        "Cross-platform defect density",
+        "Visual consistency score",
+        "Browser-specific pass rate"
+      ]
+    },
+    "qaAudit": {
+      "seoTitle": "QA Audit — Quorexis",
+      "seoDescription": "Independent assessment of QA practices, processes and maturity level for offshore testing operations.",
+      "title": "QA Audit",
+      "subtitle": "Independent assessment of your testing practices, processes and organizational maturity.",
+      "solves": [
+        "No objective view of current QA maturity and gaps",
+        "Testing practices that evolved without governance",
+        "Inability to benchmark against industry standards",
+        "Unclear priorities for QA improvement investment"
+      ],
+      "deliverables": [
+        "QA maturity assessment across all testing dimensions",
+        "Gap analysis with severity and impact classification",
+        "Benchmarking against industry best practices",
+        "Prioritized improvement roadmap with actionable recommendations"
+      ],
+      "assess": "Interviews, documentation review and process observation across QA functions.",
+      "structure": "Maturity model application, gap classification and recommendation formulation.",
+      "deliver": "Audit report presentation, roadmap discussion and implementation guidance.",
+      "kpis": [
+        "Maturity score per QA dimension",
+        "Critical gap count and severity",
+        "Recommendation implementation rate",
+        "Post-audit maturity improvement"
+      ]
+    },
+    "testStrategy": {
+      "seoTitle": "Test Strategy & Operating Model — Quorexis",
+      "seoDescription": "Design of test strategy and QA operating model for complex programs and offshore testing delivery.",
+      "title": "Test Strategy & Operating Model",
+      "subtitle": "Design of your test strategy and QA operating model for complex delivery programs.",
+      "solves": [
+        "No overarching test strategy across delivery teams",
+        "Inconsistent testing approaches between projects",
+        "Undefined roles, responsibilities and governance structure",
+        "Testing efforts disconnected from business risk"
+      ],
+      "deliverables": [
+        "Test strategy document aligned to program objectives",
+        "QA operating model with roles and governance",
+        "Tool and environment strategy recommendations",
+        "Implementation plan with milestones and success criteria"
+      ],
+      "assess": "Discovery of program context, delivery constraints and quality objectives.",
+      "structure": "Strategy design, operating model definition and stakeholder alignment.",
+      "deliver": "Strategy document delivery, implementation support and governance setup.",
+      "kpis": [
+        "Strategy adoption rate across teams",
+        "Governance compliance score",
+        "Testing effort alignment to risk",
+        "Stakeholder satisfaction with QA approach"
+      ]
+    },
+    "smokeTesting": {
+      "seoTitle": "Smoke Testing — Quorexis",
+      "seoDescription": "Quick validation of critical paths after deployments to confirm build stability and readiness for further testing.",
+      "title": "Smoke Testing",
+      "subtitle": "Quick validation of critical paths after each deployment to confirm build stability.",
+      "solves": [
+        "Unstable builds progressing to full test cycles",
+        "Wasted effort testing on broken deployments",
+        "No fast feedback loop after environment deployments",
+        "Late discovery of deployment-breaking issues"
+      ],
+      "deliverables": [
+        "Smoke test suite covering critical application paths",
+        "Automated or manual execution playbooks per environment",
+        "Build stability reports with pass/fail criteria",
+        "Integration with deployment pipeline notifications"
+      ],
+      "assess": "Identification of critical paths and deployment failure patterns.",
+      "structure": "Smoke suite design, execution triggers and reporting integration.",
+      "deliver": "Smoke execution after each deployment with immediate status reporting.",
+      "kpis": [
+        "Smoke execution time",
+        "Build rejection rate",
+        "Time saved on failed build testing",
+        "Critical path coverage percentage"
+      ]
+    },
+    "systemTesting": {
+      "seoTitle": "System Testing — Quorexis",
+      "seoDescription": "End-to-end system validation before UAT, covering functional, non-functional and integration aspects.",
+      "title": "System Testing",
+      "subtitle": "End-to-end system validation before UAT, covering all functional and non-functional aspects.",
+      "solves": [
+        "Gaps between component testing and user acceptance",
+        "System-level defects discovered during UAT or production",
+        "No structured approach to end-to-end validation",
+        "Insufficient coverage of system interactions and workflows"
+      ],
+      "deliverables": [
+        "System test plan with end-to-end scenario coverage",
+        "Functional and non-functional test case execution",
+        "System integration validation reports",
+        "Defect reports with system-level impact analysis"
+      ],
+      "assess": "Review of system architecture, integration points and business workflow coverage.",
+      "structure": "System test strategy, scenario design and environment requirements.",
+      "deliver": "Full system test execution with defect management and readiness assessment.",
+      "kpis": [
+        "End-to-end scenario pass rate",
+        "System-level defect detection rate",
+        "UAT entry readiness score",
+        "Requirement coverage percentage"
+      ]
+    },
+    "integrationTesting": {
+      "seoTitle": "Integration Testing — Quorexis",
+      "seoDescription": "Verification of component interactions, data flows and system integration points for reliable software delivery.",
+      "title": "Integration Testing",
+      "subtitle": "Verification of component interactions, data flows and system integration points.",
+      "solves": [
+        "Integration failures discovered late in the delivery cycle",
+        "Data inconsistencies between connected systems",
+        "No structured approach to validating component interfaces",
+        "Silent failures in asynchronous communication channels"
+      ],
+      "deliverables": [
+        "Integration test strategy covering all system interfaces",
+        "Test cases for data flows and component interactions",
+        "Integration environment setup and configuration",
+        "Integration health reports and defect tracking"
+      ],
+      "assess": "Mapping of system interfaces, data flows and integration dependencies.",
+      "structure": "Integration test strategy, environment setup and data management approach.",
+      "deliver": "Integration test execution with continuous monitoring and defect resolution.",
+      "kpis": [
+        "Interface coverage percentage",
+        "Integration defect detection rate",
+        "Data flow accuracy score",
+        "Integration stability over time"
+      ]
+    },
+    "uat": {
+      "seoTitle": "User Acceptance Testing — Quorexis",
+      "seoDescription": "UAT facilitation and management ensuring structured business validation and stakeholder sign-off.",
+      "title": "User Acceptance Testing",
+      "subtitle": "Structured business validation ensuring stakeholder confidence and formal sign-off.",
+      "solves": [
+        "Unstructured UAT with no clear entry or exit criteria",
+        "Business users struggling to validate without guidance",
+        "Acceptance defects blocking go-live decisions",
+        "No traceability between business requirements and acceptance tests"
+      ],
+      "deliverables": [
+        "UAT plan with entry criteria, scope and timeline",
+        "Business scenario scripts aligned to user workflows",
+        "Facilitation of UAT sessions with business stakeholders",
+        "Acceptance report with formal sign-off documentation"
+      ],
+      "assess": "Analysis of business requirements and stakeholder readiness for acceptance testing.",
+      "structure": "UAT plan design, scenario preparation and stakeholder briefing.",
+      "deliver": "UAT session facilitation, defect triage and formal acceptance process.",
+      "kpis": [
+        "Business scenario pass rate",
+        "Acceptance defect resolution time",
+        "Stakeholder sign-off cycle time",
+        "Requirement-to-test traceability rate"
+      ]
+    },
+    "webTesting": {
+      "seoTitle": "Web Application Testing — Quorexis",
+      "seoDescription": "Comprehensive quality assurance for web applications: functional, cross-browser, responsive and performance testing.",
+      "title": "Web Application Testing",
+      "subtitle": "Comprehensive quality assurance for web applications across browsers, devices and user journeys.",
+      "solves": [
+        "Inconsistent user experience across browsers and screen sizes",
+        "Functional defects in critical web-based business workflows",
+        "Performance degradation under concurrent user load",
+        "Accessibility and usability gaps in web interfaces"
+      ],
+      "deliverables": [
+        "Web test strategy covering functional, UI and cross-browser scope",
+        "Responsive design validation across breakpoints",
+        "Browser compatibility test execution and reports",
+        "Web performance and accessibility assessment"
+      ],
+      "assess": "Analysis of web application architecture, user journeys and browser usage analytics.",
+      "structure": "Test strategy design, browser matrix definition and environment setup.",
+      "deliver": "Test execution across defined scope with defect tracking and quality reporting.",
+      "kpis": [
+        "Cross-browser defect density",
+        "Responsive design compliance rate",
+        "Web performance score",
+        "Functional test pass rate"
+      ]
+    },
+    "mobileTesting": {
+      "seoTitle": "Mobile Application Testing — Quorexis",
+      "seoDescription": "Mobile app testing across devices, OS versions and network conditions for reliable mobile experiences.",
+      "title": "Mobile Application Testing",
+      "subtitle": "Testing mobile apps across devices, OS versions and network conditions.",
+      "solves": [
+        "Device fragmentation causing inconsistent user experience",
+        "OS version compatibility issues impacting adoption",
+        "Performance issues under varying network conditions",
+        "App store rejection due to quality and compliance issues"
+      ],
+      "deliverables": [
+        "Mobile test strategy with device and OS coverage matrix",
+        "Functional and UI testing across target devices",
+        "Network condition and offline behavior validation",
+        "App store compliance and performance reports"
+      ],
+      "assess": "Analysis of target audience devices, OS distribution and mobile usage patterns.",
+      "structure": "Device matrix design, test environment setup and mobile-specific test strategy.",
+      "deliver": "Mobile test execution with device lab management and defect reporting.",
+      "kpis": [
+        "Device coverage percentage",
+        "OS-specific defect density",
+        "Network resilience score",
+        "App store compliance rate"
+      ]
+    },
+    "desktopTesting": {
+      "seoTitle": "Desktop Application Testing — Quorexis",
+      "seoDescription": "Quality assurance for desktop and thick-client applications across operating systems and configurations.",
+      "title": "Desktop Application Testing",
+      "subtitle": "Quality assurance for desktop and thick-client applications across OS and configurations.",
+      "solves": [
+        "OS-specific defects impacting enterprise deployments",
+        "Installation and upgrade path failures",
+        "Integration issues with local hardware and peripherals",
+        "Performance degradation on varied hardware configurations"
+      ],
+      "deliverables": [
+        "Desktop test strategy with OS and configuration matrix",
+        "Installation, upgrade and uninstall validation",
+        "Hardware and peripheral integration testing",
+        "Configuration-specific defect reports and analysis"
+      ],
+      "assess": "Analysis of target OS environments, hardware configurations and deployment methods.",
+      "structure": "Test environment provisioning, configuration matrix and test strategy design.",
+      "deliver": "Desktop test execution with configuration tracking and defect management.",
+      "kpis": [
+        "OS configuration coverage rate",
+        "Installation success rate",
+        "Hardware compatibility score",
+        "Configuration-specific defect density"
+      ]
+    },
+    "qualityGates": {
+      "seoTitle": "Quality Gates & Reporting — Quorexis",
+      "seoDescription": "Structured quality checkpoints and reporting throughout delivery to ensure consistent governance and transparency.",
+      "title": "Quality Gates & Reporting",
+      "subtitle": "Structured checkpoints and transparent reporting throughout the delivery lifecycle.",
+      "solves": [
+        "No formal checkpoints between delivery phases",
+        "Releases progressing without quality validation",
+        "Lack of transparency on quality status for stakeholders",
+        "Inconsistent reporting formats across projects"
+      ],
+      "deliverables": [
+        "Quality gate definitions with entry and exit criteria",
+        "Standardized reporting templates and dashboards",
+        "Phase transition review process and checklists",
+        "Executive quality status reports"
+      ],
+      "assess": "Review of current delivery process, decision points and reporting practices.",
+      "structure": "Quality gate design, reporting framework and stakeholder communication plan.",
+      "deliver": "Gate implementation, report generation and continuous governance monitoring.",
+      "kpis": [
+        "Quality gate pass rate",
+        "Phase transition compliance rate",
+        "Reporting cadence adherence",
+        "Stakeholder satisfaction with transparency"
+      ]
+    },
+    "defectTriage": {
+      "seoTitle": "Defect Triage & Process — Quorexis",
+      "seoDescription": "Defect lifecycle management with structured triage, escalation and resolution tracking for offshore testing.",
+      "title": "Defect Triage & Process",
+      "subtitle": "Structured defect lifecycle management, triage rituals and escalation protocols.",
+      "solves": [
+        "Unmanaged defect backlogs with no prioritization",
+        "Inconsistent severity and priority classification",
+        "No structured escalation path for critical defects",
+        "Defect resolution bottlenecks delaying releases"
+      ],
+      "deliverables": [
+        "Defect management process with classification standards",
+        "Triage ritual design with roles and cadence",
+        "Escalation protocols and resolution SLAs",
+        "Defect analytics and trend reporting"
+      ],
+      "assess": "Review of current defect management practices, backlog health and resolution patterns.",
+      "structure": "Triage process design, classification standards and escalation framework.",
+      "deliver": "Triage facilitation, backlog management and defect analytics reporting.",
+      "kpis": [
+        "Defect resolution cycle time",
+        "Triage backlog age",
+        "Escalation frequency and resolution rate",
+        "Defect reopen rate"
+      ]
+    }
+  },
+  "rnd": {
+    "landing": {
+      "seoTitle": "R&D QA — Quorexis",
+      "seoDescription": "Quorexis R&D: test assets, automation accelerators and QA playbooks for industrialized offshore testing.",
+      "title": "R&D QA — Assets, accelerators and standards",
+      "subtitle": "Capitalized knowledge to industrialize offshore testing delivery.",
+      "labs": { "title": "Labs & Assets", "description": "Templates, datasets and test design packs." },
+      "accelerators": { "title": "Automation Accelerators", "description": "Reusable patterns, helpers and stability frameworks." },
+      "playbooks": { "title": "QA Playbooks", "description": "Governance models, metrics frameworks and reporting templates." }
+    },
+    "common": {
+      "backToRnd": "All R&D",
+      "ctaTitle": "Interested in our R&D assets?",
+      "ctaSubtitle": "Contact us to discuss how our accelerators can benefit your testing operations.",
+      "ctaButton": "Get in touch",
+      "scopeTitle": "What it includes",
+      "benefitsTitle": "Benefits"
+    },
+    "labs": {
+      "seoTitle": "Test Labs & Assets — Quorexis R&D",
+      "seoDescription": "Quorexis test labs: templates, datasets and test design packs for structured offshore testing.",
+      "title": "Test Labs & Assets",
+      "subtitle": "Pre-built templates, curated datasets and test design packs to accelerate engagement setup.",
+      "scope": [
+        "Test case templates by domain (functional, API, performance)",
+        "Test data management frameworks and datasets",
+        "Environment configuration playbooks",
+        "Test design technique reference packs"
+      ],
+      "benefits": [
+        "Faster engagement ramp-up",
+        "Consistent quality across projects",
+        "Reduced setup effort for new teams",
+        "Proven templates from real delivery experience"
+      ]
+    },
+    "accelerators": {
+      "seoTitle": "Automation Accelerators — Quorexis R&D",
+      "seoDescription": "Reusable automation patterns, helpers and stability frameworks to accelerate test automation delivery.",
+      "title": "Automation Accelerators",
+      "subtitle": "Reusable patterns, utility libraries and stability frameworks for faster automation delivery.",
+      "scope": [
+        "Page Object and API wrapper templates",
+        "Wait and retry utility libraries",
+        "Test data factories and builders",
+        "CI/CD pipeline configuration templates"
+      ],
+      "benefits": [
+        "Faster script development cycles",
+        "Higher automation stability and reliability",
+        "Consistent coding standards across teams",
+        "Lower maintenance overhead"
+      ]
+    },
+    "playbooks": {
+      "seoTitle": "QA Playbooks — Quorexis R&D",
+      "seoDescription": "QA governance playbooks: metrics frameworks, reporting templates and process guides for offshore testing.",
+      "title": "QA Playbooks",
+      "subtitle": "Governance models, metrics frameworks and reporting templates for structured QA operations.",
+      "scope": [
+        "QA governance operating model templates",
+        "KPI and metrics framework documentation",
+        "Executive reporting templates and dashboards",
+        "Defect management and triage process guides"
+      ],
+      "benefits": [
+        "Instant governance framework deployment",
+        "Standardized reporting across engagements",
+        "Data-driven quality management",
+        "Proven processes from enterprise deliveries"
+      ]
+    }
+  },
+  "industries": {
+    "seoTitle": "Industries — Quorexis",
+    "seoDescription": "Offshore software testing tailored to industry constraints: fintech, telecom, IoT, travel and healthcare.",
+    "title": "Industries",
+    "subtitle": "QA operations adapted to sector-specific risks, compliance and business constraints.",
+    "fintech": {
+      "title": "Fintech & Banking",
+      "description": "Regulated environments demand rigorous testing. We validate transaction flows, security protocols and compliance requirements.",
+      "challenges": [
+        "Regulatory compliance and audit trail requirements",
+        "High-volume transaction integrity",
+        "Security and data protection validation",
+        "Multi-channel user experience consistency"
+      ],
+      "focus": [
+        "End-to-end transaction flow testing",
+        "Security and penetration test coordination",
+        "Regulatory compliance validation",
+        "Performance under peak transaction loads"
+      ]
+    },
+    "telecom": {
+      "title": "Telecom & Communications",
+      "description": "Complex systems with high availability requirements. We test provisioning, billing and network-facing applications.",
+      "challenges": [
+        "System availability and failover requirements",
+        "Complex provisioning and billing workflows",
+        "Multi-system integration across legacy and modern stacks",
+        "Large-scale regression impact from frequent releases"
+      ],
+      "focus": [
+        "End-to-end provisioning and billing validation",
+        "Integration testing across OSS/BSS layers",
+        "Performance and availability testing",
+        "Regression management for frequent releases"
+      ]
+    },
+    "iot": {
+      "title": "Industrial & IoT",
+      "description": "Connected devices and embedded systems require specialized testing approaches for reliability and safety.",
+      "challenges": [
+        "Device-cloud communication reliability",
+        "Firmware update and rollback validation",
+        "Sensor data accuracy and edge case handling",
+        "Safety and reliability under adverse conditions"
+      ],
+      "focus": [
+        "Device-to-cloud integration testing",
+        "Firmware and OTA update validation",
+        "Sensor data accuracy and boundary testing",
+        "Reliability and endurance testing"
+      ]
+    },
+    "travel": {
+      "title": "Travel & Hospitality",
+      "description": "Booking engines, distribution systems and customer-facing platforms demand seamless experiences under variable load.",
+      "challenges": [
+        "Booking flow integrity across channels",
+        "GDS and third-party system integration",
+        "Seasonal traffic spikes and performance",
+        "Multi-currency and multi-language validation"
+      ],
+      "focus": [
+        "End-to-end booking flow testing",
+        "GDS and channel manager integration",
+        "Performance testing for peak seasons",
+        "Localization and currency validation"
+      ]
+    },
+    "healthcare": {
+      "title": "Healthcare",
+      "description": "Patient safety and data privacy require meticulous testing of clinical systems, patient portals and data exchanges.",
+      "challenges": [
+        "Patient data privacy and HIPAA/GDPR compliance",
+        "Clinical workflow accuracy and safety",
+        "HL7/FHIR interoperability validation",
+        "Audit trail and data integrity requirements"
+      ],
+      "focus": [
+        "Clinical workflow and patient safety testing",
+        "Interoperability and data exchange validation",
+        "Compliance and audit trail verification",
+        "Usability testing for clinical users"
+      ]
+    },
+    "ctaTitle": "Need testing adapted to your industry?",
+    "ctaSubtitle": "Tell us about your sector constraints. We'll design a tailored QA approach.",
+    "ctaButton": "Contact us"
+  },
+  "company": {
+    "seoTitle": "Company — Quorexis",
+    "seoDescription": "French consultancy specialized in offshore software testing delivery. Governance, delivery model and team.",
+    "title": "French consultancy, specialized in offshore testing",
+    "subtitle": "French governance, industrialized delivery, measurable results.",
+    "why": {
+      "title": "Why Quorexis",
+      "points": [
+        {
+          "title": "Testing-only focus",
+          "description": "We do one thing and we do it well. No DevOps, no development, no generic IT services. Software testing delivery is our entire business."
+        },
+        {
+          "title": "Industrialized approach",
+          "description": "Every engagement follows a proven framework: assess, structure, deliver. No improvisation, no ad-hoc solutions."
+        },
+        {
+          "title": "French governance",
+          "description": "Your account is managed from France. Quality standards, communication protocols and reporting rituals follow French consulting practices."
+        },
+        {
+          "title": "Measurable results",
+          "description": "KPIs, dashboards and executive reporting from day one. You see exactly what your testing operation produces."
+        }
+      ]
+    },
+    "delivery": {
+      "title": "Delivery Model",
+      "description": "Every Quorexis engagement follows three phases: Assess, Structure, Deliver.",
+      "assess": {
+        "title": "Assess",
+        "description": "Audit of your testing context, QA maturity evaluation and gap analysis. We produce a clear diagnosis and a prioritized action plan."
+      },
+      "structure": {
+        "title": "Structure",
+        "description": "Design of the offshore delivery organization: teams, processes, tools and governance. A setup ready to produce."
+      },
+      "deliver": {
+        "title": "Deliver",
+        "description": "Execution of test campaigns with rigor and transparency. Continuous reporting, permanent adjustment and measurable results."
+      }
+    },
+    "ctaTitle": "Ready to structure your offshore testing?",
+    "ctaSubtitle": "Schedule a call to discuss your context and challenges.",
+    "ctaButton": "Schedule a call"
+  },
+  "careers": {
+    "seoTitle": "Careers — Quorexis",
+    "seoDescription": "Join Quorexis: careers in offshore software testing delivery. QA engineers, test analysts and automation specialists.",
+    "title": "Careers",
+    "subtitle": "Join a team dedicated to software testing excellence.",
+    "intro": "Quorexis is building a team of testing professionals who share our commitment to rigor, transparency and measurable results.",
+    "values": [
+      {
+        "title": "Rigor",
+        "description": "We deliver structured testing with full traceability and accountability."
+      },
+      {
+        "title": "Transparency",
+        "description": "Clear communication, honest reporting and no hidden surprises."
+      },
+      {
+        "title": "Continuous improvement",
+        "description": "We learn from every engagement and constantly refine our methods."
+      }
+    ],
+    "openPositions": {
+      "title": "Open positions",
+      "empty": "No open positions at the moment. Send us your CV and we'll contact you when opportunities arise."
+    },
+    "ctaTitle": "Interested in joining Quorexis?",
+    "ctaSubtitle": "Send us your profile and tell us about your testing experience.",
+    "ctaButton": "Contact us"
+  },
+  "resources": {
+    "knowledgeBase": {
+      "seoTitle": "Knowledge Base — Quorexis",
+      "seoDescription": "Insights, reports and resources on offshore software testing delivery.",
+      "title": "Knowledge Base",
+      "subtitle": "Analyses and resources on offshore software testing delivery.",
+      "blog": { "title": "Blog", "description": "Insights and experience reports from our testing engagements.", "cta": "Read articles" },
+      "whitepapers": { "title": "Whitepapers", "description": "In-depth analyses on testing methodologies and offshore delivery.", "cta": "View whitepapers" },
+      "webinars": { "title": "Webinars", "description": "Live sessions and recordings on software testing topics.", "cta": "View webinars" },
+      "training": { "title": "ISTQB Training", "description": "Certify your teams to international testing standards.", "cta": "Discover training" }
+    },
+    "whitepapers": {
+      "seoTitle": "Whitepapers — Quorexis",
+      "seoDescription": "In-depth whitepapers on offshore software testing methodologies and best practices.",
+      "title": "Whitepapers",
+      "subtitle": "In-depth analyses on testing methodologies, offshore delivery and QA governance.",
+      "comingSoonTitle": "Coming soon",
+      "comingSoonDescription": "Our first whitepapers are in preparation. Topics include offshore testing governance, automation ROI measurement and QA maturity models. Contact us to be notified when they are available.",
+      "notifyButton": "Notify me"
+    },
+    "webinars": {
+      "seoTitle": "Webinars — Quorexis",
+      "seoDescription": "Live webinars and recordings on offshore software testing delivery and QA best practices.",
+      "title": "Webinars",
+      "subtitle": "Live sessions and recordings on software testing delivery.",
+      "comingSoonTitle": "Coming soon",
+      "comingSoonDescription": "Our webinar program is being finalized. Sessions will cover offshore testing delivery, automation strategy and QA governance. Contact us to register for upcoming sessions.",
+      "notifyButton": "Register interest"
+    }
+  },
+  "clientsPage": {
+    "seoTitle": "Clients — Quorexis",
+    "seoDescription": "Experience gained across major industrial and technology groups. Offshore software testing delivery references.",
+    "title": "Our clients",
+    "subtitle": "Experience gained across major industrial and technology groups.",
+    "engagementTitle": "Engagement types",
+    "engagements": [
+      {
+        "title": "QA Audit",
+        "description": "Independent assessment of testing practices, processes and maturity level."
+      },
+      {
+        "title": "Setup",
+        "description": "Design and implementation of offshore testing organization, tools and governance."
+      },
+      {
+        "title": "Run",
+        "description": "Ongoing execution of test campaigns with dedicated offshore teams."
+      }
+    ],
+    "disclaimer": "References available upon request.",
+    "ctaTitle": "Want to discuss your testing challenges?",
+    "ctaSubtitle": "Schedule a call with our team.",
+    "ctaButton": "Contact us"
+  },
+  "contactPage": {
+    "seoTitle": "Contact — Quorexis",
+    "seoDescription": "Contact Quorexis for offshore software testing delivery. Schedule a call or send us your project details.",
+    "title": "Contact us",
+    "subtitle": "Tell us about your testing challenges. We'll get back to you within 48 hours."
   }
 }
