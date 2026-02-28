@@ -172,35 +172,31 @@ export default function Training() {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert) => {
               const level = t(`certifications.${cert}.level`);
-              const keyPoints = [0, 1, 2, 3]
-                .map((i) => {
-                  try { return t(`certifications.${cert}.keyPoints.${i}`); }
-                  catch { return null; }
-                })
-                .filter(Boolean);
+              const rawKeyPoints = t.raw(`certifications.${cert}.keyPoints`) as string[];
+              const keyPoints = Array.isArray(rawKeyPoints) ? rawKeyPoints : [];
 
               return (
                 <div
                   key={cert}
-                  className="training-card border border-border rounded-lg p-6 md:p-8 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
+                  className="training-card border border-border rounded-lg p-6 md:p-8 h-full flex flex-col overflow-hidden hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <span className={`inline-block px-2.5 py-0.5 text-xs font-medium rounded-full ${levelColor(level)}`}>
                     {level}
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold tracking-tight">
+                  <h3 className="mt-3 text-lg font-semibold tracking-tight break-words">
                     {t(`certifications.${cert}.title`)}
                   </h3>
                   <p className="mt-1 text-sm text-accent font-medium">
                     {t(`certifications.${cert}.duration`)}
                   </p>
-                  <p className="mt-3 text-sm text-muted leading-relaxed">
+                  <p className="mt-3 text-sm text-muted leading-relaxed break-words line-clamp-4">
                     {t(`certifications.${cert}.description`)}
                   </p>
-                  <ul className="mt-4 space-y-1.5">
-                    {keyPoints.map((point) => (
-                      <li key={point} className="text-sm text-muted flex items-start gap-2">
+                  <ul className="mt-4 space-y-1.5 flex-1">
+                    {keyPoints.map((point, i) => (
+                      <li key={i} className="text-sm text-muted flex items-start gap-2 max-w-full">
                         <span className="text-accent mt-0.5 shrink-0">&#8212;</span>
-                        {point}
+                        <span className="break-words min-w-0">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -227,16 +223,16 @@ export default function Training() {
               return (
                 <div
                   key={block}
-                  className="pedagogy-block flex gap-5"
+                  className="pedagogy-block flex gap-5 overflow-hidden"
                 >
                   <div className="shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
                     <Icon className="text-accent" />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold break-words">
                       {t(`pedagogy.${block}.title`)}
                     </h3>
-                    <p className="mt-2 text-sm text-muted leading-relaxed">
+                    <p className="mt-2 text-sm text-muted leading-relaxed break-words">
                       {t(`pedagogy.${block}.description`)}
                     </p>
                   </div>
@@ -260,30 +256,28 @@ export default function Training() {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {formats.map((format) => {
               const Icon = formatIcons[format];
-              const points = [0, 1, 2].map((i) => {
-                try { return t(`formats.${format}.points.${i}`); }
-                catch { return null; }
-              }).filter(Boolean);
+              const rawPoints = t.raw(`formats.${format}.points`) as string[];
+              const points = Array.isArray(rawPoints) ? rawPoints : [];
 
               return (
                 <div
                   key={format}
-                  className="training-card border border-border rounded-lg p-6 md:p-8 hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
+                  className="training-card border border-border rounded-lg p-6 md:p-8 h-full flex flex-col overflow-hidden hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                     <Icon className="text-accent w-5 h-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold">
+                  <h3 className="mt-4 text-lg font-semibold break-words">
                     {t(`formats.${format}.title`)}
                   </h3>
-                  <p className="mt-2 text-sm text-muted leading-relaxed">
+                  <p className="mt-2 text-sm text-muted leading-relaxed break-words line-clamp-3">
                     {t(`formats.${format}.description`)}
                   </p>
-                  <ul className="mt-4 space-y-1.5">
-                    {points.map((point) => (
-                      <li key={point} className="text-sm text-muted flex items-start gap-2">
+                  <ul className="mt-4 space-y-1.5 flex-1">
+                    {points.map((point, i) => (
+                      <li key={i} className="text-sm text-muted flex items-start gap-2 max-w-full">
                         <span className="text-accent mt-0.5 shrink-0">&#8212;</span>
-                        {point}
+                        <span className="break-words min-w-0">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -306,11 +300,11 @@ export default function Training() {
 
           <div className="mt-14 space-y-8">
             {whyPoints.map((point) => (
-              <div key={point} className="border-l-2 border-accent pl-6 max-w-3xl">
-                <h3 className="text-lg font-semibold">
+              <div key={point} className="border-l-2 border-accent pl-6 max-w-3xl overflow-hidden">
+                <h3 className="text-lg font-semibold break-words">
                   {t(`whyQuorexis.points.${point}.title`)}
                 </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">
+                <p className="mt-2 text-sm text-muted leading-relaxed break-words">
                   {t(`whyQuorexis.points.${point}.description`)}
                 </p>
               </div>
