@@ -102,7 +102,7 @@ export default function Header() {
             alt="Quorexis"
             width={280}
             height={80}
-            className="h-28 md:h-32 -my-10 md:-my-12 w-auto object-contain"
+            className="h-36 md:h-44 -my-14 md:-my-18 w-auto object-contain"
             priority
           />
           <span className="sr-only">Quorexis</span>
