@@ -1,10 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { rndPages, getRndBySlug } from "@/config/rnd";
+import { locales } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
 
 export function generateStaticParams() {
-  return rndPages.map((p) => ({ slug: p.slug }));
+  return locales.flatMap((locale) =>
+    rndPages.map((p) => ({ locale, slug: p.slug }))
+  );
 }
 
 export async function generateMetadata({

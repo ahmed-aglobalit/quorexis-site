@@ -1,10 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { services, getServiceBySlug } from "@/config/services";
+import { locales } from "@/i18n/config";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return locales.flatMap((locale) =>
+    services.map((s) => ({ locale, slug: s.slug }))
+  );
 }
 
 export async function generateMetadata({
