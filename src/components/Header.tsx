@@ -96,13 +96,13 @@ export default function Header() {
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
         {/* Logo — fill + scale to crop whitespace */}
-        <Link href="/" className="relative flex-shrink-0 h-10 w-[130px] md:w-[170px] overflow-hidden">
+        <Link href="/" className="relative flex-shrink-0 h-14 w-[180px] md:w-[240px] overflow-hidden">
           <Image
             src="/images/quorexis-logo.webp"
             alt="Quorexis"
             fill
-            sizes="170px"
-            className="object-contain scale-[2.5]"
+            sizes="240px"
+            className="object-contain scale-[3]"
             priority
           />
           <span className="sr-only">Quorexis</span>
