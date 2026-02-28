@@ -1,7 +1,7 @@
 {
   "nav": {
     "services": "Services",
-    "rnd": "R&D",
+
     "industries": "Industries",
     "company": "Entreprise",
     "knowledgeBase": "Ressources",
@@ -37,9 +37,6 @@
     "desktopApps": "Applications Desktop",
     "qualityGates": "Quality Gates & Reporting",
     "defectTriage": "Gestion des anomalies",
-    "testLabs": "Labs & Assets",
-    "automationAccelerators": "Accélérateurs d'automatisation",
-    "qaPlaybooks": "Playbooks QA",
     "fintech": "Fintech & Banque",
     "telecom": "Télécom & Communications",
     "industrialIot": "Industrie & IoT",
@@ -950,79 +947,6 @@
         "Vélocité de résolution par sévérité",
         "Taux de réouverture des défauts",
         "Tendance du backlog de défauts ouverts"
-      ]
-    }
-  },
-  "rnd": {
-    "landing": {
-      "seoTitle": "R&D QA — Quorexis",
-      "seoDescription": "R&D Quorexis : actifs de test, accélérateurs d'automatisation et playbooks QA pour le testing offshore industrialisé.",
-      "title": "R&D QA — Actifs, accélérateurs et standards",
-      "subtitle": "Capitalisation Quorexis pour industrialiser le testing offshore.",
-      "labs": { "title": "Labs & Assets", "description": "Templates, datasets et packs de conception de tests." },
-      "accelerators": { "title": "Accélérateurs d'automatisation", "description": "Patterns réutilisables, helpers et frameworks de stabilité." },
-      "playbooks": { "title": "Playbooks QA", "description": "Modèles de gouvernance, frameworks de métriques et templates de reporting." }
-    },
-    "common": {
-      "backToRnd": "Retour R&D",
-      "ctaTitle": "Intéressé par nos actifs R&D ?",
-      "ctaSubtitle": "Contactez-nous pour discuter de l'apport de nos accélérateurs à vos opérations de testing.",
-      "ctaButton": "Nous contacter",
-      "scopeTitle": "Ce que ça inclut",
-      "benefitsTitle": "Bénéfices"
-    },
-    "labs": {
-      "seoTitle": "Labs & Assets — R&D Quorexis",
-      "seoDescription": "Labs de test Quorexis : templates, datasets et packs de conception pour le testing offshore structuré.",
-      "title": "Labs & Assets",
-      "subtitle": "Templates pré-construits, datasets sélectionnés et packs de conception de tests pour accélérer la mise en place des engagements.",
-      "scope": [
-        "Templates de cas de test par domaine (fonctionnel, API, performance)",
-        "Frameworks de gestion de données de test et datasets",
-        "Playbooks de configuration d'environnement",
-        "Packs de référence des techniques de conception de tests"
-      ],
-      "benefits": [
-        "Démarrage plus rapide des engagements",
-        "Qualité constante entre les projets",
-        "Effort de setup réduit pour les nouvelles équipes",
-        "Templates éprouvés issus d'expériences de delivery réelles"
-      ]
-    },
-    "accelerators": {
-      "seoTitle": "Accélérateurs d'automatisation — R&D Quorexis",
-      "seoDescription": "Patterns d'automatisation réutilisables, helpers et frameworks de stabilité pour accélérer le delivery automation.",
-      "title": "Accélérateurs d'automatisation",
-      "subtitle": "Patterns réutilisables, librairies utilitaires et frameworks de stabilité pour un delivery automation plus rapide.",
-      "scope": [
-        "Templates Page Object et wrappers API",
-        "Librairies utilitaires d'attente et de retry",
-        "Factories et builders de données de test",
-        "Templates de configuration de pipelines CI/CD"
-      ],
-      "benefits": [
-        "Cycles de développement de scripts plus rapides",
-        "Meilleure stabilité et fiabilité de l'automatisation",
-        "Standards de codage cohérents entre les équipes",
-        "Charge de maintenance réduite"
-      ]
-    },
-    "playbooks": {
-      "seoTitle": "Playbooks QA — R&D Quorexis",
-      "seoDescription": "Playbooks de gouvernance QA : frameworks de métriques, templates de reporting et guides de processus pour le testing offshore.",
-      "title": "Playbooks QA",
-      "subtitle": "Modèles de gouvernance, frameworks de métriques et templates de reporting pour des opérations QA structurées.",
-      "scope": [
-        "Templates de modèle opérationnel de gouvernance QA",
-        "Documentation du framework de KPIs et métriques",
-        "Templates de reporting exécutif et dashboards",
-        "Guides de processus de gestion et triage des défauts"
-      ],
-      "benefits": [
-        "Déploiement instantané du cadre de gouvernance",
-        "Reporting standardisé entre les engagements",
-        "Pilotage qualité data-driven",
-        "Processus éprouvés issus de deliveries entreprise"
       ]
     }
   },

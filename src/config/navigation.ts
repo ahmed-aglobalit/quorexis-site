@@ -149,18 +149,6 @@ export const navigationItems: NavItem[] = [
   },
   {
     type: "dropdown",
-    key: "rnd",
-    labelKey: "rnd",
-    dropdown: {
-      links: [
-        { labelKey: "testLabs", href: "/rnd/labs" },
-        { labelKey: "automationAccelerators", href: "/rnd/accelerators" },
-        { labelKey: "qaPlaybooks", href: "/rnd/playbooks" },
-      ],
-    },
-  },
-  {
-    type: "dropdown",
     key: "industries",
     labelKey: "industries",
     dropdown: {

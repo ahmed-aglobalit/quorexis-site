@@ -1,7 +1,6 @@
 {
   "nav": {
     "services": "Services",
-    "rnd": "R&D",
     "industries": "Industries",
     "company": "Company",
     "knowledgeBase": "Knowledge Base",
@@ -37,9 +36,6 @@
     "desktopApps": "Desktop Applications",
     "qualityGates": "Quality Gates & Reporting",
     "defectTriage": "Defect Triage & Process",
-    "testLabs": "Test Labs & Assets",
-    "automationAccelerators": "Automation Accelerators",
-    "qaPlaybooks": "QA Playbooks",
     "fintech": "Fintech & Banking",
     "telecom": "Telecom & Communications",
     "industrialIot": "Industrial & IoT",
@@ -950,79 +946,6 @@
         "Triage backlog age",
         "Escalation frequency and resolution rate",
         "Defect reopen rate"
-      ]
-    }
-  },
-  "rnd": {
-    "landing": {
-      "seoTitle": "R&D QA — Quorexis",
-      "seoDescription": "Quorexis R&D: test assets, automation accelerators and QA playbooks for industrialized offshore testing.",
-      "title": "R&D QA — Assets, accelerators and standards",
-      "subtitle": "Capitalized knowledge to industrialize offshore testing delivery.",
-      "labs": { "title": "Labs & Assets", "description": "Templates, datasets and test design packs." },
-      "accelerators": { "title": "Automation Accelerators", "description": "Reusable patterns, helpers and stability frameworks." },
-      "playbooks": { "title": "QA Playbooks", "description": "Governance models, metrics frameworks and reporting templates." }
-    },
-    "common": {
-      "backToRnd": "All R&D",
-      "ctaTitle": "Interested in our R&D assets?",
-      "ctaSubtitle": "Contact us to discuss how our accelerators can benefit your testing operations.",
-      "ctaButton": "Get in touch",
-      "scopeTitle": "What it includes",
-      "benefitsTitle": "Benefits"
-    },
-    "labs": {
-      "seoTitle": "Test Labs & Assets — Quorexis R&D",
-      "seoDescription": "Quorexis test labs: templates, datasets and test design packs for structured offshore testing.",
-      "title": "Test Labs & Assets",
-      "subtitle": "Pre-built templates, curated datasets and test design packs to accelerate engagement setup.",
-      "scope": [
-        "Test case templates by domain (functional, API, performance)",
-        "Test data management frameworks and datasets",
-        "Environment configuration playbooks",
-        "Test design technique reference packs"
-      ],
-      "benefits": [
-        "Faster engagement ramp-up",
-        "Consistent quality across projects",
-        "Reduced setup effort for new teams",
-        "Proven templates from real delivery experience"
-      ]
-    },
-    "accelerators": {
-      "seoTitle": "Automation Accelerators — Quorexis R&D",
-      "seoDescription": "Reusable automation patterns, helpers and stability frameworks to accelerate test automation delivery.",
-      "title": "Automation Accelerators",
-      "subtitle": "Reusable patterns, utility libraries and stability frameworks for faster automation delivery.",
-      "scope": [
-        "Page Object and API wrapper templates",
-        "Wait and retry utility libraries",
-        "Test data factories and builders",
-        "CI/CD pipeline configuration templates"
-      ],
-      "benefits": [
-        "Faster script development cycles",
-        "Higher automation stability and reliability",
-        "Consistent coding standards across teams",
-        "Lower maintenance overhead"
-      ]
-    },
-    "playbooks": {
-      "seoTitle": "QA Playbooks — Quorexis R&D",
-      "seoDescription": "QA governance playbooks: metrics frameworks, reporting templates and process guides for offshore testing.",
-      "title": "QA Playbooks",
-      "subtitle": "Governance models, metrics frameworks and reporting templates for structured QA operations.",
-      "scope": [
-        "QA governance operating model templates",
-        "KPI and metrics framework documentation",
-        "Executive reporting templates and dashboards",
-        "Defect management and triage process guides"
-      ],
-      "benefits": [
-        "Instant governance framework deployment",
-        "Standardized reporting across engagements",
-        "Data-driven quality management",
-        "Proven processes from enterprise deliveries"
       ]
     }
   },

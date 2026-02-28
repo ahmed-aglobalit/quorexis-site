@@ -4,7 +4,11 @@
       "Bash(export NVM_DIR=\"/home/ahmed/.nvm\")",
       "Bash(. \"/home/ahmed/.nvm/nvm.sh\")",
       "Bash(nvm use 20)",
-      "Bash(npx next build)"
+      "Bash(npx next build)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\")",
+      "Bash(. \"$NVM_DIR/nvm.sh\")",
+      "Bash(npm install openai)",
+      "Bash(bash -c 'export NVM_DIR=\"\"$HOME/.nvm\"\" && source \"\"$NVM_DIR/nvm.sh\"\" && nvm use 20 && node --version && npm run build')"
     ]
   }
 }
