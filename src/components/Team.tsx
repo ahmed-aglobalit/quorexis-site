@@ -12,12 +12,14 @@ const members = [
     role: "Co-Founder & CEO",
     email: "ahmed.ghanmi@quorexis.fr",
     photo: "/images/team/ahmed.webp",
+    photoClass: "object-cover object-top scale-[1.4] origin-top",
   },
   {
     name: "Samy Mejri",
     role: "Co-Founder & Sales Director & Business Development",
     email: "samy.mejri@quorexis.fr",
     photo: "/images/team/samy.webp",
+    photoClass: "object-cover object-top",
   },
 ];
 
@@ -58,7 +60,7 @@ export default function Team() {
                   alt={member.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-top"
+                  className={member.photoClass}
                 />
               </div>
 
