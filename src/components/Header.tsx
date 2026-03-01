@@ -100,9 +100,9 @@ export default function Header() {
           <Image
             src="/images/logo1.png"
             alt="Quorexis"
-            width={160}
-            height={48}
-            className="h-10 w-auto object-contain"
+            width={200}
+            height={56}
+            className="h-14 w-auto object-contain"
             priority
           />
           <span className="sr-only">Quorexis</span>
