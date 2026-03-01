@@ -26,17 +26,17 @@ interface EventType {
 const CALENDLY_EVENTS: EventType[] = [
   {
     key: "qa30",
-    url: process.env.NEXT_PUBLIC_CALENDLY_QA_30,
+    url: "https://calendly.com/ahmed-ghanmi-quorexis/30min",
     duration: "30 min",
   },
   {
     key: "qa45",
-    url: process.env.NEXT_PUBLIC_CALENDLY_QA_45,
+    url: "https://calendly.com/ahmed-ghanmi-quorexis/echange-qa-quorexis-45-mn",
     duration: "45 min",
   },
   {
     key: "qa60",
-    url: process.env.NEXT_PUBLIC_CALENDLY_QA_60,
+    url: "https://calendly.com/ahmed-ghanmi-quorexis/echange-qa-quorexis-1-hr",
     duration: "1h",
   },
 ];
