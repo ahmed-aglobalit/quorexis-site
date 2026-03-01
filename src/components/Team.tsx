@@ -16,9 +16,16 @@ const members = [
   },
   {
     name: "Samy Mejri",
-    role: "Co-Founder & Sales Director & Business Development",
+    role: "Co-Founder, Sales Director & Business Development",
     email: "samy.mejri@quorexis.fr",
     photo: "/images/team/samy.webp",
+    photoClass: "object-cover object-top",
+  },
+  {
+    name: "Maryem",
+    role: "QA Consultant & Trainer — ISTQB® Certified",
+    email: "",
+    photo: "/images/team/maryem.webp",
     photoClass: "object-cover object-top",
   },
 ];
@@ -47,10 +54,10 @@ export default function Team() {
           {t("subtitle")}
         </p>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
           {members.map((member) => (
             <div
-              key={member.email}
+              key={member.name}
               className="border border-border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:-translate-y-0.5"
             >
               {/* Photo */}
@@ -78,6 +85,7 @@ export default function Team() {
 
                 <div className="flex flex-col gap-1.5 text-sm">
                   {/* Email — click to copy */}
+                  {member.email && (
                   <button
                     onClick={() => copyEmail(member.email)}
                     className="text-left text-muted hover:text-foreground transition-colors group inline-flex items-center gap-2"
@@ -111,6 +119,7 @@ export default function Team() {
                       <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
                     </svg>
                   </button>
+                  )}
 
                   {/* Website */}
                   <a
