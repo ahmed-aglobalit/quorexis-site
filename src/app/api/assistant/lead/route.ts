@@ -78,9 +78,6 @@ export async function POST(request: Request) {
       volume,
       goals,
       message,
-      wantsCall,
-      timeSlot,
-      timezone,
       locale,
       referrer,
     } = body;
@@ -116,9 +113,7 @@ export async function POST(request: Request) {
 
     const subjectLine = `[Lead Assistant] ${company} – ${needLabel} – ${urgencyLabel}`;
 
-    const callInfo = wantsCall
-      ? `\nCall requested: Yes\nPreferred slot: ${timeSlot || "—"}\nTimezone: ${timezone || "—"}`
-      : "\nCall requested: No";
+    const callInfo = "\nCall: Calendly link proposed";
 
     const textBody = [
       `Name: ${name}`,
@@ -178,7 +173,7 @@ export async function POST(request: Request) {
 
         <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 16px 0;" />
         <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Call</h3>
-        <p>${wantsCall ? `✅ Requested — ${timeSlot || "—"} (${timezone || "—"})` : "Not requested"}</p>
+        <p>Calendly link proposed at step 6</p>
 
         <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 16px 0;" />
         <p style="font-size: 12px; color: #999;">Locale: ${locale || "—"} · Page: ${referrer || "—"}</p>

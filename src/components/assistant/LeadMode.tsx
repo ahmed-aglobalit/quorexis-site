@@ -21,7 +21,6 @@ interface LeadData {
   volume: string;
   goals: string[];
   message: string;
-  wantsCall: boolean;
   website: string; // honeypot
 }
 
@@ -61,7 +60,6 @@ export default function LeadMode({ onBack }: LeadModeProps) {
     volume: "",
     goals: [],
     message: "",
-    wantsCall: false,
     website: "", // honeypot
   });
 
@@ -407,25 +405,11 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
         {/* Step 6: Call via Calendly */}
         {step === 6 && (
-          <>
-            <label className="flex items-center gap-2.5 px-3 py-2.5 border border-border rounded-md text-sm cursor-pointer hover:border-accent transition-colors has-[:checked]:border-accent has-[:checked]:bg-accent/5">
-              <input
-                type="checkbox"
-                checked={data.wantsCall}
-                onChange={(e) => updateField("wantsCall", e.target.checked)}
-                className="accent-accent h-4 w-4 shrink-0"
-              />
-              <span>{t("lead.wantsCall")}</span>
-            </label>
-
-            {data.wantsCall && (
-              <CalendlySelector
-                name={data.name}
-                email={data.email}
-                company={data.company}
-              />
-            )}
-          </>
+          <CalendlySelector
+            name={data.name}
+            email={data.email}
+            company={data.company}
+          />
         )}
 
         {/* Step 7: Summary */}
@@ -487,9 +471,7 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
             <SummarySection title={t("lead.summaryCall")}>
               <p className="text-muted">
-                {data.wantsCall
-                  ? t("lead.summaryCalendlyBooked")
-                  : t("lead.summaryNo")}
+                {t("lead.summaryCalendlyBooked")}
               </p>
             </SummarySection>
 
