@@ -100,9 +100,9 @@ export default function Header() {
           <Image
             src="/images/logo.webp"
             alt="Quorexis"
-            width={40}
+            width={120}
             height={40}
-            className="h-9 w-9 rounded-md object-contain"
+            className="h-8 w-auto object-contain"
             priority
           />
           <span className="sr-only">Quorexis</span>
