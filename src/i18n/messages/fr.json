@@ -69,7 +69,7 @@
   },
   "expertises": {
     "title": "Nos expertises en test logiciel",
-    "intro": "Cinq domaines d'intervention spécialisés, intégrés dans une logique de delivery offshore industrialisée.",
+    "intro": "Six domaines d'intervention spécialisés, intégrés dans une logique de delivery industrialisée.",
     "functionalTesting": {
       "title": "Tests fonctionnels",
       "description": "Conception et exécution de campagnes de tests fonctionnels structurées. Couverture exhaustive des parcours critiques, gestion rigoureuse des anomalies, traçabilité complète.",
@@ -99,6 +99,12 @@
       "description": "Mise en place d'un cadre de pilotage qualité structuré. Définition des KPIs, construction des dashboards, rituels de reporting, amélioration continue.",
       "deliverables": ["Framework KPI adapté à votre contexte", "Dashboards et reporting exécutif", "Processus d'amélioration continue"],
       "results": ["Visibilité permanente sur la qualité logicielle", "Décisions pilotées par les données"]
+    },
+    "aiTesting": {
+      "title": "Test augmenté par l'IA",
+      "description": "Intégration de l'intelligence artificielle dans les processus de test pour accélérer la conception, la génération et la maintenance des cas de test. Activé selon le contexte et la maturité du projet.",
+      "deliverables": ["Génération assistée de cas de test à partir des spécifications", "Maintenance prédictive des suites de tests automatisés", "Analyse intelligente des résultats et priorisation des anomalies"],
+      "results": ["Réduction du temps de conception des campagnes de test", "Couverture élargie avec un effort maîtrisé"]
     },
     "deliverables": "Livrables",
     "results": "Résultats"

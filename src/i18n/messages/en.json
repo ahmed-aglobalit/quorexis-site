@@ -68,7 +68,7 @@
   },
   "expertises": {
     "title": "Our software testing expertise",
-    "intro": "Five specialized areas of intervention, integrated into an industrialized offshore delivery model.",
+    "intro": "Six specialized areas of intervention, integrated into an industrialized delivery model.",
     "functionalTesting": {
       "title": "Functional Testing",
       "description": "Design and execution of structured functional test campaigns. Exhaustive coverage of critical user journeys, rigorous defect management, full traceability.",
@@ -98,6 +98,12 @@
       "description": "Establishing a structured quality management framework. KPI definition, dashboard construction, reporting rituals, continuous improvement.",
       "deliverables": ["KPI framework tailored to your context", "Dashboards and executive reporting", "Continuous improvement processes"],
       "results": ["Permanent visibility on software quality", "Data-driven decisions"]
+    },
+    "aiTesting": {
+      "title": "AI-Augmented Testing",
+      "description": "Integrating artificial intelligence into testing processes to accelerate test case design, generation and maintenance. Activated based on project context and maturity.",
+      "deliverables": ["AI-assisted test case generation from specifications", "Predictive maintenance of automated test suites", "Intelligent results analysis and defect prioritization"],
+      "results": ["Reduced test campaign design time", "Broader coverage with controlled effort"]
     },
     "deliverables": "Deliverables",
     "results": "Results"

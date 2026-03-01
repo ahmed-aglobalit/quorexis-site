@@ -10,6 +10,7 @@ const domains = [
   "apiTesting",
   "performanceTesting",
   "qaGovernance",
+  "aiTesting",
 ] as const;
 
 function FunctionalTestingIcon({ className }: Readonly<{ className?: string }>) {
@@ -63,12 +64,26 @@ function QaGovernanceIcon({ className }: Readonly<{ className?: string }>) {
   );
 }
 
+function AiTestingIcon({ className }: Readonly<{ className?: string }>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+      <path d="M12 2a4 4 0 0 1 4 4v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V6a4 4 0 0 1 4-4z" />
+      <path d="M9 8v2M15 8v2" />
+      <rect x="5" y="10" width="14" height="10" rx="2" />
+      <path d="M9 14h.01M15 14h.01" />
+      <path d="M9 17h6" />
+      <path d="M3 14h2M19 14h2" />
+    </svg>
+  );
+}
+
 const domainIcons = {
   functionalTesting: FunctionalTestingIcon,
   testAutomation: TestAutomationIcon,
   apiTesting: ApiTestingIcon,
   performanceTesting: PerformanceTestingIcon,
   qaGovernance: QaGovernanceIcon,
+  aiTesting: AiTestingIcon,
 } as const;
 
 export default function Expertises() {
