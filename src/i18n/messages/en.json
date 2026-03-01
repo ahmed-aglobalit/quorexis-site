@@ -1272,18 +1272,20 @@
         "title": "Book a meeting",
         "subtitle": "Choose the format that suits you best",
         "fallback": "You can also reach us at contact@quorexis.fr",
+        "afterOpen": "Great. If you prefer, you can also reach us at contact@quorexis.fr.",
+        "contextPrompt": "In one sentence, what is your context (product / scope / urgency)?",
         "events": {
-          "discovery": {
-            "title": "Discovery Call",
-            "desc": "Quick intro to understand your context"
+          "qa30": {
+            "title": "QA Exchange — 30 min",
+            "desc": "Quick scoping + next steps"
           },
-          "audit": {
-            "title": "QA Audit",
-            "desc": "In-depth review of your QA processes"
+          "qa45": {
+            "title": "QA Exchange — 45 min",
+            "desc": "In-depth needs analysis + QA setup"
           },
-          "scoping": {
-            "title": "Project Scoping",
-            "desc": "Detailed scoping for a collaboration"
+          "qa60": {
+            "title": "QA Exchange — 1h",
+            "desc": "Full scoping + governance & KPIs"
           }
         }
       },

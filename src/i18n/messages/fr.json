@@ -1234,18 +1234,20 @@
         "title": "Réserver un rendez-vous",
         "subtitle": "Choisissez le format qui vous convient",
         "fallback": "Vous pouvez aussi nous écrire à contact@quorexis.fr",
+        "afterOpen": "Parfait. Si vous préférez, vous pouvez aussi nous écrire à contact@quorexis.fr.",
+        "contextPrompt": "En 1 phrase, quel est votre contexte (produit / périmètre / urgence) ?",
         "events": {
-          "discovery": {
-            "title": "Appel découverte",
-            "desc": "Introduction rapide pour comprendre votre contexte"
+          "qa30": {
+            "title": "Échange QA — 30 min",
+            "desc": "Cadrage rapide + prochaines étapes"
           },
-          "audit": {
-            "title": "Audit QA",
-            "desc": "Revue approfondie de vos processus QA"
+          "qa45": {
+            "title": "Échange QA — 45 min",
+            "desc": "Analyse approfondie du besoin + dispositif QA"
           },
-          "scoping": {
-            "title": "Cadrage projet",
-            "desc": "Cadrage détaillé pour une collaboration"
+          "qa60": {
+            "title": "Échange QA — 1h",
+            "desc": "Scoping complet + gouvernance & KPIs"
           }
         }
       },
