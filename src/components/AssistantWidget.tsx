@@ -107,11 +107,11 @@ export default function AssistantWidget() {
       {!isOpen && (
         <button
           onClick={handleOpen}
-          className="fixed bottom-6 right-6 z-[60] relative flex items-center gap-3 py-2.5 px-5 rounded-xl bg-background border border-border shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:border-accent/40 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] active:scale-[0.98] transition-all duration-200"
+          className="fixed bottom-6 right-6 z-[60] flex items-center gap-3 py-3 px-5 rounded-xl bg-accent text-white shadow-lg hover:bg-accent/90 hover:shadow-xl active:scale-[0.98] transition-all duration-200"
           aria-label={t("buttonLabel")}
         >
           {/* Icon */}
-          <div className="h-9 w-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+          <div className="h-9 w-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
             <svg
               width="18"
               height="18"
@@ -121,7 +121,7 @@ export default function AssistantWidget() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-accent"
+              className="text-white"
               aria-hidden="true"
             >
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -130,10 +130,10 @@ export default function AssistantWidget() {
 
           {/* Labels */}
           <div className="flex flex-col items-start">
-            <span className="text-sm font-semibold text-foreground leading-tight">
+            <span className="text-sm font-semibold text-white leading-tight">
               {t("buttonLabel")}
             </span>
-            <span className="text-[11px] text-muted leading-tight mt-0.5 hidden sm:block">
+            <span className="text-[11px] text-white/70 leading-tight mt-0.5 hidden sm:block">
               {t("buttonSub")}
             </span>
           </div>
