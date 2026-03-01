@@ -1166,6 +1166,8 @@
   },
   "assistant": {
     "open": "Assistant",
+    "buttonLabel": "Talk to Quorexis",
+    "buttonSub": "Book a call (Calendly)",
     "close": "Close",
     "title": "Quorexis Assistant",
     "chooseMode": "How can we help?",
@@ -1178,6 +1180,10 @@
     "send": "Send",
     "sending": "Sending…",
     "startOver": "Start over",
+    "calendlyDirect": {
+      "welcome": "Need to frame your QA strategy?\nBook a 30, 45 or 60-minute session — right here.",
+      "backToChoose": "See all options"
+    },
     "faq": {
       "selectCategory": "Select a topic",
       "selectQuestion": "Select a question",

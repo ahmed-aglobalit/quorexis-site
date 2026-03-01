@@ -1,17 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import FaqMode from "./assistant/FaqMode";
 import LeadMode from "./assistant/LeadMode";
+import CalendlyDirectMode from "./assistant/CalendlyDirectMode";
 
-type Mode = "choose" | "faq" | "lead";
+type Mode = "choose" | "faq" | "lead" | "calendly-direct";
+
+const BLOG_LIST_KEY = "quorexis_assistant_autopopup_blog_seen";
+const BLOG_ARTICLE_KEY = "quorexis_assistant_autopopup_article_seen";
 
 export default function AssistantWidget() {
   const t = useTranslations("assistant");
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [mode, setMode] = useState<Mode>("choose");
+  const [showBadge, setShowBadge] = useState(false);
+  const autoOpenFiredRef = useRef(false);
+  const prevPathRef = useRef(pathname);
+
+  // Blog detection (usePathname from next-intl returns locale-stripped paths)
+  const isBlogList = pathname === "/blog";
+  const isBlogArticle = pathname.startsWith("/blog/") && pathname !== "/blog/";
+  const isBlogPage = isBlogList || isBlogArticle;
 
   // Escape to close
   useEffect(() => {
@@ -21,6 +35,49 @@ export default function AssistantWidget() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
+
+  // Reset auto-open ref on pathname change (allows new auto-open on different page type)
+  useEffect(() => {
+    if (prevPathRef.current !== pathname) {
+      autoOpenFiredRef.current = false;
+      prevPathRef.current = pathname;
+    }
+  }, [pathname]);
+
+  // Auto-open on blog pages
+  useEffect(() => {
+    if (!isBlogPage) {
+      setShowBadge(false);
+      return;
+    }
+
+    const storageKey = isBlogArticle ? BLOG_ARTICLE_KEY : BLOG_LIST_KEY;
+
+    try {
+      if (sessionStorage.getItem(storageKey) === "true") {
+        setShowBadge(true);
+        return;
+      }
+    } catch {
+      return;
+    }
+
+    if (autoOpenFiredRef.current) return;
+    autoOpenFiredRef.current = true;
+
+    const delay = 800 + Math.random() * 400;
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      setMode("calendly-direct");
+      try {
+        sessionStorage.setItem(storageKey, "true");
+      } catch {
+        // ignore
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [isBlogPage, isBlogArticle, pathname]);
 
   function handleClose() {
     setIsClosing(true);
@@ -33,6 +90,7 @@ export default function AssistantWidget() {
   function handleOpen() {
     setIsOpen(true);
     setMode("choose");
+    setShowBadge(false);
   }
 
   function handleBackToChoose() {
@@ -45,27 +103,45 @@ export default function AssistantWidget() {
 
   return (
     <>
-      {/* Floating button */}
+      {/* Enhanced floating button */}
       {!isOpen && (
         <button
           onClick={handleOpen}
-          className="fixed bottom-6 right-6 z-[60] flex items-center gap-2 h-11 px-4 rounded-full bg-accent text-white shadow-lg hover:bg-accent/90 hover:scale-105 active:scale-95 transition-all duration-200 text-sm font-medium"
-          aria-label={t("open")}
+          className="fixed bottom-6 right-6 z-[60] relative flex items-center gap-3 py-2.5 px-5 rounded-xl bg-background border border-border shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:border-accent/40 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] active:scale-[0.98] transition-all duration-200"
+          aria-label={t("buttonLabel")}
         >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-          {t("open")}
+          {/* Icon */}
+          <div className="h-9 w-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-accent"
+              aria-hidden="true"
+            >
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+
+          {/* Labels */}
+          <div className="flex flex-col items-start">
+            <span className="text-sm font-semibold text-foreground leading-tight">
+              {t("buttonLabel")}
+            </span>
+            <span className="text-[11px] text-muted leading-tight mt-0.5 hidden sm:block">
+              {t("buttonSub")}
+            </span>
+          </div>
+
+          {/* Badge */}
+          {showBadge && (
+            <span className="absolute -top-1.5 -right-1.5 h-3 w-3 rounded-full bg-accent animate-pulse" />
+          )}
         </button>
       )}
 
@@ -176,6 +252,10 @@ export default function AssistantWidget() {
             )}
 
             {mode === "lead" && <LeadMode onBack={handleBackToChoose} />}
+
+            {mode === "calendly-direct" && (
+              <CalendlyDirectMode onBack={handleBackToChoose} />
+            )}
           </div>
         </div>
       )}

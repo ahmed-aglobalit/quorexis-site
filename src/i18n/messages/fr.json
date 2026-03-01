@@ -1128,6 +1128,8 @@
   },
   "assistant": {
     "open": "Assistant",
+    "buttonLabel": "Parler à Quorexis",
+    "buttonSub": "Réserver un call (Calendly)",
     "close": "Fermer",
     "title": "Assistant Quorexis",
     "chooseMode": "Comment pouvons-nous vous aider ?",
@@ -1140,6 +1142,10 @@
     "send": "Envoyer",
     "sending": "Envoi…",
     "startOver": "Recommencer",
+    "calendlyDirect": {
+      "welcome": "Besoin de cadrer votre stratégie QA ?\nRéservez un échange en 30, 45 ou 60 minutes — directement ici.",
+      "backToChoose": "Voir toutes les options"
+    },
     "faq": {
       "selectCategory": "Choisissez un sujet",
       "selectQuestion": "Choisissez une question",
