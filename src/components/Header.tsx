@@ -98,7 +98,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 flex items-center">
           <Image
-            src="/images/logo.webp"
+            src="/images/logo1.png"
             alt="Quorexis"
             width={160}
             height={48}

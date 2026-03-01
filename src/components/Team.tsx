@@ -26,7 +26,7 @@ const members = [
     role: "QA Consultant & Trainer — ISTQB® Certified",
     email: "",
     photo: "/images/team/maryem.webp",
-    photoClass: "object-cover object-[center_20%] scale-[1.15]",
+    photoClass: "object-cover object-[center_20%] scale-[1.1]",
   },
 ];
 
