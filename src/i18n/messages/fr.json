@@ -1163,108 +1163,42 @@
       "name": "Nom complet",
       "email": "Email professionnel",
       "company": "Entreprise",
-      "role": "Rôle",
-      "rolePlaceholder": "Sélectionnez votre rôle",
-      "roles": {
-        "cto": "CTO / VP Engineering",
-        "qaLead": "QA Lead / Manager",
-        "product": "Product Owner / Manager",
-        "procurement": "Achats",
-        "other": "Autre"
-      },
-      "contextTitle": "Votre contexte",
-      "productType": "Type de produit",
-      "productPlaceholder": "Sélectionnez le type",
-      "types": {
-        "web": "Web",
-        "mobile": "Mobile",
-        "api": "API",
-        "multi": "Multi-plateforme"
-      },
-      "sector": "Secteur d'activité",
-      "sectorPlaceholder": "Sélectionnez le secteur",
-      "sectors": {
-        "fintech": "Fintech",
-        "telecom": "Télécom",
-        "iot": "Industrie & IoT",
-        "travel": "Voyage",
-        "healthcare": "Santé",
-        "other": "Autre"
-      },
-      "needTitle": "Votre besoin",
-      "mainNeed": "Besoin principal",
-      "needPlaceholder": "Sélectionnez le besoin",
+      "needTitle": "Quel est votre besoin principal ?",
+      "contextPlaceholder": "Contexte en 1 phrase (produit, périmètre, urgence…)",
       "needs": {
-        "functional": "Tests fonctionnels / manuels",
-        "automation": "Automatisation des tests",
-        "api": "Tests API",
-        "performance": "Tests de performance",
-        "governance": "Gouvernance QA & KPIs",
-        "training": "Formation ISTQB"
+        "functional": "Functional Testing",
+        "automation": "Test Automation",
+        "api": "API Testing",
+        "performance": "Performance Testing",
+        "governance": "QA Governance & KPIs",
+        "unsure": "Je ne sais pas / à cadrer"
       },
-      "urgency": "Délai",
-      "urgencyPlaceholder": "Sélectionnez le délai",
-      "urgencies": {
-        "asap": "Dès que possible",
-        "1month": "< 1 mois",
-        "1-3months": "1–3 mois",
-        "planning": "En planification"
-      },
-      "volume": "Volume estimé",
-      "volumePlaceholder": "Sélectionnez le volume",
-      "volumes": {
-        "small": "Petit",
-        "medium": "Moyen",
-        "large": "Important"
-      },
-      "goalsTitle": "Objectifs & pain points",
-      "goalsSubtitle": "Sélectionnez tout ce qui s'applique",
-      "goals": {
-        "reduceIncidents": "Réduire les incidents en production",
-        "accelerateRelease": "Accélérer les releases",
-        "stabilizeRegression": "Stabiliser la régression",
-        "structureGovernance": "Structurer la gouvernance QA",
-        "improveKpis": "Améliorer les KPIs qualité"
-      },
-      "messageTitle": "Détails complémentaires",
-      "messagePlaceholder": "Contexte, contraintes, exigences spécifiques…",
-      "callTitle": "Planifier un échange",
-      "wantsCall": "Je souhaite un échange de 30 min",
       "calendly": {
-        "title": "Réserver un rendez-vous",
+        "title": "Réservez un échange",
         "subtitle": "Choisissez le format qui vous convient",
         "fallback": "Vous pouvez aussi nous écrire à contact@quorexis.fr",
-        "afterOpen": "Parfait. Si vous préférez, vous pouvez aussi nous écrire à contact@quorexis.fr.",
+        "afterOpen": "Parfait. Vous pouvez aussi nous écrire à contact@quorexis.fr.",
         "contextPrompt": "En 1 phrase, quel est votre contexte (produit / périmètre / urgence) ?",
         "events": {
-          "qa30": {
-            "title": "Échange QA — 30 min",
-            "desc": "Cadrage rapide + prochaines étapes"
+          "quickCall": {
+            "title": "Quick Call",
+            "desc": "Cadrage rapide + recommandation immédiate"
           },
-          "qa45": {
-            "title": "Échange QA — 45 min",
-            "desc": "Analyse approfondie du besoin + dispositif QA"
+          "deepDive": {
+            "title": "Deep Dive",
+            "desc": "Analyse détaillée du besoin + options de dispositif QA"
           },
-          "qa60": {
-            "title": "Échange QA — 1h",
-            "desc": "Scoping complet + gouvernance & KPIs"
+          "demo": {
+            "title": "QA Demo / Scoping Session",
+            "desc": "Démo du modèle delivery + gouvernance & KPIs"
           }
         }
       },
-      "summaryTitle": "Récapitulatif",
-      "summaryProfile": "Profil",
-      "summaryContext": "Contexte",
-      "summaryNeed": "Besoin",
-      "summaryGoals": "Objectifs",
-      "summaryMessage": "Message",
-      "summaryCall": "Appel",
-      "summaryYes": "Oui",
-      "summaryNo": "Non",
-      "summaryCalendlyBooked": "Oui — via Calendly",
       "confirm": "Envoyer ma demande",
       "success": "Merci ! Un QA Lead vous recontacte très prochainement.",
       "errorRequired": "Requis",
       "errorEmail": "Email invalide",
+      "errorEmailPro": "Merci d'utiliser un email professionnel (ex : prénom@entreprise.com).",
       "errorGeneral": "Une erreur est survenue. Veuillez réessayer."
     }
   }

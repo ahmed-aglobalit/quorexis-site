@@ -26,25 +26,12 @@ function getClientIp(request: Request): string {
 }
 
 const needLabels: Record<string, string> = {
-  functional: "Functional / Manual Testing",
+  functional: "Functional Testing",
   automation: "Test Automation",
   api: "API Testing",
   performance: "Performance Testing",
   governance: "QA Governance & KPIs",
-  training: "Training ISTQB",
-};
-
-const urgencyLabels: Record<string, string> = {
-  asap: "ASAP",
-  "1month": "< 1 month",
-  "1-3months": "1–3 months",
-  planning: "Planning",
-};
-
-const volumeLabels: Record<string, string> = {
-  small: "Small",
-  medium: "Medium",
-  large: "Large",
+  unsure: "Not sure / to be scoped",
 };
 
 export async function POST(request: Request) {
@@ -62,25 +49,10 @@ export async function POST(request: Request) {
 
     // Honeypot check
     if (body.website) {
-      // Bot filled the honeypot field — silently accept
       return NextResponse.json({ success: true });
     }
 
-    const {
-      name,
-      email,
-      company,
-      role,
-      productType,
-      sector,
-      mainNeed,
-      urgency,
-      volume,
-      goals,
-      message,
-      locale,
-      referrer,
-    } = body;
+    const { name, email, company, mainNeed, context, locale, referrer } = body;
 
     // Validation
     if (!name || !email || !company || !mainNeed) {
@@ -90,7 +62,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
       return NextResponse.json(
         { error: "Invalid email address" },
         { status: 400 }
@@ -106,32 +78,16 @@ export async function POST(request: Request) {
     });
 
     const needLabel = needLabels[mainNeed] || mainNeed;
-    const urgencyLabel = urgencyLabels[urgency] || urgency || "—";
-    const volumeLabel = volumeLabels[volume] || volume || "—";
-    const goalsText =
-      Array.isArray(goals) && goals.length > 0 ? goals.join(", ") : "—";
-
-    const subjectLine = `[Lead Assistant] ${company} – ${needLabel} – ${urgencyLabel}`;
-
-    const callInfo = "\nCall: Calendly link proposed";
+    const subjectLine = `[Lead Assistant] ${company} – ${needLabel}`;
 
     const textBody = [
       `Name: ${name}`,
       `Email: ${email}`,
       `Company: ${company}`,
-      `Role: ${role || "—"}`,
-      "",
-      `Product type: ${productType || "—"}`,
-      `Sector: ${sector || "—"}`,
       "",
       `Primary need: ${needLabel}`,
-      `Urgency: ${urgencyLabel}`,
-      `Volume: ${volumeLabel}`,
       "",
-      `Goals: ${goalsText}`,
-      "",
-      `Message: ${message || "—"}`,
-      callInfo,
+      `Context: ${context || "—"}`,
       "",
       `Locale: ${locale || "—"}`,
       `Page: ${referrer || "—"}`,
@@ -146,34 +102,15 @@ export async function POST(request: Request) {
           <tr><td style="padding: 6px 0; color: #6b6b6b; width: 140px;">Name</td><td style="padding: 6px 0;">${name}</td></tr>
           <tr><td style="padding: 6px 0; color: #6b6b6b;">Email</td><td style="padding: 6px 0;"><a href="mailto:${email}">${email}</a></td></tr>
           <tr><td style="padding: 6px 0; color: #6b6b6b;">Company</td><td style="padding: 6px 0;">${company}</td></tr>
-          <tr><td style="padding: 6px 0; color: #6b6b6b;">Role</td><td style="padding: 6px 0;">${role || "—"}</td></tr>
-        </table>
-
-        <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Context</h3>
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
-          <tr><td style="padding: 6px 0; color: #6b6b6b; width: 140px;">Product type</td><td style="padding: 6px 0;">${productType || "—"}</td></tr>
-          <tr><td style="padding: 6px 0; color: #6b6b6b;">Sector</td><td style="padding: 6px 0;">${sector || "—"}</td></tr>
         </table>
 
         <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Need</h3>
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
-          <tr><td style="padding: 6px 0; color: #6b6b6b; width: 140px;">Primary need</td><td style="padding: 6px 0; font-weight: 600;">${needLabel}</td></tr>
-          <tr><td style="padding: 6px 0; color: #6b6b6b;">Urgency</td><td style="padding: 6px 0;">${urgencyLabel}</td></tr>
-          <tr><td style="padding: 6px 0; color: #6b6b6b;">Volume</td><td style="padding: 6px 0;">${volumeLabel}</td></tr>
-        </table>
+        <p style="font-weight: 600; font-size: 16px; margin: 8px 0;">${needLabel}</p>
 
-        <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Goals</h3>
-        <p style="line-height: 1.6;">${goalsText}</p>
-
-        ${message ? `
-        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 16px 0;" />
-        <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Message</h3>
-        <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
+        ${context ? `
+        <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Context</h3>
+        <p style="white-space: pre-wrap; line-height: 1.6;">${context}</p>
         ` : ""}
-
-        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 16px 0;" />
-        <h3 style="color: #6b6b6b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Call</h3>
-        <p>Calendly link proposed at step 6</p>
 
         <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 16px 0;" />
         <p style="font-size: 12px; color: #999;">Locale: ${locale || "—"} · Page: ${referrer || "—"}</p>

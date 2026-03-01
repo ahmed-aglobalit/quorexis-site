@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import StepIndicator from "./StepIndicator";
 import CalendlySelector from "./CalendlySelector";
 
 interface LeadModeProps {
@@ -13,34 +12,52 @@ interface LeadData {
   name: string;
   email: string;
   company: string;
-  role: string;
-  productType: string;
-  sector: string;
   mainNeed: string;
-  urgency: string;
-  volume: string;
-  goals: string[];
-  message: string;
+  context: string;
   website: string; // honeypot
 }
 
 type Status = "idle" | "sending" | "success" | "error";
 
-const TOTAL_STEPS = 7; // 6 form steps + summary
+const FREE_EMAIL_DOMAINS = new Set([
+  "gmail.com", "googlemail.com", "yahoo.com", "yahoo.fr", "yahoo.co.uk",
+  "outlook.com", "outlook.fr", "hotmail.com", "hotmail.fr", "live.com",
+  "live.fr", "msn.com", "icloud.com", "me.com", "mac.com",
+  "aol.com", "aol.fr", "proton.me", "protonmail.com", "pm.me",
+  "mail.com", "zoho.com", "yandex.com", "yandex.ru", "gmx.com",
+  "gmx.fr", "free.fr", "orange.fr", "wanadoo.fr", "laposte.net",
+  "sfr.fr", "bbox.fr",
+]);
 
-const roleKeys = ["cto", "qaLead", "product", "procurement", "other"] as const;
-const typeKeys = ["web", "mobile", "api", "multi"] as const;
-const sectorKeys = ["fintech", "telecom", "iot", "travel", "healthcare", "other"] as const;
-const needKeys = ["functional", "automation", "api", "performance", "governance", "training"] as const;
-const urgencyKeys = ["asap", "1month", "1-3months", "planning"] as const;
-const volumeKeys = ["small", "medium", "large"] as const;
-const goalKeys = ["reduceIncidents", "accelerateRelease", "stabilizeRegression", "structureGovernance", "improveKpis"] as const;
+const needKeys = [
+  "functional", "automation", "api", "performance", "governance", "unsure",
+] as const;
 
 const inputBase =
   "w-full px-3 py-2.5 border border-border rounded-md bg-transparent text-sm focus:outline-none focus:border-accent transition-colors";
 
-const selectBase =
-  "w-full px-3 py-2.5 border border-border rounded-md bg-transparent text-sm focus:outline-none focus:border-accent transition-colors";
+function isValidProEmail(email: string): { valid: boolean; reason?: string } {
+  // Basic format
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(email)) {
+    return { valid: false, reason: "format" };
+  }
+
+  const domain = email.split("@")[1].toLowerCase();
+
+  // Reject free/public email domains
+  if (FREE_EMAIL_DOMAINS.has(domain)) {
+    return { valid: false, reason: "public" };
+  }
+
+  // Reject domains that are too short (e.g. a.com, b.co)
+  const domainName = domain.split(".")[0];
+  if (domainName.length < 3) {
+    return { valid: false, reason: "short" };
+  }
+
+  return { valid: true };
+}
 
 export default function LeadMode({ onBack }: LeadModeProps) {
   const t = useTranslations("assistant");
@@ -52,14 +69,8 @@ export default function LeadMode({ onBack }: LeadModeProps) {
     name: "",
     email: "",
     company: "",
-    role: "",
-    productType: "",
-    sector: "",
     mainNeed: "",
-    urgency: "",
-    volume: "",
-    goals: [],
-    message: "",
+    context: "",
     website: "", // honeypot
   });
 
@@ -72,30 +83,23 @@ export default function LeadMode({ onBack }: LeadModeProps) {
     });
   }
 
-  function toggleGoal(goal: string) {
-    setData((prev) => ({
-      ...prev,
-      goals: prev.goals.includes(goal)
-        ? prev.goals.filter((g) => g !== goal)
-        : [...prev.goals, goal],
-    }));
-  }
-
   const validateStep = useCallback(
     (s: number): boolean => {
       const errs: Record<string, string> = {};
 
       if (s === 1) {
         if (!data.name.trim()) errs.name = t("lead.errorRequired");
+
         if (!data.email.trim()) {
           errs.email = t("lead.errorRequired");
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-          errs.email = t("lead.errorEmail");
+        } else {
+          const emailCheck = isValidProEmail(data.email.trim());
+          if (!emailCheck.valid) {
+            errs.email = t("lead.errorEmailPro");
+          }
         }
-        if (!data.company.trim()) errs.company = t("lead.errorRequired");
-      }
 
-      if (s === 3) {
+        if (!data.company.trim()) errs.company = t("lead.errorRequired");
         if (!data.mainNeed) errs.mainNeed = t("lead.errorRequired");
       }
 
@@ -107,15 +111,7 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
   function handleNext() {
     if (!validateStep(step)) return;
-    setStep((s) => Math.min(s + 1, TOTAL_STEPS));
-  }
-
-  function handlePrev() {
-    if (step === 1) {
-      onBack();
-    } else {
-      setStep((s) => s - 1);
-    }
+    setStep(2);
   }
 
   async function handleSubmit() {
@@ -126,7 +122,6 @@ export default function LeadMode({ onBack }: LeadModeProps) {
         locale,
         referrer: typeof window !== "undefined" ? window.location.href : "",
       };
-      console.log("[Assistant] Submitting lead:", payload);
 
       const res = await fetch("/api/assistant/lead", {
         method: "POST",
@@ -135,26 +130,12 @@ export default function LeadMode({ onBack }: LeadModeProps) {
       });
 
       if (!res.ok) {
-        const errorBody = await res.text().catch(() => "");
-        console.error("[Assistant] API error:", res.status, errorBody);
         throw new Error(`API ${res.status}`);
       }
 
-      console.log("[Assistant] Lead sent successfully");
       setStatus("success");
-    } catch (err) {
-      console.error("[Assistant] Submit failed:", err);
-      setStatus("error");
-    }
-  }
-
-  // Helper to get translated value for summary
-  function label(ns: string, key: string): string {
-    if (!key) return "—";
-    try {
-      return t(`lead.${ns}.${key}`);
     } catch {
-      return key;
+      setStatus("error");
     }
   }
 
@@ -190,16 +171,25 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
   return (
     <div className="flex flex-col h-full">
-      <StepIndicator current={step} total={TOTAL_STEPS} />
+      {/* Step indicator */}
+      <div className="shrink-0 px-4 pt-3 pb-1">
+        <div className="flex items-center gap-2">
+          <div className={`h-1 flex-1 rounded-full ${step >= 1 ? "bg-accent" : "bg-border"}`} />
+          <div className={`h-1 flex-1 rounded-full ${step >= 2 ? "bg-accent" : "bg-border"}`} />
+        </div>
+        <p className="text-[11px] text-muted mt-1.5">
+          {t("step", { current: step, total: 2 })}
+        </p>
+      </div>
 
-      {/* Scrollable step content */}
+      {/* Scrollable content */}
       <div className="p-4 flex flex-col gap-3 overflow-y-auto min-h-0 flex-1">
-        {/* Step 1: Profile */}
+        {/* Step 1: Profile + Need */}
         {step === 1 && (
           <>
             <p className="text-sm font-medium">{t("lead.profileTitle")}</p>
 
-            {/* Honeypot — hidden from humans */}
+            {/* Honeypot */}
             <input
               type="text"
               name="website"
@@ -250,252 +240,79 @@ export default function LeadMode({ onBack }: LeadModeProps) {
               )}
             </div>
 
-            <select
-              value={data.role}
-              onChange={(e) => updateField("role", e.target.value)}
-              className={`${selectBase} ${data.role ? "text-foreground" : "text-muted"}`}
-            >
-              <option value="" disabled>
-                {t("lead.rolePlaceholder")}
-              </option>
-              {roleKeys.map((k) => (
-                <option key={k} value={k}>
-                  {t(`lead.roles.${k}`)}
-                </option>
-              ))}
-            </select>
-          </>
-        )}
-
-        {/* Step 2: Context */}
-        {step === 2 && (
-          <>
-            <p className="text-sm font-medium">{t("lead.contextTitle")}</p>
-
-            <select
-              value={data.productType}
-              onChange={(e) => updateField("productType", e.target.value)}
-              className={`${selectBase} ${data.productType ? "text-foreground" : "text-muted"}`}
-            >
-              <option value="" disabled>
-                {t("lead.productPlaceholder")}
-              </option>
-              {typeKeys.map((k) => (
-                <option key={k} value={k}>
-                  {t(`lead.types.${k}`)}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={data.sector}
-              onChange={(e) => updateField("sector", e.target.value)}
-              className={`${selectBase} ${data.sector ? "text-foreground" : "text-muted"}`}
-            >
-              <option value="" disabled>
-                {t("lead.sectorPlaceholder")}
-              </option>
-              {sectorKeys.map((k) => (
-                <option key={k} value={k}>
-                  {t(`lead.sectors.${k}`)}
-                </option>
-              ))}
-            </select>
-          </>
-        )}
-
-        {/* Step 3: Need */}
-        {step === 3 && (
-          <>
-            <p className="text-sm font-medium">{t("lead.needTitle")}</p>
-
-            <div>
-              <select
-                value={data.mainNeed}
-                onChange={(e) => updateField("mainNeed", e.target.value)}
-                className={`${selectBase} ${data.mainNeed ? "text-foreground" : "text-muted"} ${errors.mainNeed ? "border-red-400" : ""}`}
-              >
-                <option value="" disabled>
-                  {t("lead.needPlaceholder")}
-                </option>
+            <div className="mt-2">
+              <p className="text-sm font-medium mb-2">{t("lead.needTitle")}</p>
+              <div className="flex flex-wrap gap-2">
                 {needKeys.map((k) => (
-                  <option key={k} value={k}>
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => updateField("mainNeed", k)}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-colors ${
+                      data.mainNeed === k
+                        ? "border-accent bg-accent/10 text-accent"
+                        : "border-border text-muted hover:border-accent/50 hover:text-foreground"
+                    }`}
+                  >
                     {t(`lead.needs.${k}`)}
-                  </option>
+                  </button>
                 ))}
-              </select>
+              </div>
               {errors.mainNeed && (
-                <p className="mt-1 text-xs text-red-500">{errors.mainNeed}</p>
+                <p className="mt-1.5 text-xs text-red-500">{errors.mainNeed}</p>
               )}
             </div>
 
-            <select
-              value={data.urgency}
-              onChange={(e) => updateField("urgency", e.target.value)}
-              className={`${selectBase} ${data.urgency ? "text-foreground" : "text-muted"}`}
-            >
-              <option value="" disabled>
-                {t("lead.urgencyPlaceholder")}
-              </option>
-              {urgencyKeys.map((k) => (
-                <option key={k} value={k}>
-                  {t(`lead.urgencies.${k}`)}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={data.volume}
-              onChange={(e) => updateField("volume", e.target.value)}
-              className={`${selectBase} ${data.volume ? "text-foreground" : "text-muted"}`}
-            >
-              <option value="" disabled>
-                {t("lead.volumePlaceholder")}
-              </option>
-              {volumeKeys.map((k) => (
-                <option key={k} value={k}>
-                  {t(`lead.volumes.${k}`)}
-                </option>
-              ))}
-            </select>
-          </>
-        )}
-
-        {/* Step 4: Goals */}
-        {step === 4 && (
-          <>
-            <p className="text-sm font-medium">{t("lead.goalsTitle")}</p>
-            <p className="text-xs text-muted">{t("lead.goalsSubtitle")}</p>
-            <div className="flex flex-col gap-2">
-              {goalKeys.map((k) => (
-                <label
-                  key={k}
-                  className="flex items-center gap-2.5 px-3 py-2.5 border border-border rounded-md text-sm cursor-pointer hover:border-accent transition-colors has-[:checked]:border-accent has-[:checked]:bg-accent/5"
-                >
-                  <input
-                    type="checkbox"
-                    checked={data.goals.includes(k)}
-                    onChange={() => toggleGoal(k)}
-                    className="accent-accent h-4 w-4 shrink-0"
-                  />
-                  <span className="break-words min-w-0">{t(`lead.goals.${k}`)}</span>
-                </label>
-              ))}
+            <div className="mt-1">
+              <textarea
+                value={data.context}
+                onChange={(e) => updateField("context", e.target.value)}
+                placeholder={t("lead.contextPlaceholder")}
+                rows={2}
+                maxLength={500}
+                className={`${inputBase} resize-none`}
+              />
             </div>
           </>
         )}
 
-        {/* Step 5: Message */}
-        {step === 5 && (
+        {/* Step 2: Calendly */}
+        {step === 2 && (
           <>
-            <p className="text-sm font-medium">{t("lead.messageTitle")}</p>
-            <textarea
-              value={data.message}
-              onChange={(e) => updateField("message", e.target.value)}
-              placeholder={t("lead.messagePlaceholder")}
-              rows={4}
-              maxLength={2000}
-              className={`${inputBase} resize-none`}
+            <CalendlySelector
+              name={data.name}
+              email={data.email}
+              company={data.company}
             />
-            <p className="text-xs text-muted text-right">
-              {data.message.length}/2000
-            </p>
-          </>
-        )}
 
-        {/* Step 6: Call via Calendly */}
-        {step === 6 && (
-          <CalendlySelector
-            name={data.name}
-            email={data.email}
-            company={data.company}
-          />
-        )}
-
-        {/* Step 7: Summary */}
-        {step === 7 && (
-          <div className="flex flex-col gap-2 text-sm">
-            <p className="text-sm font-medium">{t("lead.summaryTitle")}</p>
-
-            <SummarySection title={t("lead.summaryProfile")}>
-              <SummaryRow label={t("lead.name")} value={data.name} />
-              <SummaryRow label={t("lead.email")} value={data.email} />
-              <SummaryRow label={t("lead.company")} value={data.company} />
-              <SummaryRow
-                label={t("lead.role")}
-                value={data.role ? label("roles", data.role) : "—"}
-              />
-            </SummarySection>
-
-            <SummarySection title={t("lead.summaryContext")}>
-              <SummaryRow
-                label={t("lead.productType")}
-                value={data.productType ? label("types", data.productType) : "—"}
-              />
-              <SummaryRow
-                label={t("lead.sector")}
-                value={data.sector ? label("sectors", data.sector) : "—"}
-              />
-            </SummarySection>
-
-            <SummarySection title={t("lead.summaryNeed")}>
-              <SummaryRow
-                label={t("lead.mainNeed")}
-                value={data.mainNeed ? label("needs", data.mainNeed) : "—"}
-              />
-              <SummaryRow
-                label={t("lead.urgency")}
-                value={data.urgency ? label("urgencies", data.urgency) : "—"}
-              />
-              <SummaryRow
-                label={t("lead.volume")}
-                value={data.volume ? label("volumes", data.volume) : "—"}
-              />
-            </SummarySection>
-
-            {data.goals.length > 0 && (
-              <SummarySection title={t("lead.summaryGoals")}>
-                <p className="text-muted break-words">
-                  {data.goals.map((g) => label("goals", g)).join(", ")}
-                </p>
-              </SummarySection>
-            )}
-
-            {data.message && (
-              <SummarySection title={t("lead.summaryMessage")}>
-                <p className="text-muted break-words whitespace-pre-wrap">
-                  {data.message}
-                </p>
-              </SummarySection>
-            )}
-
-            <SummarySection title={t("lead.summaryCall")}>
-              <p className="text-muted">
-                {t("lead.summaryCalendlyBooked")}
-              </p>
-            </SummarySection>
-
-            {status === "error" && (
-              <div className="p-3 bg-red-50 border border-red-200 rounded-md">
-                <p className="text-sm text-red-600 font-medium">
+            <div className="mt-2 pt-3 border-t border-border">
+              <button
+                onClick={handleSubmit}
+                disabled={status === "sending"}
+                className="w-full px-5 py-2.5 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {status === "sending" ? t("sending") : t("lead.confirm")}
+              </button>
+              {status === "error" && (
+                <p className="mt-2 text-xs text-red-500 text-center">
                   {t("lead.errorGeneral")}
                 </p>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          </>
         )}
       </div>
 
-      {/* Sticky footer — always visible */}
+      {/* Sticky footer */}
       <div className="shrink-0 border-t border-border px-4 py-3 flex items-center justify-between gap-2">
         <button
-          onClick={handlePrev}
+          onClick={step === 1 ? onBack : () => setStep(1)}
           className="text-sm text-muted hover:text-foreground transition-colors"
         >
           ← {t("back")}
         </button>
 
-        {step < TOTAL_STEPS && (
+        {step === 1 && (
           <button
             onClick={handleNext}
             className="px-4 py-2 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
@@ -503,43 +320,7 @@ export default function LeadMode({ onBack }: LeadModeProps) {
             {t("continue")}
           </button>
         )}
-
-        {step === TOTAL_STEPS && (
-          <button
-            onClick={handleSubmit}
-            disabled={status === "sending"}
-            className="px-5 py-2 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {status === "sending" ? t("sending") : t("lead.confirm")}
-          </button>
-        )}
       </div>
-    </div>
-  );
-}
-
-function SummarySection({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="border border-border rounded-md p-2.5">
-      <p className="text-xs font-medium text-muted uppercase tracking-wide mb-1.5">
-        {title}
-      </p>
-      {children}
-    </div>
-  );
-}
-
-function SummaryRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex justify-between gap-2 text-sm">
-      <span className="text-muted shrink-0">{label}</span>
-      <span className="text-right break-words min-w-0">{value || "—"}</span>
     </div>
   );
 }
