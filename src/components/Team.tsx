@@ -12,7 +12,7 @@ const members = [
     role: "Co-Founder & CEO",
     email: "ahmed.ghanmi@quorexis.fr",
     photo: "/images/team/ahmed.webp",
-    photoClass: "object-cover object-top scale-[1.4] origin-top",
+    photoClass: "object-cover object-[center_15%] scale-[1.4]",
   },
   {
     name: "Samy Mejri",
