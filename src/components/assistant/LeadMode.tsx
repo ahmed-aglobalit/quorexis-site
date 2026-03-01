@@ -19,16 +19,6 @@ interface LeadData {
 
 type Status = "idle" | "sending" | "success" | "error";
 
-const FREE_EMAIL_DOMAINS = new Set([
-  "gmail.com", "googlemail.com", "yahoo.com", "yahoo.fr", "yahoo.co.uk",
-  "outlook.com", "outlook.fr", "hotmail.com", "hotmail.fr", "live.com",
-  "live.fr", "msn.com", "icloud.com", "me.com", "mac.com",
-  "aol.com", "aol.fr", "proton.me", "protonmail.com", "pm.me",
-  "mail.com", "zoho.com", "yandex.com", "yandex.ru", "gmx.com",
-  "gmx.fr", "free.fr", "orange.fr", "wanadoo.fr", "laposte.net",
-  "sfr.fr", "bbox.fr",
-]);
-
 const needKeys = [
   "functional", "automation", "api", "performance", "governance", "unsure",
 ] as const;
@@ -36,27 +26,8 @@ const needKeys = [
 const inputBase =
   "w-full px-3 py-2.5 border border-border rounded-md bg-transparent text-sm focus:outline-none focus:border-accent transition-colors";
 
-function isValidProEmail(email: string): { valid: boolean; reason?: string } {
-  // Basic format
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  if (!emailRegex.test(email)) {
-    return { valid: false, reason: "format" };
-  }
-
-  const domain = email.split("@")[1].toLowerCase();
-
-  // Reject free/public email domains
-  if (FREE_EMAIL_DOMAINS.has(domain)) {
-    return { valid: false, reason: "public" };
-  }
-
-  // Reject domains that are too short (e.g. a.com, b.co)
-  const domainName = domain.split(".")[0];
-  if (domainName.length < 3) {
-    return { valid: false, reason: "short" };
-  }
-
-  return { valid: true };
+function isValidEmail(email: string): boolean {
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 }
 
 export default function LeadMode({ onBack }: LeadModeProps) {
@@ -92,11 +63,8 @@ export default function LeadMode({ onBack }: LeadModeProps) {
 
         if (!data.email.trim()) {
           errs.email = t("lead.errorRequired");
-        } else {
-          const emailCheck = isValidProEmail(data.email.trim());
-          if (!emailCheck.valid) {
-            errs.email = t("lead.errorEmailPro");
-          }
+        } else if (!isValidEmail(data.email.trim())) {
+          errs.email = t("lead.errorEmail");
         }
 
         if (!data.company.trim()) errs.company = t("lead.errorRequired");
