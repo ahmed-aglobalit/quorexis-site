@@ -56,10 +56,15 @@
   },
   "hero": {
     "tagline": "Test. Trust. Deliver.",
-    "headline": "Software quality, engineered for delivery.",
-    "subtitle": "French consulting firm exclusively specialized in software testing, built around governance and KPIs.",
-    "cta": "Schedule a call",
-    "ctaSecondary": "Discover our expertise"
+    "headline": "Engineering Confidence in Every Release.",
+    "subtitle": "Certified and experienced QA consultants delivering structured testing, governance and KPI-driven execution — with a zero-defect production objective.",
+    "subtitleAi": "AI-enabled testing acceleration available on demand.",
+    "bullet1": "Certified QA consultants (ISTQB) & senior delivery experience",
+    "bullet2": "Zero-defect production objective, driven by risk and evidence",
+    "bullet3": "QA governance & KPIs — quality gates, reporting, traceability",
+    "bullet4": "AI-assisted testing strategies available when relevant",
+    "cta": "Book a QA call",
+    "ctaSecondary": "Explore Expertise"
   },
   "expertises": {
     "title": "Our software testing expertise",
@@ -324,7 +329,7 @@
   },
   "seo": {
     "title": "Quorexis — Software Testing Delivery | Test. Trust. Deliver.",
-    "description": "French consultancy specializing in offshore software testing delivery. Functional testing, automation, API, performance, QA governance.",
+    "description": "French consultancy specializing in software testing delivery. Certified ISTQB QA consultants, governance, KPIs, zero-defect production objective.",
     "trainingTitle": "ISTQB Training — Quorexis | Software Testing Certification",
     "trainingDescription": "ISTQB training and certifications: CTFL, Test Analyst, Test Automation Engineer, Agile Tester, Test Manager. Practitioner trainers, results-oriented approach."
   },

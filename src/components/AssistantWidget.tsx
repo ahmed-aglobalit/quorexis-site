@@ -27,6 +27,16 @@ export default function AssistantWidget() {
   const isBlogArticle = pathname.startsWith("/blog/") && pathname !== "/blog/";
   const isBlogPage = isBlogList || isBlogArticle;
 
+  // Open from external trigger (e.g. Hero CTA)
+  useEffect(() => {
+    function handleExternalOpen() {
+      setIsOpen(true);
+      setMode("calendly-direct");
+    }
+    window.addEventListener("quorexis:open-assistant", handleExternalOpen);
+    return () => window.removeEventListener("quorexis:open-assistant", handleExternalOpen);
+  }, []);
+
   // Escape to close
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {

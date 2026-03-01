@@ -57,10 +57,15 @@
   },
   "hero": {
     "tagline": "Test. Trust. Deliver.",
-    "headline": "La qualité logicielle, pilotée pour le delivery.",
-    "subtitle": "Cabinet français spécialisé exclusivement en software testing, structuré autour de la gouvernance et des KPIs.",
-    "cta": "Planifier un échange",
-    "ctaSecondary": "Découvrir nos expertises"
+    "headline": "La confiance se construit à chaque release.",
+    "subtitle": "Consultants QA certifiés et expérimentés, delivery structuré, gouvernance et pilotage par les KPIs — avec un objectif zero-defect en production.",
+    "subtitleAi": "Accélération des tests par l'IA, disponible sur demande.",
+    "bullet1": "Consultants QA certifiés (ISTQB) & expérience senior en delivery",
+    "bullet2": "Objectif zero-defect en production, piloté par le risque et l'évidence",
+    "bullet3": "Gouvernance QA & KPIs — quality gates, reporting, traçabilité",
+    "bullet4": "Stratégies de test assistées par l'IA, activées selon le contexte",
+    "cta": "Réserver un call QA",
+    "ctaSecondary": "Explorer nos expertises"
   },
   "expertises": {
     "title": "Nos expertises en test logiciel",
@@ -325,7 +330,7 @@
   },
   "seo": {
     "title": "Quorexis — Software Testing Delivery | Test. Trust. Deliver.",
-    "description": "Cabinet français spécialisé en delivery de tests logiciels en offshore. Tests fonctionnels, automatisation, API, performance, gouvernance QA.",
+    "description": "Cabinet français spécialisé en delivery de tests logiciels. Consultants QA certifiés ISTQB, gouvernance, KPIs, objectif zero-defect en production.",
     "trainingTitle": "Formation ISTQB — Quorexis | Certification Test Logiciel",
     "trainingDescription": "Formations et certifications ISTQB : CTFL, Test Analyst, Test Automation Engineer, Agile Tester, Test Manager. Formateurs praticiens, approche orientée résultats."
   },
