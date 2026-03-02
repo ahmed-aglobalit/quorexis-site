@@ -22,7 +22,7 @@ const members = [
     photoClass: "object-cover object-top",
   },
   {
-    name: "Maryem",
+    name: "Myriam ABID",
     role: "QA Consultant & Trainer — ISTQB® Certified",
     email: "",
     photo: "/images/team/maryem.webp",
