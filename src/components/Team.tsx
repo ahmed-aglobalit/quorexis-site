@@ -8,14 +8,14 @@ import Toast from "./Toast";
 
 const members = [
   {
-    name: "Ahmed Ghanmi",
+    name: "Ahmed GHANMI",
     role: "Co-Founder & CEO",
     email: "ahmed.ghanmi@quorexis.fr",
     photo: "/images/team/ahmed.webp",
     photoClass: "object-cover object-[center_15%] scale-[1.2]",
   },
   {
-    name: "Samy Mejri",
+    name: "Samy MEJRI",
     role: "Co-Founder, Sales Director & Business Development",
     email: "samy.mejri@quorexis.fr",
     photo: "/images/team/samy.webp",
@@ -27,6 +27,13 @@ const members = [
     email: "",
     photo: "/images/team/maryem.webp",
     photoClass: "object-cover object-[center_20%] scale-[1.05]",
+  },
+  {
+    name: "Mohamed Ibrahim HAMMADI",
+    role: "QA Consultant & Trainer — ISTQB® Certified",
+    email: "",
+    photo: "/images/team/mohamed.webp",
+    photoClass: "object-cover object-top",
   },
 ];
 
