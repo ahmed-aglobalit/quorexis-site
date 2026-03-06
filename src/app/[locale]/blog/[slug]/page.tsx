@@ -1,8 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { getArticle, getAllSlugs } from "@/content/blog";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import BlogHeroPattern, { slugToSeed } from "@/components/BlogHeroPattern";
+import { notFound, redirect } from "next/navigation";
 
 export async function generateStaticParams() {
   return getAllSlugs().map(({ slug, locale }) => ({ slug, locale }));
@@ -16,9 +14,40 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const article = getArticle(slug, locale as "fr" | "en");
   if (!article) return {};
+
+  const metaTitles: Record<string, Record<string, string>> = {
+    "presentation-quorexis": {
+      fr: "Présentation Quorexis — Qualité et stabilité logicielle",
+      en: "Quorexis Overview — Software Quality and Stability",
+    },
+    "ia-accelere-les-bugs": {
+      fr: "L'IA accélère-t-elle aussi les bugs ?",
+      en: "Does AI also accelerate bugs?",
+    },
+    "ai-accelerates-bugs": {
+      fr: "L'IA accélère-t-elle aussi les bugs ?",
+      en: "Does AI also accelerate bugs?",
+    },
+  };
+
+  const metaDescriptions: Record<string, Record<string, string>> = {
+    "presentation-quorexis": {
+      fr: "Découvrez la vision Quorexis du software testing et notre approche pour garantir la qualité avant la mise en production.",
+      en: "Discover the Quorexis vision of software testing and our approach to ensuring quality before production deployment.",
+    },
+    "ia-accelere-les-bugs": {
+      fr: "Analyse Quorexis de l'impact de l'intelligence artificielle sur la qualité logicielle.",
+      en: "Quorexis analysis of the impact of artificial intelligence on software quality.",
+    },
+    "ai-accelerates-bugs": {
+      fr: "Analyse Quorexis de l'impact de l'intelligence artificielle sur la qualité logicielle.",
+      en: "Quorexis analysis of the impact of artificial intelligence on software quality.",
+    },
+  };
+
   return {
-    title: `${article.title} — Quorexis`,
-    description: article.intro,
+    title: metaTitles[slug]?.[locale] ?? `${article.title} — Quorexis`,
+    description: metaDescriptions[slug]?.[locale] ?? article.intro,
   };
 }
 
@@ -28,64 +57,16 @@ export default async function BlogArticlePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const t = await getTranslations({ locale, namespace: "blog" });
   const article = getArticle(slug, locale as "fr" | "en");
 
   if (!article) notFound();
 
-  return (
-    <article className="mx-auto max-w-[800px] px-6 md:px-20 py-24 md:py-36 mt-16">
-      <Link
-        href={`/${locale === "fr" ? "" : "en/"}blog`}
-        className="text-sm text-muted hover:text-foreground transition-colors"
-      >
-        {t("backToArticles")}
-      </Link>
+  // PDF articles redirect directly to the PDF
+  if (article.pdfUrl) {
+    redirect(article.pdfUrl);
+  }
 
-      <div className="mt-6 mb-8 rounded-lg overflow-hidden">
-        <BlogHeroPattern
-          seed={slugToSeed(article.slug)}
-          className="w-full"
-        />
-      </div>
-
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
-        {article.title}
-      </h1>
-
-      <p className="mt-4 text-sm text-muted">
-        {t("publishedOn")} {article.date}
-      </p>
-
-      <p className="mt-8 text-lg text-muted leading-relaxed">
-        {article.intro}
-      </p>
-
-      {article.sections.map((section, i) => (
-        <div key={i} className="mt-12">
-          <h2 className="text-xl font-semibold tracking-tight">
-            {section.heading}
-          </h2>
-          <div className="mt-4 text-base text-foreground/80 leading-relaxed whitespace-pre-line">
-            {section.content}
-          </div>
-        </div>
-      ))}
-
-      <div className="mt-12 pt-8 border-t border-border">
-        <p className="text-base text-foreground/80 leading-relaxed font-medium">
-          {article.conclusion}
-        </p>
-      </div>
-
-      <div className="mt-12">
-        <Link
-          href={`/${locale === "fr" ? "" : "en/"}blog`}
-          className="text-sm font-medium text-accent hover:text-foreground transition-colors"
-        >
-          {t("backToArticles")}
-        </Link>
-      </div>
-    </article>
-  );
+  // Fallback: redirect to blog list
+  const blogUrl = locale === "fr" ? "/blog" : "/en/blog";
+  redirect(blogUrl);
 }

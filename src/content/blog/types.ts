@@ -11,4 +11,6 @@ export interface BlogArticle {
   intro: string;
   sections: BlogSection[];
   conclusion: string;
+  pdfUrl?: string;
+  featured?: boolean;
 }

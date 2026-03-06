@@ -323,10 +323,15 @@
   },
   "blog": {
     "title": "Perspectives",
-    "subtitle": "Analyses et retours d'expérience sur la delivery de tests logiciels en offshore.",
-    "readMore": "Lire l'article",
+    "subtitle": "Analyses et réflexions sur la qualité logicielle, le testing et la gouvernance QA.",
+    "featuredLabel": "Présentation Quorexis",
+    "insightsLabel": "Insights",
+    "readPresentation": "Lire la présentation",
+    "readArticle": "Lire l'article",
     "backToArticles": "← Retour aux articles",
-    "publishedOn": "Publié le"
+    "publishedOn": "Publié le",
+    "homeTitle": "Insights",
+    "homeSubtitle": "Nos dernières réflexions sur la qualité logicielle et le testing."
   },
   "footer": {
     "baseline": "Quorexis — Software Testing Delivery",

@@ -4,6 +4,7 @@ import Expertises from "@/components/Expertises";
 import Approach from "@/components/Approach";
 import Team from "@/components/Team";
 import Clients from "@/components/Clients";
+import LatestInsights from "@/components/LatestInsights";
 import TrainingTeaser from "@/components/TrainingTeaser";
 import Contact from "@/components/Contact";
 
@@ -29,6 +30,7 @@ export default function HomePage() {
       <Approach />
       <Team />
       <Clients />
+      <LatestInsights />
       <TrainingTeaser />
       <Contact />
     </>
