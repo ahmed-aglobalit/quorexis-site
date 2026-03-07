@@ -14,7 +14,13 @@
       "Bash(git add src/components/Hero.tsx src/components/AssistantWidget.tsx src/i18n/messages/en.json src/i18n/messages/fr.json)",
       "Bash(git commit:*)",
       "Bash(git push)",
-      "Bash(ls /home/ahmed/personal-project/quores/src/content/blog/*.ts)"
+      "Bash(ls /home/ahmed/personal-project/quores/src/content/blog/*.ts)",
+      "Bash(ls -la /home/ahmed/personal-project/quores/src/content/blog/content-*.ts)",
+      "Bash(for i in 2 3 4 5 6)",
+      "Bash(do echo \"============ ARTICLE $i ============\")",
+      "Bash(pdftotext \"$i.pdf\" -)",
+      "Bash(echo \"=== END $i ===\")",
+      "Bash(done)"
     ]
   }
 }

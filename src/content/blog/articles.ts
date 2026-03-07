@@ -233,23 +233,20 @@ function toSlug(title: string): string {
 }
 
 export function getArticles(locale: "fr" | "en"): BlogArticle[] {
-  return articlesData
-    .map((a) => ({
-      slug: toSlug(a.fr.title),
+  return articlesData.map((a) => {
+    const slug = toSlug(a.fr.title);
+    return {
+      slug,
       locale,
       title: a[locale].title,
       description: a[locale].description,
       date: a.date,
-      pdfUrl: `/blog/posts/${a.id}.pdf`,
+      pdfUrl: `/blog/posts/${slug}.pdf`,
       coverUrl: `/blog/covers/${a.id}.${a.coverExt}`,
       featured: a.featured,
       sections: sectionsMap[a.id] ?? [],
-    }))
-    .sort((a, b) => {
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
+    };
+  });
 }
 
 export function getArticle(
