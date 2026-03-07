@@ -1092,9 +1092,9 @@
   },
   "resources": {
     "knowledgeBase": {
-      "seoTitle": "Knowledge Base — Quorexis",
+      "seoTitle": "Knowledge — Quorexis",
       "seoDescription": "Analyses et ressources sur le delivery de testing logiciel offshore.",
-      "title": "Knowledge Base",
+      "title": "Knowledge",
       "subtitle": "Analyses et ressources sur le delivery de testing logiciel offshore.",
       "blog": { "title": "Blog", "description": "Retours d'expérience et analyses sur nos engagements de testing.", "cta": "Lire les articles" },
       "whitepapers": { "title": "Whitepapers", "description": "Analyses approfondies sur les méthodologies de testing et le delivery offshore.", "cta": "Voir les whitepapers" },

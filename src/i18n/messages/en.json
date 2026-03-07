@@ -3,7 +3,7 @@
     "services": "Services",
     "industries": "Industries",
     "company": "Company",
-    "knowledgeBase": "Knowledge Base",
+    "knowledgeBase": "Knowledge",
     "clients": "Clients",
     "contactUs": "Contact us",
     "qaServices": "QA Services",
@@ -1121,9 +1121,9 @@
   },
   "resources": {
     "knowledgeBase": {
-      "seoTitle": "Knowledge Base — Quorexis",
+      "seoTitle": "Knowledge — Quorexis",
       "seoDescription": "Insights, reports and resources on offshore software testing delivery.",
-      "title": "Knowledge Base",
+      "title": "Knowledge",
       "subtitle": "Analyses and resources on offshore software testing delivery.",
       "blog": { "title": "Blog", "description": "Insights and experience reports from our testing engagements.", "cta": "Read articles" },
       "whitepapers": { "title": "Whitepapers", "description": "In-depth analyses on testing methodologies and offshore delivery.", "cta": "View whitepapers" },
