@@ -26,17 +26,17 @@ interface EventType {
 const CALENDLY_EVENTS: EventType[] = [
   {
     key: "quickCall",
-    url: "https://calendly.com/ahmed-ghanmi-quorexis/30min",
-    badge: "20–30 min",
+    url: "https://calendly.com/ahmed-ghanmi-quorexis/qa-quick-call-30min",
+    badge: "30 min",
   },
   {
     key: "deepDive",
-    url: "https://calendly.com/ahmed-ghanmi-quorexis/echange-qa-quorexis-45-mn",
+    url: "https://calendly.com/d/cyf3-wbc-87w/qa-deep-dive-45-min",
     badge: "45 min",
   },
   {
     key: "demo",
-    url: "https://calendly.com/ahmed-ghanmi-quorexis/echange-qa-quorexis-1-hr",
+    url: "https://calendly.com/d/cvjp-vq9-xjc/qa-demo-scoping-session-60-min",
     badge: "60 min",
   },
 ];
