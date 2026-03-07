@@ -34,7 +34,7 @@ export default async function BlogArticlePage({
   if (!article) notFound();
 
   return (
-    <article className="mx-auto max-w-[1000px] px-6 md:px-20 py-24 md:py-36 mt-16">
+    <article className="mx-auto max-w-[1200px] px-6 md:px-10 py-24 md:py-36 mt-16">
       <Link
         href={`/${locale === "fr" ? "" : "en/"}blog`}
         className="text-sm text-muted hover:text-foreground transition-colors"
@@ -49,7 +49,7 @@ export default async function BlogArticlePage({
             src={article.coverUrl}
             alt={article.title}
             fill
-            sizes="(max-width: 768px) 100vw, 1000px"
+            sizes="(max-width: 768px) 100vw, 1200px"
             className="object-cover"
             priority
           />
@@ -64,13 +64,30 @@ export default async function BlogArticlePage({
         {article.description}
       </p>
 
-      {/* Embedded PDF */}
-      <div className="mt-10 rounded-lg overflow-hidden border border-border">
+      {/* Open PDF button (always visible, essential on mobile) */}
+      <div className="mt-6">
+        <a
+          href={article.pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          {t("openPdf")}
+        </a>
+      </div>
+
+      {/* Embedded PDF — hidden on mobile (iframes + PDF = unreadable) */}
+      <div className="mt-8 rounded-lg overflow-hidden border border-border hidden md:block">
         <iframe
           src={article.pdfUrl}
           title={article.title}
           className="w-full"
-          style={{ height: "80vh" }}
+          style={{ height: "calc(100vh - 100px)", minHeight: "800px" }}
         />
       </div>
 
