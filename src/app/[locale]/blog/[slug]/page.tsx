@@ -34,7 +34,7 @@ export default async function BlogArticlePage({
   if (!article) notFound();
 
   return (
-    <article className="mx-auto max-w-[1000px] px-6 md:px-20 py-24 md:py-36 mt-16">
+    <article className="mx-auto max-w-[1200px] px-6 md:px-12 py-24 md:py-36 mt-16">
       <Link
         href={`/${locale === "fr" ? "" : "en/"}blog`}
         className="text-sm text-muted hover:text-foreground transition-colors"
@@ -69,7 +69,7 @@ export default async function BlogArticlePage({
         <iframe
           src={`${article.pdfUrl}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
           className="w-full"
-          style={{ height: "80vh", minHeight: "600px" }}
+          style={{ height: "90vh", minHeight: "700px" }}
           title={article.title}
         />
       </div>
