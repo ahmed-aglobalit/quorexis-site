@@ -1,4 +1,27 @@
-import { BlogArticle } from "./types";
+import { BlogArticle, BlogSection } from "./types";
+import { sections1, sections2, sections3, sections4 } from "./content-1-4";
+import { sections5, sections6, sections7, sections8 } from "./content-5-8";
+import {
+  sections9,
+  sections10,
+  sections11,
+  sections12,
+} from "./content-9-12";
+
+const sectionsMap: Record<number, BlogSection[]> = {
+  1: sections1,
+  2: sections2,
+  3: sections3,
+  4: sections4,
+  5: sections5,
+  6: sections6,
+  7: sections7,
+  8: sections8,
+  9: sections9,
+  10: sections10,
+  11: sections11,
+  12: sections12,
+};
 
 interface ArticleData {
   id: number;
@@ -220,6 +243,7 @@ export function getArticles(locale: "fr" | "en"): BlogArticle[] {
       pdfUrl: `/blog/posts/${a.id}.pdf`,
       coverUrl: `/blog/covers/${a.id}.${a.coverExt}`,
       featured: a.featured,
+      sections: sectionsMap[a.id] ?? [],
     }))
     .sort((a, b) => {
       if (a.featured && !b.featured) return -1;

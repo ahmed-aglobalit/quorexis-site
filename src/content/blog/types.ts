@@ -1,3 +1,8 @@
+export interface BlogSection {
+  heading: string;
+  content: string;
+}
+
 export interface BlogArticle {
   slug: string;
   locale: "fr" | "en";
@@ -7,4 +12,5 @@ export interface BlogArticle {
   pdfUrl: string;
   coverUrl: string;
   featured?: boolean;
+  sections: BlogSection[];
 }
