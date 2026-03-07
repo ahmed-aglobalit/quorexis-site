@@ -34,7 +34,7 @@ export default async function BlogArticlePage({
   if (!article) notFound();
 
   return (
-    <article className="mx-auto max-w-[800px] px-6 md:px-20 py-24 md:py-36 mt-16">
+    <article className="mx-auto max-w-[1000px] px-6 md:px-20 py-24 md:py-36 mt-16">
       <Link
         href={`/${locale === "fr" ? "" : "en/"}blog`}
         className="text-sm text-muted hover:text-foreground transition-colors"
@@ -49,7 +49,7 @@ export default async function BlogArticlePage({
             src={article.coverUrl}
             alt={article.title}
             fill
-            sizes="(max-width: 768px) 100vw, 800px"
+            sizes="(max-width: 768px) 100vw, 1000px"
             className="object-cover"
             priority
           />
@@ -64,33 +64,14 @@ export default async function BlogArticlePage({
         {article.description}
       </p>
 
-      {/* Blog content */}
-      {article.sections.map((section, i) => (
-        <div key={i} className="mt-12">
-          <h2 className="text-xl font-semibold tracking-tight">
-            {section.heading}
-          </h2>
-          <div className="mt-4 text-base text-foreground/80 leading-relaxed whitespace-pre-line">
-            {section.content}
-          </div>
-        </div>
-      ))}
-
-      {/* PDF download link */}
-      <div className="mt-12 pt-8 border-t border-border">
-        <a
-          href={article.pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-foreground transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          {t("downloadPdf")}
-        </a>
+      {/* Embedded PDF viewer */}
+      <div className="mt-12 rounded-lg overflow-hidden border border-border">
+        <iframe
+          src={`${article.pdfUrl}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+          className="w-full"
+          style={{ height: "80vh", minHeight: "600px" }}
+          title={article.title}
+        />
       </div>
 
       <div className="mt-8">
