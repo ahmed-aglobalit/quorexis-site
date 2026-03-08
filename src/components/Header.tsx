@@ -92,7 +92,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors"
+      className="fixed top-0 left-0 right-0 z-[100] bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors"
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
         {/* Logo */}
@@ -242,7 +242,7 @@ export default function Header() {
       {/* ── Mobile drawer ── */}
       {mobileOpen && (
         <nav
-          className="lg:hidden fixed inset-0 top-16 z-[60] bg-background overflow-y-auto"
+          className="lg:hidden fixed inset-0 top-16 z-[110] bg-background overflow-y-auto"
           aria-label="Mobile navigation"
         >
           <div className="px-6 py-6 flex flex-col gap-1">
