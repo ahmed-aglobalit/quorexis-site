@@ -148,12 +148,17 @@ export const navigationItems: NavItem[] = [
     mega: servicesMega,
   },
   {
+    type: "link",
+    key: "blog",
+    labelKey: "blog",
+    href: "/blog",
+  },
+  {
     type: "dropdown",
     key: "knowledgeBase",
     labelKey: "knowledgeBase",
     dropdown: {
       links: [
-        { labelKey: "blog", href: "/blog" },
         { labelKey: "whitepapers", href: "/whitepapers" },
         { labelKey: "webinars", href: "/webinars" },
         { labelKey: "training", href: "/training" },
@@ -165,11 +170,5 @@ export const navigationItems: NavItem[] = [
     key: "clients",
     labelKey: "clients",
     href: "/#clients",
-  },
-  {
-    type: "link",
-    key: "training",
-    labelKey: "training",
-    href: "/training",
   },
 ];

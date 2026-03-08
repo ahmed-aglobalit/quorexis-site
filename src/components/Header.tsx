@@ -112,14 +112,19 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
           {navigationItems.map((item) => {
             if (item.type === "link") {
+              const isBlog = item.key === "blog";
               return (
                 <Link
                   key={item.key}
                   href={item.href}
                   className={`relative px-3 py-2 text-sm transition-colors ${
-                    pathname === item.href
-                      ? "text-foreground font-medium"
-                      : "text-muted hover:text-foreground"
+                    isBlog
+                      ? pathname.startsWith("/blog")
+                        ? "text-accent font-semibold"
+                        : "text-accent font-medium hover:text-accent/80"
+                      : pathname === item.href
+                        ? "text-foreground font-medium"
+                        : "text-muted hover:text-foreground"
                   }`}
                 >
                   {t(item.labelKey)}
