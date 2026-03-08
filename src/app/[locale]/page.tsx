@@ -27,11 +27,11 @@ export default function HomePage() {
     <>
       <Hero />
       <Expertises />
-      <Approach />
       <Team />
       <Clients />
       <LatestInsights />
       <TrainingTeaser />
+      <Approach />
       <Contact />
     </>
   );
