@@ -90,6 +90,7 @@ export default function Header() {
   }
 
   return (
+    <>
     <header
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-[100] bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors"
@@ -238,58 +239,70 @@ export default function Header() {
           </svg>
         </button>
       </div>
+    </header>
 
-      {/* ── Mobile drawer ── */}
-      {mobileOpen && (
-        <nav
-          className="lg:hidden fixed inset-0 top-16 z-[110] bg-background overflow-y-auto"
-          aria-label="Mobile navigation"
-        >
-          <div className="px-6 py-6 flex flex-col gap-1">
-            {navigationItems.map((item) => {
-              if (item.type === "link") {
-                return (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`py-3 text-sm border-b border-border/30 ${
-                      pathname === item.href
-                        ? "text-foreground font-medium"
-                        : "text-muted"
-                    }`}
-                  >
-                    {t(item.labelKey)}
-                  </Link>
-                );
-              }
-
-              const links =
-                item.type === "mega"
-                  ? item.mega.tabs.flatMap((tab) =>
-                      tab.columns.flatMap((col) => col.links)
-                    )
-                  : item.dropdown.links;
-
-              const isAccordionOpen = mobileAccordion === item.key;
-
+    {/* ── Mobile drawer — outside header to avoid backdrop-filter containing block ── */}
+    {mobileOpen && (
+      <nav
+        className="lg:hidden fixed inset-0 top-16 z-[110] bg-background overflow-y-auto"
+        aria-label="Mobile navigation"
+      >
+        <div className="px-6 py-6 flex flex-col gap-1">
+          {navigationItems.map((item) => {
+            if (item.type === "link") {
               return (
-                <div key={item.key} className="border-b border-border/30">
-                  <button
-                    onClick={() => toggleMobileAccordion(item.key)}
-                    aria-expanded={isAccordionOpen}
-                    className="w-full flex items-center justify-between py-3 text-sm text-muted"
-                  >
-                    {t(item.labelKey)}
-                    <ChevronDown
-                      className={`transition-transform duration-200 ${
-                        isAccordionOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {isAccordionOpen && (
-                    <div className="pb-3 pl-4 flex flex-col gap-2">
-                      {links.map((link) => (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`py-3 text-sm border-b border-border/30 ${
+                    pathname === item.href
+                      ? "text-foreground font-medium"
+                      : "text-muted"
+                  }`}
+                >
+                  {t(item.labelKey)}
+                </Link>
+              );
+            }
+
+            const links =
+              item.type === "mega"
+                ? item.mega.tabs.flatMap((tab) =>
+                    tab.columns.flatMap((col) => col.links)
+                  )
+                : item.dropdown.links;
+
+            const isAccordionOpen = mobileAccordion === item.key;
+
+            return (
+              <div key={item.key} className="border-b border-border/30">
+                <button
+                  onClick={() => toggleMobileAccordion(item.key)}
+                  aria-expanded={isAccordionOpen}
+                  className="w-full flex items-center justify-between py-3 text-sm text-muted"
+                >
+                  {t(item.labelKey)}
+                  <ChevronDown
+                    className={`transition-transform duration-200 ${
+                      isAccordionOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {isAccordionOpen && (
+                  <div className="pb-3 pl-4 flex flex-col gap-2">
+                    {links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="text-sm text-muted hover:text-accent transition-colors break-words"
+                      >
+                        {t(link.labelKey)}
+                      </Link>
+                    ))}
+                    {item.type === "mega" &&
+                      item.mega.otherLinks.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
@@ -299,46 +312,33 @@ export default function Header() {
                           {t(link.labelKey)}
                         </Link>
                       ))}
-                      {/* Show other links for mega menus */}
-                      {item.type === "mega" &&
-                        item.mega.otherLinks.map((link) => (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="text-sm text-muted hover:text-accent transition-colors break-words"
-                          >
-                            {t(link.labelKey)}
-                          </Link>
-                        ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
 
-            {/* Mobile CTA + lang switcher */}
-            <div className="mt-6 flex flex-col gap-4">
-              <Link
-                href="/#contact"
-                onClick={() => setMobileOpen(false)}
-                className="text-center px-6 py-3 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
-              >
-                {t("contactUs")}
-              </Link>
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  switchLanguage();
-                }}
-                className="text-sm font-medium text-accent text-center py-2 border border-border/60 rounded"
-              >
-                {isFr ? t("english") : t("french")}
-              </button>
-            </div>
+          <div className="mt-6 flex flex-col gap-4">
+            <Link
+              href="/#contact"
+              onClick={() => setMobileOpen(false)}
+              className="text-center px-6 py-3 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
+            >
+              {t("contactUs")}
+            </Link>
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                switchLanguage();
+              }}
+              className="text-sm font-medium text-accent text-center py-2 border border-border/60 rounded"
+            >
+              {isFr ? t("english") : t("french")}
+            </button>
           </div>
-        </nav>
-      )}
-    </header>
+        </div>
+      </nav>
+    )}
+    </>
   );
 }
