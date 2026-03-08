@@ -149,32 +149,6 @@ export const navigationItems: NavItem[] = [
   },
   {
     type: "dropdown",
-    key: "industries",
-    labelKey: "industries",
-    dropdown: {
-      links: [
-        { labelKey: "fintech", href: "/industries#fintech" },
-        { labelKey: "telecom", href: "/industries#telecom" },
-        { labelKey: "industrialIot", href: "/industries#iot" },
-        { labelKey: "travel", href: "/industries#travel" },
-        { labelKey: "healthcare", href: "/industries#healthcare" },
-      ],
-    },
-  },
-  {
-    type: "dropdown",
-    key: "company",
-    labelKey: "company",
-    dropdown: {
-      links: [
-        { labelKey: "whyQuorexis", href: "/company#why" },
-        { labelKey: "deliveryModel", href: "/company#delivery" },
-        { labelKey: "careers", href: "/company/careers" },
-      ],
-    },
-  },
-  {
-    type: "dropdown",
     key: "knowledgeBase",
     labelKey: "knowledgeBase",
     dropdown: {
