@@ -151,7 +151,7 @@ export default function SalesAssistant() {
       {!isOpen && (
         <motion.button
           onClick={handleOpen}
-          className="fixed bottom-6 right-6 z-[60] flex items-center gap-3 py-3 px-5 rounded-xl bg-foreground text-background shadow-lg hover:bg-foreground/90 hover:shadow-xl active:scale-[0.98] transition-all duration-200"
+          className="fixed bottom-6 right-6 z-[200] flex items-center gap-3 py-3 px-5 rounded-xl bg-foreground text-background shadow-lg hover:bg-foreground/90 hover:shadow-xl active:scale-[0.98] transition-all duration-200"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
@@ -173,7 +173,7 @@ export default function SalesAssistant() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className={`fixed bottom-6 right-6 z-[60] flex max-h-[min(640px,calc(100vh-3rem))] w-[calc(100vw-2rem)] flex-col rounded-2xl border border-border bg-background shadow-2xl sm:w-[420px] ${isClosing ? "chatbot-panel-exit" : ""}`}
+            className={`fixed bottom-6 right-6 z-[200] flex max-h-[min(640px,calc(100vh-3rem))] w-[calc(100vw-2rem)] flex-col rounded-2xl border border-border bg-background shadow-2xl sm:w-[420px] ${isClosing ? "chatbot-panel-exit" : ""}`}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
