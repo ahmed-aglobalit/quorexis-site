@@ -429,19 +429,37 @@ export default function SalesAssistant() {
                 </motion.div>
               )}
 
-              {/* Calendly */}
+              {/* Calendly / Contact fallback */}
               {step === "calendly" && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
                   <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
-                    <p className="text-sm font-medium">Choisissez un créneau</p>
+                    <p className="text-sm font-medium">Réservez votre appel stratégique</p>
                     <p className="text-xs text-muted mt-1">30 minutes pour discuter de votre stratégie outbound.</p>
                   </div>
-                  <div className="border border-border rounded-xl overflow-hidden">
-                    <iframe
-                      src="https://calendly.com/d/dv2t-t6d-7jw/outbound-strategy-call-30-min?hide_gdpr_banner=1"
-                      className="w-full h-[400px]"
-                      title="Calendly"
-                    />
+
+                  <div className="p-6 border border-border rounded-xl text-center">
+                    <div className="w-12 h-12 mx-auto rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                      <svg className="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-medium mb-2">Calendrier bientôt disponible</p>
+                    <p className="text-xs text-muted mb-4">
+                      En attendant, laissez-nous vos coordonnées et nous vous recontacterons sous 24h.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        window.location.href = "#contact";
+                        setIsOpen(false);
+                      }}
+                      className="w-full py-3 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors"
+                    >
+                      Accéder au formulaire →
+                    </button>
                   </div>
                 </motion.div>
               )}
