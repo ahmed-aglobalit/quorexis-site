@@ -35,12 +35,12 @@ export default function SalesHero() {
           {t("eyebrow")}
         </p>
 
-        <h1 className="hero-enter mt-6 text-4xl md:text-[64px] lg:text-[72px] font-semibold leading-[1.1] tracking-tight text-foreground max-w-4xl">
+        <h1 className="hero-enter mt-6 text-3xl md:text-[48px] lg:text-[56px] font-semibold leading-[1.15] tracking-tight text-foreground max-w-3xl">
           <span className="block">{t("headline1")}</span>
           <span className="block text-muted">{t("headline2")}</span>
         </h1>
 
-        <p className="hero-enter-delay mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
+        <p className="hero-enter-delay mt-6 text-base md:text-lg text-muted leading-relaxed max-w-xl">
           {t("subtitle")}
         </p>
 
