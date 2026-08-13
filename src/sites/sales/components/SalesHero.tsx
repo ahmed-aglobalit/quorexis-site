@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 function scrollTo(id: string) {
   const el = document.getElementById(id);
@@ -14,18 +15,21 @@ export default function SalesHero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
-      <div className="absolute inset-0 opacity-[0.03]">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/hero.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
 
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+
+      {/* Content */}
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-20 py-32">
         <p className="hero-enter text-sm font-semibold uppercase tracking-wider text-accent">
           {t("eyebrow")}
@@ -61,8 +65,6 @@ export default function SalesHero() {
           <span>{t("delivery")}</span>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-foreground/[0.02] to-transparent" />
     </section>
   );
 }
