@@ -2,9 +2,11 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { services, getServiceBySlug } from "@/config/services";
 import { locales } from "@/i18n/config";
+import { SITE_MODE } from "@/config/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export function generateStaticParams() {
+  if (SITE_MODE === "sales") return [];
   return locales.flatMap((locale) =>
     services.map((s) => ({ locale, slug: s.slug }))
   );
@@ -15,6 +17,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
+  if (SITE_MODE === "sales") return {};
   const { locale, slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
@@ -30,6 +33,7 @@ export default async function ServicePage({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
+  if (SITE_MODE === "sales") notFound();
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();

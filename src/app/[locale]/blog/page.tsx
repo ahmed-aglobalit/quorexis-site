@@ -1,13 +1,16 @@
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { getArticles } from "@/content/blog";
 import Image from "next/image";
 import Link from "next/link";
+import { SITE_MODE } from "@/config/site";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") return {};
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
   return {
@@ -21,6 +24,7 @@ export default async function BlogPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") notFound();
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
   const articles = getArticles(locale as "fr" | "en");

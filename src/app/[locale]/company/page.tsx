@@ -1,11 +1,14 @@
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { SITE_MODE } from "@/config/site";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") return {};
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "company" });
   return {
@@ -19,6 +22,7 @@ export default async function CompanyPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") notFound();
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "company" });
 

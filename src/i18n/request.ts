@@ -1,6 +1,8 @@
 import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 
+const SITE_MODE = process.env.NEXT_PUBLIC_SITE_MODE || "sales";
+
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;
 
@@ -8,8 +10,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
+  const messages = (await import(`./messages/${SITE_MODE}/${locale}.json`)).default;
+
   return {
     locale,
-    messages: (await import(`./messages/${locale}.json`)).default,
+    messages,
   };
 });

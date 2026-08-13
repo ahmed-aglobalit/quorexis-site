@@ -1,12 +1,31 @@
 import { getTranslations } from "next-intl/server";
-import Hero from "@/components/Hero";
-import Expertises from "@/components/Expertises";
-import Approach from "@/components/Approach";
-import Team from "@/components/Team";
-import Clients from "@/components/Clients";
-import LatestInsights from "@/components/LatestInsights";
-import TrainingTeaser from "@/components/TrainingTeaser";
-import Contact from "@/components/Contact";
+import { SITE_MODE } from "@/config/site";
+
+import QaHero from "@/components/Hero";
+import QaExpertises from "@/components/Expertises";
+import QaApproach from "@/components/Approach";
+import QaTeam from "@/components/Team";
+import QaClients from "@/components/Clients";
+import QaLatestInsights from "@/components/LatestInsights";
+import QaTrainingTeaser from "@/components/TrainingTeaser";
+import QaContact from "@/components/Contact";
+
+import {
+  SalesHero,
+  ProblemSection,
+  EnginesSection,
+  NotCallCenterSection,
+  PipelineSection,
+  MethodSection,
+  KpiSection,
+  OffersSection,
+  TunisiaSection,
+  SalesTeam,
+  PhilosophySection,
+  SalesFaq,
+  FinalCta,
+  SalesContact,
+} from "@/sites/sales/components";
 
 export async function generateMetadata({
   params,
@@ -22,17 +41,42 @@ export async function generateMetadata({
   };
 }
 
-export default function HomePage() {
+function QaHomePage() {
   return (
     <>
-      <Hero />
-      <Expertises />
-      <Team />
-      <Clients />
-      <LatestInsights />
-      <TrainingTeaser />
-      <Approach />
-      <Contact />
+      <QaHero />
+      <QaExpertises />
+      <QaTeam />
+      <QaClients />
+      <QaLatestInsights />
+      <QaTrainingTeaser />
+      <QaApproach />
+      <QaContact />
     </>
   );
+}
+
+function SalesHomePage() {
+  return (
+    <>
+      <SalesHero />
+      <ProblemSection />
+      <EnginesSection />
+      <NotCallCenterSection />
+      <PipelineSection />
+      <MethodSection />
+      <KpiSection />
+      <OffersSection />
+      <TunisiaSection />
+      <SalesTeam />
+      <PhilosophySection />
+      <SalesFaq />
+      <FinalCta />
+      <SalesContact />
+    </>
+  );
+}
+
+export default function HomePage() {
+  return SITE_MODE === "sales" ? <SalesHomePage /> : <QaHomePage />;
 }

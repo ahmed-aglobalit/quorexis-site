@@ -1,13 +1,16 @@
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getServicesByCategory } from "@/config/services";
 import type { ServiceMeta } from "@/config/services";
+import { SITE_MODE } from "@/config/site";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") return {};
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "services.landing" });
   return {
@@ -29,6 +32,7 @@ export default async function ServicesPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") notFound();
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "services" });
   const nav = await getTranslations({ locale, namespace: "nav" });

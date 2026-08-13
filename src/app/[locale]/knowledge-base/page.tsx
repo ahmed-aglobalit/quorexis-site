@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { SITE_MODE } from "@/config/site";
 
 const resources = [
   { key: "blog", href: "/blog" },
@@ -13,6 +15,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") return {};
   const { locale } = await params;
   const t = await getTranslations({
     locale,
@@ -29,6 +32,7 @@ export default async function KnowledgeBasePage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") notFound();
   const { locale } = await params;
   const t = await getTranslations({
     locale,

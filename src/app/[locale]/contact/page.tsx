@@ -1,11 +1,14 @@
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import Contact from "@/components/Contact";
+import { SITE_MODE } from "@/config/site";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") return {};
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contactPage" });
   return {
@@ -19,6 +22,7 @@ export default async function ContactPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  if (SITE_MODE === "sales") notFound();
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contactPage" });
 

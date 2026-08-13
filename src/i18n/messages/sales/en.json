@@ -1,0 +1,517 @@
+{
+  "nav": {
+    "solutions": "Solutions",
+    "method": "Our Method",
+    "industries": "Industries",
+    "about": "About",
+    "resources": "Resources",
+    "contactUs": "Talk to an Expert",
+    "b2bData": "B2B Data & Targeting",
+    "coldEmail": "Cold Email",
+    "linkedinOutreach": "LinkedIn Outreach",
+    "coldCalling": "Cold Calling",
+    "sdrOutsourcing": "SDR Outsourcing",
+    "salesAutomation": "Sales Automation",
+    "esn": "IT & Consulting",
+    "saas": "B2B SaaS",
+    "cybersecurity": "Cybersecurity",
+    "recruitment": "Recruitment",
+    "professionalServices": "Professional Services",
+    "switchLang": "FR",
+    "french": "Français",
+    "english": "English",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "B2B OUTBOUND SALES",
+    "headline1": "Your Sales Team Closes.",
+    "headline2": "We Build the Pipeline.",
+    "subtitle": "Quorexis builds and operates your B2B prospecting engine: Data, AI, Cold Email, LinkedIn, Cold Calling and human SDRs combined to generate qualified sales meetings.",
+    "cta": "Build My Pipeline",
+    "ctaSecondary": "Discover Our Method",
+    "markets": "France • Europe • Canada",
+    "delivery": "Francophone delivery from Tunisia"
+  },
+  "problem": {
+    "title": "A great product isn't enough if your pipeline is empty.",
+    "intro": "Sales teams often face the same challenges:",
+    "points": [
+      "Your Account Executives prospect instead of closing",
+      "The pipeline lacks consistency and predictability",
+      "Recruiting and training SDRs takes time and money",
+      "Data is fragmented and hard to use",
+      "Automated campaigns lack personalization",
+      "Agencies sometimes prioritize volume over quality"
+    ],
+    "conclusion": "Quorexis handles the entire outbound engine, from data to meetings."
+  },
+  "engines": {
+    "title": "A Sales Factory. Four Engines.",
+    "data": {
+      "title": "Data",
+      "subtitle": "The right accounts. The right decision makers.",
+      "description": "We define your ICP and build prospect lists that precisely match your target market.",
+      "capabilities": [
+        "Account sourcing",
+        "Contact sourcing",
+        "Persona mapping",
+        "Data enrichment",
+        "Email verification",
+        "Phone enrichment"
+      ],
+      "output": "A clean, targeted, actionable prospecting database."
+    },
+    "automation": {
+      "title": "AI & Automation",
+      "subtitle": "Automate the repetitive work. Not the human relationships.",
+      "description": "AI augments SDRs. It doesn't replace conversations.",
+      "capabilities": [
+        "Enrichment workflows",
+        "Lead scoring",
+        "Smart segmentation",
+        "AI research",
+        "Assisted personalization",
+        "CRM synchronization"
+      ],
+      "output": "More efficiency, less manual work."
+    },
+    "outreach": {
+      "title": "Multichannel Outbound",
+      "subtitle": "Be where your prospects respond.",
+      "description": "Email, LinkedIn, Phone — coordinated in a coherent sequence.",
+      "capabilities": [
+        "Cold Email",
+        "LinkedIn Outreach",
+        "Cold Calling",
+        "Structured follow-ups",
+        "Social Selling"
+      ],
+      "output": "Your prospects contacted on the right channel, at the right time."
+    },
+    "sdr": {
+      "title": "Human SDR",
+      "subtitle": "Technology finds the prospect. Humans create the opportunity.",
+      "description": "Our SDRs contact, converse, understand, qualify and book the meeting.",
+      "capabilities": [
+        "Conversation management",
+        "Objection handling",
+        "Sales qualification",
+        "Need detection",
+        "Timing identification",
+        "CRM updates"
+      ],
+      "output": "Real sales conversations, not just impressions."
+    }
+  },
+  "notCallCenter": {
+    "title": "We are not a call center.",
+    "subtitle": "You're not renting a teleoperator. You're deploying a sales team.",
+    "comparison": {
+      "callCenter": {
+        "title": "Call Center",
+        "points": [
+          "Call volume",
+          "Standard scripts",
+          "Phone only",
+          "Activity KPIs",
+          "Labor",
+          "Little personalization"
+        ]
+      },
+      "quorexis": {
+        "title": "Quorexis",
+        "points": [
+          "Precise ICP",
+          "Enriched data",
+          "Multichannel",
+          "Trained B2B SDRs",
+          "Custom playbooks",
+          "Business qualification"
+        ]
+      }
+    },
+    "conclusion": "Our goal isn't to maximize call volume. Our goal is to create sales opportunities."
+  },
+  "pipeline": {
+    "title": "From your market to your next meeting.",
+    "steps": [
+      { "number": "01", "label": "ICP", "description": "Define your ideal customer" },
+      { "number": "02", "label": "Data", "description": "Source accounts and contacts" },
+      { "number": "03", "label": "Enrichment", "description": "Complete and verified data" },
+      { "number": "04", "label": "Messaging", "description": "Personalized angles and sequences" },
+      { "number": "05", "label": "Outreach", "description": "Email, LinkedIn, Phone" },
+      { "number": "06", "label": "Conversation", "description": "Qualified human exchanges" },
+      { "number": "07", "label": "Qualification", "description": "Validate the potential" },
+      { "number": "08", "label": "Meeting", "description": "Sales meeting" },
+      { "number": "09", "label": "Pipeline", "description": "Opportunities created" }
+    ]
+  },
+  "method": {
+    "title": "A structured method. Not an improvised campaign.",
+    "steps": {
+      "discover": {
+        "number": "01",
+        "title": "Discover",
+        "description": "Understand your offer, market, sales cycle, competitors, personas and objections.",
+        "deliverable": "Outbound Strategy Brief"
+      },
+      "define": {
+        "number": "02",
+        "title": "Define",
+        "description": "Define your ICP, TAM, personas, qualification criteria and messaging angles.",
+        "deliverable": "ICP & Persona Playbook"
+      },
+      "build": {
+        "number": "03",
+        "title": "Build",
+        "description": "Build accounts, contacts, enrichment, campaigns, infrastructure and CRM.",
+        "deliverable": "Outbound Infrastructure"
+      },
+      "launch": {
+        "number": "04",
+        "title": "Launch",
+        "description": "Activate Email, LinkedIn and Cold Call campaigns.",
+        "deliverable": "Live Campaign"
+      },
+      "engage": {
+        "number": "05",
+        "title": "Engage",
+        "description": "Our SDRs handle conversations, objections, discovery and follow-ups.",
+        "deliverable": "Qualified Conversations"
+      },
+      "qualify": {
+        "number": "06",
+        "title": "Qualify",
+        "description": "Validate fit, need, authority, timing and sales potential.",
+        "deliverable": "Qualified Opportunities"
+      },
+      "book": {
+        "number": "07",
+        "title": "Book",
+        "description": "The meeting is placed in your calendar with all relevant information.",
+        "deliverable": "Scheduled Meeting"
+      },
+      "optimize": {
+        "number": "08",
+        "title": "Optimize",
+        "description": "Continuous analysis of data, reply rate, conversations, meetings and ICP.",
+        "deliverable": "Continuous Improvement"
+      }
+    }
+  },
+  "kpi": {
+    "title": "We don't just measure activity.",
+    "subtitle": "We measure business.",
+    "categories": {
+      "activity": {
+        "title": "Activity",
+        "metrics": ["Prospects targeted", "Prospects contacted", "Emails sent", "Calls made", "LinkedIn touches"]
+      },
+      "performance": {
+        "title": "Performance",
+        "metrics": ["Contact rate", "Positive response rate", "Conversation rate", "Qualification rate", "Meeting booked rate"]
+      },
+      "business": {
+        "title": "Business",
+        "metrics": ["Qualified meetings", "Opportunities created", "Pipeline generated", "Cost per meeting", "Revenue influenced"]
+      }
+    },
+    "northStar": {
+      "title": "North Star Metric",
+      "metric": "Pipeline generated."
+    }
+  },
+  "offers": {
+    "title": "Choose your model.",
+    "pilot": {
+      "name": "Pilot",
+      "tagline": "Validate your outbound channel.",
+      "description": "For new market, new product or ICP validation.",
+      "includes": [
+        "Strategy & ICP",
+        "Data & Enrichment",
+        "Cold Calling or Email",
+        "LinkedIn Outreach",
+        "SDR capacity",
+        "Weekly reporting"
+      ],
+      "cta": "Launch a Pilot"
+    },
+    "growth": {
+      "name": "Growth",
+      "tagline": "Build a predictable pipeline.",
+      "badge": "Recommended",
+      "description": "For teams that want to scale their outbound acquisition.",
+      "includes": [
+        "Dedicated SDR",
+        "Multichannel outbound",
+        "Data & Automation",
+        "CRM integration",
+        "Real-time dashboard",
+        "Continuous optimization"
+      ],
+      "cta": "Build My Pipeline"
+    },
+    "scale": {
+      "name": "Scale",
+      "tagline": "Industrialize your outbound acquisition.",
+      "description": "For organizations with ambitious objectives.",
+      "includes": [
+        "Multiple SDRs",
+        "Dedicated Team Leader",
+        "Data & Sales Ops",
+        "Advanced CRM",
+        "Industry playbooks",
+        "Optional closing support"
+      ],
+      "cta": "Talk to Our Team"
+    }
+  },
+  "tunisia": {
+    "title": "A francophone delivery hub in the heart of the Mediterranean.",
+    "subtitle": "European standards. Mediterranean efficiency.",
+    "points": [
+      "Native francophone talent",
+      "French cultural understanding",
+      "Aligned timezone (GMT+1)",
+      "Efficient cost structure",
+      "Ability to scale quickly",
+      "Commercial and technical skills"
+    ],
+    "conclusion": "Our location allows us to build high-performing, scalable sales teams without sacrificing quality."
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "The founders of Quorexis.",
+    "ahmed": {
+      "name": "Ahmed GHANMI",
+      "role": "Co-Founder & CEO",
+      "focus": "Strategy, Growth, Data & Automation"
+    },
+    "samy": {
+      "name": "Samy MEJRI",
+      "role": "Co-Founder & Head of Sales",
+      "focus": "Sales Strategy, Outbound Playbooks, SDR Coaching"
+    },
+    "location": "France / Tunisia"
+  },
+  "philosophy": {
+    "title": "Automation for scale. Humans for trust.",
+    "text": "We automate research, enrichment, segmentation and repetitive tasks. We keep humans where they create real value: conversation, understanding, objection handling, qualification and relationships."
+  },
+  "cta": {
+    "title": "You have a market.",
+    "subtitle": "Let's build the pipeline.",
+    "text": "Tell us what you sell and who you want to reach. We'll show you how Quorexis can build your outbound engine.",
+    "primary": "Build My Pipeline",
+    "secondary": "Talk to an Expert"
+  },
+  "contact": {
+    "title": "Let's talk about your project",
+    "intro": "Tell us about your commercial context. Our team will get back to you quickly.",
+    "name": "Your name",
+    "email": "Professional email",
+    "company": "Company",
+    "website": "Website",
+    "role": "Your role",
+    "roleOptions": {
+      "ceo": "CEO / Founder",
+      "salesDirector": "Sales Director",
+      "headOfSales": "Head of Sales",
+      "businessDev": "Business Development",
+      "marketing": "Marketing / Growth",
+      "other": "Other"
+    },
+    "goal": "What do you want to achieve?",
+    "goalOptions": {
+      "moreLeads": "Generate more meetings",
+      "outsource": "Outsource my prospecting",
+      "buildTeam": "Build an SDR team",
+      "newMarket": "Launch a new market",
+      "improve": "Improve my outbound campaigns",
+      "other": "Other"
+    },
+    "teamSize": "Sales team size",
+    "teamSizeOptions": {
+      "zero": "0",
+      "small": "1–5",
+      "medium": "6–20",
+      "large": "21–50",
+      "enterprise": "50+"
+    },
+    "targetMarket": "Target market",
+    "message": "Your message",
+    "send": "Talk to Quorexis",
+    "sending": "Sending…",
+    "success": "Thank you. Our team will get back to you quickly.",
+    "errorRequired": "This field is required.",
+    "errorEmail": "Invalid email address.",
+    "errorGeneral": "Something went wrong. Please try again or email us directly."
+  },
+  "footer": {
+    "tagline": "Your Outbound Sales Engine.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "legal": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2025 Quorexis — France / Tunisia"
+  },
+  "seo": {
+    "title": "Quorexis | B2B Prospecting & Outsourced SDRs",
+    "description": "Quorexis builds and operates your B2B prospecting engine: data, cold email, LinkedIn, cold calling and outsourced SDRs to generate qualified meetings and pipeline."
+  },
+  "ui": {
+    "backToTop": "Back to top",
+    "skipToContent": "Skip to content",
+    "learnMore": "Learn more",
+    "viewAll": "View all"
+  },
+  "industries": {
+    "title": "Industries",
+    "subtitle": "Playbooks tailored to your industry.",
+    "esn": {
+      "title": "IT & Consulting",
+      "headline": "Transform your technical expertise into sales pipeline.",
+      "description": "We target IT decision makers who need your skills.",
+      "targets": ["CIO", "CTO", "Head of Infrastructure", "Head of Cloud", "Head of Data", "IT Procurement"]
+    },
+    "saas": {
+      "title": "B2B SaaS",
+      "headline": "Accelerate your enterprise customer acquisition.",
+      "description": "We open the doors of large accounts for your solution.",
+      "targets": ["CEO", "CRO", "VP Sales", "Head of Sales", "Operations", "Functional Leaders"]
+    },
+    "cybersecurity": {
+      "title": "Cybersecurity",
+      "headline": "Reach security decision makers in large organizations.",
+      "description": "We understand cybersecurity challenges and vocabulary.",
+      "targets": ["CISO", "CTO", "CIO", "Security Managers"]
+    },
+    "recruitment": {
+      "title": "Recruitment",
+      "headline": "Generate mandates for your recruitment consultants.",
+      "description": "We prospect companies that are hiring.",
+      "targets": ["HR Director", "Talent Acquisition", "Executives", "Hiring Managers"]
+    },
+    "professionalServices": {
+      "title": "Professional Services",
+      "headline": "Grow your B2B client portfolio.",
+      "description": "Consulting, training, services — we find your next clients.",
+      "targets": ["CEO", "Practice Directors", "Commercial Directors", "Operations"]
+    }
+  },
+  "solutions": {
+    "title": "Solutions",
+    "subtitle": "Everything you need to build your pipeline.",
+    "b2bData": {
+      "title": "B2B Data & Targeting",
+      "headline": "Your campaign starts with the quality of your targeting.",
+      "description": "We build prospect lists that precisely match your ICP.",
+      "capabilities": ["ICP definition", "Account selection", "Decision makers", "Enrichment", "Verification", "Segmentation"]
+    },
+    "coldEmail": {
+      "title": "Cold Email",
+      "headline": "Emails that get responses.",
+      "description": "Infrastructure, copywriting, personalization and deliverability mastered.",
+      "capabilities": ["Domain setup", "Copywriting", "Segmentation", "Personalization", "Sequences", "Deliverability"]
+    },
+    "linkedinOutreach": {
+      "title": "LinkedIn Outreach",
+      "headline": "Connect with the right decision makers.",
+      "description": "Connection strategy, messaging and engagement on LinkedIn.",
+      "capabilities": ["Persona targeting", "Connection strategy", "Messaging", "Engagement", "Follow-ups"]
+    },
+    "coldCalling": {
+      "title": "Cold Calling",
+      "headline": "Calls that create sales conversations.",
+      "description": "Scripts, objections, qualification and meetings.",
+      "capabilities": ["Custom scripts", "Objection handling", "Qualification", "Meeting booking", "CRM notes"]
+    },
+    "sdrOutsourcing": {
+      "title": "SDR Outsourcing",
+      "headline": "An SDR team without building it from scratch.",
+      "description": "Dedicated SDRs, coaching, management and reporting.",
+      "capabilities": ["Dedicated SDRs", "Team Lead", "Data & tools", "Coaching", "QA", "Reporting"]
+    },
+    "salesAutomation": {
+      "title": "Sales Automation",
+      "headline": "Automate the work. Personalize the conversation.",
+      "description": "Workflows, enrichment, scoring, routing and CRM.",
+      "capabilities": ["Data workflows", "Enrichment", "Lead scoring", "CRM sync", "Routing", "Reporting"]
+    }
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "An outsourced B2B Sales Factory.",
+    "story": {
+      "title": "Our Story",
+      "p1": "Quorexis was created to fill a gap: companies often have a product and a sales team, but not a reliable outbound acquisition engine.",
+      "p2": "We built our own Sales Factory: data, AI, tools, processes and human teams — everything needed to generate sales meetings predictably.",
+      "p3": "Our model combines French governance and delivery from Tunisia, offering quality and competitiveness."
+    },
+    "founders": {
+      "title": "The Founders",
+      "subtitle": "A complementary team with a shared vision.",
+      "ahmed": {
+        "name": "Ahmed Ghanmi",
+        "role": "Co-founder & CEO",
+        "bio": "15 years of experience in B2B business development and sales operations."
+      },
+      "samy": {
+        "name": "Samy Ghanmi",
+        "role": "Co-founder & COO",
+        "bio": "Expert in sales operations and prospecting team management."
+      }
+    },
+    "belief": {
+      "title": "Our Belief",
+      "points": [
+        "Technology creates leverage.",
+        "Humans create trust.",
+        "Process creates predictability."
+      ]
+    },
+    "model": {
+      "title": "Our Model",
+      "description": "French governance, delivery from Tunisia, measurable results."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What is an outsourced SDR?",
+        "answer": "An outsourced SDR (Sales Development Representative) is a prospecting salesperson dedicated to your company but employed and managed by Quorexis. They prospect your targets, generate conversations and qualify meetings for your Account Executives."
+      },
+      {
+        "question": "What's the difference between Quorexis and a call center?",
+        "answer": "A call center optimizes call volume with standard scripts. Quorexis builds a complete prospecting engine: data, ICP targeting, multichannel, B2B-trained SDRs, business qualification and pipeline measurement — not just call counts."
+      },
+      {
+        "question": "What channels do you use?",
+        "answer": "We combine Cold Email, LinkedIn Outreach and Cold Calling in coordinated sequences. The mix depends on your market, your ICP and your preferences."
+      },
+      {
+        "question": "How do you define a qualified meeting?",
+        "answer": "A qualified meeting isn't just someone on a calendar. We validate fit with your ICP, existence of a need, contact authority and timing. Exact criteria are defined together during setup."
+      },
+      {
+        "question": "Do you work directly in our CRM?",
+        "answer": "Yes, we can integrate with your CRM (HubSpot, Zoho, Saalz, or other). Conversations, qualifications and meetings are documented directly in your system."
+      },
+      {
+        "question": "How long does it take to launch a campaign?",
+        "answer": "On average 2 to 3 weeks for the complete setup: strategy, ICP, data, infrastructure, messaging and SDR training. A pilot can start faster on a reduced scope."
+      },
+      {
+        "question": "Do your SDRs speak French?",
+        "answer": "Yes, all our SDRs are native francophones or bilingual. Tunisia offers a pool of commercial talent perfectly aligned with the French and francophone European market."
+      },
+      {
+        "question": "Does Quorexis replace our sales team?",
+        "answer": "No. Quorexis feeds your sales team with opportunities. Your Account Executives focus on what they do best: closing. We handle the top of the funnel."
+      }
+    ]
+  }
+}

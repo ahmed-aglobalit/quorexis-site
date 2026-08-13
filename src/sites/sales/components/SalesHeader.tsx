@@ -1,0 +1,289 @@
+"use client";
+
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname, Link } from "@/i18n/navigation";
+import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
+import { salesNavigationItems } from "../config/navigation";
+
+function ChevronDown({ className }: Readonly<{ className?: string }>) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M2 4l3 3 3-3" />
+    </svg>
+  );
+}
+
+function scrollTo(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    const top = el.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
+
+export default function SalesHeader() {
+  const t = useTranslations("nav");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const hoverTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const isFr = locale === "fr";
+  const targetLocale = isFr ? "en" : "fr";
+
+  const switchLanguage = useCallback(() => {
+    router.replace(pathname, { locale: targetLocale });
+  }, [router, pathname, targetLocale]);
+
+  useEffect(() => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+    setMobileAccordion(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  function handleDesktopEnter(key: string) {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = setTimeout(() => {
+      setOpenMenu(key);
+    }, 150);
+  }
+
+  function handleDesktopLeave() {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = setTimeout(() => {
+      setOpenMenu(null);
+    }, 200);
+  }
+
+  function handleDesktopClick(key: string) {
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+    setOpenMenu((prev) => (prev === key ? null : key));
+  }
+
+  function toggleMobileAccordion(key: string) {
+    setMobileAccordion((prev) => (prev === key ? null : key));
+  }
+
+  return (
+    <>
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
+          <Link href="/" className="flex-shrink-0 flex items-center">
+            <Image
+              src="/images/logo1.png"
+              alt="Quorexis"
+              width={500}
+              height={150}
+              className="h-48 w-auto object-contain"
+              priority
+            />
+            <span className="sr-only">Quorexis</span>
+          </Link>
+
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+            {salesNavigationItems.map((item) => {
+              if (item.type === "link") {
+                return (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    className={`relative px-3 py-2 text-sm transition-colors ${
+                      pathname === item.href
+                        ? "text-foreground font-medium"
+                        : "text-muted hover:text-foreground"
+                    }`}
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={item.key}
+                  className="relative"
+                  onMouseEnter={() => handleDesktopEnter(item.key)}
+                  onMouseLeave={handleDesktopLeave}
+                >
+                  <button
+                    onClick={() => handleDesktopClick(item.key)}
+                    aria-expanded={openMenu === item.key}
+                    className={`flex items-center gap-1 px-3 py-2 text-sm transition-colors ${
+                      openMenu === item.key
+                        ? "text-foreground font-medium"
+                        : "text-muted hover:text-foreground"
+                    }`}
+                  >
+                    {t(item.labelKey)}
+                    <ChevronDown
+                      className={`transition-transform duration-200 ${
+                        openMenu === item.key ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {openMenu === item.key && (
+                    <div className="menu-panel-enter absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-lg shadow-lg py-2">
+                      {item.dropdown.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setOpenMenu(null)}
+                          className="block px-4 py-2 text-sm text-muted hover:text-foreground hover:bg-foreground/5 transition-colors"
+                        >
+                          {t(link.labelKey)}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <button
+              onClick={switchLanguage}
+              className="ml-3 text-sm font-medium text-accent hover:text-foreground transition-colors px-2 py-1 border border-border/60 rounded"
+            >
+              {t("switchLang")}
+            </button>
+
+            <button
+              onClick={() => scrollTo("contact")}
+              className="ml-3 whitespace-nowrap px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 transition-all duration-200"
+            >
+              {t("contactUs")}
+            </button>
+          </nav>
+
+          <button
+            className="lg:hidden p-2 -mr-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? t("closeMenu") : t("menu")}
+            aria-expanded={mobileOpen}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              {mobileOpen ? (
+                <path d="M4 4l12 12M16 4L4 16" />
+              ) : (
+                <path d="M3 5h14M3 10h14M3 15h14" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {mobileOpen && (
+        <nav
+          className="lg:hidden fixed inset-0 top-16 z-[110] bg-background overflow-y-auto"
+          aria-label="Mobile navigation"
+        >
+          <div className="px-6 py-6 flex flex-col gap-1">
+            {salesNavigationItems.map((item) => {
+              if (item.type === "link") {
+                return (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`py-3 text-sm border-b border-border/30 ${
+                      pathname === item.href
+                        ? "text-foreground font-medium"
+                        : "text-muted"
+                    }`}
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                );
+              }
+
+              const isAccordionOpen = mobileAccordion === item.key;
+
+              return (
+                <div key={item.key} className="border-b border-border/30">
+                  <button
+                    onClick={() => toggleMobileAccordion(item.key)}
+                    aria-expanded={isAccordionOpen}
+                    className="w-full flex items-center justify-between py-3 text-sm text-muted"
+                  >
+                    {t(item.labelKey)}
+                    <ChevronDown
+                      className={`transition-transform duration-200 ${
+                        isAccordionOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {isAccordionOpen && (
+                    <div className="pb-3 pl-4 flex flex-col gap-2">
+                      {item.dropdown.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="text-sm text-muted hover:text-accent transition-colors"
+                        >
+                          {t(link.labelKey)}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <div className="mt-6 flex flex-col gap-4">
+              <button
+                onClick={() => {
+                  setMobileOpen(false);
+                  scrollTo("contact");
+                }}
+                className="text-center px-6 py-3 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
+              >
+                {t("contactUs")}
+              </button>
+              <button
+                onClick={() => {
+                  setMobileOpen(false);
+                  switchLanguage();
+                }}
+                className="text-sm font-medium text-accent text-center py-2 border border-border/60 rounded"
+              >
+                {isFr ? t("english") : t("french")}
+              </button>
+            </div>
+          </div>
+        </nav>
+      )}
+    </>
+  );
+}

@@ -3,8 +3,10 @@ import { getArticle, getAllSlugs } from "@/content/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { SITE_MODE } from "@/config/site";
 
 export async function generateStaticParams() {
+  if (SITE_MODE === "sales") return [];
   return getAllSlugs().map(({ slug, locale }) => ({ slug, locale }));
 }
 
@@ -13,6 +15,7 @@ export async function generateMetadata({
 }: Readonly<{
   params: Promise<{ locale: string; slug: string }>;
 }>) {
+  if (SITE_MODE === "sales") return {};
   const { locale, slug } = await params;
   const article = getArticle(slug, locale as "fr" | "en");
   if (!article) return {};
@@ -27,6 +30,7 @@ export default async function BlogArticlePage({
 }: Readonly<{
   params: Promise<{ locale: string; slug: string }>;
 }>) {
+  if (SITE_MODE === "sales") notFound();
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
   const article = getArticle(slug, locale as "fr" | "en");
