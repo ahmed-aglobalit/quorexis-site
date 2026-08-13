@@ -11,19 +11,17 @@ import QaTrainingTeaser from "@/components/TrainingTeaser";
 import QaContact from "@/components/Contact";
 
 import {
-  SalesHero,
-  ProblemSection,
-  EnginesSection,
-  NotCallCenterSection,
-  PipelineSection,
+  SalesHeroV2,
+  CommandCenter,
+  NotCallCenterV2,
+  LiveActivity,
+  TechHumanSection,
+  ProspectJourney,
   MethodSection,
-  KpiSection,
-  OffersSection,
-  TunisiaSection,
+  OffersV2,
   SalesTeam,
-  PhilosophySection,
   SalesFaq,
-  FinalCta,
+  FinalCtaV2,
   SalesContact,
 } from "@/sites/sales/components";
 
@@ -59,19 +57,40 @@ function QaHomePage() {
 function SalesHomePage() {
   return (
     <>
-      <SalesHero />
-      <ProblemSection />
-      <EnginesSection />
-      <NotCallCenterSection />
-      <PipelineSection />
+      {/* Hero: White background with live engine visualization */}
+      <SalesHeroV2 />
+
+      {/* Command Center: Light gray - show the dashboard */}
+      <CommandCenter />
+
+      {/* Not a Call Center: Full-bleed black signature section */}
+      <NotCallCenterV2 />
+
+      {/* Live Activity: White - show real-time campaign activity */}
+      <LiveActivity />
+
+      {/* Tech + Human: Light gray - split view */}
+      <TechHumanSection />
+
+      {/* Prospect Journey: White - multichannel timeline */}
+      <ProspectJourney />
+
+      {/* Method: Light gray - how it works */}
       <MethodSection />
-      <KpiSection />
-      <OffersSection />
-      <TunisiaSection />
+
+      {/* Offers: Light gray - pricing tiers */}
+      <OffersV2 />
+
+      {/* Team: White - founders */}
       <SalesTeam />
-      <PhilosophySection />
+
+      {/* FAQ: Light gray */}
       <SalesFaq />
-      <FinalCta />
+
+      {/* Final CTA: Full-bleed black */}
+      <FinalCtaV2 />
+
+      {/* Contact: White */}
       <SalesContact />
     </>
   );

@@ -45,16 +45,6 @@ export async function generateMetadata({
   };
 }
 
-function scrollTo(id: string) {
-  if (typeof window !== "undefined") {
-    const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  }
-}
-
 export default async function SolutionPage({
   params,
 }: {

@@ -1,3 +1,4 @@
+// V1 Components (legacy)
 export { default as SalesHero } from "./SalesHero";
 export { default as ProblemSection } from "./ProblemSection";
 export { default as EnginesSection } from "./EnginesSection";
@@ -12,3 +13,13 @@ export { default as PhilosophySection } from "./PhilosophySection";
 export { default as SalesFaq } from "./SalesFaq";
 export { default as FinalCta } from "./FinalCta";
 export { default as SalesContact } from "./SalesContact";
+
+// V2 Components (premium redesign)
+export { default as SalesHeroV2 } from "./SalesHeroV2";
+export { default as CommandCenter } from "./CommandCenter";
+export { default as NotCallCenterV2 } from "./NotCallCenterV2";
+export { default as LiveActivity } from "./LiveActivity";
+export { default as TechHumanSection } from "./TechHumanSection";
+export { default as ProspectJourney } from "./ProspectJourney";
+export { default as OffersV2 } from "./OffersV2";
+export { default as FinalCtaV2 } from "./FinalCtaV2";
