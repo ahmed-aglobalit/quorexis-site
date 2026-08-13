@@ -23,3 +23,4 @@ export { default as TechHumanSection } from "./TechHumanSection";
 export { default as ProspectJourney } from "./ProspectJourney";
 export { default as OffersV2 } from "./OffersV2";
 export { default as FinalCtaV2 } from "./FinalCtaV2";
+export { default as SalesAssistant } from "./SalesAssistant";

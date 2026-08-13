@@ -331,10 +331,13 @@ export default function SalesHeroV2() {
               </button>
               <button
                 type="button"
-                onClick={() => scrollTo("method")}
-                className="inline-flex items-center justify-center px-6 py-3.5 border border-border text-sm font-medium rounded-lg hover:bg-foreground/5 hover:border-foreground/20 transition-all duration-200"
+                onClick={() => window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }))}
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-foreground text-background text-sm font-medium rounded-lg hover:bg-foreground/90 hover:-translate-y-0.5 transition-all duration-200"
               >
-                {t("ctaSecondary")}
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+                Parler avec l&apos;IA
               </button>
             </motion.div>
 

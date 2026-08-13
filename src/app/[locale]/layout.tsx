@@ -12,6 +12,7 @@ import SkipToContent from "@/components/SkipToContent";
 
 import SalesHeader from "@/sites/sales/components/SalesHeader";
 import SalesFooter from "@/sites/sales/components/SalesFooter";
+import { SalesAssistant } from "@/sites/sales/components";
 
 export default async function LocaleLayout({
   children,
@@ -36,7 +37,7 @@ export default async function LocaleLayout({
       <main id="main-content">{children}</main>
       {isSales ? <SalesFooter /> : <QaFooter />}
       <BackToTop />
-      {!isSales && <AssistantWidget />}
+      {isSales ? <SalesAssistant /> : <AssistantWidget />}
     </NextIntlClientProvider>
   );
 }
