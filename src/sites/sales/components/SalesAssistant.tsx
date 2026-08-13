@@ -438,7 +438,7 @@ export default function SalesAssistant() {
                   </div>
                   <div className="border border-border rounded-xl overflow-hidden">
                     <iframe
-                      src="https://calendly.com/ahmed-ghanmi-quorexis/qa-quick-call-30min?hide_gdpr_banner=1"
+                      src="https://calendly.com/d/dv2t-t6d-7jw/outbound-strategy-call-30-min?hide_gdpr_banner=1"
                       className="w-full h-[400px]"
                       title="Calendly"
                     />
