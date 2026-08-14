@@ -1,4 +1,10 @@
 {
+  "assistant": {
+    "buttonTitle": "Talk to an Expert",
+    "buttonSubtitle": "Quick response",
+    "panelTitle": "Quorexis",
+    "panelSubtitle": "Talk to an Expert"
+  },
   "nav": {
     "solutions": "Solutions",
     "method": "Our Method",

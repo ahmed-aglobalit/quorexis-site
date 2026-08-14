@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 type Step = "intro" | "sector" | "offer" | "market" | "companySize" | "personas" | "dealSize" | "team" | "diagnostic" | "calendly";
 
@@ -71,6 +72,7 @@ function generateDiagnostic(answers: Answers) {
 }
 
 export default function SalesAssistant() {
+  const t = useTranslations("assistant");
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [step, setStep] = useState<Step>("intro");
@@ -155,7 +157,7 @@ export default function SalesAssistant() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          aria-label="Parler à un expert"
+          aria-label={t("buttonTitle")}
         >
           <div className="h-8 w-8 rounded-full bg-accent flex items-center justify-center shrink-0">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
@@ -163,8 +165,8 @@ export default function SalesAssistant() {
             </svg>
           </div>
           <div className="flex flex-col items-start">
-            <span className="text-sm font-semibold leading-tight">Parler à un expert</span>
-            <span className="text-[11px] text-background/60 leading-tight hidden sm:block">Réponse rapide</span>
+            <span className="text-sm font-semibold leading-tight">{t("buttonTitle")}</span>
+            <span className="text-[11px] text-background/60 leading-tight hidden sm:block">{t("buttonSubtitle")}</span>
           </div>
         </motion.button>
       )}
@@ -188,8 +190,8 @@ export default function SalesAssistant() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold">Quorexis</p>
-                  <p className="text-xs text-muted">Parler à un expert</p>
+                  <p className="text-sm font-semibold">{t("panelTitle")}</p>
+                  <p className="text-xs text-muted">{t("panelSubtitle")}</p>
                 </div>
               </div>
               <button
