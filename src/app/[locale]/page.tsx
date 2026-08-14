@@ -18,7 +18,8 @@ import {
   TechHumanSection,
   ProspectJourney,
   MethodSection,
-  OffersV2,
+  BudgetCalculator,
+  PricingSection,
   SalesTeam,
   SalesFaq,
   FinalCtaV2,
@@ -78,8 +79,11 @@ function SalesHomePage() {
       {/* Method: Light gray - how it works */}
       <MethodSection />
 
-      {/* Offers: Light gray - pricing tiers */}
-      <OffersV2 />
+      {/* Budget Calculator: Light gray - free tool */}
+      <BudgetCalculator />
+
+      {/* Pricing: White - real pricing */}
+      <PricingSection />
 
       {/* Team: White - founders */}
       <SalesTeam />
