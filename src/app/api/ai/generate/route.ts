@@ -137,10 +137,24 @@ Format JSON :
     }
 
     return NextResponse.json({ result: content });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("AI generation error:", error);
+
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const isQuotaError = errorMessage.includes("quota") || errorMessage.includes("insufficient");
+    const isAuthError = errorMessage.includes("auth") || errorMessage.includes("API key");
+
+    let userMessage = "Erreur lors de la génération.";
+    if (isQuotaError) {
+      userMessage = "Quota OpenAI épuisé. Ajoutez du crédit sur platform.openai.com";
+    } else if (isAuthError) {
+      userMessage = "Clé API OpenAI invalide ou non configurée.";
+    } else {
+      userMessage = `Erreur: ${errorMessage}`;
+    }
+
     return NextResponse.json(
-      { error: "Failed to generate content" },
+      { error: userMessage },
       { status: 500 }
     );
   }
