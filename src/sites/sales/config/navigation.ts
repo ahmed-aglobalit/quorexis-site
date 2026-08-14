@@ -42,7 +42,7 @@ export const salesNavigationItems: NavItem[] = [
   {
     type: "link",
     key: "method",
-    labelKey: "method",
+    labelKey: "howItWorks",
     href: "/method",
   },
   {
@@ -58,6 +58,24 @@ export const salesNavigationItems: NavItem[] = [
         { labelKey: "professionalServices", href: "/industries/professional-services" },
       ],
     },
+  },
+  {
+    type: "link",
+    key: "pricing",
+    labelKey: "pricing",
+    href: "/pricing",
+  },
+  {
+    type: "link",
+    key: "tools",
+    labelKey: "freeTools",
+    href: "/tools",
+  },
+  {
+    type: "link",
+    key: "why",
+    labelKey: "whyQuorexis",
+    href: "/why-quorexis",
   },
   {
     type: "link",
