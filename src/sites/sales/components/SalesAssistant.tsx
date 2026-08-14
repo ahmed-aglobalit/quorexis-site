@@ -155,16 +155,16 @@ export default function SalesAssistant() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          aria-label="Ask Quorexis AI"
+          aria-label="Parler à un expert"
         >
           <div className="h-8 w-8 rounded-full bg-accent flex items-center justify-center shrink-0">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
           </div>
           <div className="flex flex-col items-start">
-            <span className="text-sm font-semibold leading-tight">Ask Quorexis AI</span>
-            <span className="text-[11px] text-background/60 leading-tight hidden sm:block">Diagnostic gratuit</span>
+            <span className="text-sm font-semibold leading-tight">Parler à un expert</span>
+            <span className="text-[11px] text-background/60 leading-tight hidden sm:block">Réponse rapide</span>
           </div>
         </motion.button>
       )}
@@ -184,12 +184,12 @@ export default function SalesAssistant() {
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 rounded-full bg-accent flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold">Quorexis AI</p>
-                  <p className="text-xs text-muted">Diagnostic outbound</p>
+                  <p className="text-sm font-semibold">Quorexis</p>
+                  <p className="text-xs text-muted">Parler à un expert</p>
                 </div>
               </div>
               <button
