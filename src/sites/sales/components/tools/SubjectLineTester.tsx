@@ -1,110 +1,51 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-const POWER_WORDS = ["gratuit", "exclusif", "urgent", "nouveau", "résultats", "simple", "rapide", "prouvé", "secret", "découvrez"];
-const SPAM_WORDS = ["gratuit", "promo", "offre", "remise", "gagnez", "argent", "casino", "viagra", "cliquez"];
-const PERSONALIZATION = ["{prénom}", "{entreprise}", "{ville}", "vous", "votre"];
+type AIAnalysis = {
+  score: number;
+  analysis: string;
+  strengths: string[];
+  improvements: string[];
+  alternatives: string[];
+};
 
 export function SubjectLineTester() {
   const [subject, setSubject] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<AIAnalysis | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const analysis = useMemo(() => {
-    if (!subject) return null;
+  const analyzeSubject = async () => {
+    if (!subject.trim()) return;
 
-    const lower = subject.toLowerCase();
-    const words = subject.split(/\s+/);
-    const charCount = subject.length;
+    setLoading(true);
+    setError(null);
 
-    let score = 50;
-    const tips: string[] = [];
-    const good: string[] = [];
-    const bad: string[] = [];
+    try {
+      const response = await fetch("/api/ai/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "subject-line",
+          data: { subject },
+        }),
+      });
 
-    // Length check
-    if (charCount < 30) {
-      score += 10;
-      good.push("Longueur courte (bon pour mobile)");
-    } else if (charCount > 60) {
-      score -= 10;
-      bad.push("Trop long — sera coupé sur mobile");
-      tips.push("Réduisez à moins de 60 caractères");
-    } else {
-      score += 5;
-    }
+      const data = await response.json();
 
-    // Word count
-    if (words.length <= 7) {
-      score += 5;
-    }
-
-    // Personalization
-    const hasPersonalization = PERSONALIZATION.some((p) => lower.includes(p.toLowerCase()));
-    if (hasPersonalization) {
-      score += 15;
-      good.push("Personnalisation détectée");
-    } else {
-      tips.push("Ajoutez {prénom} ou {entreprise} pour personnaliser");
-    }
-
-    // Power words
-    const foundPowerWords = POWER_WORDS.filter((w) => lower.includes(w));
-    if (foundPowerWords.length > 0) {
-      score += 10;
-      good.push(`Mots puissants: ${foundPowerWords.join(", ")}`);
-    }
-
-    // Spam words
-    const foundSpamWords = SPAM_WORDS.filter((w) => lower.includes(w));
-    if (foundSpamWords.length > 0) {
-      score -= 15 * foundSpamWords.length;
-      bad.push(`Mots spam: ${foundSpamWords.join(", ")}`);
-      tips.push("Évitez les mots qui déclenchent les filtres spam");
-    }
-
-    // Question mark
-    if (subject.includes("?")) {
-      score += 5;
-      good.push("Question — engage la curiosité");
-    }
-
-    // ALL CAPS
-    if (subject === subject.toUpperCase() && subject.length > 3) {
-      score -= 20;
-      bad.push("TOUT EN MAJUSCULES = spam");
-      tips.push("Utilisez une casse normale");
-    }
-
-    // Emojis
-    const emojiRegex = /[\u{1F600}-\u{1F64F}]|[\u{1F300}-\u{1F5FF}]|[\u{1F680}-\u{1F6FF}]|[\u{1F1E0}-\u{1F1FF}]/gu;
-    const emojis = subject.match(emojiRegex);
-    if (emojis && emojis.length > 0) {
-      if (emojis.length <= 2) {
-        score += 5;
-        good.push("Emoji — attire l'attention");
-      } else {
-        score -= 10;
-        bad.push("Trop d'emojis");
+      if (data.error) {
+        setError(data.error);
+      } else if (data.result) {
+        setResult(data.result);
       }
+    } catch {
+      setError("Erreur lors de l'analyse. Réessayez.");
+    } finally {
+      setLoading(false);
     }
-
-    // Numbers
-    if (/\d/.test(subject)) {
-      score += 5;
-      good.push("Contient des chiffres — concret");
-    }
-
-    // RE: or FWD:
-    if (lower.startsWith("re:") || lower.startsWith("fwd:")) {
-      score -= 15;
-      bad.push("Faux RE:/FWD: — perçu comme trompeur");
-    }
-
-    score = Math.max(0, Math.min(100, score));
-
-    return { score, tips, good, bad, charCount, wordCount: words.length };
-  }, [subject]);
+  };
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return "text-green-500";
@@ -119,81 +60,132 @@ export function SubjectLineTester() {
     return "Risqué";
   };
 
+  const copyAlternative = (alt: string) => {
+    navigator.clipboard.writeText(alt);
+  };
+
   return (
     <div className="bg-background border border-border rounded-2xl p-6 md:p-8">
-      <h3 className="text-xl font-semibold mb-2">Email Subject Line Tester</h3>
-      <p className="text-sm text-muted mb-6">Analysez et optimisez vos objets d&apos;email.</p>
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold">Subject Line Tester</h3>
+          <p className="text-sm text-muted">Analyse IA de vos objets d&apos;email</p>
+        </div>
+      </div>
 
-      <div className="mb-6">
+      <div className="mb-4">
         <textarea
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
-          placeholder="Entrez votre objet d'email..."
+          placeholder="Entrez votre objet d'email à analyser..."
           rows={2}
           className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-accent focus:outline-none transition-colors resize-none"
         />
-        {analysis && (
-          <div className="flex justify-between text-xs text-muted mt-2">
-            <span>{analysis.charCount} caractères</span>
-            <span>{analysis.wordCount} mots</span>
-          </div>
-        )}
+        <div className="flex justify-between text-xs text-muted mt-2">
+          <span>{subject.length} caractères</span>
+          <span>{subject.split(/\s+/).filter(Boolean).length} mots</span>
+        </div>
       </div>
 
-      {analysis && (
+      <button
+        type="button"
+        onClick={analyzeSubject}
+        disabled={loading || !subject.trim()}
+        className="w-full py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+      >
+        {loading ? (
+          <>
+            <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+            </svg>
+            Analyse en cours...
+          </>
+        ) : (
+          <>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Analyser avec l&apos;IA
+          </>
+        )}
+      </button>
+
+      {error && (
+        <div className="mt-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm">
+          {error}
+        </div>
+      )}
+
+      {result && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="space-y-6"
+          className="mt-6 space-y-4"
         >
           {/* Score */}
           <div className="text-center p-6 rounded-xl bg-foreground/[0.02] border border-border">
-            <p className={`text-5xl font-bold ${getScoreColor(analysis.score)}`}>
-              {analysis.score}
+            <p className={`text-5xl font-bold ${getScoreColor(result.score)}`}>
+              {result.score}
             </p>
-            <p className={`text-sm font-medium mt-1 ${getScoreColor(analysis.score)}`}>
-              {getScoreLabel(analysis.score)}
+            <p className={`text-sm font-medium mt-1 ${getScoreColor(result.score)}`}>
+              {getScoreLabel(result.score)}
             </p>
+            <p className="text-sm text-muted mt-3">{result.analysis}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Good */}
-            {analysis.good.length > 0 && (
+            {/* Strengths */}
+            {result.strengths && result.strengths.length > 0 && (
               <div className="p-4 rounded-lg bg-green-500/5 border border-green-500/20">
                 <p className="text-sm font-semibold text-green-600 mb-2">✓ Points forts</p>
                 <ul className="space-y-1">
-                  {analysis.good.map((g, i) => (
-                    <li key={i} className="text-sm text-muted">{g}</li>
+                  {result.strengths.map((s, i) => (
+                    <li key={i} className="text-sm text-muted">{s}</li>
                   ))}
                 </ul>
               </div>
             )}
 
-            {/* Bad */}
-            {analysis.bad.length > 0 && (
-              <div className="p-4 rounded-lg bg-red-500/5 border border-red-500/20">
-                <p className="text-sm font-semibold text-red-500 mb-2">✗ À corriger</p>
+            {/* Improvements */}
+            {result.improvements && result.improvements.length > 0 && (
+              <div className="p-4 rounded-lg bg-orange-500/5 border border-orange-500/20">
+                <p className="text-sm font-semibold text-orange-500 mb-2">→ À améliorer</p>
                 <ul className="space-y-1">
-                  {analysis.bad.map((b, i) => (
-                    <li key={i} className="text-sm text-muted">{b}</li>
+                  {result.improvements.map((s, i) => (
+                    <li key={i} className="text-sm text-muted">{s}</li>
                   ))}
                 </ul>
               </div>
             )}
           </div>
 
-          {/* Tips */}
-          {analysis.tips.length > 0 && (
+          {/* Alternatives */}
+          {result.alternatives && result.alternatives.length > 0 && (
             <div className="p-4 rounded-lg bg-accent/5 border border-accent/20">
-              <p className="text-sm font-semibold mb-2">Suggestions</p>
-              <ul className="space-y-1">
-                {analysis.tips.map((tip, i) => (
-                  <li key={i} className="text-sm text-muted flex items-start gap-2">
-                    <span className="text-accent">→</span>
-                    {tip}
-                  </li>
+              <p className="text-sm font-semibold mb-3">Alternatives suggérées par l&apos;IA</p>
+              <div className="space-y-2">
+                {result.alternatives.map((alt, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between p-3 rounded-lg bg-background border border-border group"
+                  >
+                    <span className="text-sm">{alt}</span>
+                    <button
+                      type="button"
+                      onClick={() => copyAlternative(alt)}
+                      className="px-2 py-1 text-xs text-muted hover:text-accent opacity-0 group-hover:opacity-100 transition-all"
+                    >
+                      Copier
+                    </button>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           )}
         </motion.div>
