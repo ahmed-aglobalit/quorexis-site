@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { notFound } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SITE_MODE } from "@/config/site";
 import { BudgetCalculator } from "@/sites/sales/components";
 import {
@@ -218,65 +218,58 @@ export default function ToolsPage() {
       <section className="pb-12">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <AnimatePresence mode="popLayout">
-              {filteredTools.map((tool, i) => (
-                <motion.button
-                  key={tool.id}
-                  type="button"
-                  onClick={() => setSelectedTool(selectedTool === tool.id ? null : tool.id)}
-                  className={`text-left p-4 rounded-xl border transition-all ${
-                    selectedTool === tool.id
-                      ? "border-accent bg-accent/5 ring-2 ring-accent/20"
-                      : "border-border hover:border-accent/30 hover:bg-foreground/[0.02]"
-                  }`}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.2, delay: i * 0.03 }}
-                >
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${
-                    selectedTool === tool.id ? "bg-accent text-white" : "bg-foreground/10 text-foreground"
-                  }`}>
-                    {tool.icon}
-                  </div>
-                  <h3 className="font-semibold text-sm mb-1">{tool.name}</h3>
-                  <p className="text-xs text-muted line-clamp-2">{tool.description}</p>
-                  <span className="inline-block mt-2 px-2 py-0.5 text-xs bg-foreground/5 rounded text-muted">
-                    {tool.category}
-                  </span>
-                </motion.button>
-              ))}
-            </AnimatePresence>
+            {filteredTools.map((tool) => (
+              <button
+                key={tool.id}
+                type="button"
+                onClick={() => {
+                  setSelectedTool(selectedTool === tool.id ? null : tool.id);
+                  if (selectedTool !== tool.id) {
+                    setTimeout(() => {
+                      document.getElementById("active-tool")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 100);
+                  }
+                }}
+                className={`text-left p-4 rounded-xl border transition-all cursor-pointer ${
+                  selectedTool === tool.id
+                    ? "border-accent bg-accent/5 ring-2 ring-accent/20"
+                    : "border-border hover:border-accent/30 hover:bg-foreground/[0.02]"
+                }`}
+              >
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${
+                  selectedTool === tool.id ? "bg-accent text-white" : "bg-foreground/10 text-foreground"
+                }`}>
+                  {tool.icon}
+                </div>
+                <h3 className="font-semibold text-sm mb-1">{tool.name}</h3>
+                <p className="text-xs text-muted line-clamp-2">{tool.description}</p>
+                <span className="inline-block mt-2 px-2 py-0.5 text-xs bg-foreground/5 rounded text-muted">
+                  {tool.category}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Active tool */}
-      <AnimatePresence>
-        {activeTool && (
-          <motion.section
-            className="pb-24"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-          >
-            <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-semibold">{activeTool.name}</h2>
-                <button
-                  type="button"
-                  onClick={() => setSelectedTool(null)}
-                  className="px-3 py-1.5 text-sm text-muted hover:text-foreground border border-border rounded-lg transition-colors"
-                >
-                  Fermer
-                </button>
-              </div>
-              <activeTool.component />
+      {activeTool && (
+        <section id="active-tool" className="pb-24">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-semibold">{activeTool.name}</h2>
+              <button
+                type="button"
+                onClick={() => setSelectedTool(null)}
+                className="px-3 py-1.5 text-sm text-muted hover:text-foreground border border-border rounded-lg transition-colors"
+              >
+                Fermer
+              </button>
             </div>
-          </motion.section>
-        )}
-      </AnimatePresence>
+            <activeTool.component />
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-24 bg-foreground text-background">
