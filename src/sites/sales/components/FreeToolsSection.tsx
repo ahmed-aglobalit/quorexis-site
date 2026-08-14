@@ -2,58 +2,75 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "@/i18n/navigation";
 import { BudgetCalculator } from "./BudgetCalculator";
 
 const TOOLS = [
   {
     id: "budget-calculator",
     name: "Budget Calculator",
-    description: "Estimez votre budget outbound et le ROI potentiel en 30 secondes.",
+    description: "Estimez votre budget outbound et ROI",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
         <rect x="2" y="3" width="20" height="18" rx="2" />
         <path d="M2 9h20" />
         <path d="M10 3v6" />
       </svg>
     ),
-    available: true,
   },
   {
     id: "icp-builder",
     name: "ICP Builder",
-    description: "Définissez votre client idéal et estimez la taille de votre marché.",
+    description: "Définissez votre client idéal",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="10" />
         <circle cx="12" cy="12" r="6" />
         <circle cx="12" cy="12" r="2" />
       </svg>
     ),
-    available: false,
   },
   {
-    id: "email-checker",
-    name: "Domain Health Check",
-    description: "Vérifiez la délivrabilité de votre domaine (SPF, DKIM, DMARC).",
+    id: "sequence-planner",
+    name: "Sequence Planner",
+    description: "Construisez votre cadence multicanale",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+      </svg>
+    ),
+  },
+  {
+    id: "email-generator",
+    name: "Cold Email Generator",
+    description: "Templates personnalisés",
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
         <rect x="2" y="4" width="20" height="16" rx="2" />
         <path d="M22 4L12 13 2 4" />
       </svg>
     ),
-    available: false,
   },
   {
-    id: "roi-simulator",
-    name: "ROI Simulator",
-    description: "Simulez le retour sur investissement de différentes stratégies.",
+    id: "objection-handler",
+    name: "Objection Handler",
+    description: "Réponses aux objections",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-        <path d="M23 6l-9.5 9.5-5-5L1 18" />
-        <path d="M17 6h6v6" />
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    available: false,
+  },
+  {
+    id: "more",
+    name: "+8 outils",
+    description: "Voir tous les outils gratuits",
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 4v16m8-8H4" />
+      </svg>
+    ),
+    isLink: true,
   },
 ];
 
@@ -83,40 +100,51 @@ export function FreeToolsSection() {
         </motion.div>
 
         {/* Tools grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {TOOLS.map((tool, i) => (
-            <motion.div
-              key={tool.id}
-              className={`relative p-5 rounded-xl border transition-all duration-300 ${
-                tool.available
-                  ? "border-accent bg-accent/5 hover:bg-accent/10 cursor-pointer"
-                  : "border-border bg-foreground/[0.02]"
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-              onClick={() => {
-                if (tool.available) {
-                  document.getElementById("budget-calc")?.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              {!tool.available && (
-                <span className="absolute top-3 right-3 px-2 py-0.5 text-xs font-medium bg-foreground/10 rounded-full text-muted">
-                  Bientôt
-                </span>
-              )}
-              <div
-                className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${
-                  tool.available ? "bg-accent text-white" : "bg-foreground/10 text-muted"
-                }`}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-16">
+          {TOOLS.map((tool, i) => {
+            const isLink = "isLink" in tool && tool.isLink;
+            const content = (
+              <>
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${
+                  isLink ? "bg-accent text-white" : "bg-foreground/10 text-foreground"
+                }`}>
+                  {tool.icon}
+                </div>
+                <h3 className="text-sm font-semibold mb-1">{tool.name}</h3>
+                <p className="text-xs text-muted leading-relaxed">{tool.description}</p>
+              </>
+            );
+
+            if (isLink) {
+              return (
+                <motion.div
+                  key={tool.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+                >
+                  <Link
+                    href="/tools"
+                    className="block p-4 rounded-xl border border-accent bg-accent/5 hover:bg-accent/10 transition-all duration-300"
+                  >
+                    {content}
+                  </Link>
+                </motion.div>
+              );
+            }
+
+            return (
+              <motion.div
+                key={tool.id}
+                className="p-4 rounded-xl border border-border bg-foreground/[0.02] hover:border-accent/30 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
               >
-                {tool.icon}
-              </div>
-              <h3 className="text-sm font-semibold mb-1">{tool.name}</h3>
-              <p className="text-xs text-muted leading-relaxed">{tool.description}</p>
-            </motion.div>
-          ))}
+                {content}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Budget Calculator */}
