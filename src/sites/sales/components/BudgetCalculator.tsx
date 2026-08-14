@@ -19,7 +19,11 @@ const PLANS = {
 
 const MEETING_BONUS = 50;
 
-export default function BudgetCalculator() {
+interface BudgetCalculatorProps {
+  embedded?: boolean;
+}
+
+export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -55,28 +59,8 @@ export default function BudgetCalculator() {
     };
   }, [targetMeetings, avgDealSize, conversionRate]);
 
-  return (
-    <section id="calculator" className="py-24 md:py-36 bg-foreground/[0.02]" ref={ref}>
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-            Outil gratuit
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
-            Estimez votre budget outbound
-          </h2>
-          <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">
-            Calculez le coût et le ROI potentiel de votre campagne en 30 secondes.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+  const content = (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Inputs */}
           <motion.div
             className="bg-background border border-border rounded-2xl p-8"
@@ -230,7 +214,36 @@ export default function BudgetCalculator() {
             </motion.button>
           </motion.div>
         </div>
+  );
+
+  if (embedded) {
+    return <div ref={ref}>{content}</div>;
+  }
+
+  return (
+    <section id="calculator" className="py-24 md:py-36 bg-foreground/[0.02]" ref={ref}>
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
+            Outil gratuit
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+            Estimez votre budget outbound
+          </h2>
+          <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">
+            Calculez le coût et le ROI potentiel de votre campagne en 30 secondes.
+          </p>
+        </motion.div>
+        {content}
       </div>
     </section>
   );
 }
+
+export default BudgetCalculator;

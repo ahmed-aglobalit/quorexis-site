@@ -18,7 +18,7 @@ import {
   TechHumanSection,
   ProspectJourney,
   MethodSection,
-  BudgetCalculator,
+  FreeToolsSection,
   PricingSection,
   SalesTeam,
   SalesFaq,
@@ -79,8 +79,8 @@ function SalesHomePage() {
       {/* Method: Light gray - how it works */}
       <MethodSection />
 
-      {/* Budget Calculator: Light gray - free tool */}
-      <BudgetCalculator />
+      {/* Free Tools: Budget Calculator + upcoming tools */}
+      <FreeToolsSection />
 
       {/* Pricing: White - real pricing */}
       <PricingSection />
