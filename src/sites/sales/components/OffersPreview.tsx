@@ -221,7 +221,7 @@ export default function OffersPreview() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 bg-background" ref={ref}>
+    <section id="offers-preview" className="py-24 md:py-32 bg-background scroll-mt-20" ref={ref}>
       <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
         {/* Header */}
         <motion.div

@@ -26,5 +26,6 @@ export { default as FinalCtaV2 } from "./FinalCtaV2";
 export { default as SalesAssistant } from "./SalesAssistant";
 export { default as PricingSection } from "./PricingSection";
 export { default as OffersPreview } from "./OffersPreview";
+export { default as PricingBanner } from "./PricingBanner";
 export { default as BudgetCalculator, BudgetCalculator as BudgetCalculatorComponent } from "./BudgetCalculator";
 export { FreeToolsSection } from "./FreeToolsSection";

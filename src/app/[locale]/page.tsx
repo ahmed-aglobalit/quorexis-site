@@ -12,6 +12,7 @@ import QaContact from "@/components/Contact";
 
 import {
   SalesHeroV2,
+  PricingBanner,
   CommandCenter,
   OffersPreview,
   LiveActivity,
@@ -60,6 +61,9 @@ function SalesHomePage() {
     <>
       {/* Hero: White background with live engine visualization */}
       <SalesHeroV2 />
+
+      {/* Pricing Banner: Quick price overview */}
+      <PricingBanner />
 
       {/* Command Center: Light gray - show the dashboard */}
       <CommandCenter />
