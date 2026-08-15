@@ -143,7 +143,7 @@ export default function MethodSection() {
                     >
                       <div className="pt-4 border-t border-border/60">
                         <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-2">
-                          Deliverable
+                          Livrable
                         </p>
                         <p className="text-sm text-accent font-medium">
                           {t(`steps.${step}.deliverable`)}

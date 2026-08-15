@@ -56,9 +56,9 @@ function OutboundEngine() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs font-medium text-muted uppercase tracking-wider">Live Engine</span>
+            <span className="text-xs font-medium text-muted uppercase tracking-wider">Moteur actif</span>
           </div>
-          <span className="text-xs text-muted font-mono">Example campaign</span>
+          <span className="text-xs text-muted font-mono">Campagne exemple</span>
         </div>
 
         {/* Pipeline stages */}
@@ -68,7 +68,7 @@ function OutboundEngine() {
             className={`p-4 rounded-lg border transition-colors duration-500 ${activeStage === 0 ? "border-accent bg-accent/5" : "border-border bg-background"}`}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Target Accounts</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Comptes cibles</span>
               <span className="text-xs font-mono text-accent">2,481</span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -102,7 +102,7 @@ function OutboundEngine() {
             className={`p-4 rounded-lg border transition-colors duration-500 ${activeStage === 1 ? "border-accent bg-accent/5" : "border-border bg-background"}`}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Enrichment</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Enrichissement</span>
               <span className="text-xs font-mono text-green-500">97%</span>
             </div>
             <div className="grid grid-cols-3 gap-2 text-xs">
@@ -116,7 +116,7 @@ function OutboundEngine() {
                 <svg className="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                <span className="text-muted">Phone</span>
+                <span className="text-muted">Téléphone</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <svg className="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -143,7 +143,7 @@ function OutboundEngine() {
             className={`p-4 rounded-lg border transition-colors duration-500 ${activeStage === 2 ? "border-accent bg-accent/5" : "border-border bg-background"}`}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Outreach</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Prospection</span>
             </div>
             <div className="flex gap-3">
               <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-foreground/5">
@@ -165,7 +165,7 @@ function OutboundEngine() {
                 <svg className="w-3 h-3 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span className="text-xs text-muted">Phone</span>
+                <span className="text-xs text-muted">Téléphone</span>
               </div>
             </div>
           </motion.div>
@@ -194,7 +194,7 @@ function OutboundEngine() {
                 className="text-xs text-muted italic bg-foreground/5 px-3 py-2 rounded"
                 animate={{ opacity: activeStage === 3 ? 1 : 0.5 }}
               >
-                Interested, let&apos;s discuss next week
+                Intéressé, discutons la semaine prochaine
               </motion.div>
             </div>
           </motion.div>
@@ -215,7 +215,7 @@ function OutboundEngine() {
             className={`p-4 rounded-lg border transition-colors duration-500 ${activeStage === 4 ? "border-accent bg-accent/5" : "border-border bg-background"}`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted">Meeting Booked</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted">RDV confirmé</span>
               <div className="flex items-center gap-2">
                 <svg className="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -223,7 +223,7 @@ function OutboundEngine() {
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                <span className="text-xs font-mono text-accent">Thu 10:30</span>
+                <span className="text-xs font-mono text-accent">Jeu 10:30</span>
               </div>
             </div>
           </motion.div>

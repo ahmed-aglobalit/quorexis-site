@@ -4,19 +4,19 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const TECH_ITEMS = [
-  { label: "Data Enrichment", icon: "database" },
-  { label: "AI Research", icon: "brain" },
+  { label: "Enrichissement data", icon: "database" },
+  { label: "Recherche IA", icon: "brain" },
   { label: "Segmentation", icon: "filter" },
-  { label: "Workflow Automation", icon: "workflow" },
-  { label: "CRM Sync", icon: "sync" },
+  { label: "Automatisation workflow", icon: "workflow" },
+  { label: "Sync CRM", icon: "sync" },
 ];
 
 const HUMAN_ITEMS = [
-  { label: "Discovery Calls", icon: "phone" },
-  { label: "Objection Handling", icon: "shield" },
+  { label: "Appels de découverte", icon: "phone" },
+  { label: "Gestion des objections", icon: "shield" },
   { label: "Qualification", icon: "check" },
-  { label: "Relationship Building", icon: "heart" },
-  { label: "Meeting Booking", icon: "calendar" },
+  { label: "Construction de relations", icon: "heart" },
+  { label: "Prise de RDV", icon: "calendar" },
 ];
 
 function TechIcon({ type }: { type: string }) {
@@ -104,10 +104,10 @@ export default function TechHumanSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
-            Technology for scale.
+            La technologie pour scaler.
           </h2>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-muted mt-2">
-            Humans for trust.
+            L&apos;humain pour la confiance.
           </h2>
         </motion.div>
 
@@ -126,7 +126,7 @@ export default function TechHumanSection() {
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold">Technology</h3>
+              <h3 className="text-xl font-semibold">Technologie</h3>
             </div>
 
             <div className="space-y-4">
@@ -153,7 +153,7 @@ export default function TechHumanSection() {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <p className="text-sm text-accent font-medium">
-                Automates the repetitive. Amplifies the strategic.
+                Automatise le répétitif. Amplifie le stratégique.
               </p>
             </motion.div>
           </motion.div>
@@ -172,7 +172,7 @@ export default function TechHumanSection() {
                   <circle cx="12" cy="7" r="4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold">Human SDR</h3>
+              <h3 className="text-xl font-semibold">SDR Humain</h3>
             </div>
 
             <div className="space-y-4">
@@ -199,7 +199,7 @@ export default function TechHumanSection() {
               transition={{ duration: 0.6, delay: 0.9 }}
             >
               <p className="text-sm text-green-600 font-medium">
-                Creates trust. Builds relationships. Closes deals.
+                Crée la confiance. Construit les relations. Conclut les deals.
               </p>
             </motion.div>
           </motion.div>
@@ -213,9 +213,9 @@ export default function TechHumanSection() {
           transition={{ duration: 0.8, delay: 1 }}
         >
           <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-foreground/5 border border-border">
-            <span className="text-lg font-semibold">Technology</span>
+            <span className="text-lg font-semibold">Technologie</span>
             <span className="text-2xl text-accent">+</span>
-            <span className="text-lg font-semibold">Human</span>
+            <span className="text-lg font-semibold">Humain</span>
             <span className="text-2xl text-muted">=</span>
             <span className="text-lg font-semibold text-accent">Pipeline</span>
           </div>

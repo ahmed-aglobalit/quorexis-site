@@ -4,14 +4,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const JOURNEY = [
-  { day: 1, action: "Account researched", type: "research", channel: null },
-  { day: 2, action: "Personalized email sent", type: "email", channel: "Email" },
-  { day: 3, action: "LinkedIn profile viewed", type: "linkedin", channel: "LinkedIn" },
-  { day: 5, action: "Connection request sent", type: "linkedin", channel: "LinkedIn" },
-  { day: 7, action: "First phone call attempt", type: "phone", channel: "Phone" },
-  { day: 8, action: "Follow-up email", type: "email", channel: "Email" },
-  { day: 10, action: "Phone call connected", type: "call-connected", channel: "Phone" },
-  { day: 12, action: "Meeting booked", type: "meeting", channel: null },
+  { day: 1, action: "Compte recherché", type: "research", channel: null },
+  { day: 2, action: "Email personnalisé envoyé", type: "email", channel: "Email" },
+  { day: 3, action: "Profil LinkedIn consulté", type: "linkedin", channel: "LinkedIn" },
+  { day: 5, action: "Demande de connexion envoyée", type: "linkedin", channel: "LinkedIn" },
+  { day: 7, action: "Premier appel téléphonique", type: "phone", channel: "Téléphone" },
+  { day: 8, action: "Email de relance", type: "email", channel: "Email" },
+  { day: 10, action: "Appel connecté", type: "call-connected", channel: "Téléphone" },
+  { day: 12, action: "RDV obtenu", type: "meeting", channel: null },
 ];
 
 const TYPE_STYLES: Record<string, { bg: string; color: string; icon: React.ReactNode }> = {
@@ -102,8 +102,8 @@ export default function ProspectJourney() {
                 </div>
                 <div>
                   <p className="font-semibold">Claire Martin</p>
-                  <p className="text-sm text-muted">Chief Technology Officer</p>
-                  <p className="text-xs text-muted mt-1">B2B SaaS · Paris · 85 employees</p>
+                  <p className="text-sm text-muted">Directrice Technique</p>
+                  <p className="text-xs text-muted mt-1">B2B SaaS · Paris · 85 employés</p>
                 </div>
               </div>
             </div>
@@ -132,7 +132,7 @@ export default function ProspectJourney() {
                       {/* Content */}
                       <div className="flex-1 ml-4 p-4 rounded-lg bg-foreground/[0.02] border border-border hover:border-accent/20 transition-colors">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-medium text-muted">Day {step.day}</span>
+                          <span className="text-xs font-medium text-muted">Jour {step.day}</span>
                           {step.channel && (
                             <span className={`text-xs px-2 py-0.5 rounded ${style.bg} ${style.color}`}>
                               {step.channel}
@@ -147,7 +147,7 @@ export default function ProspectJourney() {
               </div>
             </div>
 
-            <p className="mt-6 text-xs text-muted text-center">Example prospect journey</p>
+            <p className="mt-6 text-xs text-muted text-center">Exemple de parcours prospect</p>
           </motion.div>
 
           {/* Right: Content */}
@@ -158,7 +158,7 @@ export default function ProspectJourney() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              Multichannel Approach
+              Approche multicanale
             </motion.p>
             <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight"
@@ -166,8 +166,8 @@ export default function ProspectJourney() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              One prospect.<br />
-              <span className="text-muted">Multiple touchpoints.</span>
+              Un prospect.<br />
+              <span className="text-muted">Plusieurs points de contact.</span>
             </motion.h2>
             <motion.p
               className="mt-6 text-lg text-muted leading-relaxed"
@@ -175,9 +175,9 @@ export default function ProspectJourney() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {"Your prospects don't live in one channel."} Neither should your outreach.
-              We coordinate email, LinkedIn, and phone into one cohesive sequence that
-              respects timing and builds familiarity.
+              Vos prospects ne vivent pas sur un seul canal. Votre prospection non plus.
+              Nous coordonnons email, LinkedIn et téléphone en une séquence cohérente qui
+              respecte le timing et construit la familiarité.
             </motion.p>
 
             <motion.div
@@ -188,15 +188,15 @@ export default function ProspectJourney() {
             >
               <div className="text-center p-4 rounded-lg bg-blue-500/5 border border-blue-500/10">
                 <p className="text-2xl font-semibold text-blue-500">Email</p>
-                <p className="text-xs text-muted mt-1">Sequences</p>
+                <p className="text-xs text-muted mt-1">Séquences</p>
               </div>
               <div className="text-center p-4 rounded-lg bg-sky-500/5 border border-sky-500/10">
                 <p className="text-2xl font-semibold text-sky-500">LinkedIn</p>
                 <p className="text-xs text-muted mt-1">Social</p>
               </div>
               <div className="text-center p-4 rounded-lg bg-orange-500/5 border border-orange-500/10">
-                <p className="text-2xl font-semibold text-orange-500">Phone</p>
-                <p className="text-xs text-muted mt-1">Calls</p>
+                <p className="text-2xl font-semibold text-orange-500">Téléphone</p>
+                <p className="text-xs text-muted mt-1">Appels</p>
               </div>
             </motion.div>
 
@@ -207,8 +207,8 @@ export default function ProspectJourney() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-sm text-foreground">
-                <span className="font-semibold text-accent">3x higher response rates</span>
-                {" "}compared to single-channel outreach.
+                <span className="font-semibold text-accent">3x plus de réponses</span>
+                {" "}comparé à la prospection mono-canal.
               </p>
             </motion.div>
           </div>

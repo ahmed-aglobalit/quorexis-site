@@ -45,7 +45,7 @@ export default function OffersV2() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Choose Your Model</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Choisissez votre modèle</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
             {t("title")}
           </h2>
@@ -67,7 +67,7 @@ export default function OffersV2() {
             >
               {offer.highlight && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full">
-                  Most Popular
+                  Le plus populaire
                 </div>
               )}
 
@@ -125,7 +125,7 @@ export default function OffersV2() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          All plans include dedicated team, data infrastructure, multi-channel outreach, and reporting.
+          Tous les plans incluent une équipe dédiée, infrastructure data, prospection multicanale et reporting.
         </motion.p>
       </div>
     </section>

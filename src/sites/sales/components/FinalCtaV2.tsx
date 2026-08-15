@@ -58,7 +58,7 @@ export default function FinalCtaV2() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            Ready?
+            Prêt ?
           </motion.p>
 
           {/* Main headline */}
@@ -68,7 +68,7 @@ export default function FinalCtaV2() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Your market is out there.
+            Votre marché est là.
           </motion.h2>
           <motion.h3
             className="mt-4 text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] text-background/50"
@@ -76,7 +76,7 @@ export default function FinalCtaV2() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {"Let's turn it into pipeline."}
+            Transformons-le en pipeline.
           </motion.h3>
 
           {/* CTA */}
@@ -113,7 +113,7 @@ export default function FinalCtaV2() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            30-minute outbound strategy call.
+            Appel stratégie outbound de 30 minutes.
           </motion.p>
 
           {/* Visual pipeline flow */}
@@ -123,7 +123,7 @@ export default function FinalCtaV2() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {["Data", "Signals", "Outreach", "Meetings", "Pipeline"].map((step, i) => (
+            {["Data", "Signaux", "Outreach", "RDV", "Pipeline"].map((step, i) => (
               <div key={step} className="flex items-center gap-4">
                 <motion.span
                   className="text-xs font-medium text-background/40"

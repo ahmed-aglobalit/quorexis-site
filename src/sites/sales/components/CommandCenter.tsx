@@ -24,13 +24,13 @@ function CountUp({ end, duration = 2, prefix = "", suffix = "" }: { end: number;
 }
 
 const FUNNEL_DATA = [
-  { label: "Accounts", value: 2418, color: "bg-foreground/10" },
+  { label: "Comptes", value: 2418, color: "bg-foreground/10" },
   { label: "Contacts", value: 1832, color: "bg-foreground/20" },
-  { label: "Replies", value: 326, color: "bg-foreground/30" },
+  { label: "Réponses", value: 326, color: "bg-foreground/30" },
   { label: "Conversations", value: 142, color: "bg-foreground/40" },
-  { label: "Qualified", value: 72, color: "bg-accent/50" },
-  { label: "Meetings", value: 31, color: "bg-accent/70" },
-  { label: "Opportunities", value: 11, color: "bg-accent" },
+  { label: "Qualifiés", value: 72, color: "bg-accent/50" },
+  { label: "RDV", value: 31, color: "bg-accent/70" },
+  { label: "Opportunités", value: 11, color: "bg-accent" },
 ];
 
 const CHANNEL_DATA = [
@@ -71,10 +71,10 @@ export default function CommandCenter() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Your Outbound Command Center</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Votre Centre de Contrôle Outbound</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
-            Full visibility.<br />
-            <span className="text-muted">Real-time control.</span>
+            Visibilité totale.<br />
+            <span className="text-muted">Contrôle en temps réel.</span>
           </h2>
         </motion.div>
 
@@ -94,23 +94,23 @@ export default function CommandCenter() {
               </div>
               <div className="h-4 w-px bg-border" />
               <div className="flex items-center gap-2">
-                <span className="text-xs text-muted">Campaign:</span>
-                <span className="text-xs font-medium px-2 py-1 bg-foreground/5 rounded">France — IT Services — CTO</span>
+                <span className="text-xs text-muted">Campagne :</span>
+                <span className="text-xs font-medium px-2 py-1 bg-foreground/5 rounded">France — Services IT — CTO</span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-xs text-muted">Period:</span>
-              <span className="text-xs font-medium px-2 py-1 bg-foreground/5 rounded">Last 30 days</span>
+              <span className="text-xs text-muted">Période :</span>
+              <span className="text-xs font-medium px-2 py-1 bg-foreground/5 rounded">30 derniers jours</span>
             </div>
           </div>
 
           {/* KPIs */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
             {[
-              { label: "Accounts Targeted", value: 2418 },
-              { label: "Contacts Reached", value: 1832 },
+              { label: "Comptes ciblés", value: 2418 },
+              { label: "Contacts atteints", value: 1832 },
               { label: "Conversations", value: 142 },
-              { label: "Meetings Booked", value: 31 },
+              { label: "RDV obtenus", value: 31 },
             ].map((kpi, i) => (
               <motion.div
                 key={kpi.label}
@@ -131,7 +131,7 @@ export default function CommandCenter() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border">
             {/* Funnel */}
             <div className="lg:col-span-2 bg-background p-6">
-              <p className="text-xs text-muted uppercase tracking-wider mb-6">Pipeline Funnel</p>
+              <p className="text-xs text-muted uppercase tracking-wider mb-6">Entonnoir Pipeline</p>
               <div className="space-y-3">
                 {FUNNEL_DATA.map((stage, i) => {
                   const width = (stage.value / FUNNEL_DATA[0].value) * 100;
@@ -162,7 +162,7 @@ export default function CommandCenter() {
               {/* Pipeline value */}
               <div className="mt-8 pt-6 border-t border-border">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-xs text-muted uppercase tracking-wider">Pipeline Generated</span>
+                  <span className="text-xs text-muted uppercase tracking-wider">Pipeline généré</span>
                   <span className="text-3xl font-semibold text-green-500 font-mono">
                     €<CountUp end={228} suffix="K" />
                   </span>
@@ -174,7 +174,7 @@ export default function CommandCenter() {
             <div className="bg-background">
               {/* Channel breakdown */}
               <div className="p-6 border-b border-border">
-                <p className="text-xs text-muted uppercase tracking-wider mb-4">Channel Performance</p>
+                <p className="text-xs text-muted uppercase tracking-wider mb-4">Performance par canal</p>
                 <div className="space-y-4">
                   {CHANNEL_DATA.map((ch) => (
                     <div key={ch.channel} className="flex items-center justify-between">
@@ -187,7 +187,7 @@ export default function CommandCenter() {
 
               {/* Today's meetings */}
               <div className="p-6">
-                <p className="text-xs text-muted uppercase tracking-wider mb-4">Today&apos;s Meetings</p>
+                <p className="text-xs text-muted uppercase tracking-wider mb-4">RDV du jour</p>
                 <div className="space-y-3">
                   {MEETINGS.map((meeting) => (
                     <div key={meeting.time} className="flex items-center gap-3 p-3 rounded-lg bg-foreground/[0.02] border border-border">
@@ -206,7 +206,7 @@ export default function CommandCenter() {
 
           {/* Footer */}
           <div className="px-6 py-3 border-t border-border bg-foreground/[0.02]">
-            <p className="text-xs text-muted text-center">Example campaign - Demonstrative interface</p>
+            <p className="text-xs text-muted text-center">Campagne exemple - Interface démonstrative</p>
           </div>
         </motion.div>
       </div>

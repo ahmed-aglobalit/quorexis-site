@@ -4,14 +4,14 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const ACTIVITIES = [
-  { time: "09:31", type: "identify", text: "New decision maker identified", meta: "CTO — SaaS — Paris" },
-  { time: "09:34", type: "enrich", text: "Email verified", meta: "98% deliverability score" },
-  { time: "09:42", type: "linkedin", text: "LinkedIn connection accepted", meta: "Head of Engineering" },
-  { time: "10:03", type: "call", text: "Cold call connected", meta: "2m 43s conversation" },
-  { time: "10:08", type: "qualify", text: "Lead qualified", meta: "Budget confirmed, Q1 project" },
-  { time: "10:11", type: "meeting", text: "Meeting booked", meta: "Thursday — 11:00" },
-  { time: "10:24", type: "email", text: "Email reply received", meta: "\"Send me more information\"" },
-  { time: "10:38", type: "identify", text: "New account added", meta: "CloudTech — 120 employees" },
+  { time: "09:31", type: "identify", text: "Nouveau décideur identifié", meta: "CTO — SaaS — Paris" },
+  { time: "09:34", type: "enrich", text: "Email vérifié", meta: "Score de délivrabilité 98%" },
+  { time: "09:42", type: "linkedin", text: "Connexion LinkedIn acceptée", meta: "Head of Engineering" },
+  { time: "10:03", type: "call", text: "Cold call connecté", meta: "Conversation de 2m 43s" },
+  { time: "10:08", type: "qualify", text: "Lead qualifié", meta: "Budget confirmé, projet Q1" },
+  { time: "10:11", type: "meeting", text: "RDV obtenu", meta: "Jeudi — 11:00" },
+  { time: "10:24", type: "email", text: "Réponse email reçue", meta: "\"Envoyez-moi plus d'infos\"" },
+  { time: "10:38", type: "identify", text: "Nouveau compte ajouté", meta: "CloudTech — 120 employés" },
 ];
 
 const ICONS: Record<string, React.ReactNode> = {
@@ -101,7 +101,7 @@ export default function LiveActivity() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              Always Running
+              Toujours actif
             </motion.p>
             <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight"
@@ -109,7 +109,7 @@ export default function LiveActivity() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              While your sales team closes...
+              Pendant que vos commerciaux closent...
             </motion.h2>
             <motion.p
               className="mt-6 text-lg text-muted leading-relaxed"
@@ -117,8 +117,8 @@ export default function LiveActivity() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Your outbound engine keeps working. Identifying prospects, verifying data,
-              sending sequences, making calls, booking meetings. Every day. Every hour.
+              Votre moteur outbound continue de tourner. Identification de prospects, vérification des données,
+              envoi de séquences, appels, prise de RDV. Chaque jour. Chaque heure.
             </motion.p>
 
             <motion.div
@@ -129,11 +129,11 @@ export default function LiveActivity() {
             >
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-sm">Data enrichment</span>
+                <span className="text-sm">Enrichissement data</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border">
                 <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                <span className="text-sm">Email sequences</span>
+                <span className="text-sm">Séquences email</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border">
                 <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
@@ -153,9 +153,9 @@ export default function LiveActivity() {
             <div className="flex items-center justify-between px-5 py-4 border-b border-border">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-medium text-muted uppercase tracking-wider">Live Activity</span>
+                <span className="text-xs font-medium text-muted uppercase tracking-wider">Activité en direct</span>
               </div>
-              <span className="text-xs text-muted font-mono">Campaign simulation</span>
+              <span className="text-xs text-muted font-mono">Simulation de campagne</span>
             </div>
 
             {/* Activity list */}
