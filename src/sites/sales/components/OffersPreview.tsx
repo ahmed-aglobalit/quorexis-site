@@ -67,21 +67,24 @@ function OfferCard({ offer, index }: { offer: typeof OFFERS[0]; index: number })
 
   return (
     <motion.div
-      className={`relative rounded-2xl p-8 flex flex-col ${
-        isHighlight
-          ? "bg-foreground text-background md:scale-[1.02]"
-          : "bg-background border border-border"
-      }`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
     >
-      {isHighlight && (
-        <div className="absolute -top-3 left-8 px-4 py-1 bg-accent text-white text-xs font-semibold rounded-full uppercase tracking-wider">
-          Recommandé
-        </div>
-      )}
+      <Link
+        href={`/offres#${offer.anchor}`}
+        className={`group relative rounded-2xl p-8 flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+          isHighlight
+            ? "bg-foreground text-background md:scale-[1.02]"
+            : "bg-background border border-border hover:border-accent/50"
+        }`}
+      >
+        {isHighlight && (
+          <div className="absolute -top-3 left-8 px-4 py-1 bg-accent text-white text-xs font-semibold rounded-full uppercase tracking-wider">
+            Recommandé
+          </div>
+        )}
 
       {/* Step */}
       <div className={`text-xs font-medium tracking-wider mb-4 ${isHighlight ? "text-background/40" : "text-muted"}`}>
@@ -147,23 +150,25 @@ function OfferCard({ offer, index }: { offer: typeof OFFERS[0]; index: number })
       </ul>
 
       {/* Outcome */}
-      <p className={`text-sm font-medium mb-6 flex-1 ${isHighlight ? "text-background" : "text-foreground"}`}>
-        {offer.outcome}
-      </p>
+        <p className={`text-sm font-medium mb-6 flex-1 ${isHighlight ? "text-background" : "text-foreground"}`}>
+          {offer.outcome}
+        </p>
 
-      {/* CTA */}
-      <Link
-        href={`/offres#${offer.anchor}`}
-        className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
-          isHighlight
-            ? "bg-accent text-white hover:bg-accent/90"
-            : "bg-foreground text-background hover:bg-foreground/90"
-        }`}
-      >
-        Découvrir {offer.name}
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+        {/* CTA indicator */}
+        <div className={`flex items-center justify-between pt-4 border-t ${isHighlight ? "border-background/20" : "border-border"}`}>
+          <span className={`text-sm font-semibold ${isHighlight ? "text-background" : "text-foreground"}`}>
+            Découvrir {offer.name}
+          </span>
+          <svg
+            className={`w-5 h-5 transition-transform duration-200 group-hover:translate-x-1 ${isHighlight ? "text-accent" : "text-accent"}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
       </Link>
     </motion.div>
   );
