@@ -87,72 +87,72 @@ function OfferCard({ offer, index }: { offer: typeof OFFERS[0]; index: number })
         )}
 
       {/* Step */}
-      <div className={`text-xs font-medium tracking-wider mb-4 ${isHighlight ? "text-background/40" : "text-muted"}`}>
-        {offer.step} — {offer.stepLabel}
-      </div>
-
-      {/* Name */}
-      <h3 className={`text-2xl font-bold mb-2 ${isHighlight ? "text-background" : ""}`}>
-        {offer.name}
-      </h3>
-
-      {/* Headline */}
-      <p className={`text-sm mb-6 ${isHighlight ? "text-background/70" : "text-muted"}`}>
-        {offer.headline}
-      </p>
-
-      {/* Price */}
-      <div className="mb-6">
-        <div className="flex items-baseline gap-1">
-          <span className={`text-4xl font-bold ${isHighlight ? "text-background" : ""}`}>
-            {offer.price.toLocaleString("fr-FR")} €
-          </span>
-          <span className={`text-sm ${isHighlight ? "text-background/50" : "text-muted"}`}>/mois</span>
+        <div className={`text-xs font-medium tracking-wider mb-4 ${isHighlight ? "text-background/40" : "text-muted"}`}>
+          {offer.step} — {offer.stepLabel}
         </div>
-        <p className={`text-xs mt-1 ${isHighlight ? "text-accent" : "text-accent"}`}>
-          +50 € / rendez-vous qualifié tenu
-        </p>
-      </div>
 
-      {/* SDR Capacity */}
-      <div className={`p-4 rounded-xl mb-6 ${isHighlight ? "bg-background/10" : "bg-accent/5"}`}>
-        <p className={`text-lg font-bold ${isHighlight ? "text-background" : "text-foreground"}`}>
-          {offer.sdrLabel}
+        {/* Name */}
+        <h3 className={`text-2xl font-bold mb-2 ${isHighlight ? "text-background" : ""}`}>
+          {offer.name}
+        </h3>
+
+        {/* Headline */}
+        <p className={`text-sm mb-6 ${isHighlight ? "text-background/70" : "text-muted"}`}>
+          {offer.headline}
         </p>
-        {offer.sdrSub && (
-          <p className={`text-sm ${isHighlight ? "text-background/60" : "text-muted"}`}>
-            {offer.sdrSub}
+
+        {/* SDR Capacity - Ce qu'on offre concrètement */}
+        <div className={`p-4 rounded-xl mb-6 ${isHighlight ? "bg-background/10" : "bg-accent/5"}`}>
+          <p className={`text-lg font-bold ${isHighlight ? "text-background" : "text-foreground"}`}>
+            {offer.sdrLabel}
           </p>
-        )}
-      </div>
+          {offer.sdrSub && (
+            <p className={`text-sm ${isHighlight ? "text-background/60" : "text-muted"}`}>
+              {offer.sdrSub}
+            </p>
+          )}
+        </div>
 
-      {/* Description */}
-      <p className={`text-sm mb-6 ${isHighlight ? "text-background/70" : "text-muted"}`}>
-        {offer.description}
-      </p>
+        {/* Description */}
+        <p className={`text-sm mb-6 ${isHighlight ? "text-background/70" : "text-muted"}`}>
+          {offer.description}
+        </p>
 
-      {/* Highlights */}
-      <ul className="space-y-2 mb-6">
-        {offer.highlights.map((item) => (
-          <li key={item} className="flex items-center gap-2 text-sm">
-            <svg
-              className={`w-4 h-4 shrink-0 ${isHighlight ? "text-accent" : "text-accent"}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-            <span className={isHighlight ? "text-background/80" : ""}>{item}</span>
-          </li>
-        ))}
-      </ul>
+        {/* Highlights */}
+        <ul className="space-y-2 mb-6">
+          {offer.highlights.map((item) => (
+            <li key={item} className="flex items-center gap-2 text-sm">
+              <svg
+                className={`w-4 h-4 shrink-0 ${isHighlight ? "text-accent" : "text-accent"}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span className={isHighlight ? "text-background/80" : ""}>{item}</span>
+            </li>
+          ))}
+        </ul>
 
-      {/* Outcome */}
+        {/* Outcome */}
         <p className={`text-sm font-medium mb-6 flex-1 ${isHighlight ? "text-background" : "text-foreground"}`}>
           {offer.outcome}
         </p>
+
+        {/* Price - En bas après avoir présenté la valeur */}
+        <div className={`p-4 rounded-xl mb-6 ${isHighlight ? "bg-accent/20" : "bg-foreground/5"}`}>
+          <div className="flex items-baseline gap-1">
+            <span className={`text-3xl font-bold ${isHighlight ? "text-background" : ""}`}>
+              {offer.price.toLocaleString("fr-FR")} €
+            </span>
+            <span className={`text-sm ${isHighlight ? "text-background/50" : "text-muted"}`}>/mois</span>
+          </div>
+          <p className={`text-xs mt-1 ${isHighlight ? "text-accent" : "text-accent"}`}>
+            +50 € / rendez-vous qualifié tenu
+          </p>
+        </div>
 
         {/* CTA indicator */}
         <div className={`flex items-center justify-between pt-4 border-t ${isHighlight ? "border-background/20" : "border-border"}`}>
