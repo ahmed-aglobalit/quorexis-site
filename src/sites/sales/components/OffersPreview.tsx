@@ -279,9 +279,26 @@ export default function OffersPreview() {
               <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
-          <p className="mt-8 text-sm text-muted">
-            Vous vous demandez ce qui se passe après votre décision ? Découvrez vos 4 premières semaines ci-dessous.
-          </p>
+          <motion.div
+            className="mt-10 flex flex-col items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <p className="text-center text-muted mb-4">
+              Que se passe-t-il après votre décision ?
+            </p>
+            <motion.div
+              className="flex flex-col items-center text-accent"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-sm font-semibold mb-1">Vos 4 premières semaines</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

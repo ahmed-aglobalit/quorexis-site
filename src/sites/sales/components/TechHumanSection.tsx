@@ -222,14 +222,26 @@ export default function TechHumanSection() {
         </motion.div>
 
         {/* Transition to next section */}
-        <motion.p
-          className="mt-12 text-center text-muted"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+        <motion.div
+          className="mt-16 flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 1.2 }}
         >
-          Comment tout cela s&apos;articule ? Découvrez notre méthode ci-dessous.
-        </motion.p>
+          <p className="text-center text-muted mb-4">
+            Comment tout cela s&apos;articule ?
+          </p>
+          <motion.div
+            className="flex flex-col items-center text-accent"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <span className="text-sm font-semibold mb-1">Découvrez notre méthode</span>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
