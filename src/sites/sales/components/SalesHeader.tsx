@@ -94,7 +94,7 @@ export default function SalesHeader() {
               alt="Quorexis"
               width={500}
               height={150}
-              className="h-48 w-auto object-contain"
+              className="h-56 w-auto object-contain"
               priority
             />
             <span className="sr-only">Quorexis</span>
