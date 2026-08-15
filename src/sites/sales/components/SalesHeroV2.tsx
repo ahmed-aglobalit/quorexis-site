@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { PRICING_CONFIG } from "../config/pricing";
 
 const COMPANIES = ["Acme Corp", "TechFlow", "DataSync", "CloudPeak", "NeoScale"];
 const STAGES = ["target", "enrich", "outreach", "conversation", "meeting", "pipeline"];
@@ -341,24 +342,42 @@ export default function SalesHeroV2() {
               </button>
             </motion.div>
 
+            {/* Pricing teaser */}
             <motion.div
-              className="mt-10 flex items-center gap-6 text-sm text-muted"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="mt-10 p-4 rounded-xl bg-foreground/[0.03] border border-border"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                France
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Europe
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Canada
-              </span>
+              <p className="text-sm font-medium text-foreground mb-3">
+                Vous voulez plus de rendez-vous qualifiés ?
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => scrollTo("offers-preview")}
+                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-background border border-border hover:border-accent/50 transition-colors"
+                >
+                  <span className="text-xs text-muted">Starter</span>
+                  <span className="text-sm font-semibold">{PRICING_CONFIG.starter.monthlyPrice.toLocaleString("fr-FR")} €</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollTo("offers-preview")}
+                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-accent text-white hover:bg-accent/90 transition-colors"
+                >
+                  <span className="text-xs text-white/70">Growth</span>
+                  <span className="text-sm font-semibold">{PRICING_CONFIG.growth.monthlyPrice.toLocaleString("fr-FR")} €</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollTo("offers-preview")}
+                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-background border border-border hover:border-accent/50 transition-colors"
+                >
+                  <span className="text-xs text-muted">Scale</span>
+                  <span className="text-sm font-semibold">{PRICING_CONFIG.scale.monthlyPrice.toLocaleString("fr-FR")} €</span>
+                </button>
+              </div>
             </motion.div>
           </div>
 
