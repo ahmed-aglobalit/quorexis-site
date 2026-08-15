@@ -4,25 +4,22 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const TIMELINE_EVENTS = [
-  { time: "09:02", type: "email", label: "Email sent", detail: "VP Sales — Example Company" },
-  { time: "09:18", type: "linkedin", label: "LinkedIn connection accepted", detail: null },
-  { time: "10:07", type: "call", label: "Cold call", detail: null },
-  { time: "10:09", type: "conversation", label: "Conversation started", detail: null },
-  { time: "10:12", type: "objection", label: "Objection reçue", detail: "\"Nous travaillons déjà avec un prestataire.\"" },
-  { time: "10:14", type: "handled", label: "Objection handled", detail: null },
-  { time: "11:42", type: "email", label: "Follow-up sent", detail: null },
-  { time: "14:16", type: "response", label: "Interested response", detail: null },
-  { time: "15:30", type: "meeting", label: "MEETING BOOKED", detail: null },
+  { time: "09:02", type: "email", label: "Email envoyé", detail: "Marc Dubois — Datalux" },
+  { time: "10:15", type: "linkedin", label: "LinkedIn accepté", detail: null },
+  { time: "11:30", type: "call", label: "Cold call", detail: null },
+  { time: "11:32", type: "objection", label: "Objection", detail: "\"On a un consultant ponctuel\"" },
+  { time: "11:35", type: "handled", label: "Handled", detail: null },
+  { time: "15:00", type: "meeting", label: "MEETING BOOKED", detail: null },
 ];
 
 const MEETING_BRIEF = [
-  { label: "Company", value: "Example Company" },
-  { label: "Contact", value: "VP Sales" },
-  { label: "Need", value: "Pipeline outbound insuffisant" },
-  { label: "Context", value: "Équipe commerciale de 5 personnes, focus inbound" },
-  { label: "Objection", value: "Prestataire actuel non performant" },
-  { label: "Interest", value: "Approche hybride Tech + Humain" },
-  { label: "Next step", value: "Discovery call — Jeudi 10:30" },
+  { label: "Entreprise", value: "Datalux — SaaS 120 emp." },
+  { label: "Contact", value: "Marc Dubois, VP Engineering" },
+  { label: "Besoin", value: "Migration cloud, équipe DevOps débordée" },
+  { label: "Objection", value: "\"Consultant ponctuel pour urgences\"" },
+  { label: "Handled", value: "Managed = proactif, pas réactif" },
+  { label: "Intérêt", value: "24/7 monitoring + scaling auto" },
+  { label: "Next step", value: "Discovery call — Jeudi 14:00" },
 ];
 
 export default function Week3Activate() {
@@ -90,67 +87,66 @@ export default function Week3Activate() {
   };
 
   return (
-    <section id="demo-week-3" ref={ref} className="py-24 md:py-32 bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+    <section
+      id="demo-week-3"
+      ref={ref}
+      className="min-h-[calc(100svh-80px)] py-8 md:py-12 bg-background flex flex-col"
+      style={{ scrollMarginTop: "80px" }}
+    >
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20 flex-1 flex flex-col">
         {/* Header */}
         <motion.div
-          className="mb-16"
+          className="mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <div className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
               <span className="text-xs font-bold uppercase tracking-wider text-accent">
                 Week 03 — Activate
               </span>
             </div>
             <div className="px-3 py-1 rounded-full bg-foreground/5 border border-border">
-              <span className="text-xs text-muted">Example campaign</span>
+              <span className="text-xs text-muted">Campagne CloudAxis</span>
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-6">
-            Votre SDR entre maintenant<br />
-            <span className="text-muted">en conversation avec votre marché.</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-tight">
+            Votre SDR entre en conversation<span className="text-muted"> avec votre marché.</span>
           </h2>
         </motion.div>
 
-        {/* Live Outbound Interface */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="p-8 rounded-2xl bg-foreground/[0.02] border border-border">
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                <h3 className="text-sm font-bold uppercase tracking-wider">
-                  Quorexis Live Outbound
-                </h3>
-              </div>
-              <span className="text-xs text-muted">Example simulation</span>
+        {/* Main Grid: Timeline + Meeting Brief */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6 flex-1">
+          {/* Live Outbound Timeline - Compact */}
+          <motion.div
+            className="p-4 md:p-5 rounded-xl bg-foreground/[0.02] border border-border"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-muted">
+                Live Outbound — Datalux
+              </h3>
             </div>
-
-            {/* Timeline */}
             <div className="relative">
-              <div className="absolute left-[52px] top-0 bottom-0 w-px bg-border" />
-
-              <div className="space-y-4">
+              <div className="absolute left-[44px] top-0 bottom-0 w-px bg-border" />
+              <div className="space-y-2">
                 {TIMELINE_EVENTS.map((event, i) => (
                   <motion.div
                     key={`${event.time}-${event.type}`}
-                    className="relative flex items-start gap-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                    className="relative flex items-center gap-3"
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : {}}
+                    transition={{ duration: 0.3, delay: 0.2 + i * 0.05 }}
                   >
-                    <span className="w-12 text-right text-xs font-mono text-muted shrink-0">
+                    <span className="w-10 text-right text-[10px] font-mono text-muted shrink-0">
                       {event.time}
                     </span>
                     <div
-                      className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
+                      className={`relative z-10 w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${
                         event.type === "meeting"
                           ? "bg-accent text-white"
                           : event.type === "objection"
@@ -160,12 +156,12 @@ export default function Week3Activate() {
                     >
                       {getEventIcon(event.type)}
                     </div>
-                    <div className="flex-1 pt-1">
-                      <p className={`font-medium ${event.type === "meeting" ? "text-accent text-lg" : ""}`}>
+                    <div className="flex-1">
+                      <p className={`text-xs font-medium ${event.type === "meeting" ? "text-accent" : ""}`}>
                         {event.label}
                       </p>
                       {event.detail && (
-                        <p className={`text-sm mt-1 ${event.type === "objection" ? "italic text-orange-500" : "text-muted"}`}>
+                        <p className={`text-[10px] ${event.type === "objection" ? "italic text-orange-500" : "text-muted"}`}>
                           {event.detail}
                         </p>
                       )}
@@ -174,81 +170,71 @@ export default function Week3Activate() {
                 ))}
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Meeting Brief */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <div className="p-8 rounded-2xl bg-accent/5 border border-accent/20">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-6">
-              Meeting Brief — Transmis à votre commercial
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Meeting Brief - THE DIFFERENTIATOR */}
+          <motion.div
+            className="p-4 md:p-5 rounded-xl bg-accent/5 border border-accent/20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.25 }}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-accent">
+                Meeting Brief — Transmis à votre commercial
+              </h3>
+              <span className="text-[10px] text-accent/70">WE PROSPECT. YOU CLOSE.</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
               {MEETING_BRIEF.map((item, i) => (
                 <motion.div
                   key={item.label}
-                  className="p-4 rounded-lg bg-background border border-border"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.9 + i * 0.05 }}
+                  className="p-2 rounded-lg bg-background border border-border"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.3, delay: 0.3 + i * 0.03 }}
                 >
-                  <p className="text-xs text-muted mb-1">{item.label}</p>
-                  <p className="font-medium text-sm">{item.value}</p>
+                  <p className="text-[10px] text-muted uppercase">{item.label}</p>
+                  <p className="text-xs font-medium">{item.value}</p>
                 </motion.div>
               ))}
             </div>
+            <div className="mt-3 p-2 rounded-lg bg-accent/10 border border-accent/20">
+              <p className="text-[10px] text-center text-accent">
+                Votre commercial arrive préparé, pas pour découvrir.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Footer: Transition */}
+        <motion.div
+          className="flex items-center justify-between pt-4 border-t border-border"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent text-white">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span className="text-xs font-semibold">MEETING BOOKED</span>
+            </div>
+            <span className="text-sm text-muted hidden md:inline">Mais on ne s&apos;arrête pas là.</span>
           </div>
-        </motion.div>
-
-        {/* WE PROSPECT. YOU CLOSE. */}
-        <motion.div
-          className="text-center py-16 mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-            WE PROSPECT.
-          </h2>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-accent mb-8">
-            YOU CLOSE.
-          </h2>
-          <p className="text-lg text-muted max-w-3xl mx-auto mb-6">
-            Quorexis ouvre la conversation, traite les premières objections, qualifie l&apos;intérêt
-            et transmet le contexte à votre équipe commerciale.
-          </p>
-          <p className="text-lg font-medium max-w-2xl mx-auto">
-            Votre commercial arrive au rendez-vous pour vendre, pas pour découvrir qui est le prospect.
-          </p>
-        </motion.div>
-
-        {/* Transition */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1.2 }}
-        >
-          <p className="text-muted mb-4">
-            Mais une campagne Quorexis ne s&apos;arrête pas au nombre d&apos;appels ou d&apos;emails envoyés.
-          </p>
           <button
             type="button"
             onClick={scrollToWeek4}
-            className="group inline-flex flex-col items-center gap-2 text-accent hover:text-accent/80 transition-colors"
+            className="group flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
           >
-            <span className="font-semibold">Voyons ce que le marché nous apprend.</span>
+            <span className="text-sm font-medium">Voir les optimisations</span>
             <motion.div
-              animate={{ y: [0, 8, 0] }}
+              animate={{ x: [0, 4, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path d="M9 5l7 7-7 7" />
               </svg>
             </motion.div>
           </button>
