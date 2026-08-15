@@ -11,57 +11,143 @@ function scrollToOffers() {
   }
 }
 
+const OFFERS = [
+  {
+    key: "starter",
+    name: "Starter",
+    label: "Tester",
+    price: PRICING_CONFIG.starter.monthlyPrice,
+    sdr: "SDR partagé",
+    highlight: false,
+  },
+  {
+    key: "growth",
+    name: "Growth",
+    label: "Construire",
+    price: PRICING_CONFIG.growth.monthlyPrice,
+    sdr: "1 SDR dédié",
+    highlight: true,
+  },
+  {
+    key: "scale",
+    name: "Scale",
+    label: "Industrialiser",
+    price: PRICING_CONFIG.scale.monthlyPrice,
+    sdr: "2 SDR + Team Lead",
+    highlight: false,
+  },
+];
+
 export default function PricingBanner() {
   return (
-    <motion.section
-      className="py-6 bg-foreground/[0.02] border-y border-border"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.3 }}
-    >
+    <section className="py-16 md:py-20 bg-foreground text-background">
       <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
-        <button
-          type="button"
-          onClick={scrollToOffers}
-          className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 group cursor-pointer"
+        {/* Header */}
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          {/* Prices */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-muted uppercase tracking-wider">Starter</span>
-              <span className="text-sm font-semibold">{PRICING_CONFIG.starter.monthlyPrice.toLocaleString("fr-FR")} €</span>
-            </div>
+          <p className="text-sm font-medium text-background/50 uppercase tracking-wider mb-3">
+            3 formules, 1 objectif
+          </p>
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            Choisissez votre capacité outbound
+          </h2>
+        </motion.div>
 
-            <span className="hidden sm:block text-border">·</span>
-
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-accent uppercase tracking-wider">Growth</span>
-              <span className="text-sm font-semibold">{PRICING_CONFIG.growth.monthlyPrice.toLocaleString("fr-FR")} €</span>
-            </div>
-
-            <span className="hidden sm:block text-border">·</span>
-
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-muted uppercase tracking-wider">Scale</span>
-              <span className="text-sm font-semibold">{PRICING_CONFIG.scale.monthlyPrice.toLocaleString("fr-FR")} €</span>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="flex items-center gap-2 text-sm font-medium text-accent group-hover:underline transition-all">
-            <span>Voir les formules</span>
-            <svg
-              className="w-4 h-4 transition-transform group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+          {OFFERS.map((offer, index) => (
+            <motion.button
+              key={offer.key}
+              type="button"
+              onClick={scrollToOffers}
+              className={`group relative text-left p-6 rounded-xl transition-all duration-300 cursor-pointer
+                ${offer.highlight
+                  ? "bg-accent text-white ring-2 ring-accent ring-offset-2 ring-offset-foreground"
+                  : "bg-background/10 hover:bg-background/15"
+                }
+              `}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 * index }}
             >
-              <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              {offer.highlight && (
+                <span className="absolute -top-2.5 left-4 px-2 py-0.5 bg-white text-accent text-[10px] font-bold uppercase tracking-wider rounded">
+                  Populaire
+                </span>
+              )}
+
+              {/* Label */}
+              <p className={`text-xs font-medium uppercase tracking-wider mb-2 ${offer.highlight ? "text-white/70" : "text-background/50"}`}>
+                {offer.label}
+              </p>
+
+              {/* Name + Price */}
+              <div className="flex items-baseline justify-between mb-3">
+                <h3 className="text-lg font-bold">{offer.name}</h3>
+                <div className="text-right">
+                  <span className="text-xl font-bold">{offer.price.toLocaleString("fr-FR")} €</span>
+                  <span className={`text-xs ${offer.highlight ? "text-white/60" : "text-background/40"}`}>/mois</span>
+                </div>
+              </div>
+
+              {/* SDR capacity */}
+              <div className={`flex items-center gap-2 py-2 px-3 rounded-lg ${offer.highlight ? "bg-white/10" : "bg-background/5"}`}>
+                <div className="flex -space-x-1">
+                  {offer.key === "starter" && (
+                    <div className="w-5 h-5 rounded-full bg-background/30 border border-background/20" />
+                  )}
+                  {offer.key === "growth" && (
+                    <div className="w-5 h-5 rounded-full bg-white border-2 border-accent" />
+                  )}
+                  {offer.key === "scale" && (
+                    <>
+                      <div className="w-5 h-5 rounded-full bg-background/80 border border-background/40" />
+                      <div className="w-5 h-5 rounded-full bg-background/80 border border-background/40" />
+                      <div className="w-4 h-4 rounded-full bg-green-400 border border-green-300 mt-0.5" />
+                    </>
+                  )}
+                </div>
+                <span className={`text-sm font-medium ${offer.highlight ? "text-white" : "text-background/80"}`}>
+                  {offer.sdr}
+                </span>
+              </div>
+
+              {/* Arrow */}
+              <div className={`absolute bottom-4 right-4 transition-transform duration-200 group-hover:translate-x-1 ${offer.highlight ? "text-white/60" : "text-background/30"}`}>
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <button
+            type="button"
+            onClick={scrollToOffers}
+            className="inline-flex items-center gap-2 text-sm font-medium text-background/60 hover:text-background transition-colors"
+          >
+            Comparer en détail
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-          </div>
-        </button>
+          </button>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }
