@@ -8,129 +8,78 @@ function openAssistant() {
   window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
 }
 
-const WEEKS_SUMMARY = [
-  { week: "01", label: "Strategy", result: "Market understood" },
-  { week: "02", label: "Build", result: "Outbound engine built" },
-  { week: "03", label: "Activate", result: "Conversations started" },
-  { week: "04", label: "Optimize", result: "Campaign optimized" },
-];
-
-const PIPELINE_FLOW = [
-  "ICP",
-  "DATA",
-  "MESSAGING",
-  "OUTREACH",
-  "CONVERSATIONS",
-  "QUALIFICATION",
-  "MEETINGS",
-  "PIPELINE",
+const WEEKS = [
+  { num: "01", label: "Strategy", check: "ICP validé" },
+  { num: "02", label: "Build", check: "Campagne prête" },
+  { num: "03", label: "Activate", check: "Conversations" },
+  { num: "04", label: "Optimize", check: "V2 live" },
 ];
 
 export default function DemoSummary() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="demo-summary" ref={ref} className="py-24 md:py-32 bg-foreground/[0.02]">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+    <section id="demo-summary" ref={ref} className="py-12 md:py-16 bg-foreground/[0.02] min-h-[80vh] flex items-center">
+      <div className="mx-auto max-w-[1000px] px-6 md:px-12 w-full">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-4">
             <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <polyline points="20 6 9 17 4 12" />
             </svg>
             <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Your First 30 Days
+              30 Days Complete
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
-            En quatre semaines, votre outbound est passé<br />
-            <span className="text-accent">d&apos;une hypothèse à une campagne active.</span>
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+            Votre outbound est <span className="text-accent">opérationnel.</span>
           </h2>
         </motion.div>
 
-        {/* Weeks Summary */}
+        {/* Weeks Grid */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          className="grid grid-cols-4 gap-2 mb-8"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
-          {WEEKS_SUMMARY.map((week, i) => (
-            <motion.div
-              key={week.week}
-              className="p-6 rounded-2xl bg-background border border-border text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-            >
-              <div className="text-xs font-bold text-accent mb-2">WEEK {week.week}</div>
-              <div className="text-lg font-semibold mb-2">{week.label}</div>
-              <div className="flex items-center justify-center gap-2 text-sm text-muted">
-                <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          {WEEKS.map((week) => (
+            <div key={week.num} className="p-3 rounded-xl bg-background border border-border text-center">
+              <div className="text-xs font-bold text-accent mb-1">W{week.num}</div>
+              <div className="text-sm font-semibold mb-1">{week.label}</div>
+              <div className="flex items-center justify-center gap-1 text-xs text-muted">
+                <svg className="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                {week.result}
+                {week.check}
               </div>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
 
         {/* Pipeline Flow */}
         <motion.div
-          className="mb-16 overflow-x-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap items-center justify-center gap-1 text-xs mb-8"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="flex items-center justify-center gap-2 min-w-max py-4">
-            {PIPELINE_FLOW.map((step, i) => (
-              <motion.div
-                key={step}
-                className="flex items-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: 0.6 + i * 0.05 }}
-              >
-                <div className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                  step === "PIPELINE"
-                    ? "bg-accent text-white"
-                    : "bg-foreground/5 border border-border"
-                }`}>
-                  {step}
-                </div>
-                {i < PIPELINE_FLOW.length - 1 && (
-                  <svg className="w-4 h-4 text-muted mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 5l7 7-7 7" />
-                  </svg>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Next Month */}
-        <motion.div
-          className="max-w-3xl mx-auto text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-            Et le mois suivant ?
-          </h3>
-          <p className="text-lg text-muted mb-4">
-            Nous ne repartons pas de zéro.
-          </p>
-          <p className="text-muted">
-            Votre SDR continue avec un ICP plus précis, des scripts enrichis par les conversations
-            et une campagne optimisée par les retours réels du marché.
-          </p>
+          {["ICP", "DATA", "MESSAGING", "OUTREACH", "QUALIFICATION", "MEETINGS", "PIPELINE"].map((step, i) => (
+            <div key={step} className="flex items-center">
+              <span className={`px-2 py-1 rounded ${
+                step === "PIPELINE" ? "bg-accent text-white font-bold" : "bg-foreground/5"
+              }`}>
+                {step}
+              </span>
+              {i < 6 && <span className="mx-0.5 text-muted">→</span>}
+            </div>
+          ))}
         </motion.div>
 
         {/* CTAs */}
@@ -138,38 +87,29 @@ export default function DemoSummary() {
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <p className="text-muted mb-8">
-            Vous connaissez maintenant exactement le fonctionnement.
+          <p className="text-sm text-muted mb-4">
+            Prêt à voir ce que ça donnerait sur votre marché ?
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/tools/budget-calculator"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all"
             >
-              Simuler ma campagne Quorexis
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              Simuler ma campagne
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path d="M9 5l7 7-7 7" />
               </svg>
             </Link>
             <button
               type="button"
               onClick={openAssistant}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-all"
             >
-              Parler de mon marché avec un expert
+              Parler à un expert
             </button>
           </div>
-          <Link
-            href="/offres"
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors"
-          >
-            Revoir les offres en détail
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
         </motion.div>
       </div>
     </section>
