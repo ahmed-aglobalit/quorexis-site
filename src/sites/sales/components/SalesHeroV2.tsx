@@ -4,7 +4,9 @@ import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const CALENDLY_URL = "https://calendly.com/quorexis/outbound-strategy-call";
+function openAssistant() {
+  window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
+}
 
 const COMPANIES = ["Acme Corp", "TechFlow", "DataSync", "CloudPeak", "NeoScale"];
 const STAGES = ["target", "enrich", "outreach", "conversation", "meeting", "pipeline"];
@@ -321,17 +323,16 @@ export default function SalesHeroV2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={openAssistant}
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20 active:translate-y-0 transition-all duration-200"
               >
                 Parler à un expert
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </button>
               <button
                 type="button"
                 onClick={() => scrollTo("offers-preview")}

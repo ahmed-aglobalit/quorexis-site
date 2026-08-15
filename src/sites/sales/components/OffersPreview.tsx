@@ -5,7 +5,9 @@ import { useRef } from "react";
 import { Link } from "@/i18n/navigation";
 import { PRICING_CONFIG } from "../config/pricing";
 
-const CALENDLY_URL = "https://calendly.com/quorexis/outbound-strategy-call";
+function openAssistant() {
+  window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
+}
 
 function scrollTo(id: string) {
   const el = document.getElementById(id);
@@ -248,14 +250,13 @@ export default function OffersPreview() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={openAssistant}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200"
             >
               Parler à un expert
-            </a>
+            </button>
             <button
               type="button"
               onClick={() => scrollTo("pipeline-calculator")}

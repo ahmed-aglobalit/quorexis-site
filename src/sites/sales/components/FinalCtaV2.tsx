@@ -4,7 +4,9 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "@/i18n/navigation";
 
-const CALENDLY_URL = "https://calendly.com/quorexis/outbound-strategy-call";
+function openAssistant() {
+  window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
+}
 
 export default function FinalCtaV2() {
   const ref = useRef<HTMLDivElement>(null);
@@ -92,10 +94,9 @@ export default function FinalCtaV2() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={openAssistant}
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-white text-base font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 active:translate-y-0 transition-all duration-200"
             >
               Parler à un expert
@@ -110,7 +111,7 @@ export default function FinalCtaV2() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </motion.svg>
-            </a>
+            </button>
             <Link
               href="/offres"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background/10 text-background text-base font-semibold rounded-lg hover:bg-background/20 transition-all duration-200"
