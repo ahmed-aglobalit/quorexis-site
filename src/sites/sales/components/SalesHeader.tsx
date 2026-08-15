@@ -23,12 +23,8 @@ function ChevronDown({ className }: Readonly<{ className?: string }>) {
   );
 }
 
-function scrollTo(id: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top, behavior: "smooth" });
-  }
+function openAssistant() {
+  window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
 }
 
 export default function SalesHeader() {
@@ -172,7 +168,7 @@ export default function SalesHeader() {
             </button>
 
             <button
-              onClick={() => scrollTo("contact")}
+              onClick={openAssistant}
               className="ml-3 whitespace-nowrap px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 transition-all duration-200"
             >
               {t("contactUs")}
@@ -265,7 +261,7 @@ export default function SalesHeader() {
               <button
                 onClick={() => {
                   setMobileOpen(false);
-                  scrollTo("contact");
+                  openAssistant();
                 }}
                 className="text-center px-6 py-3 bg-accent text-white text-sm font-medium rounded-md hover:bg-accent/90 transition-colors"
               >

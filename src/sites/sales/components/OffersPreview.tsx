@@ -9,14 +9,6 @@ function openAssistant() {
   window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
 }
 
-function scrollTo(id: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: "smooth" });
-  }
-}
-
 const OFFERS = [
   {
     key: "starter",
@@ -262,13 +254,12 @@ export default function OffersPreview() {
             >
               Parler de mon marché
             </button>
-            <button
-              type="button"
-              onClick={() => scrollTo("pipeline-calculator")}
+            <Link
+              href="/tools/budget-calculator"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-all duration-200"
             >
               Calculer mon potentiel
-            </button>
+            </Link>
           </div>
           <Link
             href="/offres"

@@ -4,12 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useMemo } from "react";
 import { PRICING_CONFIG } from "../config/pricing";
 
-function scrollTo(id: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top, behavior: "smooth" });
-  }
+function openAssistant() {
+  window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }));
 }
 
 const PLANS = {
@@ -206,7 +202,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             {/* CTA */}
             <motion.button
               type="button"
-              onClick={() => scrollTo("contact")}
+              onClick={openAssistant}
               className="w-full mt-6 py-4 bg-foreground text-background font-semibold rounded-xl hover:bg-foreground/90 hover:-translate-y-0.5 transition-all duration-200"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
