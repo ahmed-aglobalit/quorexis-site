@@ -43,3 +43,16 @@ export { default as MethodTeaser } from "./MethodTeaser";
 export { default as First4WeeksTeaser } from "./First4WeeksTeaser";
 export { default as CalculatorCTA } from "./CalculatorCTA";
 export { default as ToolsCTA } from "./ToolsCTA";
+
+// Interactive Demo Components
+export {
+  DemoContainer,
+  DemoIntro,
+  DemoNav,
+  DemoFloatingCTA,
+  Week1Strategy,
+  Week2Build,
+  Week3Activate,
+  Week4Optimize,
+  DemoSummary,
+} from "./demo";

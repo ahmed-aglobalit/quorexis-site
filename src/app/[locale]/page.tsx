@@ -14,14 +14,18 @@ import {
   SalesHeroV2,
   CommandCenter,
   TechHumanSection,
-  MethodTeaser,
   OffersPreview,
-  First4WeeksTeaser,
-  CalculatorCTA,
   SalesTeam,
   ToolsCTA,
   FinalCtaV2,
   SalesContact,
+  DemoContainer,
+  DemoIntro,
+  Week1Strategy,
+  Week2Build,
+  Week3Activate,
+  Week4Optimize,
+  DemoSummary,
 } from "@/sites/sales/components";
 
 export async function generateMetadata({
@@ -62,31 +66,32 @@ function SalesHomePage() {
       {/* 02 - PIPELINE VISUAL: Proof */}
       <CommandCenter />
 
-      {/* 03 - OFFERS: What you can buy (early = commercial focus) */}
+      {/* 03 - OFFERS: What you can buy */}
       <OffersPreview />
 
-      {/* 04 - 4 WEEKS: What happens after you decide */}
-      <First4WeeksTeaser />
+      {/* 04 - INTERACTIVE DEMO: 4 weeks with Quorexis */}
+      <DemoContainer>
+        <DemoIntro />
+        <Week1Strategy />
+        <Week2Build />
+        <Week3Activate />
+        <Week4Optimize />
+        <DemoSummary />
+      </DemoContainer>
 
-      {/* 05 - METHOD TEASER: How we work (for curious prospects) */}
-      <MethodTeaser />
-
-      {/* 06 - CALCULATOR CTA: Find your plan */}
-      <CalculatorCTA />
-
-      {/* 07 - TECH + HUMAN: More detail for skeptics */}
+      {/* 05 - TECH + HUMAN: More detail for skeptics */}
       <TechHumanSection />
 
-      {/* 08 - FOUNDERS: Trust */}
+      {/* 06 - FOUNDERS: Trust */}
       <SalesTeam />
 
-      {/* 09 - TOOLS CTA: Free tools */}
+      {/* 07 - TOOLS CTA: Free tools */}
       <ToolsCTA />
 
-      {/* 10 - FINAL CTA: Talk to expert */}
+      {/* 08 - FINAL CTA: Talk to expert */}
       <FinalCtaV2 />
 
-      {/* 11 - Contact form */}
+      {/* 09 - Contact form */}
       <SalesContact />
     </>
   );
