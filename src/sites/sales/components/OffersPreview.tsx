@@ -286,7 +286,7 @@ export default function OffersPreview() {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <p className="text-center text-muted mb-4">
-              Que se passe-t-il après votre décision ?
+              Et concrètement, que se passe-t-il ensuite ?
             </p>
             <motion.div
               className="flex flex-col items-center text-accent"

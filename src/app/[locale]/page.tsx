@@ -62,20 +62,20 @@ function SalesHomePage() {
       {/* 02 - PIPELINE VISUAL: Proof */}
       <CommandCenter />
 
-      {/* 03 - TECH + HUMAN: What you get */}
-      <TechHumanSection />
-
-      {/* 04 - METHOD TEASER: How we work */}
-      <MethodTeaser />
-
-      {/* 05 - OFFERS TEASER: What you can buy (AFTER method) */}
+      {/* 03 - OFFERS: What you can buy (early = commercial focus) */}
       <OffersPreview />
 
-      {/* 06 - 4 WEEKS TEASER: What happens after you decide */}
+      {/* 04 - 4 WEEKS: What happens after you decide */}
       <First4WeeksTeaser />
 
-      {/* 07 - CALCULATOR CTA: Find your plan */}
+      {/* 05 - METHOD TEASER: How we work (for curious prospects) */}
+      <MethodTeaser />
+
+      {/* 06 - CALCULATOR CTA: Find your plan */}
       <CalculatorCTA />
+
+      {/* 07 - TECH + HUMAN: More detail for skeptics */}
+      <TechHumanSection />
 
       {/* 08 - FOUNDERS: Trust */}
       <SalesTeam />

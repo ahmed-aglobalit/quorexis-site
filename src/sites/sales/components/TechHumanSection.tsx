@@ -229,14 +229,14 @@ export default function TechHumanSection() {
           transition={{ duration: 0.6, delay: 1.2 }}
         >
           <p className="text-center text-muted mb-4">
-            Comment tout cela s&apos;articule ?
+            Qui est derrière Quorexis ?
           </p>
           <motion.div
             className="flex flex-col items-center text-accent"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <span className="text-sm font-semibold mb-1">Découvrez notre méthode</span>
+            <span className="text-sm font-semibold mb-1">Rencontrez les fondateurs</span>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>

@@ -92,14 +92,14 @@ export default function First4WeeksTeaser() {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <p className="text-center text-muted mb-4">
-              Quelle formule correspond à votre économie ?
+              Vous voulez comprendre comment on fait ?
             </p>
             <motion.div
               className="flex flex-col items-center text-accent"
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span className="text-sm font-semibold mb-1">Calculez votre capacité</span>
+              <span className="text-sm font-semibold mb-1">Notre méthode en 5 étapes</span>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
