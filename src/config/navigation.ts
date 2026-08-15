@@ -1,6 +1,8 @@
 // Navigation configuration for Header mega-menu and dropdowns.
 // All labels are i18n keys resolved via useTranslations("nav") in components.
 
+import { SITE_MODE } from "./site";
+
 export type NavLink = {
   labelKey: string;
   href: string;
@@ -138,9 +140,9 @@ const servicesMega: MegaMenuConfig = {
   ],
 };
 
-// ── Navigation items ──
+// ── QA Navigation items ──
 
-export const navigationItems: NavItem[] = [
+const qaNavigationItems: NavItem[] = [
   {
     type: "mega",
     key: "services",
@@ -172,3 +174,30 @@ export const navigationItems: NavItem[] = [
     href: "/#clients",
   },
 ];
+
+// ── Sales Navigation items ──
+
+const salesNavigationItems: NavItem[] = [
+  {
+    type: "link",
+    key: "offers",
+    labelKey: "offers",
+    href: "/offres",
+  },
+  {
+    type: "link",
+    key: "method",
+    labelKey: "method",
+    href: "/method",
+  },
+  {
+    type: "link",
+    key: "freeTools",
+    labelKey: "freeTools",
+    href: "/tools",
+  },
+];
+
+// ── Export based on site mode ──
+
+export const navigationItems: NavItem[] = SITE_MODE === "sales" ? salesNavigationItems : qaNavigationItems;
