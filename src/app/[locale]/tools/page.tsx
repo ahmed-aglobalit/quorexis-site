@@ -171,9 +171,56 @@ export default function ToolsPage() {
         </div>
       </section>
 
+      {/* Featured: Pipeline Calculator */}
+      <section className="pb-12">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Link
+              href="/tools/budget-calculator"
+              className="block p-8 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="flex flex-col md:flex-row md:items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center text-white shrink-0">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <rect x="2" y="3" width="20" height="18" rx="2" />
+                    <path d="M2 9h20M10 3v6" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="px-2 py-1 text-xs font-semibold bg-accent text-white rounded-full">
+                      Recommandé pour commencer
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-semibold mb-2 group-hover:text-accent transition-colors">
+                    Trouver ma formule
+                  </h2>
+                  <p className="text-muted">
+                    Calculez la capacité outbound adaptée à votre marché, votre panier moyen et vos objectifs commerciaux.
+                  </p>
+                </div>
+                <div className="shrink-0">
+                  <span className="inline-flex items-center gap-2 text-accent font-semibold group-hover:translate-x-1 transition-transform">
+                    Commencer
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Category filter */}
       <section className="pb-8">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+          <p className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">Autres outils</p>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
