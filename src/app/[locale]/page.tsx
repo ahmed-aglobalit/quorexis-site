@@ -13,7 +13,6 @@ import QaContact from "@/components/Contact";
 import {
   SalesHeroV2,
   CommandCenter,
-  NotCallCenterV2,
   OffersPreview,
   LiveActivity,
   TechHumanSection,
@@ -64,9 +63,6 @@ function SalesHomePage() {
 
       {/* Command Center: Light gray - show the dashboard */}
       <CommandCenter />
-
-      {/* Not a Call Center: Full-bleed black signature section */}
-      <NotCallCenterV2 />
 
       {/* Offers Preview: Quick overview of pricing tiers */}
       <OffersPreview />
