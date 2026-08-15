@@ -15,11 +15,11 @@ export default function SalesFooter() {
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
               <Image
-                src="/images/logo1-bis.png"
+                src="/images/logo1.png"
                 alt="Quorexis"
-                width={160}
-                height={48}
-                className="h-10 w-auto object-contain"
+                width={200}
+                height={60}
+                className="h-20 w-auto object-contain"
               />
             </Link>
             <p className="mt-4 text-sm text-muted">
