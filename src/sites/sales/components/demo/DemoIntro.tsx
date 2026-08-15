@@ -19,7 +19,7 @@ export default function DemoIntro() {
     <section
       id="demo-intro"
       ref={ref}
-      className="py-32 md:py-40 bg-foreground text-background"
+      className="py-32 md:py-40 bg-[#0a0a0a]"
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-20">
         {/* Transition */}
@@ -29,21 +29,21 @@ export default function DemoIntro() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-lg md:text-xl text-background/60 mb-6">
+          <p className="text-lg md:text-xl text-white/60 mb-6">
             Vous avez choisi votre capacité.
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-white">
             Maintenant, voyez ce qui se passe<br />
             <span className="text-accent">lorsque Quorexis démarre votre campagne.</span>
           </h2>
-          <p className="mt-8 text-lg text-background/60 max-w-2xl mx-auto">
+          <p className="mt-8 text-lg text-white/60 max-w-2xl mx-auto">
             Suivez votre premier mois avec notre équipe, semaine après semaine.
           </p>
         </motion.div>
 
         {/* Campaign Simulation Banner */}
         <motion.div
-          className="mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -63,10 +63,10 @@ export default function DemoIntro() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-3xl md:text-4xl font-semibold mb-6">
+          <h3 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
             Votre premier mois avec Quorexis.
           </h3>
-          <p className="text-lg text-background/70 max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto mb-12">
             Imaginez que votre campagne commence aujourd&apos;hui. Voici comment notre équipe
             transforme votre marché cible en conversations commerciales qualifiées.
           </p>
@@ -80,13 +80,13 @@ export default function DemoIntro() {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-px bg-background/20" />
-            <div className="px-4 py-2 rounded-lg bg-background/10 border border-background/20">
-              <span className="text-sm font-mono font-semibold">DAY 0</span>
-              <span className="mx-3 text-background/40">—</span>
-              <span className="text-sm text-background/70">Campaign accepted</span>
+            <div className="w-12 h-px bg-white/20" />
+            <div className="px-4 py-2 rounded-lg bg-white/10 border border-white/20">
+              <span className="text-sm font-mono font-semibold text-white">DAY 0</span>
+              <span className="mx-3 text-white/40">—</span>
+              <span className="text-sm text-white/70">Campaign accepted</span>
             </div>
-            <div className="w-12 h-px bg-background/20" />
+            <div className="w-12 h-px bg-white/20" />
           </div>
 
           <motion.div
@@ -99,7 +99,7 @@ export default function DemoIntro() {
               {[1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full bg-accent/30 border-2 border-foreground flex items-center justify-center"
+                  className="w-10 h-10 rounded-full bg-accent/30 border-2 border-[#0a0a0a] flex items-center justify-center"
                 >
                   <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
