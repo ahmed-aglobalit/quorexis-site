@@ -17,6 +17,8 @@ const PLANS = [
     price: "1 099",
     tagline: "Lancez votre première campagne outbound",
     description: "Pour valider rapidement un marché et tester l'outbound.",
+    sdr: "SDR partagé",
+    sdrNote: "Accès à notre équipe SDR",
     features: [
       "Définition de l'ICP",
       "Recherche et qualification prospects",
@@ -36,13 +38,14 @@ const PLANS = [
     price: "2 099",
     tagline: "Générez des rendez-vous réguliers",
     description: "Pour les entreprises qui veulent une machine outbound fiable.",
+    sdr: "1 SDR dédié",
+    sdrNote: "Votre commercial attitré",
     features: [
       "Tout le contenu Starter",
       "Stratégie multicanale complète",
       "Email + LinkedIn + Cold Calling",
       "Data enrichment avancé",
       "Personnalisation des campagnes",
-      "SDR dédié",
       "Optimisation continue",
       "Reporting hebdomadaire",
       "Dashboard de performance",
@@ -56,11 +59,12 @@ const PLANS = [
     price: "4 099",
     tagline: "Industrialisez votre acquisition",
     description: "Pour scaler avec plusieurs marchés et une équipe senior.",
+    sdr: "1 SDR Senior dédié",
+    sdrNote: "Expert prospection B2B",
     features: [
       "Tout le contenu Growth",
       "Plusieurs ICP / marchés",
       "Campagnes multicanales avancées",
-      "SDR Senior dédié",
       "Cold Calling intensif",
       "Automatisation et IA",
       "A/B testing des campagnes",
@@ -163,6 +167,26 @@ export default function PricingSection() {
               <p className={`text-sm mb-6 ${plan.highlight ? "text-background/80" : "text-muted"}`}>
                 {plan.description}
               </p>
+
+              {/* SDR Badge */}
+              <div className={`mb-6 p-4 rounded-lg ${plan.highlight ? "bg-accent/20" : "bg-accent/10"}`}>
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center ${plan.highlight ? "bg-accent" : "bg-accent/20"}`}>
+                    <svg className={`w-5 h-5 ${plan.highlight ? "text-white" : "text-accent"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className={`text-sm font-semibold ${plan.highlight ? "text-background" : "text-foreground"}`}>
+                      {plan.sdr}
+                    </p>
+                    <p className={`text-xs ${plan.highlight ? "text-background/70" : "text-muted"}`}>
+                      {plan.sdrNote}
+                    </p>
+                  </div>
+                </div>
+              </div>
 
               <div className={`border-t pt-6 mb-8 ${plan.highlight ? "border-background/20" : "border-border"}`}>
                 <ul className="space-y-3">
