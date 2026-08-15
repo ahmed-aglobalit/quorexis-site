@@ -427,6 +427,24 @@ html {
   }
 }
 
+/* ── Tools carousel infinite scroll ── */
+@keyframes scroll-tools {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-tools {
+  animation: scroll-tools 40s linear infinite;
+}
+
+.animate-scroll-tools:hover {
+  animation-play-state: paused;
+}
+
 /* ── Focus visible ring ── */
 :focus-visible {
   outline: 2px solid var(--accent);
