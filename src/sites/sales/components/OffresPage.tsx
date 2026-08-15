@@ -100,7 +100,7 @@ function OfferCard({
                 : "bg-foreground text-background hover:bg-foreground/90"
             }`}
           >
-            Parler à un expert
+            Parler de mon marché
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -386,7 +386,7 @@ export default function OffresPage() {
                 onClick={openAssistant}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200"
               >
-                Parler à un expert
+                Parler de mon marché
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

@@ -89,8 +89,7 @@ export default function CommandCenter() {
           <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-4 border-b border-border bg-foreground/[0.02]">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-medium text-muted uppercase tracking-wider">Live</span>
+                <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 bg-amber-100 text-amber-700 rounded">Exemple</span>
               </div>
               <div className="h-4 w-px bg-border" />
               <div className="flex items-center gap-2">

@@ -260,7 +260,7 @@ export default function OffersPreview() {
               onClick={openAssistant}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200"
             >
-              Parler à un expert
+              Parler de mon marché
             </button>
             <button
               type="button"

@@ -328,7 +328,7 @@ export default function SalesHeroV2() {
                 onClick={openAssistant}
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20 active:translate-y-0 transition-all duration-200"
               >
-                Parler à un expert
+                Parler de mon marché
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

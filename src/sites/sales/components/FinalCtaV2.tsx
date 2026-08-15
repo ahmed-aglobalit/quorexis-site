@@ -99,7 +99,7 @@ export default function FinalCtaV2() {
               onClick={openAssistant}
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-white text-base font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 active:translate-y-0 transition-all duration-200"
             >
-              Parler à un expert
+              Parler de mon marché
               <motion.svg
                 className="w-5 h-5"
                 fill="none"

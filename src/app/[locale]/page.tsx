@@ -13,11 +13,16 @@ import QaContact from "@/components/Contact";
 import {
   SalesHeroV2,
   CommandCenter,
+  NotCallCenterV2,
   OffersPreview,
   TechHumanSection,
-  MethodSection,
   FreeToolsSection,
+  WhatSdrDoes,
+  First30Days,
+  BrandProtection,
+  WhatIfItFails,
   SalesTeam,
+  FitNotFit,
   SalesFaq,
   FinalCtaV2,
   SalesContact,
@@ -55,34 +60,49 @@ function QaHomePage() {
 function SalesHomePage() {
   return (
     <>
-      {/* 01 - Hero: Promise + Outcome */}
+      {/* 01 - HERO: Promise + Outcome */}
       <SalesHeroV2 />
 
-      {/* 02 - Command Center: Proof/Value - show the dashboard */}
+      {/* 02 - PIPELINE VISUAL: Proof - show the dashboard */}
       <CommandCenter />
 
-      {/* 03 - Offers Preview: Commercial teaser - NOT full pricing */}
-      <OffersPreview />
+      {/* 03 - NOT A CALL CENTER: Differentiation */}
+      <NotCallCenterV2 />
 
-      {/* 04 - Tech + Human: What you get - Data + Automation + SDR */}
+      {/* 04 - WHAT YOU GET: Data + Automation + SDR */}
       <TechHumanSection />
 
-      {/* 05 - Method: How Quorexis builds the pipeline */}
-      <MethodSection />
+      {/* 05 - OFFERS PREVIEW: Commercial teaser - link to /offres */}
+      <OffersPreview />
 
-      {/* 06 - Calculator + Tools: Dimensionnez votre outbound */}
+      {/* 06 - CALCULATOR + TOOLS: Dimensionnez votre outbound */}
       <FreeToolsSection />
 
-      {/* 07 - Team: Trust - founders */}
+      {/* 07 - WHAT SDR DOES: Clarify SDR role */}
+      <WhatSdrDoes />
+
+      {/* 08 - FIRST 30 DAYS: Onboarding timeline - reduce risk */}
+      <First30Days />
+
+      {/* 09 - BRAND PROTECTION: Control assurance */}
+      <BrandProtection />
+
+      {/* 10 - WHAT IF DOESN'T WORK: Transparency */}
+      <WhatIfItFails />
+
+      {/* 11 - FOUNDERS: Trust - moved earlier per CRO spec */}
       <SalesTeam />
 
-      {/* 08 - FAQ: Short FAQ */}
+      {/* 12 - FIT / NOT FIT: Qualification */}
+      <FitNotFit />
+
+      {/* 13 - FAQ */}
       <SalesFaq />
 
-      {/* 09 - Final CTA: Human CTA - Parler à un expert */}
+      {/* 14 - FINAL CTA: Human CTA - Parler à un expert */}
       <FinalCtaV2 />
 
-      {/* 10 - Contact form */}
+      {/* 15 - Contact form */}
       <SalesContact />
     </>
   );

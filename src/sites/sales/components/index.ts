@@ -30,3 +30,10 @@ export { default as PricingBanner } from "./PricingBanner";
 export { default as BudgetCalculator, BudgetCalculator as BudgetCalculatorComponent } from "./BudgetCalculator";
 export { FreeToolsSection } from "./FreeToolsSection";
 export { default as OffresPage } from "./OffresPage";
+
+// CRO Components (trust + risk reduction sections)
+export { default as WhatSdrDoes } from "./WhatSdrDoes";
+export { default as First30Days } from "./First30Days";
+export { default as BrandProtection } from "./BrandProtection";
+export { default as WhatIfItFails } from "./WhatIfItFails";
+export { default as FitNotFit } from "./FitNotFit";
