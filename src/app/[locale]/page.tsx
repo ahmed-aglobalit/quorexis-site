@@ -13,7 +13,6 @@ import QaContact from "@/components/Contact";
 import {
   SalesHeroV2,
   CommandCenter,
-  NotCallCenterV2,
   OffersPreview,
   TechHumanSection,
   FreeToolsSection,
@@ -66,10 +65,7 @@ function SalesHomePage() {
       {/* 02 - PIPELINE VISUAL: Proof - show the dashboard */}
       <CommandCenter />
 
-      {/* 03 - NOT A CALL CENTER: Differentiation */}
-      <NotCallCenterV2 />
-
-      {/* 04 - WHAT YOU GET: Data + Automation + SDR */}
+      {/* 03 - WHAT YOU GET: Data + Automation + SDR */}
       <TechHumanSection />
 
       {/* 05 - OFFERS PREVIEW: Commercial teaser - link to /offres */}
