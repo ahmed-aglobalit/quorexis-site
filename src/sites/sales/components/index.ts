@@ -29,3 +29,4 @@ export { default as OffersPreview } from "./OffersPreview";
 export { default as PricingBanner } from "./PricingBanner";
 export { default as BudgetCalculator, BudgetCalculator as BudgetCalculatorComponent } from "./BudgetCalculator";
 export { FreeToolsSection } from "./FreeToolsSection";
+export { default as OffresPage } from "./OffresPage";

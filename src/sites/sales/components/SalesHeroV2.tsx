@@ -3,7 +3,8 @@
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { PRICING_CONFIG } from "../config/pricing";
+
+const CALENDLY_URL = "https://calendly.com/quorexis/outbound-strategy-call";
 
 const COMPANIES = ["Acme Corp", "TechFlow", "DataSync", "CloudPeak", "NeoScale"];
 const STAGES = ["target", "enrich", "outreach", "conversation", "meeting", "pipeline"];
@@ -320,65 +321,38 @@ export default function SalesHeroV2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <button
-                type="button"
-                onClick={() => scrollTo("contact")}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/20 active:translate-y-0 transition-all duration-200"
               >
-                {t("cta")}
+                Parler à un expert
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </button>
+              </a>
               <button
                 type="button"
-                onClick={() => window.dispatchEvent(new CustomEvent("quorexis:open-assistant", { detail: { mode: "ai" } }))}
+                onClick={() => scrollTo("offers-preview")}
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-foreground text-background text-sm font-medium rounded-lg hover:bg-foreground/90 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                Construire mon pipeline
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
-                Parler avec l&apos;IA
               </button>
             </motion.div>
 
-            {/* Pricing teaser */}
-            <motion.div
-              className="mt-10 p-4 rounded-xl bg-foreground/[0.03] border border-border"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+            {/* Value proposition */}
+            <motion.p
+              className="mt-8 text-sm text-muted"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-sm font-medium text-foreground mb-3">
-                Vous voulez plus de rendez-vous qualifiés ?
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => scrollTo("offers-preview")}
-                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-background border border-border hover:border-accent/50 transition-colors"
-                >
-                  <span className="text-xs text-muted">Starter</span>
-                  <span className="text-sm font-semibold">{PRICING_CONFIG.starter.monthlyPrice.toLocaleString("fr-FR")} €</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollTo("offers-preview")}
-                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-accent text-white hover:bg-accent/90 transition-colors"
-                >
-                  <span className="text-xs text-white/70">Growth</span>
-                  <span className="text-sm font-semibold">{PRICING_CONFIG.growth.monthlyPrice.toLocaleString("fr-FR")} €</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollTo("offers-preview")}
-                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-background border border-border hover:border-accent/50 transition-colors"
-                >
-                  <span className="text-xs text-muted">Scale</span>
-                  <span className="text-sm font-semibold">{PRICING_CONFIG.scale.monthlyPrice.toLocaleString("fr-FR")} €</span>
-                </button>
-              </div>
-            </motion.div>
+              Plus de conversations. Plus d&apos;opportunités. Plus de pipeline.
+            </motion.p>
           </div>
 
           {/* Right: Outbound Engine */}

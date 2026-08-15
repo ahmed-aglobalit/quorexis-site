@@ -2,14 +2,9 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "@/i18n/navigation";
 
-function scrollTo(id: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top, behavior: "smooth" });
-  }
-}
+const CALENDLY_URL = "https://calendly.com/quorexis/outbound-strategy-call";
 
 export default function FinalCtaV2() {
   const ref = useRef<HTMLDivElement>(null);
@@ -49,49 +44,61 @@ export default function FinalCtaV2() {
         />
       </div>
 
-      <div className="relative py-32 md:py-48 lg:py-56">
-        <div className="mx-auto max-w-[1000px] px-6 md:px-12 text-center">
+      <div className="relative py-32 md:py-40">
+        <div className="mx-auto max-w-[900px] px-6 md:px-12 text-center">
           {/* Label */}
           <motion.p
-            className="text-sm font-semibold uppercase tracking-wider text-accent mb-8"
+            className="text-sm font-semibold uppercase tracking-wider text-accent mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            Prêt ?
+            Let&apos;s Talk
           </motion.p>
 
           {/* Main headline */}
           <motion.h2
-            className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1]"
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.15]"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Votre marché est là.
+            Votre marché existe.
           </motion.h2>
           <motion.h3
-            className="mt-4 text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] text-background/50"
+            className="mt-3 text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.15] text-background/50"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Transformons-le en pipeline.
+            Construisons ensemble le pipeline pour l&apos;atteindre.
           </motion.h3>
 
-          {/* CTA */}
+          {/* Description */}
+          <motion.p
+            className="mt-8 text-lg text-background/60 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            En 30 minutes, nous analysons votre cible, votre panier moyen, votre organisation commerciale
+            et vos objectifs afin de voir quelle capacité outbound pourrait être pertinente.
+          </motion.p>
+
+          {/* CTAs */}
           <motion.div
-            className="mt-12"
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <button
-              type="button"
-              onClick={() => scrollTo("contact")}
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-base font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 active:translate-y-0 transition-all duration-200"
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-white text-base font-semibold rounded-lg hover:bg-accent/90 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/30 active:translate-y-0 transition-all duration-200"
             >
-              Construire mon pipeline
+              Parler à un expert
               <motion.svg
                 className="w-5 h-5"
                 fill="none"
@@ -103,53 +110,24 @@ export default function FinalCtaV2() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </motion.svg>
-            </button>
+            </a>
+            <Link
+              href="/offres"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background/10 text-background text-base font-semibold rounded-lg hover:bg-background/20 transition-all duration-200"
+            >
+              Voir les offres
+            </Link>
           </motion.div>
 
           {/* Subtext */}
           <motion.p
-            className="mt-6 text-sm text-background/50"
+            className="mt-6 text-sm text-background/40"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Appel stratégie outbound de 30 minutes.
+            Outbound Strategy Call — 30 minutes
           </motion.p>
-
-          {/* Visual pipeline flow */}
-          <motion.div
-            className="mt-16 flex items-center justify-center gap-4"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {["Data", "Signaux", "Outreach", "RDV", "Pipeline"].map((step, i) => (
-              <div key={step} className="flex items-center gap-4">
-                <motion.span
-                  className="text-xs font-medium text-background/40"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.7 + i * 0.1 }}
-                >
-                  {step}
-                </motion.span>
-                {i < 4 && (
-                  <motion.div
-                    className="w-8 h-px bg-background/20 relative overflow-hidden"
-                    initial={{ scaleX: 0 }}
-                    animate={isInView ? { scaleX: 1 } : {}}
-                    transition={{ duration: 0.3, delay: 0.8 + i * 0.1 }}
-                  >
-                    <motion.div
-                      className="absolute inset-y-0 left-0 w-2 bg-accent"
-                      animate={{ x: ["-100%", "400%"] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                    />
-                  </motion.div>
-                )}
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>

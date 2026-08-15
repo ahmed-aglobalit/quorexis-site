@@ -14,12 +14,9 @@ import {
   SalesHeroV2,
   CommandCenter,
   OffersPreview,
-  LiveActivity,
   TechHumanSection,
-  ProspectJourney,
   MethodSection,
   FreeToolsSection,
-  PricingSection,
   SalesTeam,
   SalesFaq,
   FinalCtaV2,
@@ -58,43 +55,34 @@ function QaHomePage() {
 function SalesHomePage() {
   return (
     <>
-      {/* Hero: White background with live engine visualization */}
+      {/* 01 - Hero: Promise + Outcome */}
       <SalesHeroV2 />
 
-      {/* Command Center: Light gray - show the dashboard */}
+      {/* 02 - Command Center: Proof/Value - show the dashboard */}
       <CommandCenter />
 
-      {/* Offers Preview: Quick overview of pricing tiers */}
+      {/* 03 - Offers Preview: Commercial teaser - NOT full pricing */}
       <OffersPreview />
 
-      {/* Live Activity: White - show real-time campaign activity */}
-      <LiveActivity />
-
-      {/* Tech + Human: Light gray - split view */}
+      {/* 04 - Tech + Human: What you get - Data + Automation + SDR */}
       <TechHumanSection />
 
-      {/* Prospect Journey: White - multichannel timeline */}
-      <ProspectJourney />
-
-      {/* Method: Light gray - how it works */}
+      {/* 05 - Method: How Quorexis builds the pipeline */}
       <MethodSection />
 
-      {/* Free Tools: Budget Calculator + upcoming tools */}
+      {/* 06 - Calculator + Tools: Dimensionnez votre outbound */}
       <FreeToolsSection />
 
-      {/* Pricing: White - real pricing */}
-      <PricingSection />
-
-      {/* Team: White - founders */}
+      {/* 07 - Team: Trust - founders */}
       <SalesTeam />
 
-      {/* FAQ: Light gray */}
+      {/* 08 - FAQ: Short FAQ */}
       <SalesFaq />
 
-      {/* Final CTA: Full-bleed black */}
+      {/* 09 - Final CTA: Human CTA - Parler à un expert */}
       <FinalCtaV2 />
 
-      {/* Contact: White */}
+      {/* 10 - Contact form */}
       <SalesContact />
     </>
   );
