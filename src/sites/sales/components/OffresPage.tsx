@@ -345,8 +345,47 @@ export default function OffresPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Calculator CTA */}
       <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-[900px] px-6 md:px-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-4">
+              PAS SÛR DE LA FORMULE ?
+            </p>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+              Votre meilleure formule dépend<br />
+              <span className="text-muted">de votre économie commerciale.</span>
+            </h2>
+            <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
+              Votre panier moyen, votre marché, votre objectif de rendez-vous et votre capacité
+              de closing déterminent la formule adaptée.
+            </p>
+            <Link
+              href="/tools/budget-calculator"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200"
+            >
+              Calculer ma meilleure formule
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <p className="text-sm text-muted mt-4">
+              Besoin d&apos;aller plus loin ?{" "}
+              <Link href="/tools" className="text-accent hover:underline">
+                Découvrir tous nos outils →
+              </Link>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 md:py-28 bg-foreground/[0.02]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-20">
           <motion.div
             className="text-center mb-12"

@@ -36,3 +36,10 @@ export { default as First30Days } from "./First30Days";
 export { default as BrandProtection } from "./BrandProtection";
 export { default as WhatIfItFails } from "./WhatIfItFails";
 export { default as FitNotFit } from "./FitNotFit";
+
+// Journey Components
+export { default as NextStepCTA } from "./NextStepCTA";
+export { default as MethodTeaser } from "./MethodTeaser";
+export { default as First4WeeksTeaser } from "./First4WeeksTeaser";
+export { default as CalculatorCTA } from "./CalculatorCTA";
+export { default as ToolsCTA } from "./ToolsCTA";

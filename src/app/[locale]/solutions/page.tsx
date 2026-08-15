@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { SITE_MODE } from "@/config/site";
+import { NextStepCTA } from "@/sites/sales/components";
 
 const solutions = [
   { key: "b2bData", slug: "b2b-data", icon: "database" },
@@ -125,6 +126,18 @@ export default async function SolutionsPage({
           </div>
         </div>
       </section>
+
+      {/* Next Step: Method */}
+      <NextStepCTA
+        eyebrow={locale === "fr" ? "ÉTAPE SUIVANTE" : "NEXT STEP"}
+        headline={locale === "fr" ? "Ces solutions fonctionnent ensemble." : "These solutions work together."}
+        subheadline={locale === "fr" ? "Découvrez comment nous les combinons." : "Discover how we combine them."}
+        text={locale === "fr"
+          ? "Data, Cold Email, LinkedIn, Cold Calling et SDR s'intègrent dans un processus outbound structuré et mesurable."
+          : "Data, Cold Email, LinkedIn, Cold Calling and SDR integrate into a structured and measurable outbound process."}
+        ctaText={locale === "fr" ? "Découvrir notre méthode" : "Discover our method"}
+        ctaHref="/method"
+      />
     </>
   );
 }
