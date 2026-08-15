@@ -25,6 +25,12 @@ export type NavItem = NavItemDropdown | NavItemLink;
 
 export const salesNavigationItems: NavItem[] = [
   {
+    type: "link",
+    key: "offers",
+    labelKey: "offers",
+    href: "/offres",
+  },
+  {
     type: "dropdown",
     key: "solutions",
     labelKey: "solutions",
@@ -50,11 +56,5 @@ export const salesNavigationItems: NavItem[] = [
     key: "tools",
     labelKey: "freeTools",
     href: "/tools",
-  },
-  {
-    type: "link",
-    key: "about",
-    labelKey: "about",
-    href: "/about",
   },
 ];
