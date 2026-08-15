@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useMemo } from "react";
+import { PRICING_CONFIG } from "../config/pricing";
 
 function scrollTo(id: string) {
   const el = document.getElementById(id);
@@ -12,12 +13,12 @@ function scrollTo(id: string) {
 }
 
 const PLANS = {
-  starter: { name: "Starter", price: 1099, meetingsRange: [3, 8] },
-  growth: { name: "Growth", price: 2099, meetingsRange: [8, 20] },
-  scale: { name: "Scale", price: 4099, meetingsRange: [20, 40] },
+  starter: { name: PRICING_CONFIG.starter.name, price: PRICING_CONFIG.starter.monthlyPrice, meetingsRange: [3, 8] },
+  growth: { name: PRICING_CONFIG.growth.name, price: PRICING_CONFIG.growth.monthlyPrice, meetingsRange: [8, 20] },
+  scale: { name: PRICING_CONFIG.scale.name, price: PRICING_CONFIG.scale.monthlyPrice, meetingsRange: [20, 40] },
 };
 
-const MEETING_BONUS = 50;
+const MEETING_BONUS = PRICING_CONFIG.starter.meetingFee;
 
 interface BudgetCalculatorProps {
   embedded?: boolean;

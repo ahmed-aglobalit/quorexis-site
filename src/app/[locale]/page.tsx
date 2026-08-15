@@ -14,6 +14,7 @@ import {
   SalesHeroV2,
   CommandCenter,
   NotCallCenterV2,
+  OffersPreview,
   LiveActivity,
   TechHumanSection,
   ProspectJourney,
@@ -66,6 +67,9 @@ function SalesHomePage() {
 
       {/* Not a Call Center: Full-bleed black signature section */}
       <NotCallCenterV2 />
+
+      {/* Offers Preview: Quick overview of pricing tiers */}
+      <OffersPreview />
 
       {/* Live Activity: White - show real-time campaign activity */}
       <LiveActivity />

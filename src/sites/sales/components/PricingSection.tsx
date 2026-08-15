@@ -108,18 +108,21 @@ function MeetingFeeTooltip() {
 function PricingCard({
   plan,
   visual,
-  index
+  index,
+  id
 }: {
   plan: typeof PRICING_CONFIG.starter | typeof PRICING_CONFIG.growth | typeof PRICING_CONFIG.scale;
   visual: React.ReactNode;
   index: number;
+  id: string;
 }) {
   const isHighlight = plan.highlight;
   const hasTeamLead = "teamLead" in plan && plan.teamLead;
 
   return (
     <motion.div
-      className={`relative rounded-2xl p-6 md:p-8 transition-all duration-300 flex flex-col ${
+      id={id}
+      className={`relative rounded-2xl p-6 md:p-8 transition-all duration-300 flex flex-col scroll-mt-24 ${
         isHighlight
           ? "bg-foreground text-background border-2 border-accent md:scale-[1.02] shadow-xl shadow-accent/10"
           : "bg-background border border-border hover:border-accent/30 hover:shadow-lg"
@@ -376,9 +379,9 @@ export default function PricingSection() {
 
         {/* Pricing cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4">
-          <PricingCard plan={PRICING_CONFIG.starter} visual={<StarterVisual />} index={0} />
-          <PricingCard plan={PRICING_CONFIG.growth} visual={<GrowthVisual />} index={1} />
-          <PricingCard plan={PRICING_CONFIG.scale} visual={<ScaleVisual />} index={2} />
+          <PricingCard plan={PRICING_CONFIG.starter} visual={<StarterVisual />} index={0} id="pricing-starter" />
+          <PricingCard plan={PRICING_CONFIG.growth} visual={<GrowthVisual />} index={1} id="pricing-growth" />
+          <PricingCard plan={PRICING_CONFIG.scale} visual={<ScaleVisual />} index={2} id="pricing-scale" />
         </div>
 
         {/* Comparison table */}
