@@ -279,6 +279,9 @@ export default function OffersPreview() {
               <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
+          <p className="mt-8 text-sm text-muted">
+            Vous vous demandez ce qui se passe après votre décision ? Découvrez vos 4 premières semaines ci-dessous.
+          </p>
         </motion.div>
       </div>
     </section>

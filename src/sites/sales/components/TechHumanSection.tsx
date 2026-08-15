@@ -220,6 +220,16 @@ export default function TechHumanSection() {
             <span className="text-lg font-semibold text-accent">Pipeline</span>
           </div>
         </motion.div>
+
+        {/* Transition to next section */}
+        <motion.p
+          className="mt-12 text-center text-muted"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 1.2 }}
+        >
+          Comment tout cela s&apos;articule ? Découvrez notre méthode ci-dessous.
+        </motion.p>
       </div>
     </section>
   );

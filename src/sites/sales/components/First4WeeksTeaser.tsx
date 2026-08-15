@@ -85,6 +85,9 @@ export default function First4WeeksTeaser() {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>
+          <p className="mt-4 text-sm text-muted">
+            Mais quelle formule correspond à votre économie ? Calculez-la ci-dessous.
+          </p>
         </motion.div>
       </div>
     </section>

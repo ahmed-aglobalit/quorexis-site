@@ -97,6 +97,16 @@ export default function MethodTeaser() {
             </div>
           </motion.div>
         </div>
+
+        {/* Transition to next section */}
+        <motion.p
+          className="mt-16 text-center text-muted"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          Maintenant que vous connaissez notre approche, voyons quelle capacité vous pouvez déployer.
+        </motion.p>
       </div>
     </section>
   );
