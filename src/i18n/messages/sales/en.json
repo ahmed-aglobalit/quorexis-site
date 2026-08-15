@@ -38,8 +38,7 @@
     "subtitle": "Quorexis builds and operates your B2B prospecting engine: Data, AI, Cold Email, LinkedIn, Cold Calling and human SDRs combined to generate qualified sales meetings.",
     "cta": "Build My Pipeline",
     "ctaSecondary": "Discover Our Method",
-    "markets": "France • Europe • Canada",
-    "delivery": "Francophone delivery from Tunisia"
+    "markets": "France • Europe • Canada"
   },
   "problem": {
     "title": "A great product isn't enough if your pipeline is empty.",
@@ -276,19 +275,6 @@
       "cta": "Talk to Our Team"
     }
   },
-  "tunisia": {
-    "title": "A francophone delivery hub in the heart of the Mediterranean.",
-    "subtitle": "European standards. Mediterranean efficiency.",
-    "points": [
-      "Native francophone talent",
-      "French cultural understanding",
-      "Aligned timezone (GMT+1)",
-      "Efficient cost structure",
-      "Ability to scale quickly",
-      "Commercial and technical skills"
-    ],
-    "conclusion": "Our location allows us to build high-performing, scalable sales teams without sacrificing quality."
-  },
   "team": {
     "title": "Team",
     "subtitle": "The founders of Quorexis.",
@@ -302,7 +288,7 @@
       "role": "Co-Founder & Head of Sales",
       "focus": "Sales Strategy, Outbound Playbooks, SDR Coaching"
     },
-    "location": "France / Tunisia"
+    "location": "France"
   },
   "philosophy": {
     "title": "Automation for scale. Humans for trust.",
@@ -363,7 +349,7 @@
     "company": "Company",
     "legal": "Legal Notice",
     "privacy": "Privacy Policy",
-    "copyright": "© 2025 Quorexis — France / Tunisia"
+    "copyright": "© 2025 Quorexis — France"
   },
   "seo": {
     "title": "Quorexis | B2B Prospecting & Outsourced SDRs",
@@ -456,7 +442,7 @@
       "title": "Our Story",
       "p1": "Quorexis was created to fill a gap: companies often have a product and a sales team, but not a reliable outbound acquisition engine.",
       "p2": "We built our own Sales Factory: data, AI, tools, processes and human teams — everything needed to generate sales meetings predictably.",
-      "p3": "Our model combines French governance and delivery from Tunisia, offering quality and competitiveness."
+      "p3": "Our model combines French expertise and proven processes to deliver quality and measurable results."
     },
     "founders": {
       "title": "The Founders",
@@ -482,7 +468,7 @@
     },
     "model": {
       "title": "Our Model",
-      "description": "French governance, delivery from Tunisia, measurable results."
+      "description": "French expertise, proven processes, measurable results."
     }
   },
   "faq": {
@@ -514,7 +500,7 @@
       },
       {
         "question": "Do your SDRs speak French?",
-        "answer": "Yes, all our SDRs are native francophones or bilingual. Tunisia offers a pool of commercial talent perfectly aligned with the French and francophone European market."
+        "answer": "Yes, all our SDRs are native francophones or bilingual, perfectly aligned with the French and francophone European market."
       },
       {
         "question": "Does Quorexis replace our sales team?",

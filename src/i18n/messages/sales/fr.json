@@ -38,8 +38,7 @@
     "subtitle": "Quorexis construit et opère votre machine de prospection B2B : Data, IA, Cold Email, LinkedIn, Cold Calling et SDR humains réunis pour générer des rendez-vous commerciaux qualifiés.",
     "cta": "Construire mon pipeline",
     "ctaSecondary": "Découvrir notre méthode",
-    "markets": "France • Europe • Canada",
-    "delivery": "Delivery francophone depuis la Tunisie"
+    "markets": "France • Europe • Canada"
   },
   "problem": {
     "title": "Un bon produit ne suffit pas si votre pipeline est vide.",
@@ -276,19 +275,6 @@
       "cta": "Parler à notre équipe"
     }
   },
-  "tunisia": {
-    "title": "Une delivery francophone au cœur de la Méditerranée.",
-    "subtitle": "European standards. Mediterranean efficiency.",
-    "points": [
-      "Talents francophones natifs",
-      "Compréhension culturelle française",
-      "Fuseau horaire aligné (GMT+1)",
-      "Structure de coûts efficace",
-      "Capacité à scaler rapidement",
-      "Compétences commerciales et technologiques"
-    ],
-    "conclusion": "Notre localisation nous permet de construire des équipes commerciales performantes et scalables sans sacrifier la qualité."
-  },
   "team": {
     "title": "Équipe",
     "subtitle": "Les fondateurs de Quorexis.",
@@ -302,7 +288,7 @@
       "role": "Co-Founder & Head of Sales",
       "focus": "Sales Strategy, Outbound Playbooks, SDR Coaching"
     },
-    "location": "France / Tunisie"
+    "location": "France"
   },
   "philosophy": {
     "title": "Automation for scale. Humans for trust.",
@@ -363,7 +349,7 @@
     "company": "Entreprise",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
-    "copyright": "© 2025 Quorexis — France / Tunisie"
+    "copyright": "© 2025 Quorexis — France"
   },
   "seo": {
     "title": "Quorexis | Prospection B2B & SDR externalisés",
@@ -456,7 +442,7 @@
       "title": "Notre histoire",
       "p1": "Quorexis est créé pour combler un espace : les entreprises ont souvent un produit et une équipe commerciale, mais pas une machine fiable d'acquisition outbound.",
       "p2": "Nous avons construit notre propre Sales Factory : données, IA, outils, processus et équipes humaines — tout ce qu'il faut pour générer des rendez-vous commerciaux de façon prévisible.",
-      "p3": "Notre modèle combine gouvernance française et delivery depuis la Tunisie, pour offrir qualité et compétitivité."
+      "p3": "Notre modèle combine expertise française et processus éprouvés pour offrir qualité et résultats mesurables."
     },
     "founders": {
       "title": "Les fondateurs",
@@ -482,7 +468,7 @@
     },
     "model": {
       "title": "Notre modèle",
-      "description": "Gouvernance française, delivery depuis la Tunisie, résultats mesurables."
+      "description": "Expertise française, processus éprouvés, résultats mesurables."
     }
   },
   "faq": {
@@ -514,7 +500,7 @@
       },
       {
         "question": "Vos SDR parlent-ils français ?",
-        "answer": "Oui, tous nos SDR sont francophones natifs ou bilingues. La Tunisie offre un vivier de talents commerciaux parfaitement alignés avec le marché français et européen francophone."
+        "answer": "Oui, tous nos SDR sont francophones natifs ou bilingues, parfaitement alignés avec le marché français et européen francophone."
       },
       {
         "question": "Est-ce que Quorexis remplace notre équipe commerciale ?",

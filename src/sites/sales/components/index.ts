@@ -7,7 +7,6 @@ export { default as PipelineSection } from "./PipelineSection";
 export { default as MethodSection } from "./MethodSection";
 export { default as KpiSection } from "./KpiSection";
 export { default as OffersSection } from "./OffersSection";
-export { default as TunisiaSection } from "./TunisiaSection";
 export { default as SalesTeam } from "./SalesTeam";
 export { default as PhilosophySection } from "./PhilosophySection";
 export { default as SalesFaq } from "./SalesFaq";
