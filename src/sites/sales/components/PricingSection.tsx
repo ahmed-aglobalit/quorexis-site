@@ -12,64 +12,57 @@ function scrollTo(id: string) {
   }
 }
 
+function PersonIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg className={`w-8 h-8 ${className}`} fill="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="7" r="4" />
+      <path d="M12 14c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z" />
+    </svg>
+  );
+}
+
 function StarterVisual() {
   return (
-    <div className="flex flex-col items-center gap-1 text-xs text-muted">
-      <div className="px-2 py-1 rounded bg-accent/10 text-accent font-medium">DATA</div>
-      <div className="w-px h-3 bg-border" />
-      <div className="px-2 py-1 rounded bg-foreground/5">EMAIL</div>
-      <div className="w-px h-3 bg-border" />
-      <div className="px-2 py-1 rounded bg-foreground/5">LINKEDIN</div>
-      <div className="w-px h-3 bg-border" />
-      <div className="px-2 py-1 rounded bg-accent/20 text-accent font-medium">SDR</div>
+    <div className="flex flex-col items-center gap-3">
+      <div className="relative">
+        <PersonIcon className="text-muted/40" />
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent/20 rounded-full" />
+      </div>
+      <p className="text-sm text-muted">Capacité mutualisée</p>
     </div>
   );
 }
 
 function GrowthVisual() {
   return (
-    <div className="flex flex-col items-center gap-1 text-xs">
-      <div className="px-2 py-1 rounded bg-accent/20 text-accent font-medium">DATA</div>
-      <div className="flex items-start gap-2 mt-1">
-        <div className="flex flex-col items-center">
-          <div className="w-px h-3 bg-accent/30" />
-          <div className="px-2 py-1 rounded bg-background/20 text-background/80">EMAIL</div>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="w-px h-3 bg-accent/30" />
-          <div className="px-2 py-1 rounded bg-background/20 text-background/80">LINKEDIN</div>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="w-px h-3 bg-accent/30" />
-          <div className="px-2 py-1 rounded bg-background/20 text-background/80">PHONE</div>
+    <div className="flex flex-col items-center gap-3">
+      <div className="relative">
+        <PersonIcon className="text-accent" />
+        <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full flex items-center justify-center">
+          <span className="text-[10px] text-white font-bold">1</span>
         </div>
       </div>
-      <div className="w-px h-3 bg-accent/30" />
-      <div className="px-3 py-1.5 rounded bg-accent text-white font-semibold">1 SDR</div>
-      <div className="w-px h-3 bg-accent/30" />
-      <div className="px-2 py-1 rounded bg-green-500/20 text-green-400 font-medium">MEETINGS</div>
+      <p className="text-sm text-background/70">Votre SDR attitré</p>
     </div>
   );
 }
 
 function ScaleVisual() {
   return (
-    <div className="flex flex-col items-center gap-1 text-xs text-muted">
-      <div className="px-3 py-1.5 rounded bg-accent/20 text-accent font-semibold">TEAM LEAD</div>
-      <div className="w-px h-3 bg-border" />
-      <div className="flex items-center gap-3">
-        <div className="flex flex-col items-center">
-          <div className="px-2 py-1 rounded bg-accent/10 text-accent font-medium">SDR 01</div>
-          <div className="w-px h-3 bg-border" />
+    <div className="flex flex-col items-center gap-3">
+      <div className="flex items-end gap-1">
+        <PersonIcon className="text-accent w-7 h-7" />
+        <div className="relative">
+          <PersonIcon className="text-accent w-9 h-9" />
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+            <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
         </div>
-        <div className="flex flex-col items-center">
-          <div className="px-2 py-1 rounded bg-accent/10 text-accent font-medium">SDR 02</div>
-          <div className="w-px h-3 bg-border" />
-        </div>
+        <PersonIcon className="text-accent w-7 h-7" />
       </div>
-      <div className="px-3 py-1.5 rounded bg-green-500/10 text-green-600 font-semibold">PIPELINE</div>
-      <div className="w-px h-2 bg-border" />
-      <div className="px-2 py-1 rounded bg-foreground/5 text-xs">DATA + AI + AUTOMATION</div>
+      <p className="text-sm text-muted">Équipe dédiée + supervision</p>
     </div>
   );
 }
