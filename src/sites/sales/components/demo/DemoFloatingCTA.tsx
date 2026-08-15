@@ -62,13 +62,13 @@ export default function DemoFloatingCTA() {
         <motion.button
           type="button"
           onClick={scrollToNext}
-          className="hidden lg:flex fixed right-8 bottom-24 z-40 items-center gap-3 px-5 py-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg rounded-full hover:bg-gray-50 hover:border-accent/30 transition-all duration-300 group"
+          className="hidden lg:flex fixed right-8 bottom-24 z-40 items-center gap-3 px-5 py-3 bg-background/95 backdrop-blur-sm border border-border shadow-lg rounded-full hover:bg-foreground/5 hover:border-accent/30 transition-all duration-300 group"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
         >
-          <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+          <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors">
             {currentCTA.text}
           </span>
           <motion.div

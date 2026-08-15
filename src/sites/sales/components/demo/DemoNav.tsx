@@ -53,9 +53,9 @@ export default function DemoNav() {
 
   return (
     <>
-      {/* Desktop: Vertical rail with background */}
+      {/* Desktop: Vertical rail */}
       <motion.nav
-        className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 p-3 rounded-xl bg-white/95 backdrop-blur-sm shadow-lg border border-gray-200"
+        className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-50 flex-col gap-3"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
@@ -70,15 +70,17 @@ export default function DemoNav() {
               key={step.id}
               type="button"
               onClick={() => scrollTo(step.id)}
-              className="group flex items-center gap-3 text-left transition-all duration-300 hover:bg-gray-100 rounded-lg p-2 -m-2"
+              className={`group flex items-center gap-3 text-left transition-all duration-300 ${
+                isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
+              }`}
             >
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
                   isPast
                     ? "bg-accent text-white"
                     : isActive
-                    ? "bg-gray-900 text-white"
-                    : "bg-gray-200 text-gray-600"
+                    ? "bg-foreground text-background"
+                    : "bg-foreground/10 text-foreground"
                 }`}
               >
                 {isPast ? (
@@ -91,7 +93,7 @@ export default function DemoNav() {
               </div>
               <span
                 className={`text-sm font-medium transition-all duration-300 ${
-                  isActive ? "text-gray-900" : "text-gray-500"
+                  isActive ? "text-foreground" : "text-muted"
                 }`}
               >
                 {step.label}
@@ -103,19 +105,19 @@ export default function DemoNav() {
 
       {/* Mobile: Horizontal indicator */}
       <motion.div
-        className="lg:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-gray-900/95 backdrop-blur-sm rounded-full shadow-lg"
+        className="lg:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-foreground/95 backdrop-blur-sm rounded-full shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2 text-background">
           <span className="text-sm font-bold">
             {String(Math.max(0, activeStep) + 1).padStart(2, "0")}
           </span>
-          <span className="text-white/50">/</span>
-          <span className="text-sm text-white/50">04</span>
-          <span className="mx-2 w-px h-4 bg-white/20" />
+          <span className="text-background/50">/</span>
+          <span className="text-sm text-background/50">04</span>
+          <span className="mx-2 w-px h-4 bg-background/20" />
           <span className="text-sm font-medium uppercase tracking-wider">
             {STEPS[activeStep]?.label || "Intro"}
           </span>
