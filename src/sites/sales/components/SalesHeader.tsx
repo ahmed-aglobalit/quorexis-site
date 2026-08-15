@@ -87,14 +87,14 @@ export default function SalesHeader() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-[100] bg-background/80 backdrop-blur-md border-b border-border/60 transition-colors">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-24">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-20">
           <Link href="/" className="flex-shrink-0 flex items-center">
             <Image
               src="/images/logo1-bis.png"
               alt="Quorexis"
-              width={200}
-              height={60}
-              className="h-20 w-auto object-contain"
+              width={400}
+              height={120}
+              className="h-56 w-auto object-contain"
               priority
             />
             <span className="sr-only">Quorexis</span>
