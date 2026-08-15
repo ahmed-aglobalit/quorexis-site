@@ -90,7 +90,7 @@ export default function SalesHeader() {
         <div className="mx-auto max-w-[1200px] px-6 md:px-20 flex items-center justify-between h-16">
           <Link href="/" className="flex-shrink-0 flex items-center">
             <Image
-              src="/images/logo1.png"
+              src="/images/logo1-bis.png"
               alt="Quorexis"
               width={500}
               height={150}

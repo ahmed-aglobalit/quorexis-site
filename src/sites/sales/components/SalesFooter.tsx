@@ -15,7 +15,7 @@ export default function SalesFooter() {
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
               <Image
-                src="/images/logo1.png"
+                src="/images/logo1-bis.png"
                 alt="Quorexis"
                 width={200}
                 height={60}
