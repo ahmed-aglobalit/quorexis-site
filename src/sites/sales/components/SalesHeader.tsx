@@ -92,9 +92,9 @@ export default function SalesHeader() {
             <Image
               src="/images/logo1-bis.png"
               alt="Quorexis"
-              width={400}
-              height={120}
-              className="h-56 w-auto object-contain"
+              width={600}
+              height={180}
+              className="h-80 w-auto object-contain"
               priority
             />
             <span className="sr-only">Quorexis</span>
