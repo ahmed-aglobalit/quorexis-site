@@ -1,7 +1,15 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (opts: { url: string }) => void;
+    };
+  }
+}
 
 interface CalendlySelectorProps {
   name: string;
@@ -39,7 +47,32 @@ export default function CalendlySelector({
   company,
 }: CalendlySelectorProps) {
   const t = useTranslations("assistant");
+  const scriptLoaded = useRef(false);
   const [opened, setOpened] = useState(false);
+
+  // Load Calendly widget script once
+  useEffect(() => {
+    if (scriptLoaded.current) return;
+    if (document.querySelector('script[src*="calendly.com"]')) {
+      scriptLoaded.current = true;
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = () => {
+      scriptLoaded.current = true;
+    };
+    document.head.appendChild(script);
+
+    if (!document.querySelector('link[href*="calendly.com"]')) {
+      const link = document.createElement("link");
+      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    }
+  }, []);
 
   const buildUrl = useCallback(
     (baseUrl: string) => {
@@ -55,6 +88,16 @@ export default function CalendlySelector({
 
   function handleSelect(event: EventType) {
     const url = buildUrl(event.url);
+
+    if (window.Calendly) {
+      try {
+        window.Calendly.initPopupWidget({ url });
+        setOpened(true);
+        return;
+      } catch {
+        // fallback below
+      }
+    }
     window.open(url, "_blank", "noopener,noreferrer");
     setOpened(true);
   }
