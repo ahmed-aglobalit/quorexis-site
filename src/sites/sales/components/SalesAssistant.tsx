@@ -439,28 +439,45 @@ export default function SalesAssistant() {
                     <p className="text-xs text-muted mt-1">30 minutes pour discuter de votre stratégie outbound.</p>
                   </div>
 
-                  <div className="p-6 border border-border rounded-xl text-center">
-                    <div className="w-12 h-12 mx-auto rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                      <svg className="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                        <line x1="16" y1="2" x2="16" y2="6" />
-                        <line x1="8" y1="2" x2="8" y2="6" />
-                        <line x1="3" y1="10" x2="21" y2="10" />
-                      </svg>
-                    </div>
-                    <p className="text-sm font-medium mb-2">Calendrier bientôt disponible</p>
-                    <p className="text-xs text-muted mb-4">
-                      En attendant, laissez-nous vos coordonnées et nous vous recontacterons sous 24h.
-                    </p>
+                  <div className="flex flex-col gap-2">
                     <button
                       type="button"
-                      onClick={() => {
-                        window.location.href = "#contact";
-                        setIsOpen(false);
-                      }}
-                      className="w-full py-3 bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors"
+                      onClick={() => window.open("https://calendly.com/d/dv2t-t6d-7jw/outbound-strategy-call-30-min", "_blank")}
+                      className="w-full p-3 border border-border rounded-lg text-left hover:border-accent hover:bg-accent/5 transition-colors"
                     >
-                      Accéder au formulaire →
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-medium">Quick Call</p>
+                          <p className="text-xs text-muted">Premiers échanges</p>
+                        </div>
+                        <span className="text-xs font-medium text-muted bg-foreground/5 px-2 py-0.5 rounded">30 min</span>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => window.open("https://calendly.com/d/d3x7-csx-9w2/sales-factory-scoping-session-45-min", "_blank")}
+                      className="w-full p-3 border border-border rounded-lg text-left hover:border-accent hover:bg-accent/5 transition-colors"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-medium">Scoping Session</p>
+                          <p className="text-xs text-muted">Cadrage de votre projet</p>
+                        </div>
+                        <span className="text-xs font-medium text-muted bg-foreground/5 px-2 py-0.5 rounded">45 min</span>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => window.open("https://calendly.com/d/dv5y-6s9-cfb/sales-factory-deep-dive-60-min", "_blank")}
+                      className="w-full p-3 border border-border rounded-lg text-left hover:border-accent hover:bg-accent/5 transition-colors"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-medium">Deep Dive</p>
+                          <p className="text-xs text-muted">Analyse approfondie</p>
+                        </div>
+                        <span className="text-xs font-medium text-muted bg-foreground/5 px-2 py-0.5 rounded">60 min</span>
+                      </div>
                     </button>
                   </div>
                 </motion.div>
