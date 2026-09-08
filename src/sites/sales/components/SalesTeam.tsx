@@ -15,6 +15,11 @@ const founders = [
     photo: "/images/team/samy.webp",
     photoClass: "object-cover object-top",
   },
+  {
+    key: "laurent",
+    photo: "/images/team/laurent.jpeg",
+    photoClass: "object-cover object-top",
+  },
 ];
 
 export default function SalesTeam() {
@@ -31,7 +36,7 @@ export default function SalesTeam() {
           {t("subtitle")}
         </p>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
           {founders.map((founder) => (
             <div
               key={founder.key}

@@ -154,7 +154,22 @@
     "partner": "Engineering & Technology Partner",
     "website": "www.quorexis.fr",
     "location": "France",
-    "copied": "Copied ✓"
+    "copied": "Copied ✓",
+    "ahmed": {
+      "name": "Ahmed Ghanmi",
+      "role": "Co-founder",
+      "focus": "Strategy & Operations"
+    },
+    "samy": {
+      "name": "Samy Mejri",
+      "role": "Co-founder",
+      "focus": "Sales & Partnerships"
+    },
+    "laurent": {
+      "name": "Laurent Thomas",
+      "role": "Senior B2B Business Developer",
+      "focus": "Prospecting & Business Development"
+    }
   },
   "clients": {
     "title": "Our consultants have worked with",
