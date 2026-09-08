@@ -4,6 +4,14 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (opts: { url: string }) => void;
+    };
+  }
+}
+
 type Step = "intro" | "sector" | "offer" | "market" | "companySize" | "personas" | "dealSize" | "team" | "diagnostic" | "calendly";
 
 interface Answers {
@@ -111,6 +119,30 @@ export default function SalesAssistant() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [step]);
+
+  // Load Calendly widget script
+  useEffect(() => {
+    if (document.querySelector('script[src*="calendly.com"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    if (!document.querySelector('link[href*="calendly.com"]')) {
+      const link = document.createElement("link");
+      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    }
+  }, []);
+
+  function openCalendly(url: string) {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url });
+    } else {
+      window.open(url, "_blank");
+    }
+  }
 
   function handleClose() {
     setIsClosing(true);
@@ -442,7 +474,7 @@ export default function SalesAssistant() {
                   <div className="flex flex-col gap-2">
                     <button
                       type="button"
-                      onClick={() => window.open("https://calendly.com/d/dv2t-t6d-7jw/outbound-strategy-call-30-min", "_blank")}
+                      onClick={() => openCalendly("https://calendly.com/d/dv2t-t6d-7jw/outbound-strategy-call-30-min")}
                       className="w-full p-3 border border-border rounded-lg text-left hover:border-accent hover:bg-accent/5 transition-colors"
                     >
                       <div className="flex items-center justify-between">
@@ -455,7 +487,7 @@ export default function SalesAssistant() {
                     </button>
                     <button
                       type="button"
-                      onClick={() => window.open("https://calendly.com/d/d3x7-csx-9w2/sales-factory-scoping-session-45-min", "_blank")}
+                      onClick={() => openCalendly("https://calendly.com/d/d3x7-csx-9w2/sales-factory-scoping-session-45-min")}
                       className="w-full p-3 border border-border rounded-lg text-left hover:border-accent hover:bg-accent/5 transition-colors"
                     >
                       <div className="flex items-center justify-between">
@@ -468,7 +500,7 @@ export default function SalesAssistant() {
                     </button>
                     <button
                       type="button"
-                      onClick={() => window.open("https://calendly.com/d/dv5y-6s9-cfb/sales-factory-deep-dive-60-min", "_blank")}
+                      onClick={() => openCalendly("https://calendly.com/d/dv5y-6s9-cfb/sales-factory-deep-dive-60-min")}
                       className="w-full p-3 border border-border rounded-lg text-left hover:border-accent hover:bg-accent/5 transition-colors"
                     >
                       <div className="flex items-center justify-between">
