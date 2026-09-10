@@ -39,8 +39,8 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
     const totalMonthly = monthlyBase + meetingsBonus;
 
     const expectedDeals = (targetMeetings * conversionRate) / 100;
-    // Facteur de réalisme: tous les deals ne closent pas le même mois, cycle de vente, etc.
-    const realismFactor = 0.4; // 40% du CA théorique pour être conservateur
+    // Facteur de réalisme: cycle de vente, deals qui ne closent pas, coûts cachés, etc.
+    const realismFactor = 0.25; // 25% du CA théorique pour être très conservateur
     const expectedRevenue = expectedDeals * avgDealSize * realismFactor;
     const roi = expectedRevenue > 0 ? Math.round(((expectedRevenue - totalMonthly) / totalMonthly) * 100) : 0;
 
@@ -233,7 +233,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
               <p className={`text-2xl font-bold ${result.roi > 0 ? "text-green-600" : "text-orange-600"}`}>
                 {result.roi > 0 ? "+" : ""}{result.roi}%
               </p>
-              <p className="text-[10px] text-muted mt-1">Basé sur 40% du CA théorique</p>
+              <p className="text-[10px] text-muted mt-1">Basé sur 25% du CA théorique</p>
             </div>
           </div>
         </div>
