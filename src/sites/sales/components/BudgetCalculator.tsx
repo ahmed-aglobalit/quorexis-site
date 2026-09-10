@@ -235,32 +235,25 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
               </p>
               <p className="text-xs text-muted mt-1">Basé sur 40% du CA théorique</p>
             </div>
+
+            {/* Recommendations inside card */}
+            {result.recommendations.length > 0 && (
+              <div className="mt-3 pt-3 border-t border-border">
+                <p className="text-xs text-muted mb-1">💡 {result.recommendations[0]}</p>
+              </div>
+            )}
+
+            {/* CTA inside card */}
+            <motion.button
+              type="button"
+              onClick={openAssistant}
+              className="w-full mt-4 py-3 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-colors"
+              whileTap={{ scale: 0.98 }}
+            >
+              Discuter de mon projet →
+            </motion.button>
           </div>
         </div>
-
-        {/* Recommendations */}
-        {result.recommendations.length > 0 && (
-          <div className="border border-border rounded-xl px-4 py-3 bg-foreground/[0.02]">
-            <p className="text-sm text-muted mb-1">💡 Conseil</p>
-            <ul className="space-y-1">
-              {result.recommendations.map((rec, i) => (
-                <li key={i} className="text-sm text-foreground/80">
-                  {rec}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* CTA */}
-        <motion.button
-          type="button"
-          onClick={openAssistant}
-          className="w-full py-4 bg-foreground text-background font-semibold rounded-xl hover:bg-foreground/90 transition-colors"
-          whileTap={{ scale: 0.98 }}
-        >
-          Discuter de mon projet →
-        </motion.button>
       </motion.div>
     </div>
   );
