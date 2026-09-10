@@ -25,7 +25,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const [targetMeetings, setTargetMeetings] = useState(10);
-  const [avgDealSize, setAvgDealSize] = useState(1000);
+  const [avgDealSize, setAvgDealSize] = useState(5000);
   const [conversionRate, setConversionRate] = useState(20);
 
   const result = useMemo(() => {
@@ -40,7 +40,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
 
     const expectedDeals = (targetMeetings * conversionRate) / 100;
     // Facteur de réalisme: cycle de vente, deals qui ne closent pas, coûts cachés, etc.
-    const realismFactor = 0.25; // 25% du CA théorique pour être très conservateur
+    const realismFactor = 0.4; // 40% du CA théorique
     const expectedRevenue = expectedDeals * avgDealSize * realismFactor;
     const roi = expectedRevenue > 0 ? Math.round(((expectedRevenue - totalMonthly) / totalMonthly) * 100) : 0;
 
@@ -127,7 +127,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             id="avgDealSize"
             type="range"
             min={1000}
-            max={20000}
+            max={100000}
             step={1000}
             value={avgDealSize}
             onChange={(e) => setAvgDealSize(parseInt(e.target.value, 10))}
@@ -136,7 +136,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
           />
           <div className="flex justify-between text-xs text-muted mt-1">
             <span>1K €</span>
-            <span>20K €</span>
+            <span>100K €</span>
           </div>
         </div>
 
@@ -233,7 +233,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
               <p className={`text-3xl font-bold ${result.roi > 0 ? "text-green-600" : "text-orange-600"}`}>
                 {result.roi > 0 ? "+" : ""}{result.roi}%
               </p>
-              <p className="text-xs text-muted mt-1">Basé sur 25% du CA théorique</p>
+              <p className="text-xs text-muted mt-1">Basé sur 40% du CA théorique</p>
             </div>
           </div>
         </div>
