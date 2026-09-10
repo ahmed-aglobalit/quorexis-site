@@ -235,17 +235,17 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
 
         {/* Recommendations */}
         {result.recommendations.length > 0 && (
-          <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2">
+          <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-800 rounded-xl p-4">
+            <h4 className="text-sm font-semibold text-amber-800 dark:text-amber-200 mb-2 flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
               Recommandations
             </h4>
-            <ul className="space-y-1">
+            <ul className="space-y-1.5">
               {result.recommendations.map((rec, i) => (
-                <li key={i} className="text-xs text-blue-700 dark:text-blue-400 flex items-start gap-2">
-                  <span className="text-blue-500 mt-0.5">•</span>
+                <li key={i} className="text-sm text-amber-900 dark:text-amber-100 flex items-start gap-2">
+                  <span className="text-amber-600 dark:text-amber-400 mt-0.5">→</span>
                   {rec}
                 </li>
               ))}
