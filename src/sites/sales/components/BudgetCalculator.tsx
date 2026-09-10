@@ -98,17 +98,17 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
               <input
                 id="avgDealSize"
                 type="range"
-                min={5000}
-                max={200000}
-                step={5000}
+                min={1000}
+                max={500000}
+                step={1000}
                 value={avgDealSize}
                 onChange={(e) => setAvgDealSize(parseInt(e.target.value, 10))}
                 onInput={(e) => setAvgDealSize(parseInt((e.target as HTMLInputElement).value, 10))}
                 className="w-full h-2 bg-foreground/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <div className="flex justify-between text-xs text-muted mt-2">
-                <span>5K €</span>
-                <span>200K €</span>
+                <span>1K €</span>
+                <span>500K €</span>
               </div>
             </div>
 
