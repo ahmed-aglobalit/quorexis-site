@@ -25,7 +25,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const [targetMeetings, setTargetMeetings] = useState(10);
-  const [avgDealSize, setAvgDealSize] = useState(20000);
+  const [avgDealSize, setAvgDealSize] = useState(1000);
   const [conversionRate, setConversionRate] = useState(20);
 
   const result = useMemo(() => {
@@ -127,7 +127,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             id="avgDealSize"
             type="range"
             min={1000}
-            max={500000}
+            max={20000}
             step={1000}
             value={avgDealSize}
             onChange={(e) => setAvgDealSize(parseInt(e.target.value, 10))}
@@ -136,7 +136,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
           />
           <div className="flex justify-between text-xs text-muted mt-1">
             <span>1K €</span>
-            <span>500K €</span>
+            <span>20K €</span>
           </div>
         </div>
 
