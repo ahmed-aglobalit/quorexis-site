@@ -39,8 +39,12 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
     const totalMonthly = monthlyBase + meetingsBonus;
 
     const expectedDeals = (targetMeetings * conversionRate) / 100;
-    const expectedRevenue = expectedDeals * avgDealSize;
-    const roi = expectedRevenue > 0 ? ((expectedRevenue - totalMonthly) / totalMonthly) * 100 : 0;
+    // Facteur de réalisme: tous les deals ne closent pas le même mois, cycle de vente, etc.
+    const realismFactor = 0.4; // 40% du CA théorique pour être conservateur
+    const expectedRevenue = expectedDeals * avgDealSize * realismFactor;
+    const rawRoi = expectedRevenue > 0 ? ((expectedRevenue - totalMonthly) / totalMonthly) * 100 : 0;
+    // Plafonner le ROI à 500% pour rester réaliste
+    const roi = Math.min(rawRoi, 500);
 
     // Recommendations
     const recommendations: string[] = [];
@@ -53,8 +57,10 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
     if (roi < 100) {
       recommendations.push("ROI sous 100% : envisagez d'augmenter le panier moyen ou le taux de conversion.");
     }
-    if (roi > 500) {
-      recommendations.push("Excellent potentiel ROI ! Considérez une montée en charge progressive.");
+    if (rawRoi > 500) {
+      recommendations.push("Potentiel élevé ! Ces chiffres supposent une exécution optimale.");
+    } else if (roi > 300) {
+      recommendations.push("Bon potentiel ROI — résultats conditionnés à la qualité d'exécution.");
     }
     if (targetMeetings > 30 && plan !== "scale") {
       recommendations.push("Volume élevé : le plan Scale vous offrira un meilleur accompagnement.");
@@ -225,10 +231,11 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             </div>
 
             <div className={`p-4 rounded-lg text-center ${result.roi > 0 ? "bg-green-500/10 border border-green-500/20" : "bg-orange-500/10 border border-orange-500/20"}`}>
-              <p className="text-xs text-muted mb-1">ROI estimé</p>
+              <p className="text-xs text-muted mb-1">ROI estimé (conservateur)</p>
               <p className={`text-3xl font-bold ${result.roi > 0 ? "text-green-600" : "text-orange-600"}`}>
                 {result.roi > 0 ? "+" : ""}{result.roi}%
               </p>
+              <p className="text-xs text-muted mt-2">Basé sur 40% du CA théorique</p>
             </div>
           </div>
         </div>
