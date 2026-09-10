@@ -79,27 +79,27 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
   }, [targetMeetings, avgDealSize, conversionRate]);
 
   const content = (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
       {/* Inputs + Mini ROI */}
       <motion.div
-        className="bg-background border border-border rounded-xl p-6"
+        className="bg-background border border-border rounded-2xl p-8"
         initial={{ opacity: 0, x: -40 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-base font-semibold">Vos objectifs</h3>
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-lg font-semibold">Vos objectifs</h3>
           {/* Mini ROI indicator */}
-          <div className={`px-3 py-1 rounded-full text-sm font-semibold ${result.roi > 0 ? "bg-green-500/10 text-green-600" : "bg-orange-500/10 text-orange-600"}`}>
+          <div className={`px-4 py-1.5 rounded-full text-sm font-semibold ${result.roi > 0 ? "bg-green-500/10 text-green-600" : "bg-orange-500/10 text-orange-600"}`}>
             ROI: {result.roi > 0 ? "+" : ""}{result.roi}%
           </div>
         </div>
 
         {/* Target meetings */}
-        <div className="mb-5">
-          <div className="flex items-center justify-between mb-2">
-            <label htmlFor="targetMeetings" className="text-sm">Rendez-vous par mois</label>
-            <span className="text-lg font-semibold text-accent">{targetMeetings}</span>
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <label htmlFor="targetMeetings" className="text-sm font-medium">Rendez-vous par mois</label>
+            <span className="text-2xl font-semibold text-accent">{targetMeetings}</span>
           </div>
           <input
             id="targetMeetings"
@@ -118,10 +118,10 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
         </div>
 
         {/* Average deal size */}
-        <div className="mb-5">
-          <div className="flex items-center justify-between mb-2">
-            <label htmlFor="avgDealSize" className="text-sm">Panier moyen</label>
-            <span className="text-lg font-semibold">{avgDealSize.toLocaleString()} €</span>
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <label htmlFor="avgDealSize" className="text-sm font-medium">Panier moyen</label>
+            <span className="text-2xl font-semibold">{avgDealSize.toLocaleString()} €</span>
           </div>
           <input
             id="avgDealSize"
@@ -141,10 +141,10 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
         </div>
 
         {/* Conversion rate */}
-        <div className="mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <label htmlFor="conversionRate" className="text-sm">Taux de conversion RDV → Deal</label>
-            <span className="text-lg font-semibold">{conversionRate}%</span>
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <label htmlFor="conversionRate" className="text-sm font-medium">Taux de conversion RDV → Deal</label>
+            <span className="text-2xl font-semibold">{conversionRate}%</span>
           </div>
           <input
             id="conversionRate"
@@ -164,18 +164,18 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
         </div>
 
         {/* Mini summary */}
-        <div className="grid grid-cols-3 gap-2 p-3 bg-foreground/[0.02] rounded-lg border border-border">
+        <div className="grid grid-cols-3 gap-3 p-4 bg-foreground/[0.02] rounded-xl border border-border">
           <div className="text-center">
             <p className="text-xs text-muted">Deals/mois</p>
-            <p className="text-sm font-semibold">{result.expectedDeals}</p>
+            <p className="text-base font-semibold">{result.expectedDeals}</p>
           </div>
           <div className="text-center border-x border-border">
             <p className="text-xs text-muted">CA potentiel</p>
-            <p className="text-sm font-semibold">{(result.expectedRevenue / 1000).toFixed(0)}K €</p>
+            <p className="text-base font-semibold">{(result.expectedRevenue / 1000).toFixed(0)}K €</p>
           </div>
           <div className="text-center">
             <p className="text-xs text-muted">Coût/RDV</p>
-            <p className="text-sm font-semibold">{result.costPerMeeting} €</p>
+            <p className="text-base font-semibold">{result.costPerMeeting} €</p>
           </div>
         </div>
 
@@ -186,65 +186,65 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
 
       {/* Results */}
       <motion.div
-        className="space-y-3"
+        className="space-y-4"
         initial={{ opacity: 0, x: 40 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
         {/* Plan + Investment + ROI combined */}
-        <div className="bg-background border border-border rounded-xl overflow-hidden">
+        <div className="bg-background border border-border rounded-2xl overflow-hidden">
           {/* Plan header */}
-          <div className="bg-accent text-white px-4 py-3">
-            <p className="text-xs font-medium text-white/70">Plan recommandé</p>
-            <p className="text-xl font-semibold">{result.plan}</p>
+          <div className="bg-accent text-white px-6 py-4">
+            <p className="text-sm font-medium text-white/70">Plan recommandé</p>
+            <p className="text-2xl font-semibold">{result.plan}</p>
           </div>
 
           {/* Cost breakdown */}
-          <div className="px-4 py-3 space-y-2">
-            <div className="flex justify-between items-center text-sm">
+          <div className="px-6 py-4 space-y-3">
+            <div className="flex justify-between items-center">
               <span className="text-muted">Abonnement {result.plan}</span>
-              <span className="font-mono">{result.monthlyBase.toLocaleString()} €</span>
+              <span className="font-mono text-base">{result.monthlyBase.toLocaleString()} €</span>
             </div>
-            <div className="flex justify-between items-center text-sm">
+            <div className="flex justify-between items-center">
               <span className="text-muted">Bonus RDV ({targetMeetings} × {MEETING_BONUS}€)</span>
-              <span className="font-mono">{result.meetingsBonus.toLocaleString()} €</span>
+              <span className="font-mono text-base">{result.meetingsBonus.toLocaleString()} €</span>
             </div>
             <div className="border-t border-border pt-3 flex justify-between items-center">
               <span className="font-semibold">Total mensuel</span>
-              <span className="text-xl font-semibold text-accent">{result.totalMonthly.toLocaleString()} €</span>
+              <span className="text-2xl font-semibold text-accent">{result.totalMonthly.toLocaleString()} €</span>
             </div>
           </div>
 
           {/* ROI section */}
-          <div className="border-t border-border px-4 py-3 bg-foreground/[0.01]">
-            <div className="grid grid-cols-2 gap-2 mb-2">
-              <div className="p-2 rounded-lg bg-background border border-border text-center">
+          <div className="border-t border-border px-6 py-4 bg-foreground/[0.01]">
+            <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="p-3 rounded-xl bg-background border border-border text-center">
                 <p className="text-xs text-muted">Deals/mois</p>
-                <p className="text-lg font-semibold">{result.expectedDeals}</p>
+                <p className="text-xl font-semibold">{result.expectedDeals}</p>
               </div>
-              <div className="p-2 rounded-lg bg-background border border-border text-center">
+              <div className="p-3 rounded-xl bg-background border border-border text-center">
                 <p className="text-xs text-muted">CA potentiel</p>
-                <p className="text-lg font-semibold">{(result.expectedRevenue / 1000).toFixed(0)}K €</p>
+                <p className="text-xl font-semibold">{(result.expectedRevenue / 1000).toFixed(0)}K €</p>
               </div>
             </div>
 
-            <div className={`p-3 rounded-lg text-center ${result.roi > 0 ? "bg-green-500/10 border border-green-500/20" : "bg-orange-500/10 border border-orange-500/20"}`}>
+            <div className={`p-4 rounded-xl text-center ${result.roi > 0 ? "bg-green-500/10 border border-green-500/20" : "bg-orange-500/10 border border-orange-500/20"}`}>
               <p className="text-xs text-muted">ROI estimé (conservateur)</p>
-              <p className={`text-2xl font-bold ${result.roi > 0 ? "text-green-600" : "text-orange-600"}`}>
+              <p className={`text-3xl font-bold ${result.roi > 0 ? "text-green-600" : "text-orange-600"}`}>
                 {result.roi > 0 ? "+" : ""}{result.roi}%
               </p>
-              <p className="text-[10px] text-muted mt-1">Basé sur 25% du CA théorique</p>
+              <p className="text-xs text-muted mt-1">Basé sur 25% du CA théorique</p>
             </div>
           </div>
         </div>
 
         {/* Recommendations */}
         {result.recommendations.length > 0 && (
-          <div className="border border-border rounded-lg px-3 py-2 bg-foreground/[0.02]">
-            <p className="text-xs text-muted mb-1">💡 Conseil</p>
-            <ul className="space-y-0.5">
+          <div className="border border-border rounded-xl px-4 py-3 bg-foreground/[0.02]">
+            <p className="text-sm text-muted mb-1">💡 Conseil</p>
+            <ul className="space-y-1">
               {result.recommendations.map((rec, i) => (
-                <li key={i} className="text-xs text-foreground/80">
+                <li key={i} className="text-sm text-foreground/80">
                   {rec}
                 </li>
               ))}
@@ -256,7 +256,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
         <motion.button
           type="button"
           onClick={openAssistant}
-          className="w-full py-2.5 bg-foreground text-background text-sm font-semibold rounded-lg hover:bg-foreground/90 transition-colors"
+          className="w-full py-4 bg-foreground text-background font-semibold rounded-xl hover:bg-foreground/90 transition-colors"
           whileTap={{ scale: 0.98 }}
         >
           Discuter de mon projet →
