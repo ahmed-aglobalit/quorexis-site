@@ -72,7 +72,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
       monthlyBase,
       meetingsBonus,
       totalMonthly,
-      expectedDeals: Math.round(expectedDeals * 10) / 10,
+      expectedDeals: Math.round(expectedDeals),
       expectedRevenue,
       roi: Math.round(roi),
       costPerMeeting: Math.round(totalMonthly / targetMeetings),
