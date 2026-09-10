@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState } from "react";
 import { PRICING_CONFIG } from "../config/pricing";
 
 function openAssistant() {
@@ -57,7 +57,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
   }, [targetMeetings, avgDealSize, conversionRate]);
 
   const content = (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start relative">
           {/* Inputs */}
           <motion.div
             className="bg-background border border-border rounded-2xl p-8"
@@ -142,6 +142,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
 
           {/* Results */}
           <motion.div
+            className="lg:sticky lg:top-24"
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
