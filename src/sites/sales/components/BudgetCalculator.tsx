@@ -70,15 +70,17 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             {/* Target meetings */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-medium">Rendez-vous par mois</label>
+                <label htmlFor="targetMeetings" className="text-sm font-medium">Rendez-vous par mois</label>
                 <span className="text-2xl font-semibold text-accent">{targetMeetings}</span>
               </div>
               <input
+                id="targetMeetings"
                 type="range"
-                min="3"
-                max="50"
+                min={3}
+                max={50}
                 value={targetMeetings}
-                onChange={(e) => setTargetMeetings(Number(e.target.value))}
+                onChange={(e) => setTargetMeetings(parseInt(e.target.value, 10))}
+                onInput={(e) => setTargetMeetings(parseInt((e.target as HTMLInputElement).value, 10))}
                 className="w-full h-2 bg-foreground/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <div className="flex justify-between text-xs text-muted mt-2">
@@ -90,16 +92,18 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             {/* Average deal size */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-medium">Panier moyen</label>
+                <label htmlFor="avgDealSize" className="text-sm font-medium">Panier moyen</label>
                 <span className="text-2xl font-semibold">{avgDealSize.toLocaleString()} €</span>
               </div>
               <input
+                id="avgDealSize"
                 type="range"
-                min="5000"
-                max="200000"
-                step="5000"
+                min={5000}
+                max={200000}
+                step={5000}
                 value={avgDealSize}
-                onChange={(e) => setAvgDealSize(Number(e.target.value))}
+                onChange={(e) => setAvgDealSize(parseInt(e.target.value, 10))}
+                onInput={(e) => setAvgDealSize(parseInt((e.target as HTMLInputElement).value, 10))}
                 className="w-full h-2 bg-foreground/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <div className="flex justify-between text-xs text-muted mt-2">
@@ -111,16 +115,18 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
             {/* Conversion rate */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-medium">Taux de conversion RDV → Deal</label>
+                <label htmlFor="conversionRate" className="text-sm font-medium">Taux de conversion RDV → Deal</label>
                 <span className="text-2xl font-semibold">{conversionRate}%</span>
               </div>
               <input
+                id="conversionRate"
                 type="range"
-                min="5"
-                max="50"
-                step="5"
+                min={5}
+                max={50}
+                step={5}
                 value={conversionRate}
-                onChange={(e) => setConversionRate(Number(e.target.value))}
+                onChange={(e) => setConversionRate(parseInt(e.target.value, 10))}
+                onInput={(e) => setConversionRate(parseInt((e.target as HTMLInputElement).value, 10))}
                 className="w-full h-2 bg-foreground/10 rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <div className="flex justify-between text-xs text-muted mt-2">
