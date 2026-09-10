@@ -25,7 +25,7 @@ export function BudgetCalculator({ embedded = false }: BudgetCalculatorProps) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const [targetMeetings, setTargetMeetings] = useState(10);
-  const [avgDealSize, setAvgDealSize] = useState(25000);
+  const [avgDealSize, setAvgDealSize] = useState(20000);
   const [conversionRate, setConversionRate] = useState(20);
 
   const result = useMemo(() => {
