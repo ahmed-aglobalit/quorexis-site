@@ -15,6 +15,16 @@ const founders = [
     image: "/images/team/samy.webp",
     linkedin: "https://www.linkedin.com/in/samy-ghanmi/",
   },
+  {
+    key: "laurent",
+    image: "/images/team/laurent.jpeg",
+    linkedin: "https://www.linkedin.com/in/laurent-thomas/",
+  },
+  {
+    key: "maryem",
+    image: "/images/team/maryem.webp",
+    linkedin: "https://www.linkedin.com/in/myriam-abid/",
+  },
 ];
 
 export async function generateMetadata({
@@ -78,7 +88,7 @@ export default async function AboutPage({
             {t("founders.subtitle")}
           </p>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {founders.map((founder) => (
               <div
                 key={founder.key}

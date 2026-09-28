@@ -297,6 +297,11 @@
       "role": "Senior B2B Business Developer",
       "focus": "Prospecting & Business Development"
     },
+    "maryem": {
+      "name": "Myriam ABID",
+      "role": "Senior B2B Business Developer",
+      "focus": "Prospecting & Business Development"
+    },
     "location": "France"
   },
   "philosophy": {
@@ -465,6 +470,16 @@
         "name": "Samy Ghanmi",
         "role": "Co-founder & COO",
         "bio": "Expert in sales operations and prospecting team management."
+      },
+      "laurent": {
+        "name": "Laurent Thomas",
+        "role": "Senior B2B Business Developer",
+        "bio": "Expert in B2B prospecting and business development."
+      },
+      "maryem": {
+        "name": "Myriam Abid",
+        "role": "Senior B2B Business Developer",
+        "bio": "Expert in B2B prospecting and business development."
       }
     },
     "belief": {
